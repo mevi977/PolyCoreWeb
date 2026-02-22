@@ -3,10 +3,18 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Kontakt | POLYCORE GmbH Bern – Beratung und Offerte</title>
-<meta name="description" content="Kontaktieren Sie POLYCORE GmbH fuer eine kostenlose Beratung. Epoxidharz, PU, PMMA und Bautenschutz in Bern. Schnelle Antwort."/>
+<title>Kontakt | POLYCORE GmbH Bern – Beratung und Offerte anfragen</title>
+<meta name="description" content="Kontaktieren Sie POLYCORE GmbH für eine kostenlose Beratung und unverbindliche Offerte. Epoxidharz, PU, PMMA und Bautenschutz in Bern. Antwort innerhalb eines Werktags."/>
 <link rel="canonical" href="https://www.polycore.ch/kontakt.html"/>
-
+<meta property="og:title" content="Kontakt | POLYCORE GmbH Bern"/>
+<meta property="og:description" content="Kostenlose Erstberatung, Vor-Ort-Besichtigung, unverbindliche Offerte. Wir melden uns innerhalb eines Werktags."/>
+<script type="application/ld+json">{
+  "@context":"https://schema.org","@type":"LocalBusiness",
+  "name":"POLYCORE GmbH","url":"https://www.polycore.ch",
+  "telephone":"+41310000000","email":"info@polycore.ch",
+  "address":{"@type":"PostalAddress","addressLocality":"Bern","addressCountry":"CH"},
+  "openingHours":"Mo-Fr 08:00-17:00"
+}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -14,33 +22,61 @@
 <link rel="stylesheet" href="css/nav.css"/>
 <link rel="stylesheet" href="css/footer.css"/>
 <link rel="stylesheet" href="css/page.css"/>
+<style>
+.contact-row{display:flex;align-items:flex-start;gap:1.1rem;padding:1.4rem 0;border-bottom:1px solid var(--dk-border)}
+.contact-row:last-of-type{border:none}
+.contact-ico{width:46px;height:46px;background:var(--light-bg);border:1px solid var(--dk-border);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-lbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--dk-muted);margin-bottom:.2rem}
+.contact-val{font-size:.975rem;font-weight:500}
+.contact-val a{border-bottom:1px solid transparent;transition:border-color var(--tr)}
+.contact-val a:hover{border-color:currentColor}
+.contact-note{font-size:.78rem;color:var(--dk-muted);margin-top:.15rem}
+
+.form-wrap{background:#fff;border:1px solid var(--dk-border);border-radius:16px;padding:2.5rem;box-shadow:0 4px 28px rgba(0,0,0,.06)}
+.flabel{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.4rem}
+.finput{width:100%;padding:.8rem 1rem;border:1.5px solid var(--dk-border);border-radius:8px;font-family:var(--font);font-size:.9rem;background:var(--light-bg);color:#0a0a0a;outline:none;transition:border-color var(--tr),background var(--tr);box-sizing:border-box}
+.finput:focus{border-color:#0a0a0a;background:#fff}
+.finput::placeholder{color:#bbb}
+.fsel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+textarea.finput{resize:vertical;min-height:130px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fgrp{display:flex;flex-direction:column;gap:.35rem}
+.fsuccess{display:none;text-align:center;padding:3rem 2rem}
+.fsuccess svg{margin:0 auto 1.25rem;display:block}
+.trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--dk-border);border:1px solid var(--dk-border);border-radius:12px;overflow:hidden;margin-top:2.5rem}
+.trust-cell{background:var(--light-bg);padding:1.4rem 1rem;text-align:center}
+.trust-cell h4{font-size:.83rem;font-weight:600;margin:.5rem 0 .2rem}
+.trust-cell p{font-size:.72rem;color:var(--dk-muted);line-height:1.5}
+@media(max-width:768px){.frow{grid-template-columns:1fr}.form-wrap{padding:1.5rem 1.25rem}.trust-row{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-c">
     <a href="/" class="nav-logo">
-      <img src="assets/img/PolyCoreLogo.png" alt="POLYCORE" />
+      <img src="assets/img/PolyCoreLogo.png" alt="POLYCORE" width="30" height="30" onerror="this.style.display='none'"/>
+      POLYCORE
     </a>
     <ul class="nav-links">
       <li class="nav-drop">
         <a class="nav-a nav-drop-toggle">Leistungen <svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></a>
         <div class="simple-drop">
-          <a href="/leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a>
-          <a href="/leistungen/polyurethan-boden.html">Polyurethan (PU)</a>
-          <a href="/leistungen/pmma-boden.html">PMMA</a>
-          <a href="/leistungen/designerboden.html">Designerboden</a>
-          <a href="/leistungen/abdichtung.html">Abdichtung</a>
-          <a href="/leistungen/injektionen.html">Injektionen</a>
+          <a href="leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a>
+          <a href="leistungen/polyurethan-boden.html">Polyurethan (PU)</a>
+          <a href="leistungen/pmma-boden.html">PMMA</a>
+          <a href="leistungen/designerboden.html">Designerboden</a>
+          <a href="leistungen/abdichtung.html">Abdichtung</a>
+          <a href="leistungen/injektionen.html">Injektionen</a>
         </div>
       </li>
-      <li><a href="/projekte.html" class="nav-a">Projekte</a></li>
-      <li><a href="/ueber-uns.html" class="nav-a">Über uns</a></li>
-      <li><a href="/blog/" class="nav-a">Blog</a></li>
-      <li><a href="/kontakt.html" class="nav-a">Kontakt</a></li>
+      <li><a href="projekte.html" class="nav-a">Projekte</a></li>
+      <li><a href="ueber-uns.html" class="nav-a">Über uns</a></li>
+      <li><a href="blog/" class="nav-a">Blog</a></li>
+      <li><a href="kontakt.html" class="nav-a">Kontakt</a></li>
     </ul>
-    <div class="nav-cta"><a href="/kontakt.html" class="btn btn-light">Beratung anfragen</a></div>
-    <button class="nav-burger" aria-label="Menu">
+    <div class="nav-cta"><a href="kontakt.html" class="btn btn-light">Beratung anfragen</a></div>
+    <button class="nav-burger" aria-label="Menü">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
@@ -48,60 +84,216 @@
 <div class="mob-menu">
   <button class="mob-close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   <ul>
-    <li class="mob-item"><a href="/leistungen/">Leistungen</a></li>
-    <li class="mob-item"><a href="/projekte.html">Projekte</a></li>
-    <li class="mob-item"><a href="/ueber-uns.html">Uber uns</a></li>
-    <li class="mob-item"><a href="/blog/">Blog</a></li>
-    <li class="mob-item"><a href="/kontakt.html">Kontakt</a></li>
+    <li class="mob-item"><a href="leistungen/">Leistungen</a></li>
+    <li class="mob-item"><a href="projekte.html">Projekte</a></li>
+    <li class="mob-item"><a href="ueber-uns.html">Über uns</a></li>
+    <li class="mob-item"><a href="blog/">Blog</a></li>
+    <li class="mob-item"><a href="kontakt.html">Kontakt</a></li>
   </ul>
-  <div style="margin-top:auto;padding-top:2rem"><a href="/kontakt.html" class="btn btn-light" style="width:100%;justify-content:center">Beratung anfragen</a></div>
+  <div style="margin-top:auto;padding-top:2rem">
+    <a href="kontakt.html" class="btn btn-light" style="width:100%;justify-content:center">Beratung anfragen</a>
+  </div>
 </div>
-<section class="page-hero" style="min-height:45vh;display:flex;align-items:center">
+
+<section class="page-hero" style="min-height:42vh;display:flex;align-items:center">
   <div class="page-hero-content container" style="padding:9rem 0 4rem">
-    <nav class="breadcrumb"><a href="/">Start</a><span>></span><span style="color:rgba(255,255,255,.7)">Kontakt</span></nav>
-    <h1 class="h1">Kontakt und Beratung</h1>
-    <p class="lead">Kostenlose Erstberatung, Vor-Ort-Besichtigung, unverbindliche Offerte. Wir freuen uns auf Ihr Projekt.</p>
+    <nav class="breadcrumb">
+      <a href="/">Start</a><span>›</span>
+      <span style="color:rgba(255,255,255,.7)">Kontakt</span>
+    </nav>
+    <h1 class="h1">Kontakt & Beratung</h1>
+    <p class="lead">Kostenlose Erstberatung, Vor-Ort-Besichtigung, unverbindliche Offerte.<br/>Wir melden uns innerhalb eines Werktags.</p>
   </div>
 </section>
+
 <section class="section">
   <div class="container">
     <div class="grid-2 y-center" style="gap:5rem">
+
+      <!-- Kontakt Info -->
       <div class="reveal">
-        <h2 class="h1" style="margin-bottom:2rem">So erreichen Sie uns</h2>
-        <div style="border-bottom:1px solid var(--dk-border);padding:1.25rem 0;display:flex;align-items:flex-start;gap:1.1rem">
-          <div style="width:44px;height:44px;background:var(--light-bg);border:1px solid var(--dk-border);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-          <div><p style="font-weight:600;font-size:.875rem;margin-bottom:.2rem">E-Mail</p><p style="font-size:.78rem;color:var(--dk-muted);margin-bottom:.4rem">Antwort innerhalb eines Werktags</p><a href="mailto:info@polycore.ch" style="font-weight:500;border-bottom:1px solid currentColor">info@polycore.ch</a></div>
+        <span class="eyebrow">Direkt erreichbar</span>
+        <h2 class="h1" style="margin-bottom:2rem">So erreichen<br/>Sie uns</h2>
+
+        <div class="contact-row">
+          <div class="contact-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+          <div>
+            <div class="contact-lbl">E-Mail</div>
+            <div class="contact-val"><a href="mailto:info@polycore.ch">info@polycore.ch</a></div>
+            <div class="contact-note">Antwort innerhalb eines Werktags</div>
+          </div>
         </div>
-        <div style="border-bottom:1px solid var(--dk-border);padding:1.25rem 0;display:flex;align-items:flex-start;gap:1.1rem">
-          <div style="width:44px;height:44px;background:var(--light-bg);border:1px solid var(--dk-border);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
-          <div><p style="font-weight:600;font-size:.875rem;margin-bottom:.2rem">Telefon</p><p style="font-size:.78rem;color:var(--dk-muted);margin-bottom:.4rem">Mo-Fr 08:00-17:00 Uhr</p><a href="tel:+41310000000" style="font-weight:500;border-bottom:1px solid currentColor">+41 31 000 00 00</a></div>
+
+        <div class="contact-row">
+          <div class="contact-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
+          <div>
+            <div class="contact-lbl">Telefon</div>
+            <div class="contact-val"><a href="tel:+41310000000">+41 31 000 00 00</a></div>
+            <div class="contact-note">Mo–Fr, 08:00–17:00 Uhr</div>
+          </div>
         </div>
-        <div style="padding:1.25rem 0;display:flex;align-items:flex-start;gap:1.1rem">
-          <div style="width:44px;height:44px;background:var(--light-bg);border:1px solid var(--dk-border);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-          <div><p style="font-weight:600;font-size:.875rem;margin-bottom:.2rem">Standort</p><p style="font-size:.78rem;color:var(--dk-muted);margin-bottom:.4rem">Taetig in Bern, Biel, Thun, Burgdorf, Solothurn</p><span style="font-weight:500">Bern, Schweiz</span></div>
+
+        <div class="contact-row">
+          <div class="contact-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+          <div>
+            <div class="contact-lbl">Standort</div>
+            <div class="contact-val">Bern, Schweiz</div>
+            <div class="contact-note">Tätig in Bern, Biel, Thun, Burgdorf, Solothurn</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <div class="contact-lbl">Reaktionszeit</div>
+            <div class="contact-val">Innerhalb 1 Werktag</div>
+            <div class="contact-note">Dringende Anfragen bitte telefonisch</div>
+          </div>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-cell">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <h4>Kostenlos</h4>
+            <p>Erstberatung & Offerte ohne Kosten</p>
+          </div>
+          <div class="trust-cell">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <h4>Unverbindlich</h4>
+            <p>Keine Verpflichtungen</p>
+          </div>
+          <div class="trust-cell">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h4>Schnell</h4>
+            <p>Antwort in 1 Werktag</p>
+          </div>
         </div>
       </div>
+
+      <!-- Kontakt Formular -->
       <div class="reveal d1">
-        <div style="background:var(--light-bg);border-radius:16px;padding:2.5rem">
-          <h2 style="font-size:1.5rem;font-weight:600;margin-bottom:.5rem">Offerte anfragen</h2>
-          <p style="font-size:.875rem;color:var(--dk-muted);margin-bottom:2rem">Unverbindlich und kostenlos.</p>
-          <form id="cf" style="display:flex;flex-direction:column;gap:1rem" onsubmit="this.innerHTML='<div style=padding:3rem;text-align:center><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" width=\"48\" height=\"48\" style=\"margin:0 auto 1rem\"><path d=\"M22 11.08V12a10 10 0 11-5.93-9.14\"/><polyline points=\"22 4 12 14.01 9 11.01\"/></svg><h3>Vielen Dank!</h3><p style=color:var(--dk-muted)>Ihre Anfrage ist bei uns eingegangen. Wir melden uns bald.</p></div>';return false">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-              <div><label style="font-size:.78rem;font-weight:600;display:block;margin-bottom:.4rem">Vorname *</label><input type="text" required style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--dk-border);border-radius:6px;font-family:var(--font);font-size:.9rem;background:#fff;outline:none"/></div>
-              <div><label style="font-size:.78rem;font-weight:600;display:block;margin-bottom:.4rem">Nachname *</label><input type="text" required style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--dk-border);border-radius:6px;font-family:var(--font);font-size:.9rem;background:#fff;outline:none"/></div>
+        <div class="form-wrap">
+          <h2 style="font-size:1.5rem;font-weight:600;margin-bottom:.4rem">Offerte anfragen</h2>
+          <p style="font-size:.875rem;color:var(--dk-muted);margin-bottom:2rem;line-height:1.6">Füllen Sie das Formular aus – wir melden uns innerhalb eines Werktags.</p>
+
+          <!-- Success state -->
+          <div class="fsuccess" id="fsuccess">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="1.5">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <h3 style="font-size:1.5rem;font-weight:600;margin-bottom:.75rem">Vielen Dank!</h3>
+            <p style="color:var(--dk-muted);line-height:1.7">Ihre Anfrage ist bei uns eingegangen.<br/>Wir melden uns innerhalb eines Werktags.</p>
+          </div>
+
+          <!-- Formspree form – replace xkgwpoba with your real Formspree form ID -->
+          <form id="contact-form"
+                action="https://formspree.io/f/xkgwpoba"
+                method="POST"
+                style="display:flex;flex-direction:column;gap:1rem">
+
+            <input type="hidden" name="_subject" value="Neue Anfrage – POLYCORE GmbH Website"/>
+            <!-- Honeypot anti-spam -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"/>
+
+            <div class="frow">
+              <div class="fgrp">
+                <label class="flabel" for="vorname">Vorname *</label>
+                <input class="finput" type="text" id="vorname" name="vorname" required placeholder="Max"/>
+              </div>
+              <div class="fgrp">
+                <label class="flabel" for="nachname">Nachname *</label>
+                <input class="finput" type="text" id="nachname" name="nachname" required placeholder="Muster"/>
+              </div>
             </div>
-            <div><label style="font-size:.78rem;font-weight:600;display:block;margin-bottom:.4rem">E-Mail *</label><input type="email" required placeholder="name@beispiel.ch" style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--dk-border);border-radius:6px;font-family:var(--font);font-size:.9rem;background:#fff;outline:none"/></div>
-            <div><label style="font-size:.78rem;font-weight:600;display:block;margin-bottom:.4rem">Leistung</label>
-              <select style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--dk-border);border-radius:6px;font-family:var(--font);font-size:.9rem;background:#fff;outline:none">
-                <option>Bitte waehlen...</option><option>Epoxidharz-Boden (EP)</option><option>Polyurethan-Boden (PU)</option><option>PMMA-Boden</option><option>Designerboden</option><option>Abdichtung</option><option>Injektionen</option>
+
+            <div class="fgrp">
+              <label class="flabel" for="firma">Firma / Organisation</label>
+              <input class="finput" type="text" id="firma" name="firma" placeholder="Muster AG (optional)"/>
+            </div>
+
+            <div class="frow">
+              <div class="fgrp">
+                <label class="flabel" for="email">E-Mail *</label>
+                <input class="finput" type="email" id="email" name="email" required placeholder="max@beispiel.ch"/>
+              </div>
+              <div class="fgrp">
+                <label class="flabel" for="telefon">Telefon</label>
+                <input class="finput" type="tel" id="telefon" name="telefon" placeholder="+41 31 000 00 00"/>
+              </div>
+            </div>
+
+            <div class="fgrp">
+              <label class="flabel" for="leistung">Gewünschte Leistung</label>
+              <select class="finput fsel" id="leistung" name="leistung">
+                <option value="">Bitte wählen...</option>
+                <option>Epoxidharz-Boden (EP)</option>
+                <option>Polyurethan-Boden (PU)</option>
+                <option>PMMA-Boden</option>
+                <option>Designerboden / Mikrozement</option>
+                <option>Abdichtung (Combiflex / Flüssigkunststoff)</option>
+                <option>Injektionen / Kellersanierung</option>
+                <option>Mehrere Leistungen</option>
+                <option>Ich bin nicht sicher – bitte beraten</option>
               </select>
             </div>
-            <div><label style="font-size:.78rem;font-weight:600;display:block;margin-bottom:.4rem">Nachricht *</label><textarea required rows="4" placeholder="Kurze Beschreibung Ihres Projekts..." style="width:100%;padding:.75rem 1rem;border:1.5px solid var(--dk-border);border-radius:6px;font-family:var(--font);font-size:.9rem;background:#fff;outline:none;resize:vertical"></textarea></div>
-            <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center">Anfrage absenden</button>
-            <p style="font-size:.72rem;color:var(--dk-muted);text-align:center">Es gilt unsere <a href="/datenschutz.html" style="border-bottom:1px solid currentColor">Datenschutzerklaerung</a>.</p>
+
+            <div class="fgrp">
+              <label class="flabel" for="flaeche">Ungefähre Fläche</label>
+              <select class="finput fsel" id="flaeche" name="flaeche">
+                <option value="">Bitte wählen...</option>
+                <option>Unter 100 m²</option>
+                <option>100–500 m²</option>
+                <option>500–2'000 m²</option>
+                <option>Über 2'000 m²</option>
+                <option>Noch unklar</option>
+              </select>
+            </div>
+
+            <div class="fgrp">
+              <label class="flabel" for="nachricht">Ihr Projekt / Nachricht *</label>
+              <textarea class="finput" id="nachricht" name="nachricht" required rows="5" placeholder="Beschreiben Sie kurz Ihr Projekt – Nutzung, Zeitrahmen, besondere Anforderungen..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-dark" id="submit-btn" style="width:100%;justify-content:center;margin-top:.25rem">
+              Anfrage absenden
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </button>
+
+            <p style="font-size:.72rem;color:var(--dk-muted);text-align:center;line-height:1.6">
+              Mit dem Absenden stimmen Sie unserer <a href="datenschutz.html" style="border-bottom:1px solid currentColor">Datenschutzerklärung</a> zu.
+            </p>
           </form>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Regionen -->
+<section class="section light-bg">
+  <div class="container">
+    <div style="text-align:center;max-width:540px;margin:0 auto 2.5rem">
+      <span class="eyebrow">Tätigkeitsgebiet</span>
+      <h2 class="h1 reveal">Wir sind lokal für Sie da</h2>
+      <p class="sub reveal d1">Unser Fokus liegt auf Bern und der gesamten Region – kurze Wege, schnelle Reaktionszeiten.</p>
+    </div>
+    <div class="related-grid">
+      <a href="regionen/bern.html" class="related-card reveal">
+        <h3>Bern</h3>
+        <p>Unser Heimmarkt – täglich vor Ort in der Bundesstadt und der gesamten Agglomeration.</p>
+        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
+      </a>
+      <a href="regionen/biel-bienne.html" class="related-card reveal d1">
+        <h3>Biel / Bienne</h3>
+        <p>Regelmässige Einsätze in der grössten zweisprachigen Stadt der Schweiz.</p>
+        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
+      </a>
+      <a href="regionen/thun.html" class="related-card reveal d2">
+        <h3>Thun</h3>
+        <p>Gewerbliche und industrielle Projekte im Thuner Becken und Umgebung.</p>
+        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
@@ -110,33 +302,73 @@
   <div class="container">
     <div class="footer-top">
       <div>
-        <p class="footer-headline">Praezision. Schutz.<br/>Qualitaet. Vertrauen.</p>
-        <a href="/kontakt.html" class="footer-cta-link">Kontakt aufnehmen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+        <p class="footer-headline">Präzision. Schutz.<br/>Qualität. Vertrauen.</p>
+        <a href="kontakt.html" class="footer-cta-link">Kontakt aufnehmen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
       </div>
       <div class="foot-contact">
         <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41310000000">+41 31 000 00 00</a></div>
         <div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div>
-        <div class="foot-contact-row"><p>Standort</p><a href="/kontakt.html">Bern, Schweiz</a></div>
+        <div class="foot-contact-row"><p>Standort</p><span>Bern, Schweiz</span></div>
       </div>
       <nav class="foot-nav">
-        <a href="/projekte.html" class="foot-link">Projekte</a>
-        <a href="/leistungen/" class="foot-link">Leistungen</a>
-        <a href="/ueber-uns.html" class="foot-link">Ueber uns</a>
-        <a href="/kontakt.html" class="foot-link">Kontakt</a>
-        <a href="/impressum.html" class="foot-link">Impressum</a>
-        <a href="/datenschutz.html" class="foot-link">Datenschutz</a>
-        <a href="/blog/" class="foot-link">Blog</a>
-        <a href="/regionen/" class="foot-link">Regionen</a>
+        <a href="projekte.html" class="foot-link">Projekte</a>
+        <a href="leistungen/" class="foot-link">Leistungen</a>
+        <a href="ueber-uns.html" class="foot-link">Über uns</a>
+        <a href="kontakt.html" class="foot-link">Kontakt</a>
+        <a href="impressum.html" class="foot-link">Impressum</a>
+        <a href="datenschutz.html" class="foot-link">Datenschutz</a>
+        <a href="blog/" class="foot-link">Blog</a>
+        <a href="regionen/" class="foot-link">Regionen</a>
       </nav>
-      <div class="foot-req"><a href="/kontakt.html">Anfrage stellen</a></div>
+      <div class="foot-req"><a href="kontakt.html">Anfrage stellen</a></div>
     </div>
     <div class="footer-bottom">
       <div class="socials">
         <a href="#" class="social-a" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
         <a href="#" class="social-a" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
-      <p class="foot-copy">2026 POLYCORE GmbH - Bodenbelaege und Bautenschutz - Bern, Schweiz</p>
+      <p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge & Bautenschutz · Bern, Schweiz</p>
     </div>
   </div>
 </footer>
-<script src="js/main.js"></script></body></html>
+
+<script src="js/main.js"></script>
+<script>
+const form = document.getElementById('contact-form');
+const success = document.getElementById('fsuccess');
+const btn = document.getElementById('submit-btn');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  btn.innerHTML = 'Wird gesendet... <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>';
+  btn.disabled = true;
+  btn.style.opacity = '.65';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      throw new Error('Server error');
+    }
+  } catch(err) {
+    btn.innerHTML = 'Erneut versuchen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M2 8h12M9 3l5 5-5 5"/></svg>';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    const errEl = document.createElement('p');
+    errEl.style.cssText = 'color:#dc2626;font-size:.83rem;text-align:center;margin-top:.5rem';
+    errEl.textContent = 'Fehler beim Senden. Bitte direkt an info@polycore.ch schreiben.';
+    btn.after(errEl);
+    setTimeout(() => errEl.remove(), 7000);
+  }
+});
+</script>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+</body>
+</html>

@@ -1,0 +1,221 @@
+# POLYCORE GmbH – Decap CMS Konfiguration
+# Login: via GitHub OAuth (du bist Repo-Owner = automatisch Admin)
+# Änderungen = automatischer Commit auf GitHub = Vercel deployt automatisch
+
+backend:
+  name: github
+  repo: mevi977/PolyCoreWeb        # ← dein GitHub Repo
+  branch: main
+  base_url: https://api.netlify.com # OAuth Proxy (kostenlos über Netlify Identity)
+
+# Medien / Bilder werden direkt im Repo gespeichert
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+# Sprache der Admin-Oberfläche
+locale: de
+
+collections:
+
+  # ─────────────────────────────────────────
+  # 1. LEISTUNGEN
+  # ─────────────────────────────────────────
+  - name: "leistungen"
+    label: "🔧 Leistungen"
+    label_singular: "Leistung"
+    folder: "leistungen"
+    extension: "html"
+    create: false   # bestehende Seiten bearbeiten (neue manuell anlegen)
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Seitentitel (H1)"
+        name: "title"
+        widget: "string"
+        hint: "z.B. Epoxidharz-Boden (EP)"
+      - label: "Meta-Titel (SEO)"
+        name: "meta_title"
+        widget: "string"
+        hint: "Erscheint in Google-Suchergebnissen"
+      - label: "Meta-Beschreibung (SEO)"
+        name: "meta_description"
+        widget: "text"
+        hint: "Max. 160 Zeichen"
+      - label: "Hero-Untertitel (Lead)"
+        name: "lead"
+        widget: "text"
+      - label: "Hero-Bild URL"
+        name: "hero_image"
+        widget: "image"
+        required: false
+      - label: "Hauptinhalt"
+        name: "body"
+        widget: "markdown"
+        hint: "Beschreibung, Vorteile, Anwendungsbereiche"
+      - label: "Abzeichen (Badges)"
+        name: "badges"
+        widget: "list"
+        hint: "z.B. Fugenlos, Langlebig, Chemikalienresistent"
+        field:
+          label: "Badge"
+          name: "badge"
+          widget: "string"
+
+  # ─────────────────────────────────────────
+  # 2. BLOG-ARTIKEL
+  # ─────────────────────────────────────────
+  - name: "blog"
+    label: "📝 Blog"
+    label_singular: "Artikel"
+    folder: "blog"
+    extension: "html"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Artikel-Titel"
+        name: "title"
+        widget: "string"
+      - label: "Meta-Beschreibung (SEO)"
+        name: "meta_description"
+        widget: "text"
+        hint: "Max. 160 Zeichen für Google"
+      - label: "Kategorie"
+        name: "category"
+        widget: "select"
+        options:
+          - "Epoxidharz"
+          - "Polyurethan"
+          - "PMMA"
+          - "Designerboden"
+          - "Abdichtung"
+          - "Bautenschutz"
+          - "Plattenlegen"
+          - "Vergleich"
+          - "Tipps & Ratgeber"
+      - label: "Veröffentlichungsdatum"
+        name: "date"
+        widget: "datetime"
+        format: "DD. MMMM YYYY"
+      - label: "Lesezeit (Minuten)"
+        name: "reading_time"
+        widget: "number"
+        default: 5
+      - label: "Hero-Bild"
+        name: "hero_image"
+        widget: "image"
+        required: false
+      - label: "Artikel-Inhalt"
+        name: "body"
+        widget: "markdown"
+        hint: "Haupttext des Artikels. Verwende ## für Zwischentitel."
+
+  # ─────────────────────────────────────────
+  # 3. PROJEKTE
+  # ─────────────────────────────────────────
+  - name: "projekte"
+    label: "🏗 Projekte"
+    label_singular: "Projekt"
+    folder: "_projekte"
+    extension: "md"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Projektname"
+        name: "title"
+        widget: "string"
+        hint: "z.B. Produktionshalle Biel – EP-Boden 1'200 m²"
+      - label: "Kategorie"
+        name: "category"
+        widget: "select"
+        options:
+          - "Epoxidharz (EP)"
+          - "Polyurethan (PU)"
+          - "PMMA"
+          - "Designerboden"
+          - "Abdichtung"
+          - "Injektionen"
+          - "Plattenlegen"
+          - "Kombiprojekt"
+      - label: "Ort"
+        name: "location"
+        widget: "string"
+        hint: "z.B. Biel-Benken, BE"
+      - label: "Jahr"
+        name: "year"
+        widget: "number"
+        hint: "z.B. 2025"
+      - label: "Fläche (m²)"
+        name: "area"
+        widget: "string"
+        hint: "z.B. 1'200 m²"
+        required: false
+      - label: "Projektbild"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Kurzbeschreibung"
+        name: "description"
+        widget: "text"
+        hint: "2–3 Sätze für die Projektkarte"
+      - label: "Detailbeschreibung"
+        name: "body"
+        widget: "markdown"
+        required: false
+
+  # ─────────────────────────────────────────
+  # 4. FIRMEN-EINSTELLUNGEN
+  # ─────────────────────────────────────────
+  - name: "settings"
+    label: "⚙️ Einstellungen"
+    editor:
+      preview: false
+    files:
+      - label: "Firmen-Kontaktdaten"
+        name: "kontakt"
+        file: "_data/kontakt.json"
+        fields:
+          - label: "Firmenname"
+            name: "firma"
+            widget: "string"
+            default: "POLYCORE GmbH"
+          - label: "Telefon"
+            name: "telefon"
+            widget: "string"
+            default: "+41 31 000 00 00"
+          - label: "E-Mail"
+            name: "email"
+            widget: "string"
+            default: "info@polycore.ch"
+          - label: "Adresse"
+            name: "adresse"
+            widget: "string"
+          - label: "Ort"
+            name: "ort"
+            widget: "string"
+            default: "Bern, Schweiz"
+          - label: "Instagram URL"
+            name: "instagram"
+            widget: "string"
+            required: false
+          - label: "LinkedIn URL"
+            name: "linkedin"
+            widget: "string"
+            required: false
+
+      - label: "Formspree Einstellungen"
+        name: "formspree"
+        file: "_data/formspree.json"
+        fields:
+          - label: "Formspree Form-ID"
+            name: "form_id"
+            widget: "string"
+            hint: "Nur die ID, z.B. xkgwpoba (aus formspree.io/f/HIER)"
+          - label: "Bestätigungs-E-Mail senden an"
+            name: "to_email"
+            widget: "string"
+            hint: "z.B. info@polycore.ch"
