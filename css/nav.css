@@ -1,11 +1,14 @@
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .4s ease,border-color .4s ease;border-bottom:1px solid transparent}
-.nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--border)}
+.nav.scrolled{background:#4a1c2f;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--border)}
 .nav-c{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 2.5rem;height:68px}
 
 /* Logo */
 .nav-logo{display:flex;align-items:center;gap:.65rem;color:#fff;font-weight:700;font-size:1.05rem;letter-spacing:-.02em}
-.nav-logo img{width:30px;height:30px;object-fit:contain}
+.nav-logo img{
+    height:auto;
+    width: 220px;
+  }
 
 /* Links */
 .nav-links{display:flex;align-items:center;gap:.25rem}
