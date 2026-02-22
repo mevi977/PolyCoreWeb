@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.polycore.ch/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.polycore.ch/leistungen</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.polycore.ch/leistungen/epoxidharz-boden</loc><priority>0.85</priority></url>
+  <url><loc>https://www.polycore.ch/leistungen/polyurethan-boden</loc><priority>0.85</priority></url>
+  <url><loc>https://www.polycore.ch/leistungen/pmma-boden</loc><priority>0.85</priority></url>
+  <url><loc>https://www.polycore.ch/leistungen/designerboden</loc><priority>0.85</priority></url>
+  <url><loc>https://www.polycore.ch/leistungen/abdichtung</loc><priority>0.85</priority></url>
+  <url><loc>https://www.polycore.ch/leistungen/injektionen</loc><priority>0.8</priority></url>
+  <url><loc>https://www.polycore.ch/leistungen/combiflex</loc><priority>0.8</priority></url>
+  <url><loc>https://www.polycore.ch/regionen</loc><priority>0.8</priority></url>
+  <url><loc>https://www.polycore.ch/regionen/bern</loc><priority>0.8</priority></url>
+  <url><loc>https://www.polycore.ch/regionen/biel</loc><priority>0.75</priority></url>
+  <url><loc>https://www.polycore.ch/regionen/thun</loc><priority>0.75</priority></url>
+  <url><loc>https://www.polycore.ch/regionen/burgdorf</loc><priority>0.75</priority></url>
+  <url><loc>https://www.polycore.ch/regionen/solothurn</loc><priority>0.75</priority></url>
+  <url><loc>https://www.polycore.ch/projekte</loc><priority>0.8</priority></url>
+  <url><loc>https://www.polycore.ch/ueber-uns</loc><priority>0.7</priority></url>
+  <url><loc>https://www.polycore.ch/blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.polycore.ch/kontakt</loc><priority>0.75</priority></url>
+</urlset>
