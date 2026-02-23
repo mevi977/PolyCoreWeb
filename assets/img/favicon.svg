@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 311.07 317.1">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: CinzelDecorative-Regular, 'Cinzel Decorative';
+        font-size: 150px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #2c1810;
+      }
+
+      .cls-3 {
+        fill: url(#Unbenannter_Verlauf_122);
+      }
+
+      .cls-4 {
+        fill: #4a1c2f;
+      }
+    </style>
+    <radialGradient id="Unbenannter_Verlauf_122" data-name="Unbenannter Verlauf 122" cx="155.53" cy="158.55" fx="155.53" fy="158.55" r="157.05" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c8a96e"/>
+      <stop offset="1" stop-color="#f0f0f0"/>
+    </radialGradient>
+  </defs>
+  <g id="Bodenbeläge_Bautenschutz" data-name="Bodenbeläge &amp;amp; Bautenschutz">
+    <rect class="cls-3" width="311.07" height="317.1" rx="21.05" ry="21.05"/>
+    <path class="cls-2" d="M154.97,301.51H24.59c-6.42,0-11.63-5.21-11.63-11.63V26.23c0-6.42,5.21-11.63,11.63-11.63h130.95V5.1H25.44C14.29,5.1,5.16,14.23,5.16,25.38v266.34c0,11.16,9.13,20.29,20.29,20.29h129.58c-.02-3.53-.04-7.05-.06-10.5Z"/>
+    <path class="cls-4" d="M285.96,5.1h-130.42v9.5h131.27c6.42,0,11.63,5.21,11.63,11.63v263.65c0,6.42-5.21,11.63-11.63,11.63h-130.34c.02,3.59.03,7.1.04,10.5h129.46c11.2,0,20.27-9.08,20.27-20.27V25.37c0-11.2-9.08-20.27-20.27-20.27Z"/>
+  </g>
+  <g id="POLY">
+    <path class="cls-2" d="M80.35,74.8c15.68-1.66,33.73-5.34,42.31-6.39,28.03-3.5,47.17,9.46,48.01,35.57.69,21.73-11.56,37.84-31.54,39.07-11.91.7-24.35-4.03-26.1-18.21l1.58-.53c2.79,10.85,14.53,13.83,23.29,12.25,13.32-2.45,20.22-16.11,19.62-32.59-.82-22.6-14.89-32.41-35.57-30.13-4.72.56-10.51,1.77-16.64,2.83v103.89c.17,6.46,5.43,11.01,11.21,11.01h2.23l.03,1.75h-38.35l.03-1.75h2.25c5.78,0,11.04-4.56,11.21-11.01v-94.86c-.03-5.76-3.69-10.2-11.21-9.41l-2.13.24-.24-1.74Z"/>
+    <text class="cls-1" transform="translate(114.9 249.25)"><tspan x="0" y="0">C</tspan></text>
+  </g>
+</svg>
