@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>POLYCORE Admin</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;--bg2:#111;--bg3:#1a1a1a;
+  --border:#2a2a2a;--border2:#333;
+  --text:#f0f0f0;--muted:#888;--muted2:#555;
+  --accent:#e8ff4d;--accent-d:#c8df2d;
+  --red:#ef4444;--green:#22c55e;--yellow:#eab308;
+  --r:10px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6}
+/* LOGIN */
+#login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1rem}
+.lcard{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:2.5rem;width:100%;max-width:380px;text-align:center}
+.lcard h1{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.25rem}
+.lcard p{color:var(--muted);font-size:.82rem;margin-bottom:2rem}
+.lerr{color:var(--red);font-size:.8rem;margin-bottom:.75rem;padding:.5rem;background:rgba(239,68,68,.1);border-radius:6px;display:none}
+/* LAYOUT */
+#app{display:none;min-height:100vh}
+.sb{position:fixed;top:0;left:0;width:210px;height:100vh;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:100}
+.sb-logo{padding:1.25rem;border-bottom:1px solid var(--border)}
+.sb-logo b{font-size:1rem;font-weight:800;display:block}
+.sb-logo small{font-size:.68rem;color:var(--muted2)}
+.sb-nav{overflow-y:auto;flex:1;padding:.4rem 0}
+.ns{padding:.5rem 1.25rem .2rem;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2)}
+.ni{display:flex;align-items:center;gap:.65rem;padding:.65rem 1.25rem;color:var(--muted);cursor:pointer;font-size:.83rem;font-weight:500;border:none;background:none;width:100%;text-align:left;transition:color .15s,background .15s}
+.ni:hover{color:var(--text);background:var(--bg3)}
+.ni.on{color:var(--accent);background:rgba(232,255,77,.07)}
+.ni svg{flex-shrink:0;opacity:.6}.ni.on svg{opacity:1}
+.sb-foot{margin-top:auto;padding:.9rem 1.25rem;border-top:1px solid var(--border);font-size:.7rem;color:var(--muted2)}
+.sb-foot a{color:var(--muted);text-decoration:none}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--muted2);margin-right:.35rem;vertical-align:middle}
+.main{margin-left:210px;min-height:100vh;display:flex;flex-direction:column}
+.tb{padding:.9rem 1.75rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg2);position:sticky;top:0;z-index:50}
+.tb-t{font-size:.95rem;font-weight:600}
+.cnt{padding:1.75rem;flex:1}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem 1rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;transition:all .15s;line-height:1;text-decoration:none}
+.bp{background:var(--accent);color:#000}.bp:hover{background:var(--accent-d)}
+.bg{background:transparent;color:var(--muted);border:1px solid var(--border2)}.bg:hover{color:var(--text)}
+.bd{background:transparent;color:var(--red);border:1px solid rgba(239,68,68,.3)}.bd:hover{background:rgba(239,68,68,.1)}
+.bs{padding:.38rem .7rem;font-size:.74rem}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+/* CARD */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.ch{padding:1.1rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.ct{font-size:.875rem;font-weight:600}
+.cb{padding:1.4rem}
+/* FORM */
+.fg{margin-bottom:1.1rem}
+.fl{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.38rem}
+.fi{width:100%;padding:.65rem .85rem;background:var(--bg3);border:1px solid var(--border2);border-radius:7px;color:var(--text);font-size:.855rem;outline:none;transition:border-color .15s;font-family:inherit}
+.fi:focus{border-color:var(--accent)}
+.fi::placeholder{color:var(--muted2)}
+textarea.fi{resize:vertical;min-height:100px;line-height:1.6}
+.fh{font-size:.7rem;color:var(--muted2);margin-top:.3rem}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{text-align:left;padding:.6rem .9rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--border)}
+.tbl td{padding:.75rem .9rem;border-bottom:1px solid var(--border);font-size:.83rem;vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,.02)}
+/* TOAST */
+#toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;display:flex;flex-direction:column;gap:.45rem}
+.ti{padding:.7rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:500;display:flex;align-items:center;gap:.55rem;animation:si .2s ease;max-width:320px}
+.ts{background:#052e16;border:1px solid #166534;color:#86efac}
+.te{background:#450a0a;border:1px solid #991b1b;color:#fca5a5}
+.ti2{background:#1e1b4b;border:1px solid #3730a3;color:#a5b4fc}
+@keyframes si{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
+.sp{width:15px;height:15px;border:2px solid rgba(255,255,255,.15);border-top-color:var(--accent);border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* PAGES */
+.pg{display:none}.pg.on{display:block}
+/* STATS */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem}
+.sc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.15rem}
+.sn{font-size:1.65rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.2rem}
+.sl{font-size:.72rem;color:var(--muted);font-weight:500}
+/* PAGE GRID */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.65rem}
+.pcard{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:.9rem;text-align:left;cursor:pointer;transition:all .15s;color:var(--text);width:100%;font-family:inherit;border:none}
+.pcard{border:1px solid var(--border2)}
+.pcard:hover{border-color:var(--accent);background:rgba(232,255,77,.03)}
+/* IMG */
+.ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.6rem}
+.ii{aspect-ratio:1;border-radius:8px;overflow:hidden;border:1px solid var(--border);position:relative;cursor:pointer;background:var(--bg3)}
+.ii img{width:100%;height:100%;object-fit:cover}
+.in{position:absolute;bottom:0;left:0;right:0;padding:.3rem .4rem;background:rgba(0,0,0,.8);font-size:.62rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dz{border:2px dashed var(--border2);border-radius:var(--r);padding:2rem;text-align:center;cursor:pointer;transition:all .15s}
+.dz:hover,.dz.dov{border-color:var(--accent);background:rgba(232,255,77,.03)}
+.dz p{color:var(--muted);font-size:.82rem;margin-top:.4rem}
+
+/* ═══════════════════════════
+   WYSIWYG EDITOR
+═══════════════════════════ */
+.editor-wrap{border:1px solid var(--border2);border-radius:8px;overflow:hidden}
+.editor-toolbar{display:flex;align-items:center;gap:.15rem;padding:.5rem .65rem;background:var(--bg3);border-bottom:1px solid var(--border2);flex-wrap:wrap}
+.tb-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:.35rem .45rem;border-radius:5px;font-size:.82rem;font-weight:600;line-height:1;transition:all .15s;display:flex;align-items:center;gap:.25rem}
+.tb-btn:hover{background:var(--bg);color:var(--text)}
+.tb-btn.active{background:rgba(232,255,77,.15);color:var(--accent)}
+.tb-sep{width:1px;height:18px;background:var(--border2);margin:0 .2rem;flex-shrink:0}
+.tb-select{background:var(--bg);border:1px solid var(--border2);color:var(--text);border-radius:5px;padding:.25rem .45rem;font-size:.78rem;cursor:pointer;outline:none}
+.editor-body{min-height:400px;padding:1.25rem 1.5rem;background:var(--bg2);color:var(--text);outline:none;font-size:.9rem;line-height:1.8;font-family:inherit;overflow-y:auto;max-height:600px}
+.editor-body:focus{outline:none}
+/* Editor typography */
+.editor-body h2{font-size:1.35rem;font-weight:700;margin:1.5rem 0 .65rem;letter-spacing:-.02em}
+.editor-body h3{font-size:1.05rem;font-weight:600;margin:1.25rem 0 .5rem}
+.editor-body p{margin-bottom:.85rem}
+.editor-body ul,.editor-body ol{margin:.4rem 0 .9rem 1.5rem;display:flex;flex-direction:column;gap:.3rem}
+.editor-body a{color:var(--accent);text-decoration:underline}
+.editor-body blockquote{border-left:3px solid var(--accent);padding:.5rem 1rem;margin:.75rem 0;color:var(--muted);background:rgba(232,255,77,.04);border-radius:0 6px 6px 0}
+.editor-body strong,.editor-body b{font-weight:700;color:#fff}
+.editor-body em,.editor-body i{font-style:italic}
+
+/* SETUP STEPS */
+.step{display:flex;gap:.85rem;margin-bottom:1.25rem;align-items:flex-start}
+.snum{width:25px;height:25px;background:var(--accent);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;flex-shrink:0}
+.sbod h4{font-size:.855rem;font-weight:600;margin-bottom:.3rem}
+.sbod p{font-size:.79rem;color:var(--muted);line-height:1.65}
+.sbod code{background:var(--bg3);border:1px solid var(--border2);padding:.12rem .38rem;border-radius:4px;font-size:.77rem;font-family:monospace;color:var(--accent)}
+
+@media(max-width:860px){
+  .sb{width:52px}
+  .sb-logo b,.sb-logo small,.ni span,.ns,.sb-foot{display:none}
+  .main{margin-left:52px}
+  .sg{grid-template-columns:1fr 1fr}
+  .fr2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <div class="lcard">
+    <h1>POLYCORE</h1>
+    <p>Admin Panel · Nur für Administratoren</p>
+    <div class="lerr" id="lerr">Falsches Passwort.</div>
+    <input type="password" id="pwd" class="fi" placeholder="Passwort eingeben..." style="margin-bottom:.9rem" autocomplete="current-password"/>
+    <button class="btn bp" style="width:100%;justify-content:center" onclick="doLogin()">Einloggen</button>
+    <p style="font-size:.7rem;color:var(--muted2);margin-top:1rem">Standard: <span style="color:var(--accent);font-family:monospace">polycore2026</span></p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <nav class="sb">
+    <div class="sb-logo"><b>POLYCORE</b><small>Admin Panel</small></div>
+    <div class="sb-nav">
+      <div class="ns">Übersicht</div>
+      <button class="ni on" onclick="go('dash')" data-p="dash">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </button>
+      <div class="ns">Inhalte</div>
+      <button class="ni" onclick="go('blog')" data-p="blog">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <span>Blog-Artikel</span>
+      </button>
+      <button class="ni" onclick="go('pages')" data-p="pages">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Seiten (HTML)</span>
+      </button>
+      <button class="ni" onclick="go('firma')" data-p="firma">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span>Kontakt & Firma</span>
+      </button>
+      <button class="ni" onclick="go('imgs')" data-p="imgs">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Bilder</span>
+      </button>
+      <div class="ns">System</div>
+      <button class="ni" onclick="go('setup')" data-p="setup">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        <span>GitHub Setup</span>
+      </button>
+      <button class="ni" onclick="go('sett')" data-p="sett">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <span>Einstellungen</span>
+      </button>
+    </div>
+    <div class="sb-foot">
+      <div style="margin-bottom:.3rem"><span class="dot" id="sdot"></span><span id="stxt" style="font-size:.69rem">Nicht verbunden</span></div>
+      <a href="https://github.com/mevi977/PolyCoreWeb" target="_blank">mevi977/PolyCoreWeb</a>
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="tb">
+      <span class="tb-t" id="ptitle">Dashboard</span>
+      <div style="display:flex;gap:.45rem">
+        <a href="https://poly-core-web.vercel.app" target="_blank" class="btn bg bs">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Website
+        </a>
+        <button class="btn bg bs" onclick="logout()">Ausloggen</button>
+      </div>
+    </div>
+    <div class="cnt">
+
+      <!-- DASHBOARD -->
+      <div class="pg on" id="pg-dash">
+        <div class="sg">
+          <div class="sc"><div class="sn" id="s-blog">–</div><div class="sl">Blog-Artikel</div></div>
+          <div class="sc"><div class="sn" id="s-leis">–</div><div class="sl">Leistungen</div></div>
+          <div class="sc"><div class="sn" id="s-imgs">–</div><div class="sl">Bilder</div></div>
+          <div class="sc"><div class="sn" id="s-pages">–</div><div class="sl">Seiten total</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:1.25rem">
+          <div class="card">
+            <div class="ch"><span class="ct">Letzte Änderungen (GitHub)</span></div>
+            <div class="cb" id="commits-box"><p style="color:var(--muted);font-size:.82rem">Token eingeben → GitHub Setup</p></div>
+          </div>
+          <div class="card">
+            <div class="ch"><span class="ct">Schnellaktionen</span></div>
+            <div class="cb" style="display:flex;flex-direction:column;gap:.5rem">
+              <button class="btn bg" onclick="go('blog');setTimeout(openNewBlog,80)" style="justify-content:flex-start">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Neuer Blog-Artikel
+              </button>
+              <button class="btn bg" onclick="go('imgs')" style="justify-content:flex-start">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                Bild hochladen
+              </button>
+              <button class="btn bg" onclick="go('firma')" style="justify-content:flex-start">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Kontaktdaten
+              </button>
+              <a href="https://poly-core-web.vercel.app/blog/" target="_blank" class="btn bg" style="justify-content:flex-start">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+                Blog ansehen
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:1.25rem" id="nobanner">
+          <div class="cb" style="display:flex;align-items:center;gap:1.25rem">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div style="flex:1">
+              <p style="font-weight:600;margin-bottom:.2rem">GitHub Token fehlt</p>
+              <p style="font-size:.82rem;color:var(--muted)">Bitte GitHub Token eingeben um Artikel schreiben und speichern zu können.</p>
+            </div>
+            <button class="btn bp bs" onclick="go('setup')">Setup →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GITHUB SETUP -->
+      <div class="pg" id="pg-setup">
+        <div class="card" style="max-width:620px">
+          <div class="ch"><span class="ct">GitHub Token einrichten – einmalig, dauert 2 Minuten</span></div>
+          <div class="cb">
+            <div class="step"><div class="snum">1</div><div class="sbod"><h4>GitHub öffnen</h4><p>Gehe zu <a href="https://github.com/settings/tokens/new" target="_blank" style="color:var(--accent)">github.com/settings/tokens/new</a></p></div></div>
+            <div class="step"><div class="snum">2</div><div class="sbod"><h4>Token erstellen</h4><p><b>Note:</b> POLYCORE Admin &nbsp;|&nbsp; <b>Expiration:</b> No expiration &nbsp;|&nbsp; <b>Scopes:</b> Haken bei <code>repo</code> setzen → "Generate token"</p></div></div>
+            <div class="step"><div class="snum">3</div><div class="sbod"><h4>Token kopieren & einfügen</h4><p>Token beginnt mit <code>ghp_</code> oder <code>github_pat_</code></p></div></div>
+            <div class="fg" style="margin-top:1.25rem">
+              <label class="fl">GitHub Personal Access Token</label>
+              <input class="fi" type="password" id="tk-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+              <div class="fh">Wird nur lokal in deinem Browser gespeichert – nicht auf einem Server</div>
+            </div>
+            <div style="display:flex;gap:.6rem">
+              <button class="btn bp" onclick="saveToken()">Token speichern & testen</button>
+              <button class="btn bg" id="test-btn" onclick="testConn()" style="display:none">Nochmals testen</button>
+            </div>
+            <div id="tk-status" style="margin-top:.85rem;font-size:.82rem;display:none"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOG -->
+      <div class="pg" id="pg-blog">
+        <!-- LIST VIEW -->
+        <div id="blog-list-view">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem">
+            <p style="font-size:.83rem;color:var(--muted)">Schreibe Blog-Artikel wie in einem Textprogramm – ohne HTML-Kenntnisse.</p>
+            <button class="btn bp bs" onclick="openNewBlog()">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Neuer Artikel
+            </button>
+          </div>
+          <div class="card">
+            <div class="cb" id="blog-list"><p style="color:var(--muted);font-size:.82rem">Verbinde GitHub um Artikel zu laden...</p></div>
+          </div>
+        </div>
+
+        <!-- EDITOR VIEW -->
+        <div id="blog-editor-view" style="display:none">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+            <div style="display:flex;align-items:center;gap:.75rem">
+              <button onclick="closeBlogEd()" class="btn bg bs">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Zurück
+              </button>
+              <span id="blog-ed-title" style="font-size:.875rem;font-weight:600">Neuer Artikel</span>
+            </div>
+            <button class="btn bp" onclick="saveBlog()" id="save-blog">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/></svg>
+              Speichern & Veröffentlichen
+            </button>
+          </div>
+
+          <!-- Article meta -->
+          <div class="card" style="margin-bottom:1rem">
+            <div class="cb">
+              <div class="fr2">
+                <div class="fg"><label class="fl">Titel des Artikels *</label><input class="fi" id="b-title" placeholder="z.B. Epoxidharz-Boden: 5 Vorteile für Gewerbe"/></div>
+                <div class="fg"><label class="fl">Kategorie</label>
+                  <select class="fi" id="b-cat">
+                    <option>Epoxidharz</option><option>Polyurethan</option><option>PMMA</option>
+                    <option>Designerboden</option><option>Abdichtung</option><option>Bautenschutz</option>
+                    <option>Plattenlegen</option><option>Vergleich</option><option>Tipps & Ratgeber</option>
+                  </select>
+                </div>
+              </div>
+              <div class="fr2">
+                <div class="fg"><label class="fl">Datum</label><input class="fi" type="date" id="b-date"/></div>
+                <div class="fg"><label class="fl">Lesezeit (Minuten)</label><input class="fi" type="number" id="b-time" value="5" min="1"/></div>
+              </div>
+              <div class="fg"><label class="fl">Kurzbeschreibung (für Google & Blog-Übersicht)</label>
+                <textarea class="fi" id="b-meta" rows="2" placeholder="Max. 160 Zeichen – erscheint auf der Blog-Seite und in Google-Suchergebnissen"></textarea>
+              </div>
+              <div class="fg"><label class="fl">Hero-Bild URL</label>
+                <input class="fi" id="b-img" placeholder="https://... oder /assets/img/meinbild.jpg"/>
+                <div class="fh">Bild zuerst unter "Bilder" hochladen, dann hier die URL kopieren. Tipp: URL vom Bild im Bildschirm kopieren.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WYSIWYG Editor -->
+          <div class="card">
+            <div class="ch"><span class="ct">Artikel-Inhalt</span><span style="font-size:.75rem;color:var(--muted)">Schreibe wie in Word – kein HTML nötig</span></div>
+            <div class="cb" style="padding:0">
+              <!-- Toolbar -->
+              <div class="editor-toolbar" id="toolbar">
+                <select class="tb-select" onchange="formatBlock(this.value);this.value=''" title="Absatzformat">
+                  <option value="">Format...</option>
+                  <option value="h2">Überschrift groß</option>
+                  <option value="h3">Überschrift mittel</option>
+                  <option value="p">Normaler Text</option>
+                </select>
+                <div class="tb-sep"></div>
+                <button class="tb-btn" onclick="fmt('bold')" title="Fett (Ctrl+B)"><b>F</b></button>
+                <button class="tb-btn" onclick="fmt('italic')" title="Kursiv (Ctrl+I)"><i>K</i></button>
+                <button class="tb-btn" onclick="fmt('underline')" title="Unterstrichen"><u>U</u></button>
+                <div class="tb-sep"></div>
+                <button class="tb-btn" onclick="fmt('insertUnorderedList')" title="Aufzählungsliste">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1" fill="currentColor"/><circle cx="4" cy="12" r="1" fill="currentColor"/><circle cx="4" cy="18" r="1" fill="currentColor"/></svg>
+                </button>
+                <button class="tb-btn" onclick="fmt('insertOrderedList')" title="Nummerierte Liste">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10H6"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+                </button>
+                <div class="tb-sep"></div>
+                <button class="tb-btn" onclick="insertLink()" title="Link einfügen">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                </button>
+                <button class="tb-btn" onclick="insertBlockquote()" title="Zitat">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 2v10c0 1.25.75 2 2 2h2c1.25 0 2 .75 2 2v1h1"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 2v10c0 1.25.75 2 2 2h2c1.25 0 2 .75 2 2v1h1"/></svg>
+                </button>
+                <div class="tb-sep"></div>
+                <button class="tb-btn" onclick="fmt('removeFormat')" title="Formatierung entfernen" style="font-size:.7rem">∅</button>
+                <div style="margin-left:auto;display:flex;align-items:center;gap:.4rem">
+                  <button class="tb-btn" id="preview-toggle" onclick="togglePreview()" title="Vorschau" style="font-size:.72rem;padding:.3rem .6rem">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    Vorschau
+                  </button>
+                </div>
+              </div>
+              <!-- Editable area -->
+              <div id="wysiwyg" class="editor-body" contenteditable="true" spellcheck="true"
+                   data-placeholder="Schreibe hier deinen Artikel... 
+
+Tipp: 
+• Beginne mit einer kurzen Einleitung
+• Nutze Überschriften zur Gliederung (Format-Menü oben links)
+• Fett für wichtige Begriffe
+• Listen für Aufzählungen"></div>
+              <!-- Preview -->
+              <div id="wysiwyg-preview" style="display:none;padding:1.5rem;background:var(--bg2);border-top:1px solid var(--border2)">
+                <p style="font-size:.72rem;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700">VORSCHAU (wie es auf der Website aussieht)</p>
+                <div id="preview-content" style="font-size:.95rem;line-height:1.85;max-width:680px"></div>
+              </div>
+            </div>
+          </div>
+
+          <input type="hidden" id="b-slug"/>
+          <input type="hidden" id="b-sha"/>
+        </div>
+      </div>
+
+      <!-- SEITEN (HTML) -->
+      <div class="pg" id="pg-pages">
+        <p style="font-size:.83rem;color:var(--muted);margin-bottom:1.25rem">HTML-Seiten direkt bearbeiten. Für erfahrene Nutzer – Vorsicht beim Bearbeiten.</p>
+        <div id="pages-list-view">
+          <div class="pgrid" id="pages-grid"><p style="color:var(--muted);font-size:.83rem">Verbinde GitHub...</p></div>
+        </div>
+        <div id="page-ed-view" style="display:none;margin-top:1.25rem">
+          <div class="card">
+            <div class="ch">
+              <div style="display:flex;align-items:center;gap:.65rem;flex:1">
+                <button onclick="closePageEd()" class="btn bg bs">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                  Zurück
+                </button>
+                <span class="ct" id="page-ed-name"></span>
+              </div>
+              <button class="btn bp bs" onclick="savePageEd()" id="save-page-ed">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/></svg>
+                Speichern & Deployen
+              </button>
+            </div>
+            <div style="padding:1rem">
+              <textarea class="fi" id="page-ed-raw" style="font-family:'SF Mono',Monaco,monospace;font-size:.76rem;min-height:540px;background:#0d1117;color:#e6edf3;border-color:#30363d"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KONTAKT / FIRMA -->
+      <div class="pg" id="pg-firma">
+        <div class="card" style="max-width:640px">
+          <div class="ch">
+            <span class="ct">Kontakt & Firmendaten</span>
+            <button class="btn bp bs" onclick="saveFirma()" id="save-firma">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/></svg>
+              Speichern & Deployen
+            </button>
+          </div>
+          <div class="cb">
+            <div class="fr2">
+              <div class="fg"><label class="fl">Firmenname</label><input class="fi" id="f-name" placeholder="POLYCORE GmbH"/></div>
+              <div class="fg"><label class="fl">Telefon</label><input class="fi" id="f-tel" placeholder="+41 31 000 00 00"/></div>
+            </div>
+            <div class="fr2">
+              <div class="fg"><label class="fl">E-Mail</label><input class="fi" id="f-email" placeholder="info@polycore.ch"/></div>
+              <div class="fg"><label class="fl">Ort</label><input class="fi" id="f-ort" placeholder="Bern, Schweiz"/></div>
+            </div>
+            <div class="fg"><label class="fl">Adresse</label><input class="fi" id="f-adr" placeholder="Musterstrasse 1, 3000 Bern"/></div>
+            <p style="font-size:.78rem;color:var(--muted);padding:.75rem;background:var(--bg3);border-radius:7px;line-height:1.65">
+              ℹ️ Beim Speichern wird Telefon und E-Mail in der <b>kontakt.html</b> automatisch ersetzt. Vercel deployt in ~60 Sekunden.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BILDER -->
+      <div class="pg" id="pg-imgs">
+        <div class="card" style="margin-bottom:1.25rem">
+          <div class="ch"><span class="ct">Bild hochladen</span></div>
+          <div class="cb">
+            <div class="dz" id="dz" onclick="document.getElementById('ffile').click()">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="margin:0 auto;opacity:.3;display:block"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <p>Klicken oder Bild hier hineinziehen</p>
+              <p style="font-size:.7rem;margin-top:.2rem;color:var(--muted2)">JPG, PNG, WebP, AVIF – max. 5 MB</p>
+            </div>
+            <input type="file" id="ffile" accept="image/*" multiple style="display:none" onchange="doUpload(this.files)"/>
+            <div id="uprog" style="display:none;margin-top:.85rem">
+              <div style="background:var(--bg3);border-radius:4px;height:3px;overflow:hidden"><div id="ubar" style="height:100%;background:var(--accent);width:0%;transition:width .3s"></div></div>
+              <p id="utxt" style="font-size:.76rem;color:var(--muted);margin-top:.4rem"></p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch">
+            <span class="ct">Vorhandene Bilder <span id="imgs-count" style="color:var(--muted);font-weight:400"></span></span>
+            <button class="btn bg bs" onclick="loadImgs()">Aktualisieren</button>
+          </div>
+          <div class="cb"><div class="ig" id="img-grid"><p style="color:var(--muted);font-size:.82rem;grid-column:1/-1">Verbinde GitHub...</p></div></div>
+          <div class="cb" style="border-top:1px solid var(--border);padding:.75rem 1.4rem;background:var(--bg3)">
+            <p style="font-size:.75rem;color:var(--muted)">💡 Tipp: Klicke auf ein Bild um die URL zu kopieren, dann im Blog-Artikel bei "Hero-Bild URL" einfügen.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EINSTELLUNGEN -->
+      <div class="pg" id="pg-sett">
+        <div class="card" style="max-width:500px">
+          <div class="ch"><span class="ct">Einstellungen</span></div>
+          <div class="cb">
+            <div class="fg"><label class="fl">Neues Admin-Passwort</label><input class="fi" type="password" id="s-pwd" placeholder="Leer lassen = nicht ändern"/><div class="fh">Standard: polycore2026</div></div>
+            <div class="fg"><label class="fl">GitHub Token aktualisieren</label><input class="fi" type="password" id="s-tk" placeholder="ghp_xxxx – leer = nicht ändern"/></div>
+            <div class="fg"><label class="fl">GitHub Repo</label><input class="fi" id="s-repo" value="mevi977/PolyCoreWeb"/><div class="fh">Format: username/repo-name</div></div>
+            <button class="btn bp" onclick="saveSett()">Speichern</button>
+            <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--border)"/>
+            <button class="btn bd bs" onclick="clearAll()">Alle lokalen Daten löschen (Logout)</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ════════════════════════════════════════════
+// STORAGE
+// ════════════════════════════════════════════
+const S = { get: k=>localStorage.getItem('pc_'+k), set:(k,v)=>localStorage.setItem('pc_'+k,v), del:k=>localStorage.removeItem('pc_'+k) };
+const REPO = ()=> S.get('repo')||'mevi977/PolyCoreWeb';
+const TK = ()=> S.get('token');
+const API = 'https://api.github.com';
+const BR = 'main';
+
+// ════════════════════════════════════════════
+// GITHUB API
+// ════════════════════════════════════════════
+async function gh(path, method='GET', body=null) {
+  const tk = TK(); if(!tk) throw new Error('Kein GitHub Token – bitte unter "GitHub Setup" eingeben.');
+  const opts={method,headers:{'Authorization':'Bearer '+tk,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}};
+  if(body){opts.headers['Content-Type']='application/json';opts.body=JSON.stringify(body);}
+  const r=await fetch(API+path,opts);
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.message||'GitHub '+r.status);}
+  return r.status===204?null:r.json();
+}
+async function ghGet(p){return gh(`/repos/${REPO()}/contents/${encodeURIComponent(p)}?ref=${BR}`);}
+async function ghPut(p,content,msg,sha=null){
+  const body={message:msg,content:btoa(unescape(encodeURIComponent(content))),branch:BR};
+  if(sha)body.sha=sha;
+  return gh(`/repos/${REPO()}/contents/${encodeURIComponent(p)}`,'PUT',body);
+}
+async function ghPutBin(p,b64,msg,sha=null){
+  const body={message:msg,content:b64,branch:BR};if(sha)body.sha=sha;
+  return gh(`/repos/${REPO()}/contents/${encodeURIComponent(p)}`,'PUT',body);
+}
+async function ghDir(p){return gh(`/repos/${REPO()}/contents/${p}?ref=${BR}`);}
+function b64d(s){return decodeURIComponent(escape(atob(s.replace(/\n/g,''))));}
+
+// ════════════════════════════════════════════
+// TOAST
+// ════════════════════════════════════════════
+function toast(msg,type='info'){
+  const el=document.createElement('div');
+  el.className='ti '+(type==='success'?'ts':type==='error'?'te':'ti2');
+  el.innerHTML=`<span>${type==='success'?'✓':type==='error'?'✕':'ℹ'}</span><span>${msg}</span>`;
+  document.getElementById('toast').appendChild(el);
+  setTimeout(()=>{el.style.opacity='0';el.style.transform='translateX(110%)';el.style.transition='.3s';setTimeout(()=>el.remove(),300);},4500);
+}
+
+// ════════════════════════════════════════════
+// LOGIN
+// ════════════════════════════════════════════
+document.getElementById('pwd').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+function doLogin(){
+  const v=document.getElementById('pwd').value,ok=S.get('pwd')||'polycore2026';
+  if(v===ok){S.set('li','1');document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';init();}
+  else{const e=document.getElementById('lerr');e.style.display='block';document.getElementById('pwd').style.borderColor='var(--red)';setTimeout(()=>{e.style.display='none';document.getElementById('pwd').style.borderColor='';},3000);}
+}
+function logout(){S.del('li');location.reload();}
+function clearAll(){if(confirm('Alle Daten löschen?')){['li','token','repo','pwd'].forEach(k=>S.del(k));location.reload();}}
+if(S.get('li')==='1'){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);}
+
+// ════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════
+function init(){
+  updateConn();loadDash();
+  if(TK()){document.getElementById('tk-input').value='••••••••••••';document.getElementById('test-btn').style.display='inline-flex';}
+  if(S.get('repo'))document.getElementById('s-repo').value=S.get('repo');
+  // Drag drop
+  const dz=document.getElementById('dz');
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dov');});
+  dz.addEventListener('dragleave',()=>dz.classList.remove('dov'));
+  dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dov');doUpload(e.dataTransfer.files);});
+  // Editor placeholder
+  const ed=document.getElementById('wysiwyg');
+  ed.addEventListener('focus',()=>{if(ed.innerHTML==='')ed.classList.add('focused');});
+  ed.addEventListener('blur',()=>ed.classList.remove('focused'));
+  ed.addEventListener('input',()=>updatePreview());
+}
+
+function updateConn(){
+  const dot=document.getElementById('sdot'),txt=document.getElementById('stxt'),banner=document.getElementById('nobanner');
+  if(TK()){dot.style.background='var(--green)';txt.textContent='Verbunden';txt.style.color='var(--green)';if(banner)banner.style.display='none';}
+  else{dot.style.background='var(--yellow)';txt.textContent='Kein Token';txt.style.color='var(--yellow)';}
+}
+
+// ════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════
+const TITLES={dash:'Dashboard',setup:'GitHub Setup',blog:'Blog-Artikel',pages:'Seiten (HTML)',firma:'Kontakt & Firma',imgs:'Bilder',sett:'Einstellungen'};
+function go(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('on'));
+  document.getElementById('pg-'+id)?.classList.add('on');
+  document.querySelector(`[data-p="${id}"]`)?.classList.add('on');
+  document.getElementById('ptitle').textContent=TITLES[id]||id;
+  if(id==='blog'&&TK())loadBlogList();
+  if(id==='pages'&&TK())loadPagesList();
+  if(id==='imgs'&&TK())loadImgs();
+  if(id==='firma')loadFirmaForm();
+  if(id==='dash')loadDash();
+}
+
+// ════════════════════════════════════════════
+// DASHBOARD
+// ════════════════════════════════════════════
+async function loadDash(){
+  if(!TK())return;
+  try{
+    const[root,blog,leis]=await Promise.all([ghDir('').catch(()=>[]),ghDir('blog').catch(()=>[]),ghDir('leistungen').catch(()=>[])]);
+    document.getElementById('s-blog').textContent=blog.filter?.(f=>f.name.endsWith('.html')&&f.name!=='index.html').length||0;
+    document.getElementById('s-leis').textContent=leis.filter?.(f=>f.name.endsWith('.html')&&f.name!=='index.html').length||0;
+    document.getElementById('s-pages').textContent=root.filter?.(f=>f.name.endsWith('.html')).length||0;
+    ghDir('assets/img').then(imgs=>{document.getElementById('s-imgs').textContent=imgs.filter(f=>/\.(jpg|jpeg|png|webp|avif|gif|svg)$/i.test(f.name)).length;}).catch(()=>{});
+    const commits=await gh(`/repos/${REPO()}/commits?per_page=5`);
+    document.getElementById('commits-box').innerHTML=commits.map(c=>`
+      <div style="display:flex;gap:.65rem;padding:.5rem 0;border-bottom:1px solid var(--border);align-items:flex-start">
+        <img src="${c.author?.avatar_url||''}" width="24" height="24" style="border-radius:50%;flex-shrink:0;margin-top:.1rem" onerror="this.style.display='none'"/>
+        <div style="min-width:0"><p style="font-size:.81rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.commit.message.split('\n')[0]}</p><p style="font-size:.69rem;color:var(--muted)">${new Date(c.commit.author.date).toLocaleString('de-CH')}</p></div>
+      </div>`).join('');
+  }catch(e){console.warn(e);}
+}
+
+// ════════════════════════════════════════════
+// GITHUB SETUP
+// ════════════════════════════════════════════
+function saveToken(){
+  const t=document.getElementById('tk-input').value.trim();
+  if(!t||t.includes('•')){toast('Bitte Token eingeben','error');return;}
+  S.set('token',t);document.getElementById('test-btn').style.display='inline-flex';
+  updateConn();testConn();
+}
+async function testConn(){
+  const st=document.getElementById('tk-status');st.style.display='block';st.innerHTML='<span style="color:var(--muted)">Teste...</span>';
+  try{
+    const[user,repo]=await Promise.all([gh('/user'),gh(`/repos/${REPO()}`)]);
+    st.innerHTML=`<span style="color:var(--green)">✓ Verbunden als <b>${user.login}</b> · Repo: <b>${repo.full_name}</b></span>`;
+    toast('Verbindung erfolgreich!','success');updateConn();loadDash();
+  }catch(e){st.innerHTML=`<span style="color:var(--red)">✕ ${e.message}</span>`;toast('Fehler: '+e.message,'error');}
+}
+
+// ════════════════════════════════════════════
+// WYSIWYG EDITOR
+// ════════════════════════════════════════════
+function fmt(cmd){document.getElementById('wysiwyg').focus();document.execCommand(cmd,false,null);}
+function formatBlock(tag){if(!tag)return;document.getElementById('wysiwyg').focus();document.execCommand('formatBlock',false,tag);}
+function insertLink(){
+  const url=prompt('Link URL (z.B. https://www.polycore.ch):');
+  if(url){document.getElementById('wysiwyg').focus();document.execCommand('createLink',false,url);}
+}
+function insertBlockquote(){
+  document.getElementById('wysiwyg').focus();
+  document.execCommand('formatBlock',false,'blockquote');
+}
+
+let previewVisible=false;
+function togglePreview(){
+  previewVisible=!previewVisible;
+  document.getElementById('wysiwyg-preview').style.display=previewVisible?'block':'none';
+  document.getElementById('wysiwyg').style.display=previewVisible?'none':'block';
+  document.getElementById('preview-toggle').style.color=previewVisible?'var(--accent)':'';
+  if(previewVisible)updatePreview();
+}
+function updatePreview(){
+  const content=document.getElementById('wysiwyg').innerHTML;
+  document.getElementById('preview-content').innerHTML=content;
+}
+
+// Convert editor HTML to clean HTML for saving
+function getEditorHTML(){
+  let html=document.getElementById('wysiwyg').innerHTML;
+  // Clean up MS-style formatting artifacts
+  html=html.replace(/style="[^"]*"/g,'').replace(/ class=""/g,'').replace(/<span>/g,'').replace(/<\/span>/g,'');
+  return html.trim();
+}
+
+function setEditorHTML(html){
+  document.getElementById('wysiwyg').innerHTML=html||'';
+}
+
+// ════════════════════════════════════════════
+// BLOG LIST
+// ════════════════════════════════════════════
+async function loadBlogList(){
+  const list=document.getElementById('blog-list');
+  list.innerHTML='<p style="color:var(--muted);font-size:.82rem">Lade...</p>';
+  try{
+    const files=await ghDir('blog');
+    const arts=files.filter(f=>f.name.endsWith('.html')&&f.name!=='index.html');
+    if(!arts.length){list.innerHTML='<p style="color:var(--muted);font-size:.82rem">Noch keine Artikel. Klicke "Neuer Artikel" um zu starten.</p>';return;}
+    list.innerHTML=`<table class="tbl">
+      <thead><tr><th>Artikel</th><th>Grösse</th><th>Aktionen</th></tr></thead>
+      <tbody>${arts.map(f=>`<tr>
+        <td style="font-weight:500">${f.name.replace('.html','').replace(/-/g,' ')}</td>
+        <td style="color:var(--muted)">${(f.size/1024).toFixed(1)} KB</td>
+        <td><div style="display:flex;gap:.35rem">
+          <button class="btn bg bs" onclick="editBlog('${f.name}')">Bearbeiten</button>
+          <a href="https://poly-core-web.vercel.app/blog/${f.name}" target="_blank" class="btn bg bs">Ansehen</a>
+        </div></td>
+      </tr>`).join('')}</tbody></table>`;
+  }catch(e){list.innerHTML=`<p style="color:var(--red);font-size:.82rem">${e.message}</p>`;}
+}
+
+// ════════════════════════════════════════════
+// BLOG EDITOR
+// ════════════════════════════════════════════
+function openNewBlog(){
+  document.getElementById('blog-list-view').style.display='none';
+  document.getElementById('blog-editor-view').style.display='block';
+  document.getElementById('blog-ed-title').textContent='Neuer Artikel';
+  document.getElementById('b-title').value='';
+  document.getElementById('b-meta').value='';
+  document.getElementById('b-img').value='';
+  document.getElementById('b-slug').value='';
+  document.getElementById('b-sha').value='';
+  document.getElementById('b-date').value=new Date().toISOString().split('T')[0];
+  document.getElementById('b-time').value='5';
+  document.getElementById('b-cat').value='Epoxidharz';
+  setEditorHTML('');
+  // Focus editor
+  setTimeout(()=>document.getElementById('b-title').focus(),100);
+}
+
+async function editBlog(fn){
+  document.getElementById('blog-list-view').style.display='none';
+  document.getElementById('blog-editor-view').style.display='block';
+  document.getElementById('blog-ed-title').textContent='Bearbeiten: '+fn;
+  document.getElementById('b-slug').value=fn;
+  setEditorHTML('<p style="color:var(--muted)">Lade Artikel...</p>');
+  try{
+    const f=await ghGet('blog/'+fn);
+    document.getElementById('b-sha').value=f.sha;
+    const html=b64d(f.content);
+    // Extract fields
+    document.getElementById('b-title').value=(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||'').replace(/<[^>]+>/g,'').trim()||(html.match(/<title>([^|<]+)/)?.[1]||'').trim();
+    document.getElementById('b-meta').value=html.match(/<meta name="description" content="([^"]*)"/)?.[1]||'';
+    // Hero image
+    const imgM=html.match(/page-hero-bg[\s\S]{0,300}?<img src="([^"]+)"/);
+    document.getElementById('b-img').value=imgM?.[1]||'';
+    // Category
+    const catM=html.match(/class="badge"[^>]*>\s*([^<]{2,30})\s*<\/span>/);
+    const cat=catM?.[1]?.trim()||'Epoxidharz';
+    const catSel=document.getElementById('b-cat');
+    for(let o of catSel.options){if(o.value===cat){catSel.value=cat;break;}}
+    // Reading time
+    const rtM=html.match(/(\d+)\s*Min\.\s*Lesezeit/);
+    document.getElementById('b-time').value=rtM?.[1]||'5';
+    // Article body
+    const artM=html.match(/<article[^>]*>([\s\S]*?)<\/article>/);
+    if(artM){
+      // Convert HTML to editable content
+      let body=artM[1].trim();
+      // Strip class/style attributes for clean editing
+      body=body.replace(/\s+class="art"/g,'').replace(/\s+class="[^"]*"/g,'');
+      setEditorHTML(body);
+    }else{setEditorHTML('<p>Inhalt konnte nicht geladen werden.</p>');}
+  }catch(e){toast('Fehler: '+e.message,'error');closeBlogEd();}
+}
+
+function closeBlogEd(){
+  document.getElementById('blog-list-view').style.display='block';
+  document.getElementById('blog-editor-view').style.display='none';
+  // Reset preview
+  if(previewVisible)togglePreview();
+}
+
+function slug(s){return s.toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
+
+async function saveBlog(){
+  const title=document.getElementById('b-title').value.trim();
+  if(!title){toast('Bitte Titel eingeben!','error');document.getElementById('b-title').focus();return;}
+  const edContent=getEditorHTML();
+  if(!edContent||edContent==='<br>'){toast('Bitte Artikel-Inhalt schreiben!','error');return;}
+  const btn=document.getElementById('save-blog');
+  btn.disabled=true;btn.innerHTML='<div class="sp"></div> Speichern...';
+
+  const fn=document.getElementById('b-slug').value||(slug(title)+'.html');
+  const filename=fn.endsWith('.html')?fn:fn+'.html';
+  const sha=document.getElementById('b-sha').value||null;
+  const meta=document.getElementById('b-meta').value;
+  const imgUrl=document.getElementById('b-img').value;
+  const cat=document.getElementById('b-cat').value;
+  const dateVal=document.getElementById('b-date').value;
+  const rt=document.getElementById('b-time').value;
+  const dateStr=new Date(dateVal).toLocaleDateString('de-CH',{day:'numeric',month:'long',year:'numeric'});
+  const FALLBACK=encodeURIComponent(title);
+
+  const html=`<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>${title} | POLYCORE Blog</title>
+<meta name="description" content="${meta}"/>
+<link rel="canonical" href="https://www.polycore.ch/blog/${filename}"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/design-system.css"/>
+<link rel="stylesheet" href="../css/nav.css"/>
+<link rel="stylesheet" href="../css/footer.css"/>
+<link rel="stylesheet" href="../css/page.css"/>
+<style>
+.art-body h2{font-size:1.45rem;font-weight:700;letter-spacing:-.02em;margin:2.5rem 0 .85rem;line-height:1.25}
+.art-body h3{font-size:1.05rem;font-weight:600;margin:1.65rem 0 .55rem}
+.art-body p{margin-bottom:1.1rem;font-size:.97rem;line-height:1.85;color:#2d2d2d}
+.art-body ul,.art-body ol{margin:.5rem 0 1.2rem 1.5rem;display:flex;flex-direction:column;gap:.4rem}
+.art-body li{font-size:.97rem;line-height:1.7;list-style:disc;color:#2d2d2d}
+.art-body ol li{list-style:decimal}
+.art-body strong,.art-body b{font-weight:700;color:#0a0a0a}
+.art-body em,.art-body i{font-style:italic}
+.art-body a{color:#0a0a0a;border-bottom:1px solid currentColor;text-decoration:none}
+.art-body blockquote{border-left:3px solid #0a0a0a;padding:.65rem 1.15rem;margin:1rem 0;color:#555;background:#f9f9f9;border-radius:0 8px 8px 0;font-style:italic}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-c">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cc03d6611dd408b03991_PolyCoreLogoTransparent-p-500.png" alt="POLYCORE" width="30" height="30"/>
+      POLYCORE
+    </a>
+    <ul class="nav-links">
+      <li class="nav-drop">
+        <a class="nav-a nav-drop-toggle">Leistungen <svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></a>
+        <div class="simple-drop">
+          <a href="../leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a>
+          <a href="../leistungen/polyurethan-boden.html">Polyurethan (PU)</a>
+          <a href="../leistungen/pmma-boden.html">PMMA</a>
+          <a href="../leistungen/designerboden.html">Designerboden</a>
+          <a href="../leistungen/abdichtung.html">Abdichtung</a>
+          <a href="../leistungen/injektionen.html">Injektionen</a>
+          <a href="../leistungen/plattenlegen.html">Plattenlegen</a>
+        </div>
+      </li>
+      <li><a href="../projekte.html" class="nav-a">Projekte</a></li>
+      <li><a href="../ueber-uns.html" class="nav-a">Über uns</a></li>
+      <li><a href="../blog/" class="nav-a">Blog</a></li>
+      <li><a href="../kontakt.html" class="nav-a">Kontakt</a></li>
+    </ul>
+    <div class="nav-cta"><a href="../kontakt.html" class="btn btn-light">Beratung anfragen</a></div>
+    <button class="nav-burger" aria-label="Menü"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav>
+<div class="mob-menu">
+  <button class="mob-close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <ul><li class="mob-item"><a href="../leistungen/">Leistungen</a></li><li class="mob-item"><a href="../projekte.html">Projekte</a></li><li class="mob-item"><a href="../ueber-uns.html">Über uns</a></li><li class="mob-item"><a href="../blog/">Blog</a></li><li class="mob-item"><a href="../kontakt.html">Kontakt</a></li></ul>
+  <div style="margin-top:auto;padding-top:2rem"><a href="../kontakt.html" class="btn btn-light" style="width:100%;justify-content:center">Beratung anfragen</a></div>
+</div>
+<section class="page-hero" style="min-height:52vh;display:flex;align-items:flex-end">
+  ${imgUrl?`<div class="page-hero-bg"><img src="${imgUrl}" alt="${title}" loading="eager" width="1920" height="800"/></div>`:''}
+  <div class="page-hero-content container" style="padding:0 0 4rem">
+    <nav class="breadcrumb"><a href="/">Start</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span style="color:rgba(255,255,255,.7)">${cat}</span></nav>
+    <div style="display:flex;gap:.45rem;margin-bottom:1rem">
+      <span class="badge" style="background:rgba(255,255,255,.12)">${cat}</span>
+      <span class="badge" style="background:rgba(255,255,255,.12)">${rt} Min. Lesezeit</span>
+    </div>
+    <h1 style="font-size:clamp(1.65rem,4vw,2.85rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:720px;margin-bottom:1.15rem">${title}</h1>
+    <div style="display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,.65);font-size:.79rem;font-weight:500">
+      <span>POLYCORE GmbH</span><span>·</span><span>${dateStr}</span><span>·</span><span>${rt} Min. Lesezeit</span>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="max-width:780px">
+    <article class="art-body">
+${edContent}
+    </article>
+    <div style="margin-top:2.75rem;padding:1.4rem;background:#f5f5f5;border-radius:12px;display:flex;align-items:center;gap:1.15rem">
+      <div style="width:46px;height:46px;background:#0a0a0a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <div><p style="font-weight:600;font-size:.875rem;margin-bottom:.15rem;color:#0a0a0a">POLYCORE GmbH</p><p style="font-size:.78rem;color:#555;line-height:1.55">Ihr Spezialist für Bodenbeschichtungen und Bautenschutz in Bern. Über 1'600 Projekte realisiert.</p></div>
+    </div>
+    <div style="margin-top:2rem;padding:1.4rem;background:#0a0a0a;border-radius:12px;text-align:center">
+      <p style="font-size:.875rem;font-weight:600;color:#fff;margin-bottom:.35rem">Fragen zu Ihrem Projekt?</p>
+      <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:1rem">Wir beraten Sie kostenlos und unverbindlich.</p>
+      <a href="../kontakt.html" class="btn btn-light" style="display:inline-flex">Jetzt Beratung anfragen</a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><p class="footer-headline">Präzision. Schutz.<br/>Qualität. Vertrauen.</p><a href="../kontakt.html" class="footer-cta-link">Kontakt aufnehmen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></div>
+      <div class="foot-contact">
+        <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41310000000">+41 31 000 00 00</a></div>
+        <div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div>
+        <div class="foot-contact-row"><p>Standort</p><span>Bern, Schweiz</span></div>
+      </div>
+      <nav class="foot-nav">
+        <a href="../projekte.html" class="foot-link">Projekte</a><a href="../leistungen/" class="foot-link">Leistungen</a><a href="../ueber-uns.html" class="foot-link">Über uns</a><a href="../kontakt.html" class="foot-link">Kontakt</a><a href="../impressum.html" class="foot-link">Impressum</a><a href="../datenschutz.html" class="foot-link">Datenschutz</a>
+      </nav>
+      <div class="foot-req"><a href="../kontakt.html">Anfrage stellen</a></div>
+    </div>
+    <div class="footer-bottom"><p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge & Bautenschutz · Bern, Schweiz</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"><\/script>
+</body>
+</html>`;
+
+  try{
+    await ghPut('blog/'+filename,html,`Blog: "${title}"`,sha);
+    toast('Artikel veröffentlicht! Erscheint in ~60s auf der Website','success');
+    document.getElementById('b-slug').value=filename;
+    const f2=await ghGet('blog/'+filename);document.getElementById('b-sha').value=f2.sha;
+    loadBlogList();closeBlogEd();
+  }catch(e){toast('Fehler: '+e.message,'error');}
+  btn.disabled=false;btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/></svg> Speichern & Veröffentlichen';
+}
+
+// ════════════════════════════════════════════
+// SEITEN (HTML EDITOR)
+// ════════════════════════════════════════════
+const PAGES=[
+  {p:'index.html',l:'Homepage'},{p:'kontakt.html',l:'Kontakt'},{p:'ueber-uns.html',l:'Über uns'},
+  {p:'projekte.html',l:'Projekte'},{p:'impressum.html',l:'Impressum'},{p:'datenschutz.html',l:'Datenschutz'},
+  {p:'leistungen/epoxidharz-boden.html',l:'Leistung: EP-Boden'},{p:'leistungen/polyurethan-boden.html',l:'Leistung: PU-Boden'},
+  {p:'leistungen/pmma-boden.html',l:'Leistung: PMMA'},{p:'leistungen/designerboden.html',l:'Leistung: Designerboden'},
+  {p:'leistungen/abdichtung.html',l:'Leistung: Abdichtung'},{p:'leistungen/injektionen.html',l:'Leistung: Injektionen'},
+  {p:'leistungen/plattenlegen.html',l:'Leistung: Plattenlegen'},{p:'blog/index.html',l:'Blog-Übersicht'},
+];
+function loadPagesList(){
+  document.getElementById('pages-grid').innerHTML=PAGES.map(pg=>`
+    <button class="pcard" onclick="openPageEd('${pg.p}','${pg.l}')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5;margin-bottom:.4rem"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <div style="font-size:.82rem;font-weight:600">${pg.l}</div>
+      <div style="font-size:.67rem;color:var(--muted);margin-top:.15rem">${pg.p}</div>
+    </button>`).join('');
+}
+let pgPath='',pgSHA='';
+async function openPageEd(path,label){
+  if(!TK()){toast('GitHub Token fehlt','error');go('setup');return;}
+  document.getElementById('pages-list-view').style.display='none';
+  document.getElementById('page-ed-view').style.display='block';
+  document.getElementById('page-ed-name').textContent=label;
+  document.getElementById('page-ed-raw').value='Lade...';pgPath=path;
+  try{const f=await ghGet(path);pgSHA=f.sha;document.getElementById('page-ed-raw').value=b64d(f.content);}
+  catch(e){toast('Fehler: '+e.message,'error');closePageEd();}
+}
+function closePageEd(){document.getElementById('page-ed-view').style.display='none';document.getElementById('pages-list-view').style.display='block';pgPath='';pgSHA='';}
+async function savePageEd(){
+  const btn=document.getElementById('save-page-ed');
+  btn.disabled=true;btn.innerHTML='<div class="sp"></div> Speichern...';
+  try{
+    await ghPut(pgPath,document.getElementById('page-ed-raw').value,`Admin: ${pgPath} bearbeitet`,pgSHA);
+    const f=await ghGet(pgPath);pgSHA=f.sha;
+    toast('Gespeichert! Vercel deployt in ~60s','success');
+  }catch(e){toast('Fehler: '+e.message,'error');}
+  btn.disabled=false;btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/></svg> Speichern & Deployen';
+}
+
+// ════════════════════════════════════════════
+// FIRMA / KONTAKT
+// ════════════════════════════════════════════
+let firmaHTML='',firmaSHA='';
+async function loadFirmaForm(){
+  if(!TK())return;
+  try{const f=await ghGet('kontakt.html');firmaSHA=f.sha;firmaHTML=b64d(f.content);
+    const tel=firmaHTML.match(/href="tel:[^"]*">([^<]+)</)?.[1]||'';
+    const email=firmaHTML.match(/href="mailto:[^"]*">([^<]+)</)?.[1]||'';
+    if(tel)document.getElementById('f-tel').value=tel;
+    if(email)document.getElementById('f-email').value=email;
+  }catch(e){}
+}
+async function saveFirma(){
+  if(!TK()){toast('GitHub Token fehlt','error');go('setup');return;}
+  const btn=document.getElementById('save-firma');
+  btn.disabled=true;btn.innerHTML='<div class="sp"></div> Speichern...';
+  const tel=document.getElementById('f-tel').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  try{
+    if(firmaHTML){
+      const telRaw=tel.replace(/\s/g,'');
+      let u=firmaHTML;
+      u=u.replace(/href="tel:[^"]*"/g,`href="tel:${telRaw}"`);
+      u=u.replace(/(href="tel:[^"]*">)[^<]*/g,`$1${tel}`);
+      u=u.replace(/href="mailto:[^"]*"/g,`href="mailto:${email}"`);
+      u=u.replace(/(href="mailto:[^"]*">)[^<]*/g,`$1${email}`);
+      await ghPut('kontakt.html',u,'Admin: Kontaktdaten aktualisiert',firmaSHA);
+      const f2=await ghGet('kontakt.html');firmaSHA=f2.sha;firmaHTML=b64d(f2.content);
+      toast('Kontaktdaten gespeichert! Vercel deployt in ~60s','success');
+    }else{toast('kontakt.html nicht gefunden','error');}
+  }catch(e){toast('Fehler: '+e.message,'error');}
+  btn.disabled=false;btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/></svg> Speichern & Deployen';
+}
+
+// ════════════════════════════════════════════
+// BILDER
+// ════════════════════════════════════════════
+async function loadImgs(){
+  const grid=document.getElementById('img-grid');
+  grid.innerHTML='<p style="color:var(--muted);font-size:.82rem;grid-column:1/-1">Lade...</p>';
+  if(!TK()){grid.innerHTML='<p style="color:var(--red);font-size:.82rem;grid-column:1/-1">GitHub Token fehlt</p>';return;}
+  try{
+    const files=await ghDir('assets/img');
+    const imgs=files.filter(f=>/\.(jpg|jpeg|png|webp|avif|gif|svg)$/i.test(f.name));
+    document.getElementById('imgs-count').textContent=`(${imgs.length})`;
+    if(!imgs.length){grid.innerHTML='<p style="color:var(--muted);font-size:.82rem;grid-column:1/-1">Keine Bilder. Lade eines hoch.</p>';return;}
+    grid.innerHTML=imgs.map(f=>`
+      <div class="ii" title="Klicken = URL kopieren" onclick="copyImg('${f.name}','${f.download_url}')">
+        <img src="${f.download_url}" alt="${f.name}" loading="lazy" onerror="this.parentElement.style.background='var(--bg4)'"/>
+        <div class="in">${f.name}</div>
+      </div>`).join('');
+  }catch(e){grid.innerHTML=`<p style="color:var(--red);font-size:.82rem;grid-column:1/-1">${e.message}</p>`;}
+}
+function copyImg(name){
+  const url='/assets/img/'+name;
+  navigator.clipboard.writeText(url).then(()=>toast('URL kopiert: '+url+' – jetzt bei Bild-URL einfügen','success'));
+}
+async function doUpload(files){
+  if(!TK()){toast('GitHub Token fehlt','error');go('setup');return;}
+  if(!files||!files.length)return;
+  const prog=document.getElementById('uprog'),bar=document.getElementById('ubar'),txt=document.getElementById('utxt');
+  prog.style.display='block';
+  for(let i=0;i<files.length;i++){
+    const file=files[i];
+    if(file.size>5*1024*1024){toast(file.name+' zu gross (max. 5 MB)','error');continue;}
+    txt.textContent=`Hochladen: ${file.name} (${i+1}/${files.length})...`;bar.style.width=((i/files.length)*100)+'%';
+    try{
+      const b64=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});
+      const path='assets/img/'+file.name;
+      let sha=null;try{const f=await ghGet(path);sha=f.sha;}catch(e){}
+      await ghPutBin(path,b64,'Admin: Bild hochgeladen – '+file.name,sha);
+      toast('✓ '+file.name+' hochgeladen!','success');
+    }catch(e){toast('Fehler '+file.name+': '+e.message,'error');}
+  }
+  bar.style.width='100%';txt.textContent='Fertig!';
+  setTimeout(()=>{prog.style.display='none';bar.style.width='0%';document.getElementById('ffile').value='';},2500);
+  loadImgs();
+}
+
+// ════════════════════════════════════════════
+// EINSTELLUNGEN
+// ════════════════════════════════════════════
+function saveSett(){
+  const pwd=document.getElementById('s-pwd').value;
+  const tk=document.getElementById('s-tk').value.trim();
+  const repo=document.getElementById('s-repo').value.trim();
+  if(pwd)S.set('pwd',pwd);
+  if(tk){S.set('token',tk);document.getElementById('tk-input').value='••••••••••••';document.getElementById('test-btn').style.display='inline-flex';}
+  if(repo)S.set('repo',repo);
+  updateConn();toast('Einstellungen gespeichert!','success');
+  document.getElementById('s-pwd').value='';document.getElementById('s-tk').value='';
+}
+</script>
+</body>
+</html>
