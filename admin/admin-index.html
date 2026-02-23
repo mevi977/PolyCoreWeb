@@ -695,6 +695,7 @@ async function loadBlogList(){
         <td><div style="display:flex;gap:.35rem">
           <button class="btn bg bs" onclick="editBlog('${f.name}')">Bearbeiten</button>
           <a href="https://poly-core-web.vercel.app/blog/${f.name}" target="_blank" class="btn bg bs">Ansehen</a>
+          <button class="btn bd bs" onclick="deleteBlog('${f.name}','${f.sha}')">Löschen</button>
         </div></td>
       </tr>`).join('')}</tbody></table>`;
   }catch(e){list.innerHTML=`<p style="color:var(--red);font-size:.82rem">${e.message}</p>`;}
@@ -761,6 +762,21 @@ function closeBlogEd(){
   document.getElementById('blog-editor-view').style.display='none';
   // Reset preview
   if(previewVisible)togglePreview();
+}
+
+async function deleteBlog(filename, sha) {
+  if (!confirm(`Artikel "${filename}" wirklich löschen? Das kann nicht rückgängig gemacht werden.`)) return;
+  try {
+    await gh(`/repos/${REPO()}/contents/blog/${filename}`, 'DELETE', {
+      message: `Blog: "${filename}" gelöscht`,
+      sha: sha,
+      branch: BR
+    });
+    toast('Artikel gelöscht!', 'success');
+    loadBlogList();
+  } catch(e) {
+    toast('Fehler: ' + e.message, 'error');
+  }
 }
 
 function slug(s){return s.toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
