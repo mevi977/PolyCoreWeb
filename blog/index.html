@@ -202,7 +202,7 @@
     const dm = dateStr.match(/(\d+)\.\s*(\w+)\s*(\d{4})/);
     if (dm) ts = new Date(+dm[3], MONTHS[dm[2]]||0, +dm[1]).getTime();
 
-    return { title, desc, cat, rt, dateStr, img, filename, ts };
+    return { title, desc, cat, rt, dateStr, img, filename: 'blog/' + filename ,ts };
   }
 
   try {
