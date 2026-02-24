@@ -5,7 +5,7 @@
 
 /* Logo */
 .nav-logo{display:flex;align-items:center;gap:.65rem;color:#fff;font-weight:700;font-size:1.05rem;letter-spacing:-.02em}
-.nav-logo img{height:52px;width:auto;object-fit:contain}
+.nav-logo img{height:auto;width:130px;object-fit:contain}
 
 /* Links */
 .nav-links{display:flex;align-items:center;gap:.25rem}
