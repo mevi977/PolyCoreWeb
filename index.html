@@ -127,7 +127,7 @@
 <nav class="nav">
   <div class="nav-c">
     <a href="/" class="nav-logo">
-      <img src="assets/img/PolyCoreLogo.png" alt="POLYCORE" width="auto" height="auto"/>
+      <img src="assets/img/PolyCoreLogo.png" alt="POLYCORE" width="auto" height="52"/>
     </a>
     <ul class="nav-links">
       <li class="nav-drop">
@@ -174,15 +174,41 @@
   </div>
 </nav>
 <div class="mob-menu">
-  <button class="mob-close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <ul>
-    <li class="mob-item"><a href="leistungen/">Leistungen</a></li>
-    <li class="mob-item"><a href="projekte.html">Projekte</a></li>
-    <li class="mob-item"><a href="ueber-uns.html">Über uns</a></li>
-    <li class="mob-item"><a href="blog/">Blog</a></li>
-    <li class="mob-item"><a href="kontakt.html">Kontakt</a></li>
-  </ul>
-  <div style="margin-top:auto;padding-top:2rem"><a href="kontakt.html" class="btn btn-light" style="width:100%;justify-content:center">Beratung anfragen</a></div>
+  <div class="mob-header">
+    <a href="/" class="mob-logo"><img src="assets/img/PolyCoreLogo.png" alt="POLYCORE"/></a>
+    <button class="mob-close" aria-label="Schliessen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <nav class="mob-nav">
+    <ul style="list-style:none;padding:0;margin:0">
+
+      <li class="mob-item">
+        <button onclick="this.parentElement.classList.toggle('open')">
+          Leistungen
+          <svg class="mob-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mob-sub">
+          <span class="sub-label">Bodenlösungen</span>
+          <a href="leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a>
+          <a href="leistungen/polyurethan-boden.html">Polyurethan (PU)</a>
+          <a href="leistungen/pmma-boden.html">PMMA</a>
+          <a href="leistungen/designerboden.html">Designerboden</a>
+          <span class="sub-label">Bautenschutz</span>
+          <a href="leistungen/abdichtung.html">Abdichtungen</a>
+          <a href="leistungen/injektionen.html">Injektionen</a>
+          <a href="leistungen/combiflex.html">Combiflex</a>
+          <a href="leistungen/plattenlegen.html">Plattenverlegung & Reinigung</a>
+        </div>
+      </li>
+
+      <li class="mob-item"><a href="projekte.html">Projekte</a></li>
+      <li class="mob-item"><a href="ueber-uns.html">Über uns</a></li>
+      <li class="mob-item"><a href="blog/">Blog</a></li>
+      <li class="mob-item"><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+  <div class="mob-footer">
+    <a href="kontakt.html" class="btn btn-light">Beratung anfragen</a>
+  </div>
 </div>
 <!-- HERO -->
 <header class="hero">
