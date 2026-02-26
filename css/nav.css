@@ -2,16 +2,15 @@
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .4s ease,border-color .4s ease;border-bottom:1px solid transparent}
 
 .nav.scrolled {
-  background: linear-gradient(135deg, #2c1810 0%, #4a1c2f 50%, #2c1810 100%);
-  background-size: 200% 200%;
-  animation: navShimmer 4s ease infinite;
+  background: #2c1810;
+  animation: navBreathe 5s ease-in-out infinite;
 }
 
-@keyframes navShimmer {
-  0%   { background-position: 0% 0% }
-  50%  { background-position: 100% 100% }
-  100% { background-position: 0% 0% }
+@keyframes navBreathe {
+  0%, 100% { background-color: #2c1810 }
+  50%       { background-color: #4a1c2f }
 }
+
 
 .nav-c{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 2.5rem;height:72px}
 
