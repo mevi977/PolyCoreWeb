@@ -401,6 +401,8 @@ form.addEventListener('submit', function(e) {
 
   emailjs.send('service_4fbh6v8', 'template_smkptuk', templateParams)
     .then(function() {
+      // Autoreply klijentu
+      emailjs.send('service_4fbh6v8', 'template_44icjx1', templateParams);
       form.style.display = 'none';
       success.style.display = 'block';
       success.scrollIntoView({ behavior: 'smooth', block: 'center' });
