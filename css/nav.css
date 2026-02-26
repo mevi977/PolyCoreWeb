@@ -1,19 +1,16 @@
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .4s ease,border-color .4s ease;border-bottom:1px solid transparent}
 
-.nav.scrolled{
-  border-color:rgba(255,255,255,.1);
-  background: linear-gradient(270deg, #4a1c2f, #4a1c2a, #251018, #4a1c2f, #4a1c2a);
-  background-size: 400% 100%;
-  animation: navShift 8s ease infinite;
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
+.nav.scrolled {
+  background: linear-gradient(135deg, #2c1810 0%, #4a1c2f 50%, #2c1810 100%);
+  background-size: 200% 200%;
+  animation: navShimmer 4s ease infinite;
 }
 
-@keyframes navShift {
-  0%   { background-position: 0% 50% }
-  50%  { background-position: 100% 50% }
-  100% { background-position: 0% 50% }
+@keyframes navShimmer {
+  0%   { background-position: 0% 0% }
+  50%  { background-position: 100% 100% }
+  100% { background-position: 0% 0% }
 }
 
 .nav-c{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 2.5rem;height:72px}
