@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kontakt speichern – POLYCORE GmbH</title>
+<meta name="robots" content="noindex,nofollow"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f4f5;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1rem}
+  .card{background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.08);max-width:400px;width:100%;overflow:hidden;text-align:center}
+  .header{background:#2c1810;padding:24px}
+  .header img{height:36px}
+  .body{padding:32px 28px}
+  .icon{width:56px;height:56px;background:#f8f6f5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .icon svg{width:24px;height:24px;stroke:#4a1c2f}
+  h1{font-size:18px;color:#1a1a1a;margin-bottom:8px}
+  .sub{font-size:14px;color:#888;margin-bottom:24px;line-height:1.5}
+  .name{font-size:20px;font-weight:700;color:#2c1810;margin-bottom:4px}
+  .detail{font-size:13px;color:#666;margin-bottom:2px}
+  .divider{border:none;border-top:1px solid #ebebeb;margin:20px 0}
+  .btn{display:block;background:#2c1810;color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:13px 20px;border-radius:8px;margin-bottom:10px;cursor:pointer;border:none;width:100%}
+  .btn-outline{background:#fff;color:#2c1810;border:2px solid #2c1810}
+  .status{font-size:12px;color:#aaa;margin-top:16px}
+  .footer{background:#f0eeee;padding:14px;font-size:11px;color:#aaa}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <img src="/assets/img/PolyCoreLogo.png" alt="POLYCORE"/>
+  </div>
+  <div class="body">
+    <div class="icon">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    <h1>Kontakt speichern</h1>
+    <p class="sub" id="sub">Einen Moment...</p>
+
+    <div id="info" style="display:none">
+      <p class="name" id="dname"></p>
+      <p class="detail" id="demail"></p>
+      <p class="detail" id="dphone"></p>
+      <hr class="divider"/>
+      <button class="btn" id="dlbtn" onclick="downloadVCard()">⬇ Kontakt herunterladen (.vcf)</button>
+      <a class="btn btn-outline" id="telbtn" href="#" style="display:none">📞 Anrufen</a>
+      <a class="btn btn-outline" id="mailbtn" href="#" style="display:none">✉ E-Mail schreiben</a>
+    </div>
+
+    <div id="error" style="display:none">
+      <p class="sub">Ungültiger Link. Bitte kontaktieren Sie uns direkt.</p>
+      <a class="btn" href="/kontakt.html">Zur Kontaktseite</a>
+    </div>
+
+    <p class="status" id="status"></p>
+  </div>
+  <div class="footer">POLYCORE GmbH · Etzmattrain 36 · 3322 Urtenen-Schönbühl</div>
+</div>
+
+<script>
+const p = new URLSearchParams(window.location.search);
+const name  = p.get('name')  || '';
+const email = p.get('email') || '';
+const phone = p.get('phone') || '';
+
+if (!name && !email) {
+  document.getElementById('sub').style.display = 'none';
+  document.getElementById('error').style.display = 'block';
+} else {
+  document.getElementById('sub').textContent = 'Kontaktdaten von der Anfrage:';
+  document.getElementById('dname').textContent = name;
+  if (email) {
+    document.getElementById('demail').textContent = '✉ ' + email;
+    document.getElementById('mailbtn').href = 'mailto:' + email;
+    document.getElementById('mailbtn').style.display = 'block';
+  }
+  if (phone && phone !== '–') {
+    document.getElementById('dphone').textContent = '📞 ' + phone;
+    document.getElementById('telbtn').href = 'tel:' + phone.replace(/\s/g,'');
+    document.getElementById('telbtn').style.display = 'block';
+  }
+  document.getElementById('info').style.display = 'block';
+
+  // Auto-trigger download nakon 800ms
+  setTimeout(downloadVCard, 800);
+}
+
+function downloadVCard() {
+  const lines = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'FN:' + name,
+    'N:' + (name.includes(' ') ? name.split(' ').slice(1).join(' ') + ';' + name.split(' ')[0] : name + ';'),
+  ];
+  if (email) lines.push('EMAIL;TYPE=INTERNET:' + email);
+  if (phone && phone !== '–') lines.push('TEL;TYPE=CELL:' + phone);
+  lines.push('NOTE:Anfrage via polycore.ch');
+  lines.push('END:VCARD');
+
+  const blob = new Blob([lines.join('\r\n')], { type: 'text/vcard;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = (name || 'kontakt') + '.vcf';
+  a.click();
+  URL.revokeObjectURL(url);
+  document.getElementById('status').textContent = '✓ Download gestartet';
+}
+</script>
+</body>
+</html>
