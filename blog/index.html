@@ -228,141 +228,98 @@
 
 <script src="../js/main.js"></script>
 <script>
-// ═══════════════════════════════════════════════════════════
-// AUTOMATISCHES BLOG-LADEN – liest GitHub Repo, zeigt Artikel
-// Kein Token nötig (öffentliches Repo)
-// ═══════════════════════════════════════════════════════════
-(async function() {
-  const REPO = 'mevi977/PolyCoreWeb';
+// Statičan blog list – dodaj novi post ovdje kada objaviš novi članak
+(function() {
   const FALLBACK_IMG = 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif';
 
-  function parse(html, filename) {
-    const g = (rx, fb='') => (html.match(rx)||[])[1]?.trim() || fb;
-    const title   = g(/<title>([^<|]+)/,'').replace('| POLYCORE Blog','').trim()
-                 || g(/<h1[^>]*>([\s\S]*?)<\/h1>/).replace(/<[^>]+>/g,'');
-    const desc    = g(/<meta name="description" content="([^"]*)"/);
-    const cat     = g(/class="badge"[^>]*>\s*([^<]{2,30})\s*<\/span>/,'Wissen');
-    const rt      = g(/(\d+)\s*Min\.\s*Lesezeit/,'5');
-    const dateStr = g(/(\d{1,2}\.\s*(?:Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s*\d{4})/);
-    // Hero image: first img inside page-hero-bg
-    const imgM = html.match(/page-hero-bg[\s\S]{0,200}?<img src="([^"]+)"/);
-    const img = imgM?.[1] || FALLBACK_IMG;
-
-    // Parse date for sorting
-    const MONTHS = {Januar:0,Februar:1,März:2,April:3,Mai:4,Juni:5,Juli:6,August:7,September:8,Oktober:9,November:10,Dezember:11};
-    let ts = 0;
-    const dm = dateStr.match(/(\d+)\.\s*(\w+)\s*(\d{4})/);
-    if (dm) ts = new Date(+dm[3], MONTHS[dm[2]]||0, +dm[1]).getTime();
-
-    return { title, desc, cat, rt, dateStr, img, filename, ts };
-  }
-
-  try {
-    // List blog directory via GitHub API (no auth needed for public repo)
-    const listRes = await fetch(`https://api.github.com/repos/${REPO}/contents/blog?ref=main`);
-    if (!listRes.ok) throw new Error('list failed');
-    const files = await listRes.json();
-    const htmlFiles = files.filter(f => f.name.endsWith('.html') && f.name !== 'index.html');
-
-    if (!htmlFiles.length) {
-      document.getElementById('blog-loading').style.display = 'none';
-      document.getElementById('blog-articles').style.display = 'block';
-      document.getElementById('blog-articles').innerHTML = `
-        <div style="text-align:center;padding:4rem 2rem;color:var(--dk-muted)">
-          <p style="font-size:1.1rem;font-weight:600;margin-bottom:.5rem">Noch keine Artikel vorhanden</p>
-          <p style="font-size:.875rem">Erstelle deinen ersten Artikel im <a href="../admin/" style="color:#0a0a0a;font-weight:600">Admin Panel</a>.</p>
-        </div>`;
-      return;
+  const ARTICLES = [
+    {
+      filename: 'epoxidharz-boden-vorteile.html',
+      title: 'Epoxidharz-Boden: 7 Vorteile für Industriebetriebe',
+      desc: 'Warum EP-Böden in Industrie, Gewerbe und Lager unschlagbar sind – aus der Praxis von POLYCORE GmbH Bern.',
+      cat: 'Epoxidharz',
+      dateStr: '12. Februar 2026',
+      rt: '6',
+      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif'
+    },
+    {
+      filename: 'pmma-vs-epoxidharz.html',
+      title: 'PMMA vs. Epoxidharz: Welches System passt zu Ihrem Projekt?',
+      desc: 'UV-Stabilität, Aushärtezeit, Kosten und Einsatzbereiche im direkten Vergleich.',
+      cat: 'Vergleich',
+      dateStr: '28. Januar 2026',
+      rt: '7',
+      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif'
+    },
+    {
+      filename: 'feuchter-keller-loesungen.html',
+      title: 'Feuchter Keller: 5 Lösungsansätze und wann welcher passt',
+      desc: 'Die richtige Massnahme beginnt mit der richtigen Diagnose – von Injektion bis Drainage.',
+      cat: 'Bautenschutz',
+      dateStr: '14. Januar 2026',
+      rt: '8',
+      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif'
+    },
+    {
+      filename: 'pflege-und-reinigung-von-pu-boeden-polyurethan.html',
+      title: 'Pflege und Reinigung von PU-Böden',
+      desc: 'Wie Sie Ihren Polyurethan-Boden richtig reinigen und pflegen – Tipps vom Profi.',
+      cat: 'Pflege',
+      dateStr: '5. Januar 2026',
+      rt: '5',
+      img: FALLBACK_IMG
+    },
+    {
+      filename: 'rutschfeste-pmma-beschichtungen-sicherheit-und-effizienz-vereint.html',
+      title: 'Rutschfeste PMMA-Beschichtungen: Sicherheit und Effizienz vereint',
+      desc: 'Warum rutschhemmende PMMA-Systeme in Gewerbe und Industrie unverzichtbar sind.',
+      cat: 'PMMA',
+      dateStr: '20. Dezember 2025',
+      rt: '5',
+      img: FALLBACK_IMG
     }
+  ];
 
-    // Fetch each file content (raw URL, no auth)
-    const articles = await Promise.all(htmlFiles.map(async f => {
-      try {
-        const r = await fetch(f.download_url);
-        const html = await r.text();
-        return parse(html, f.name);
-      } catch(e) {
-        return { title: f.name.replace(/-/g,' ').replace('.html',''), desc: '', cat: 'Wissen', rt: '5', dateStr: '', img: FALLBACK_IMG, filename: f.name, ts: 0 };
-      }
-    }));
+  const featured = ARTICLES[0];
+  const rest = ARTICLES.slice(1);
 
-    // Newest first
-    articles.sort((a,b) => (b.ts||0) - (a.ts||0));
-
-    const [featured, ...rest] = articles;
-
-    let html = '';
-
-    // Featured (largest) card
-    html += `
-    <a href="${featured.filename}" class="blog-featured">
-      <div class="bf-img">
-        <img src="${featured.img}" alt="${featured.title}" loading="lazy" width="800" height="600" onerror="this.src='${FALLBACK_IMG}'"/>
-      </div>
-      <div class="bf-body">
+  let html = `
+    <a href="${featured.filename}" style="display:grid;grid-template-columns:1.2fr 1fr;border:1px solid var(--dk-border);border-radius:20px;overflow:hidden;background:#fff;margin-bottom:4rem;text-decoration:none;color:inherit">
+      <div style="overflow:hidden;background:#f0f0f0"><img src="${featured.img}" alt="${featured.title}" style="width:100%;height:100%;object-fit:cover" loading="lazy"/></div>
+      <div style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center">
         <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:.75rem;display:block">Neuester Beitrag · ${featured.cat}</span>
         <h2 style="font-size:1.65rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:.9rem">${featured.title}</h2>
-        ${featured.desc ? `<p style="font-size:.9rem;color:var(--dk-muted);line-height:1.7;margin-bottom:1.5rem">${featured.desc.substring(0,160)}</p>` : ''}
+        <p style="font-size:.9rem;color:var(--dk-muted);line-height:1.7;margin-bottom:1.5rem">${featured.desc}</p>
         <div style="display:flex;align-items:center;gap:1.25rem">
           <span class="arrow-link" style="font-weight:600;font-size:.875rem">
             Artikel lesen
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
           </span>
-          ${featured.dateStr ? `<span style="font-size:.76rem;color:var(--dk-muted)">${featured.dateStr} · ${featured.rt} Min.</span>` : ''}
+          <span style="font-size:.76rem;color:var(--dk-muted)">${featured.dateStr} · ${featured.rt} Min.</span>
         </div>
       </div>
-    </a>`;
+    </a>
+    <h2 style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:1.75rem">Alle Beiträge</h2>
+    <div class="blog-grid">`;
 
-    // Grid for remaining articles
-    if (rest.length > 0) {
-      html += `<h2 style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:1.75rem">Alle Beiträge</h2>
-      <div class="blog-grid">`;
-      rest.forEach(a => {
-        html += `
-        <a href="${a.filename}" class="blog-card">
-          <div class="bc-img">
-            <img src="${a.img}" alt="${a.title}" loading="lazy" width="600" height="338" onerror="this.src='${FALLBACK_IMG}'"/>
-          </div>
-          <div class="bc-body">
-            <div class="bc-cat">${a.cat}</div>
-            <h3 class="bc-title">${a.title}</h3>
-            ${a.desc ? `<p class="bc-desc">${a.desc.substring(0,130)}${a.desc.length>130?'…':''}</p>` : ''}
-            <div class="bc-foot">
-              <span>${a.dateStr || '–'}</span>
-              <span>${a.rt} Min. Lesezeit</span>
-            </div>
-          </div>
-        </a>`;
-      });
-      html += `</div>`;
-    }
-
-    document.getElementById('blog-loading').style.display = 'none';
-    document.getElementById('blog-articles').innerHTML = html;
-    document.getElementById('blog-articles').style.display = 'block';
-
-  } catch(err) {
-    console.warn('Blog load error:', err);
-    // Graceful fallback – show static articles that already existed
-    document.getElementById('blog-loading').style.display = 'none';
-    document.getElementById('blog-articles').style.display = 'block';
-    document.getElementById('blog-articles').innerHTML = `
-      <div style="display:grid;grid-template-columns:1.2fr 1fr;border:1px solid var(--dk-border);border-radius:20px;overflow:hidden;background:#fff;margin-bottom:4rem;text-decoration:none;color:inherit">
-        <div style="overflow:hidden;background:#f0f0f0"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif" alt="" style="width:100%;height:100%;object-fit:cover" loading="lazy"/></div>
-        <div style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center">
-          <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:.75rem;display:block">Epoxidharz</span>
-          <h2 style="font-size:1.65rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:.9rem">Epoxidharz-Boden: 7 Vorteile für Industriebetriebe</h2>
-          <a href="epoxidharz-boden-vorteile.html" class="arrow-link" style="font-weight:600;font-size:.875rem;text-decoration:none;color:inherit;margin-top:.5rem;display:inline-flex;align-items:center;gap:.4rem">
-            Artikel lesen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
-          </a>
+  rest.forEach(a => {
+    html += `
+      <a href="${a.filename}" class="blog-card">
+        <div class="bc-img"><img src="${a.img}" alt="${a.title}" loading="lazy" width="600" height="338"/></div>
+        <div class="bc-body">
+          <div class="bc-cat">${a.cat}</div>
+          <h3 class="bc-title">${a.title}</h3>
+          <p class="bc-desc">${a.desc.substring(0,130)}${a.desc.length>130?'…':''}</p>
+          <div class="bc-foot"><span>${a.dateStr}</span><span>${a.rt} Min. Lesezeit</span></div>
         </div>
-      </div>
-      <div class="blog-grid">
-        <a href="epoxidharz-boden-vorteile.html" class="blog-card"><div class="bc-img"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif" alt="" loading="lazy" width="600" height="338"/></div><div class="bc-body"><div class="bc-cat">Epoxidharz</div><h3 class="bc-title">Epoxidharz-Boden: 7 Vorteile</h3><p class="bc-desc">Belastbarkeit, Hygiene und Chemikalienresistenz erklärt.</p><div class="bc-foot"><span>12. Feb 2026</span><span>6 Min.</span></div></div></a>
-        <a href="pmma-vs-epoxidharz.html" class="blog-card"><div class="bc-img"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif" alt="" loading="lazy" width="600" height="338"/></div><div class="bc-body"><div class="bc-cat">Vergleich</div><h3 class="bc-title">PMMA vs. Epoxidharz</h3><p class="bc-desc">UV-Stabilität, Aushärtezeit und Kosten im Vergleich.</p><div class="bc-foot"><span>28. Jan 2026</span><span>7 Min.</span></div></div></a>
-        <a href="feuchter-keller-loesungen.html" class="blog-card"><div class="bc-img"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif" alt="" loading="lazy" width="600" height="338"/></div><div class="bc-body"><div class="bc-cat">Bautenschutz</div><h3 class="bc-title">Feuchter Keller: 5 Lösungsansätze</h3><p class="bc-desc">Die richtige Massnahme beginnt mit der richtigen Diagnose.</p><div class="bc-foot"><span>14. Jan 2026</span><span>8 Min.</span></div></div></a>
-      </div>`;
-  }
+      </a>`;
+  });
+
+  html += `</div>`;
+
+  document.getElementById('blog-loading').style.display = 'none';
+  document.getElementById('blog-articles').innerHTML = html;
+  document.getElementById('blog-articles').style.display = 'block';
 })();
 </script>
 </body>
