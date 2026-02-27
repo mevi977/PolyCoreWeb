@@ -86,15 +86,19 @@ if (!name && !email) {
 }
 
 function downloadVCard() {
+  const org = p.get('org') || '';
   const lines = [
     'BEGIN:VCARD',
     'VERSION:3.0',
     'FN:' + name,
     'N:' + (name.includes(' ') ? name.split(' ').slice(1).join(' ') + ';' + name.split(' ')[0] : name + ';'),
   ];
+  if (org) lines.push('ORG:' + org);
   if (email) lines.push('EMAIL;TYPE=INTERNET:' + email);
   if (phone && phone !== '–') lines.push('TEL;TYPE=CELL:' + phone);
-  lines.push('NOTE:Anfrage via polycore.ch');
+  lines.push('URL:https://www.polycore.ch');
+  lines.push('ADR;TYPE=WORK:;;Etzmattrain 36;Urtenen-Schönbühl;;3322;CH');
+  lines.push('NOTE:Bodenbeläge & Bautenschutz – polycore.ch');
   lines.push('END:VCARD');
 
   const blob = new Blob([lines.join('\r\n')], { type: 'text/vcard;charset=utf-8' });
