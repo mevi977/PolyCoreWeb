@@ -65,6 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }), {threshold:.5});
   document.querySelectorAll('[data-counter]').forEach(el => cObs.observe(el));
 
+  /* Mega dropdown – touch fix za tablet */
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    document.querySelectorAll('.nav-drop').forEach(drop => {
+      const toggle = drop.querySelector('.nav-drop-toggle');
+      if (!toggle) return;
+      toggle.addEventListener('click', e => {
+        const isOpen = drop.classList.contains('touch-open');
+        document.querySelectorAll('.nav-drop.touch-open').forEach(d => d.classList.remove('touch-open'));
+        if (!isOpen) {
+          e.preventDefault();
+          drop.classList.add('touch-open');
+        }
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.nav-drop')) {
+        document.querySelectorAll('.nav-drop.touch-open').forEach(d => d.classList.remove('touch-open'));
+      }
+    });
+  }
+
   /* Smooth scroll */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
