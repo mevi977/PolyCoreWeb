@@ -399,6 +399,7 @@ form.addEventListener('submit', function(e) {
 
   const templateParams = {
     name: (form.vorname.value + ' ' + form.nachname.value).trim(),
+    firma: form.firma.value || '–',
     email: form.email.value,
     phone: form.telefon.value || '–',
     service: form.leistung.value || '–',
