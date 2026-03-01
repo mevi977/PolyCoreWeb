@@ -55,8 +55,8 @@
 }
 
 /* Logo */
-.nav-logo{display:flex;align-items:center;flex-shrink:0}
-.nav-logo img{height:62px;width:auto;display:block}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;padding:8px 0}
+.nav-logo img{height:54px;width:auto;display:block}
 
 /* Links – sredina */
 .nav-links{
