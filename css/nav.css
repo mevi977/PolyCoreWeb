@@ -7,7 +7,7 @@
   width:calc(100% - 4rem);
   max-width:1200px;
   z-index:1000;
-  background:rgba(28,12,6,.85);
+  background:rgba(10,10,12,.82);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
   border:1px solid rgba(255,255,255,.1);
@@ -15,7 +15,7 @@
   transition:background .3s ease, box-shadow .3s ease;
 }
 .nav.scrolled{
-  background:rgba(28,12,6,.97);
+  background:rgba(10,10,12,.97);
   box-shadow:0 8px 40px rgba(0,0,0,.5);
 }
 
@@ -64,6 +64,22 @@
 .nav-cta{flex-shrink:0}
 
 /* Burger */
+
+/* Phone CTA */
+.nav-phone{
+  display:flex;align-items:center;gap:.55rem;
+  color:rgba(255,255,255,.75);
+  font-size:.82rem;font-weight:500;
+  padding:.4rem .7rem;border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+  transition:color .15s,border-color .15s,background .15s;
+  white-space:nowrap;text-decoration:none;
+  flex-shrink:0;
+}
+.nav-phone:hover{color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.06)}
+.nav-phone svg{flex-shrink:0;opacity:.7}
+.nav-phone:hover svg{opacity:1}
+
 .nav-burger{display:none;color:#fff;padding:.4rem;background:none;border:none;cursor:pointer}
 
 /* ── MEGA DROPDOWN – full width ispod nava ── */
@@ -74,7 +90,7 @@
   transform:translateX(-50%) translateY(-8px);
   width:calc(100% - 4rem);
   max-width:1200px;
-  background:#180d06;
+  background:#0d0d10;
   border:1px solid rgba(255,255,255,.1);
   border-radius:12px;
   box-shadow:0 24px 64px rgba(0,0,0,.7);
@@ -117,7 +133,7 @@
   border-right:1px solid rgba(255,255,255,.07);
   display:flex;
   flex-direction:column;
-  background:rgba(255,255,255,.02);
+  background:rgba(255,255,255,.025);
 }
 .mega-intro-tag{
   font-size:.68rem;font-weight:700;letter-spacing:.12em;
@@ -180,7 +196,7 @@
 /* ── MOBILE MENU ── */
 .mob-menu{
   display:none;position:fixed;inset:0;
-  background:linear-gradient(160deg,#2c1810,#4a1c2f);
+  background:linear-gradient(160deg,#111114,#1a1a20);
   z-index:1100;flex-direction:column;
   padding:0 0 2rem;overflow-y:auto;
 }
@@ -222,7 +238,23 @@
 
 @media(max-width:1024px){
   .nav-links,.nav-cta{display:none}
-  .nav-burger{display:block}
+  
+/* Phone CTA */
+.nav-phone{
+  display:flex;align-items:center;gap:.55rem;
+  color:rgba(255,255,255,.75);
+  font-size:.82rem;font-weight:500;
+  padding:.4rem .7rem;border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+  transition:color .15s,border-color .15s,background .15s;
+  white-space:nowrap;text-decoration:none;
+  flex-shrink:0;
+}
+.nav-phone:hover{color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.06)}
+.nav-phone svg{flex-shrink:0;opacity:.7}
+.nav-phone:hover svg{opacity:1}
+
+.nav-burger{display:block}
 }
 @media(max-width:640px){
   .nav{top:.75rem;width:calc(100% - 2rem)}
