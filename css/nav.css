@@ -10,7 +10,8 @@
   background:rgba(10,10,12,.88);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.55);
+  outline:3px solid rgba(255,255,255,.08);
   border-radius:12px;
   transition:box-shadow .3s ease;
 }
@@ -118,7 +119,8 @@
   width:calc(100% - 4rem);
   max-width:1200px;
   background:#0d0d10;
-  border:1px solid rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.55);
+  outline:3px solid rgba(255,255,255,.08);
   border-radius:12px;
   box-shadow:0 24px 64px rgba(0,0,0,.7);
   opacity:0;
