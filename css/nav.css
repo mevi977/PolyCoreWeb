@@ -7,7 +7,7 @@
   width:calc(100% - 4rem);
   max-width:1200px;
   z-index:1000;
-  background:rgba(10,10,12,.88);
+  background:rgba(174, 174, 179, 0.88);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
   border:1px solid rgba(255,255,255,.55);
