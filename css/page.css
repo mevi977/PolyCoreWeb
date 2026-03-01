@@ -6,7 +6,8 @@
 .page-hero {
   position: relative;
   padding: 0 0 5rem;
-  margin-top: 0;
+  margin-top: calc(-1.25rem - 76px - 20px);
+  padding-top: calc(1.25rem + 76px + 20px);
   background: var(--bg);
   color: var(--fg);
   overflow: hidden;
@@ -19,7 +20,7 @@
   object-fit: cover;
   opacity: 0.25;
 }
-.page-hero-content { position: relative; z-index: 2; padding-top: calc(1.25rem + 76px + 1.5rem); }
+.page-hero-content { position: relative; z-index: 2; padding-top: 2rem; }
 .page-hero .breadcrumb {
   display: flex; align-items: center; gap: .5rem;
   font-size: .72rem; font-weight: 600;
