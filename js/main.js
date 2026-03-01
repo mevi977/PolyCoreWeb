@@ -65,52 +65,47 @@ document.addEventListener('DOMContentLoaded', () => {
   }), {threshold:.5});
   document.querySelectorAll('[data-counter]').forEach(el => cObs.observe(el));
 
-  /* Mega dropdown – hover delay + touch fix */
-  let megaLeaveTimer = null;
+  /* Mega dropdown – JS kontroliran hover s delay-om */
+  const isTouch = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
   document.querySelectorAll('.nav-drop').forEach(drop => {
     const mega = drop.querySelector('.mega');
     if (!mega) return;
+    let closeTimer = null;
 
-    // Desktop: delay na napuštanje
-    drop.addEventListener('mouseenter', () => {
-      clearTimeout(megaLeaveTimer);
-    });
-    drop.addEventListener('mouseleave', () => {
-      megaLeaveTimer = setTimeout(() => {
-        drop.classList.remove('hover-open');
-      }, 250);
-    });
-    if (mega) {
-      mega.addEventListener('mouseenter', () => clearTimeout(megaLeaveTimer));
-      mega.addEventListener('mouseleave', () => {
-        megaLeaveTimer = setTimeout(() => {
-          drop.classList.remove('hover-open');
-        }, 250);
-      });
+    function openDrop() {
+      clearTimeout(closeTimer);
+      drop.classList.add('is-open');
+    }
+    function closeDrop() {
+      closeTimer = setTimeout(() => drop.classList.remove('is-open'), 320);
+    }
+
+    if (!isTouch) {
+      // Desktop: hover na linku I na panelu
+      drop.addEventListener('mouseenter', openDrop);
+      drop.addEventListener('mouseleave', closeDrop);
+      mega.addEventListener('mouseenter', openDrop);
+      mega.addEventListener('mouseleave', closeDrop);
+    } else {
+      // Touch: klik otvara/zatvara
+      const toggle = drop.querySelector('.nav-drop-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', e => {
+          const isOpen = drop.classList.contains('is-open');
+          document.querySelectorAll('.nav-drop.is-open').forEach(d => d.classList.remove('is-open'));
+          if (!isOpen) { e.preventDefault(); drop.classList.add('is-open'); }
+        });
+      }
     }
   });
 
-  // Touch fix
-  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-    document.querySelectorAll('.nav-drop').forEach(drop => {
-      const toggle = drop.querySelector('.nav-drop-toggle');
-      if (!toggle) return;
-      toggle.addEventListener('click', e => {
-        const isOpen = drop.classList.contains('touch-open');
-        document.querySelectorAll('.nav-drop.touch-open').forEach(d => d.classList.remove('touch-open'));
-        if (!isOpen) {
-          e.preventDefault();
-          drop.classList.add('touch-open');
-        }
-      });
-    });
-    document.addEventListener('click', e => {
-      if (!e.target.closest('.nav-drop')) {
-        document.querySelectorAll('.nav-drop.touch-open').forEach(d => d.classList.remove('touch-open'));
-      }
-    });
-  }
+  // Klik izvan zatvara
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav-drop')) {
+      document.querySelectorAll('.nav-drop.is-open').forEach(d => d.classList.remove('is-open'));
+    }
+  });
 
   /* Smooth scroll */
   document.querySelectorAll('a[href^="#"]').forEach(a => {

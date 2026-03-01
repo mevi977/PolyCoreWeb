@@ -84,8 +84,7 @@
 .nav-drop{position:static}
 .nav-drop-toggle{display:flex;align-items:center;gap:.3rem}
 .nav-caret{width:11px;height:11px;transition:transform .2s;opacity:.6}
-.nav-drop:hover .nav-caret,
-.nav-drop.touch-open .nav-caret{transform:rotate(180deg)}
+.nav-drop.is-open .nav-caret{transform:rotate(180deg)}
 
 /* CTA – desno */
 .nav-cta{flex-shrink:0}
@@ -130,8 +129,7 @@
   z-index:1001;
   overflow:hidden;
 }
-.nav-drop:hover .mega,
-.nav-drop.touch-open .mega{
+.nav-drop.is-open .mega{
   opacity:1;
   visibility:visible;
   pointer-events:all;
@@ -139,15 +137,7 @@
   transition:opacity .15s ease 0s, transform .15s ease 0s, visibility 0s linear 0s;
 }
 
-/* Bridge – sprječava da se dropdown zatvori između nava i panela */
-.nav-drop::before{
-  content:'';
-  position:fixed;
-  top:calc(1.25rem + 76px);
-  left:0;right:0;
-  height:12px;
-  background:transparent;
-}
+
 
 /* Mega layout */
 .mega-inner{
