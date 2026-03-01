@@ -49,13 +49,13 @@
   align-items:center;
   justify-content:space-between;
   padding:0 1.5rem;
-  height:64px;
+  height:76px;
   gap:1rem;
 }
 
 /* Logo */
 .nav-logo{display:flex;align-items:center;flex-shrink:0}
-.nav-logo img{height:52px;width:auto;display:block}
+.nav-logo img{height:62px;width:auto;display:block}
 
 /* Links – sredina */
 .nav-links{
@@ -67,7 +67,7 @@
 }
 .nav-a{
   color:rgba(255,255,255,.82);
-  font-size:.95rem;
+  font-size:1rem;
   font-weight:500;
   letter-spacing:.02em;
   font-family:'DM Sans',sans-serif;
@@ -112,7 +112,7 @@
 /* ── MEGA DROPDOWN – full width ispod nava ── */
 .mega{
   position:fixed;
-  top:calc(1.25rem + 64px + 6px);
+  top:calc(1.25rem + 76px + 6px);
   left:50%;
   transform:translateX(-50%) translateY(-8px);
   width:calc(100% - 4rem);
@@ -124,7 +124,7 @@
   opacity:0;
   visibility:hidden;
   pointer-events:none;
-  transition:opacity .2s ease .3s, transform .2s ease .3s, visibility 0s ease .5s;
+  transition:opacity .18s ease .28s, transform .18s ease .28s, visibility 0s linear .46s;
   z-index:1001;
   overflow:hidden;
 }
@@ -134,14 +134,14 @@
   visibility:visible;
   pointer-events:all;
   transform:translateX(-50%) translateY(0);
-  transition:opacity .15s ease 0s, transform .15s ease 0s, visibility 0s ease 0s;
+  transition:opacity .15s ease 0s, transform .15s ease 0s, visibility 0s linear 0s;
 }
 
 /* Bridge – sprječava da se dropdown zatvori između nava i panela */
 .nav-drop::before{
   content:'';
   position:fixed;
-  top:calc(1.25rem + 64px);
+  top:calc(1.25rem + 76px);
   left:0;right:0;
   height:12px;
   background:transparent;
@@ -252,7 +252,7 @@
 .mob-sub a{
   display:flex;align-items:center;gap:.6rem;
   padding:.55rem .75rem;border-radius:8px;
-  font-size:.95rem;color:rgba(255,255,255,.65);
+  font-size:1rem;color:rgba(255,255,255,.65);
   transition:background .15s,color .15s;
 }
 .mob-sub a:hover{background:rgba(255,255,255,.07);color:#fff}

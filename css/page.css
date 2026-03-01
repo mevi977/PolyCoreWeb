@@ -5,7 +5,7 @@
 /* Page Hero (smaller than homepage) */
 .page-hero {
   position: relative;
-  padding: 9rem 0 5rem;
+  padding: 7.5rem 0 5rem;
   background: var(--bg);
   color: var(--fg);
   overflow: hidden;
