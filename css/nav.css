@@ -7,16 +7,42 @@
   width:calc(100% - 4rem);
   max-width:1200px;
   z-index:1000;
-  background:rgba(10,10,12,.82);
+  background:rgba(10,10,12,.88);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
   border:1px solid rgba(255,255,255,.1);
   border-radius:12px;
-  transition:background .3s ease, box-shadow .3s ease;
+  transition:box-shadow .3s ease;
+  overflow:hidden;
 }
+/* Animated bordeaux shimmer */
+.nav::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,
+    transparent 20%,
+    rgba(90,20,45,.18) 38%,
+    rgba(140,35,70,.22) 50%,
+    rgba(90,20,45,.18) 62%,
+    transparent 80%
+  );
+  background-size:200% 100%;
+  animation:navShimmer 6s ease-in-out infinite;
+  pointer-events:none;
+  z-index:0;
+  border-radius:12px;
+}
+@keyframes navShimmer{
+  0%   {background-position:200% 0}
+  50%  {background-position:0% 0}
+  100% {background-position:200% 0}
+}
+/* Sve unutar nav mora biti iznad ::before */
+.nav-c{position:relative;z-index:1;}
 .nav.scrolled{
-  background:rgba(10,10,12,.97);
-  box-shadow:0 8px 40px rgba(0,0,0,.5);
+  background:rgba(8,8,10,.96);
+  box-shadow:0 8px 40px rgba(0,0,0,.6);
 }
 
 /* Inner row – sve u jednoj liniji */
@@ -31,7 +57,7 @@
 
 /* Logo */
 .nav-logo{display:flex;align-items:center;flex-shrink:0}
-.nav-logo img{height:44px;width:auto;display:block}
+.nav-logo img{height:52px;width:auto;display:block}
 
 /* Links – sredina */
 .nav-links{
@@ -42,9 +68,11 @@
   justify-content:center;
 }
 .nav-a{
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.82);
   font-size:.875rem;
   font-weight:500;
+  letter-spacing:.02em;
+  font-family:'DM Sans',sans-serif;
   padding:.4rem .85rem;
   border-radius:6px;
   transition:color .15s,background .15s;
@@ -70,6 +98,7 @@
   display:flex;align-items:center;gap:.55rem;
   color:rgba(255,255,255,.75);
   font-size:.82rem;font-weight:500;
+  font-family:'DM Sans',sans-serif;
   padding:.4rem .7rem;border-radius:8px;
   border:1px solid rgba(255,255,255,.12);
   transition:color .15s,border-color .15s,background .15s;
@@ -244,6 +273,7 @@
   display:flex;align-items:center;gap:.55rem;
   color:rgba(255,255,255,.75);
   font-size:.82rem;font-weight:500;
+  font-family:'DM Sans',sans-serif;
   padding:.4rem .7rem;border-radius:8px;
   border:1px solid rgba(255,255,255,.12);
   transition:color .15s,border-color .15s,background .15s;
