@@ -87,11 +87,64 @@
     <button class="nav-burger" aria-label="Menü"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
   </div>
 </nav>
-  <div class="mob-footer">
-    <a href="../kontakt.html" class="btn btn-light">Beratung anfragen</a>
+<div class="mob-menu" id="mobMenu">
+  <!-- Panel 1: Glavni linkovi -->
+  <div class="mob-panel mob-panel--main active" id="mobPanelMain">
+    <div class="mob-header">
+      <a href="../index.html" class="mob-logo"><img src="../assets/img/PolyCoreLogo.png" alt="POLYCORE"/></a>
+      <button class="mob-close" aria-label="Schliessen">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="mob-nav">
+      <ul>
+        <li class="mob-item mob-item--sub" data-target="mobPanelLeistungen">
+          <span>Leistungen</span>
+          <svg class="mob-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </li>
+        <li class="mob-item"><a href="../projekte.html">Projekte</a></li>
+        <li class="mob-item"><a href="../ueber-uns.html">Über uns</a></li>
+        <li class="mob-item"><a href="../blog/">Blog</a></li>
+        <li class="mob-item"><a href="../kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="mob-footer">
+      <a href="tel:+41764759701" class="mob-tel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 14.92z"/></svg>
+        076 475 97 01
+      </a>
+    </div>
+  </div>
+
+  <!-- Panel 2: Leistungen -->
+  <div class="mob-panel mob-panel--sub" id="mobPanelLeistungen">
+    <div class="mob-header">
+      <button class="mob-back" data-target="mobPanelMain">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        Zurück
+      </button>
+      <button class="mob-close" aria-label="Schliessen">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mob-sub-title">Leistungen</div>
+    <nav class="mob-nav">
+      <ul>
+        <li class="mob-section-label">Bodenlösungen</li>
+        <li class="mob-item"><a href="../leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a></li>
+        <li class="mob-item"><a href="../leistungen/polyurethan-boden.html">Polyurethan (PU)</a></li>
+        <li class="mob-item"><a href="../leistungen/pmma-boden.html">PMMA</a></li>
+        <li class="mob-item"><a href="../leistungen/designerboden.html">Designerboden</a></li>
+        <li class="mob-item"><a href="../leistungen/steinteppich.html">Steinteppich</a></li>
+        <li class="mob-section-label">Bautenschutz</li>
+        <li class="mob-item"><a href="../leistungen/abdichtung.html">Flüssigkunststoff (FLK)</a></li>
+        <li class="mob-item"><a href="../leistungen/injektionen.html">Injektionen</a></li>
+        <li class="mob-item"><a href="../leistungen/combiflex.html">Combiflex</a></li>
+        <li class="mob-item"><a href="../leistungen/plattenlegen.html">Plattenverlegung &amp; Reinigung</a></li>
+      </ul>
+    </nav>
   </div>
 </div>
-
 
 <!-- PAGE HERO -->
 <section class="page-hero">
