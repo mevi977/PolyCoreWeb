@@ -4,26 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.nav');
   window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', scrollY > 20), {passive:true});
 
-  /* Mobile menu – Walo bijela kartica */
+  /* Mobile menu – drawer iz navbara */
   const mob = document.getElementById('mobMenu');
   const backdrop = document.getElementById('mobBackdrop');
+  const burger = document.querySelector('.nav-burger');
 
   function openMob(){
     if(!mob) return;
+    // Reset na glavnu listu
     mob.querySelectorAll('.mob-expand').forEach(e => e.classList.remove('visible'));
     mob.querySelector('.mob-main-list')?.classList.remove('hidden');
     mob.classList.add('open');
     backdrop?.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    burger?.classList.add('open');
   }
   function closeMob(){
     if(!mob) return;
     mob.classList.remove('open');
     backdrop?.classList.remove('open');
-    document.body.style.overflow = '';
+    burger?.classList.remove('open');
   }
 
-  document.querySelectorAll('.nav-burger, #mobOpen').forEach(btn =>
+  burger?.addEventListener('click', () => {
+    mob?.classList.contains('open') ? closeMob() : openMob();
+  });
+  document.querySelectorAll('#mobOpen').forEach(btn =>
     btn?.addEventListener('click', openMob)
   );
   mob?.querySelectorAll('.mob-close').forEach(btn =>
@@ -37,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.getElementById(item.dataset.expand);
       if(!target) return;
       mob.querySelector('.mob-main-list')?.classList.add('hidden');
-      mob.querySelector('.mob-body').scrollTop = 0;
       target.classList.add('visible');
     });
   });

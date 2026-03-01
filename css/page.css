@@ -5,8 +5,8 @@
 /* Page Hero (smaller than homepage) */
 .page-hero {
   position: relative;
-  min-height: 580px;
-  padding: 0 0 6rem;
+  min-height: 640px;
+  padding: 0 0 7rem;
   margin-top: calc(-1.25rem - 76px - 20px);
   padding-top: calc(1.25rem + 76px + 20px);
   background: var(--bg);
