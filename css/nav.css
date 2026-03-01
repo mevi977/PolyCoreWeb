@@ -213,130 +213,157 @@
 .mega-txt span{font-size:.73rem;color:rgba(255,255,255,.38);line-height:1.4}
 
 /* ── MOBILE MENU ── */
-/* ════════════════════════════════════════
-   MOBILNI MENI – Walo-stil (dva panela)
-   ════════════════════════════════════════ */
+/* ═══════════════════════════════════
+   MOBILNI MENI – Walo expand-in-place
+   ═══════════════════════════════════ */
 .mob-menu{
   display:none;
   position:fixed;inset:0;
   z-index:1100;
-  overflow:hidden;
-}
-.mob-menu.open{display:block}
-
-/* Panel – klizi lijevo/desno */
-.mob-panel{
-  position:absolute;inset:0;
+  flex-direction:column;
   background:#0d0d10;
-  display:flex;flex-direction:column;
-  transform:translateX(100%);
-  transition:transform .35s cubic-bezier(.4,0,.2,1);
-  overflow-y:auto;
 }
-.mob-panel.active{transform:translateX(0)}
-.mob-panel.slide-left{transform:translateX(-30%)}
+.mob-menu.open{display:flex}
 
-/* Header u panelu */
+/* Header */
 .mob-header{
   display:flex;align-items:center;justify-content:space-between;
   padding:0 1.5rem;
-  height:72px;
+  height:70px;
   border-bottom:1px solid rgba(255,255,255,.08);
   flex-shrink:0;
 }
 .mob-logo img{height:44px;width:auto}
 .mob-close{
   color:rgba(255,255,255,.6);background:none;border:none;
-  cursor:pointer;padding:.4rem;
-  transition:color .15s;
+  cursor:pointer;padding:.4rem;transition:color .15s;
 }
 .mob-close:hover{color:#fff}
-.mob-back{
-  display:flex;align-items:center;gap:.4rem;
-  color:rgba(255,255,255,.7);background:none;border:none;
-  cursor:pointer;font-size:.95rem;font-weight:500;
+
+/* Scrollable body */
+.mob-body{
+  flex:1;overflow-y:auto;position:relative;
+}
+
+/* Glavna lista */
+.mob-main-list{
+  list-style:none;padding:0;margin:0;
+  transition:opacity .25s, transform .25s;
+}
+.mob-main-list.hidden{
+  opacity:0;pointer-events:none;transform:translateX(-12px);
+}
+.mob-main-item{
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.mob-main-item > a,
+.mob-main-item[data-expand]{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.15rem 1.5rem;
+  font-size:1.15rem;font-weight:500;
+  color:rgba(255,255,255,.88);
   font-family:'DM Sans',sans-serif;
-  padding:.4rem 0;
-  transition:color .15s;
+  text-decoration:none;
+  transition:color .15s,background .15s;
+  cursor:pointer;
+}
+.mob-main-item > a:hover,
+.mob-main-item[data-expand]:hover{
+  color:#fff;background:rgba(255,255,255,.04);
+}
+.mob-arrow-r{width:16px;height:16px;color:rgba(255,255,255,.3);flex-shrink:0}
+
+/* Expand panel */
+.mob-expand{
+  display:none;
+  position:absolute;inset:0;
+  background:#0d0d10;
+  overflow-y:auto;
+  animation:mobExpIn .28s cubic-bezier(.4,0,.2,1);
+}
+.mob-expand.visible{display:block}
+@keyframes mobExpIn{
+  from{opacity:0;transform:translateX(20px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+/* Expand header – Zurück */
+.mob-expand-header{
+  padding:1rem 1.5rem .25rem;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.mob-back{
+  display:inline-flex;align-items:center;gap:.4rem;
+  color:rgba(255,255,255,.5);background:none;border:none;
+  cursor:pointer;font-size:.88rem;font-weight:500;
+  font-family:'DM Sans',sans-serif;
+  padding:.3rem 0;transition:color .15s;
+  letter-spacing:.02em;text-transform:uppercase;
 }
 .mob-back:hover{color:#fff}
 
-/* Sub-panel naslov */
-.mob-sub-title{
-  padding:1.75rem 1.5rem .75rem;
-  font-size:1.6rem;font-weight:700;
-  color:#fff;letter-spacing:-.02em;
-  flex-shrink:0;
+/* Expand naslov + opis */
+.mob-expand-title{
+  padding:1.5rem 1.5rem .4rem;
+  font-size:1.75rem;font-weight:700;color:#fff;
+  letter-spacing:-.03em;line-height:1.1;
 }
+.mob-expand-desc{
+  padding:0 1.5rem .75rem;
+  font-size:.88rem;color:rgba(255,255,255,.45);
+  line-height:1.6;
+}
+.mob-expand-overview{
+  display:inline-flex;align-items:center;gap:.35rem;
+  margin:0 1.5rem 1.25rem;
+  font-size:.85rem;font-weight:600;
+  color:rgba(140,35,70,.9);
+  text-decoration:none;transition:color .15s;
+  letter-spacing:.01em;
+}
+.mob-expand-overview:hover{color:rgba(180,55,90,1)}
 
-/* Navigacija */
-.mob-nav{flex:1;padding:.5rem 0}
-.mob-nav ul{list-style:none;padding:0;margin:0}
-
-/* Nav stavke */
-.mob-item{
-  border-bottom:1px solid rgba(255,255,255,.06);
+/* Expand linkovi */
+.mob-expand-list{
+  list-style:none;padding:0;margin:0;
+  border-top:1px solid rgba(255,255,255,.06);
 }
-.mob-item > a,
-.mob-item > span,
-.mob-item[data-target] {
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.1rem 1.5rem;
-  font-size:1.1rem;font-weight:500;
-  color:rgba(255,255,255,.85);
-  font-family:'DM Sans',sans-serif;
-  transition:color .15s, background .15s;
-  cursor:pointer;
-  text-decoration:none;
-}
-.mob-item > a:hover,
-.mob-item[data-target]:hover{
-  color:#fff;
-  background:rgba(255,255,255,.04);
-}
-.mob-item[data-target]{cursor:pointer}
-.mob-arrow-r{
-  width:16px;height:16px;
-  color:rgba(255,255,255,.3);flex-shrink:0;
-}
-
-/* Section label (Bodenlösungen / Bautenschutz) */
-.mob-section-label{
+.mob-expand-list li > a{
   display:block;
-  padding:.9rem 1.5rem .3rem;
-  font-size:.68rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.25);
+  padding:.95rem 1.5rem;
+  font-size:1rem;font-weight:400;
+  color:rgba(255,255,255,.72);
+  font-family:'DM Sans',sans-serif;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:color .15s,background .15s,padding-left .15s;
+}
+.mob-expand-list li > a:hover{
+  color:#fff;background:rgba(255,255,255,.04);
+  padding-left:1.85rem;
+}
+.mob-expand-section{
+  display:block;
+  padding:.8rem 1.5rem .3rem;
+  font-size:.63rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.22);
 }
 
-/* Footer s telefonom */
+/* Footer */
 .mob-footer{
-  padding:1.5rem;
+  padding:1.25rem 1.5rem;
   border-top:1px solid rgba(255,255,255,.08);
   flex-shrink:0;
 }
 .mob-tel{
-  display:flex;align-items:center;gap:.65rem;
-  color:rgba(255,255,255,.7);
-  font-size:1.05rem;font-weight:500;
+  display:inline-flex;align-items:center;gap:.6rem;
+  color:rgba(255,255,255,.65);font-size:1rem;font-weight:500;
   font-family:'DM Sans',sans-serif;
-  text-decoration:none;
-  transition:color .15s;
+  text-decoration:none;transition:color .15s;
 }
 .mob-tel:hover{color:#fff}
-.mob-tel svg{color:rgba(140,35,70,.9);flex-shrink:0}
-
-/* Backdrop */
-.mob-menu::before{
-  content:'';
-  position:fixed;inset:0;
-  background:rgba(0,0,0,.6);
-  backdrop-filter:blur(4px);
-  opacity:0;
-  transition:opacity .35s;
-  pointer-events:none;
-}
-.mob-menu.open::before{opacity:1}
+.mob-tel svg{color:rgba(140,35,70,.85)}
 
 @media(max-width:1024px){
   .nav-links,.nav-cta{display:none}

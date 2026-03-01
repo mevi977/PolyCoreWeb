@@ -4,16 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.nav');
   window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', scrollY > 20), {passive:true});
 
-  /* Mobile menu – dva panela (Walo stil) */
+  /* Mobile menu – Walo expand-in-place */
   const mob = document.getElementById('mobMenu');
 
   function openMob(){
     if(!mob) return;
-    // Reset – uvijek počni na glavnom panelu
-    document.querySelectorAll('.mob-panel').forEach(p => {
-      p.classList.remove('active','slide-left');
-    });
-    document.getElementById('mobPanelMain')?.classList.add('active');
+    // Reset expand paneli
+    mob.querySelectorAll('.mob-expand').forEach(e => e.classList.remove('visible'));
+    mob.querySelector('.mob-main-list')?.classList.remove('hidden');
     mob.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -22,11 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if(!mob) return;
     mob.classList.remove('open');
     document.body.style.overflow = '';
-    // Reset paneli s malim odmakom
-    setTimeout(() => {
-      document.querySelectorAll('.mob-panel').forEach(p => p.classList.remove('active','slide-left'));
-      document.getElementById('mobPanelMain')?.classList.add('active');
-    }, 350);
   }
 
   // Otvori
@@ -34,47 +27,34 @@ document.addEventListener('DOMContentLoaded', () => {
     btn?.addEventListener('click', openMob)
   );
 
-  // Zatvori (svi close butoni)
-  document.querySelectorAll('.mob-close').forEach(btn =>
+  // Zatvori
+  mob?.querySelectorAll('.mob-close').forEach(btn =>
     btn?.addEventListener('click', closeMob)
   );
 
-  // Backdrop klik
-  mob?.addEventListener('click', e => {
-    if(e.target === mob) closeMob();
-  });
-
-  // Sub-panel navigacija
-  document.querySelectorAll('.mob-item[data-target]').forEach(item => {
-    item.addEventListener('click', () => {
-      const targetId = item.dataset.target;
-      const target = document.getElementById(targetId);
-      if(!target) return;
-      // Klizni trenutni panel lijevo
-      document.querySelector('.mob-panel.active')?.classList.add('slide-left');
-      document.querySelector('.mob-panel.active')?.classList.remove('active');
-      // Klizni novi panel iz desna
-      target.classList.add('active');
-    });
-  });
-
-  // Zurück (natrag)
-  document.querySelectorAll('.mob-back').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.dataset.target;
-      const target = document.getElementById(targetId);
-      if(!target) return;
-      // Ukloni slide-left s prethodnog
-      document.querySelector('.mob-panel.slide-left')?.classList.remove('slide-left');
-      // Sakrij trenutni
-      document.querySelector('.mob-panel.active')?.classList.remove('active');
-      // Prikaži prethodni
-      target.classList.add('active');
-    });
-  });
-
-  // Escape tipka
+  // Escape
   document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMob(); });
+
+  // Expand – klik na glavni link s data-expand
+  mob?.querySelectorAll('.mob-main-item[data-expand]').forEach(item => {
+    item.addEventListener('click', () => {
+      const target = document.getElementById(item.dataset.expand);
+      if(!target) return;
+      mob.querySelector('.mob-main-list')?.classList.add('hidden');
+      // Scroll na vrh body
+      mob.querySelector('.mob-body').scrollTop = 0;
+      target.classList.add('visible');
+    });
+  });
+
+  // Zurück
+  mob?.querySelectorAll('.mob-back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      mob.querySelectorAll('.mob-expand').forEach(e => e.classList.remove('visible'));
+      mob.querySelector('.mob-main-list')?.classList.remove('hidden');
+    });
+  });
+
 
   /* Accordion */
   document.querySelectorAll('.acc-btn').forEach(btn => {
