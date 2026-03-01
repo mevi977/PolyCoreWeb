@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-    /* Mega dropdown – JS kontroliran hover s delay-om */
+  /* Mega dropdown – JS kontroliran hover s delay-om */
   const isTouch = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
   document.querySelectorAll('.nav-drop').forEach(drop => {
@@ -65,13 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!isTouch) {
-      // Desktop: hover na linku I na panelu
       drop.addEventListener('mouseenter', openDrop);
       drop.addEventListener('mouseleave', closeDrop);
       mega.addEventListener('mouseenter', openDrop);
       mega.addEventListener('mouseleave', closeDrop);
     } else {
-      // Touch: klik otvara/zatvara
       const toggle = drop.querySelector('.nav-drop-toggle');
       if (toggle) {
         toggle.addEventListener('click', e => {
@@ -83,12 +81,84 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Klik izvan zatvara
   document.addEventListener('click', e => {
     if (!e.target.closest('.nav-drop')) {
       document.querySelectorAll('.nav-drop.is-open').forEach(d => d.classList.remove('is-open'));
     }
   });
+
+  /* Accordion */
+  document.querySelectorAll('.acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.acc-item');
+      const body = item.querySelector('.acc-body');
+      const isOpen = item.classList.contains('open');
+      // Zatvori sve
+      document.querySelectorAll('.acc-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.acc-body').style.maxHeight = null;
+      });
+      // Otvori kliknuti ako nije bio otvoren
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* Tabs */
+  document.querySelectorAll('.tabs-wrap').forEach(wrap => {
+    const btns = wrap.querySelectorAll('.tab-btn');
+    const panels = wrap.querySelectorAll('.tab-panel');
+    btns.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        panels[i]?.classList.add('active');
+      });
+    });
+  });
+
+  /* Reveal animacije – scroll */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* Counter animacije */
+  const cObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseFloat(el.dataset.counter);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      const duration = 1800;
+      const start = performance.now();
+      const isFloat = String(target).includes('.');
+      const decimals = isFloat ? (String(target).split('.')[1]?.length || 1) : 0;
+
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const value = target * ease;
+        el.textContent = prefix + (decimals > 0 ? value.toFixed(decimals) : Math.floor(value).toLocaleString('de-CH')) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      cObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-counter]').forEach(el => cObs.observe(el));
 
   /* Smooth scroll */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -98,4 +168,5 @@ document.addEventListener('DOMContentLoaded', () => {
       if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
     });
   });
+
 });
