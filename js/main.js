@@ -65,7 +65,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }), {threshold:.5});
   document.querySelectorAll('[data-counter]').forEach(el => cObs.observe(el));
 
-  /* Mega dropdown – touch fix za tablet */
+  /* Mega dropdown – hover delay + touch fix */
+  let megaLeaveTimer = null;
+
+  document.querySelectorAll('.nav-drop').forEach(drop => {
+    const mega = drop.querySelector('.mega');
+    if (!mega) return;
+
+    // Desktop: delay na napuštanje
+    drop.addEventListener('mouseenter', () => {
+      clearTimeout(megaLeaveTimer);
+    });
+    drop.addEventListener('mouseleave', () => {
+      megaLeaveTimer = setTimeout(() => {
+        drop.classList.remove('hover-open');
+      }, 250);
+    });
+    if (mega) {
+      mega.addEventListener('mouseenter', () => clearTimeout(megaLeaveTimer));
+      mega.addEventListener('mouseleave', () => {
+        megaLeaveTimer = setTimeout(() => {
+          drop.classList.remove('hover-open');
+        }, 250);
+      });
+    }
+  });
+
+  // Touch fix
   if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
     document.querySelectorAll('.nav-drop').forEach(drop => {
       const toggle = drop.querySelector('.nav-drop-toggle');
