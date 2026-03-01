@@ -20,7 +20,7 @@
   object-fit: cover;
   opacity: 0.25;
 }
-.page-hero-content { position: relative; z-index: 2; padding-top: 2rem; }
+.page-hero-content { position: relative; z-index: 2; padding-top: 3.5rem; }
 .page-hero .breadcrumb {
   display: flex; align-items: center; gap: .5rem;
   font-size: .72rem; font-weight: 600;
