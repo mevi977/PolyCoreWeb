@@ -223,3 +223,13 @@
   .app-grid { grid-template-columns: 1fr; }
   .related-grid { grid-template-columns: 1fr; }
 }
+
+/* Hero veći na desktop */
+@media(min-width:1024px){
+  .page-hero{
+    min-height:780px;
+    padding-bottom:8rem;
+  }
+  .page-hero-content{padding-top:5rem}
+  .page-hero h1{font-size:3.2rem}
+}

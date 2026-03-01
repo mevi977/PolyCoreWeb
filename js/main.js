@@ -11,18 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openMob(){
     if(!mob) return;
-    // Reset na glavnu listu
     mob.querySelectorAll('.mob-expand').forEach(e => e.classList.remove('visible'));
     mob.querySelector('.mob-main-list')?.classList.remove('hidden');
     mob.classList.add('open');
     backdrop?.classList.add('open');
     burger?.classList.add('open');
+    nav?.classList.add('mob-open');
   }
   function closeMob(){
     if(!mob) return;
     mob.classList.remove('open');
     backdrop?.classList.remove('open');
     burger?.classList.remove('open');
+    nav?.classList.remove('mob-open');
   }
 
   burger?.addEventListener('click', () => {
