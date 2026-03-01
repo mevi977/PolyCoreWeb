@@ -13,7 +13,6 @@
   border:1px solid rgba(255,255,255,.1);
   border-radius:12px;
   transition:box-shadow .3s ease;
-  overflow:hidden;
 }
 /* Animated bordeaux shimmer */
 .nav::before{
@@ -29,8 +28,7 @@
   );
   background-size:200% 100%;
   animation:navShimmer 6s ease-in-out infinite;
-  pointer-events:none;
-  z-index:0;
+  pointer-events:none !important;
   border-radius:12px;
 }
 @keyframes navShimmer{
@@ -39,7 +37,7 @@
   100% {background-position:200% 0}
 }
 /* Sve unutar nav mora biti iznad ::before */
-.nav-c{position:relative;z-index:1;}
+.nav-c{position:relative;}
 .nav.scrolled{
   background:rgba(8,8,10,.96);
   box-shadow:0 8px 40px rgba(0,0,0,.6);
@@ -69,7 +67,7 @@
 }
 .nav-a{
   color:rgba(255,255,255,.82);
-  font-size:.875rem;
+  font-size:.95rem;
   font-weight:500;
   letter-spacing:.02em;
   font-family:'DM Sans',sans-serif;
@@ -126,8 +124,8 @@
   opacity:0;
   visibility:hidden;
   pointer-events:none;
-  transition:opacity .2s ease .25s, transform .2s ease .25s, visibility 0s ease .45s;
-  z-index:999;
+  transition:opacity .2s ease .3s, transform .2s ease .3s, visibility 0s ease .5s;
+  z-index:1001;
   overflow:hidden;
 }
 .nav-drop:hover .mega,
@@ -136,7 +134,7 @@
   visibility:visible;
   pointer-events:all;
   transform:translateX(-50%) translateY(0);
-  transition:opacity .2s ease, transform .2s ease, visibility 0s ease;
+  transition:opacity .15s ease 0s, transform .15s ease 0s, visibility 0s ease 0s;
 }
 
 /* Bridge – sprječava da se dropdown zatvori između nava i panela */
@@ -254,7 +252,7 @@
 .mob-sub a{
   display:flex;align-items:center;gap:.6rem;
   padding:.55rem .75rem;border-radius:8px;
-  font-size:.875rem;color:rgba(255,255,255,.65);
+  font-size:.95rem;color:rgba(255,255,255,.65);
   transition:background .15s,color .15s;
 }
 .mob-sub a:hover{background:rgba(255,255,255,.07);color:#fff}
