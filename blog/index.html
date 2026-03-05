@@ -257,107 +257,61 @@
 
 <script src="../js/main.js"></script>
 <script>
-// Statičan blog list – dodaj novi post ovdje kada objaviš novi članak
+<script>
+// Automatski učitava postove iz posts.json – bez ručnog dodavanja
 (function() {
-  const FALLBACK_IMG = 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif';
+  fetch('/blog/posts.json')
+    .then(r => r.json())
+    .then(ARTICLES => renderBlog(ARTICLES))
+    .catch(() => {
+      document.getElementById('blog-loading').innerHTML =
+        '<p style="text-align:center;color:#888;padding:4rem">Blog se trenutno ažurira.</p>';
+    });
 
-  const ARTICLES = [
-    {
-      filename: '/blog/keller-abdichten-bern',
-      title: 'Keller abdichten in Bern: Kellerwand & Kellerboden von innen',
-      desc: 'Feuchter Keller? Wir erklären die besten Methoden – Injektionen, Flüssigkunststoff, Combiflex – und wann welche Lösung passt.',
-      cat: 'Bautenschutz',
-      dateStr: '5. März 2026',
-      rt: '7',
-      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif'
-    },
-    {
-      filename: '/blog/epoxidharz-boden-vorteile',
-      title: 'Epoxidharz-Boden: 7 Vorteile für Industriebetriebe',
-      desc: 'Warum EP-Böden in Industrie, Gewerbe und Lager unschlagbar sind – aus der Praxis von POLYCORE GmbH Bern.',
-      cat: 'Epoxidharz',
-      dateStr: '12. Februar 2026',
-      rt: '6',
-      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif'
-    },
-    {
-      filename: '/blog/pmma-vs-epoxidharz',
-      title: 'PMMA vs. Epoxidharz: Welches System passt zu Ihrem Projekt?',
-      desc: 'UV-Stabilität, Aushärtezeit, Kosten und Einsatzbereiche im direkten Vergleich.',
-      cat: 'Vergleich',
-      dateStr: '28. Januar 2026',
-      rt: '7',
-      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif'
-    },
-    {
-      filename: '/blog/feuchter-keller-loesungen',
-      title: 'Feuchter Keller: 5 Lösungsansätze und wann welcher passt',
-      desc: 'Die richtige Massnahme beginnt mit der richtigen Diagnose – von Injektion bis Drainage.',
-      cat: 'Bautenschutz',
-      dateStr: '14. Januar 2026',
-      rt: '8',
-      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif'
-    },
-    {
-      filename: '/blog/pflege-und-reinigung-von-pu-boeden-polyurethan',
-      title: 'Pflege und Reinigung von PU-Böden',
-      desc: 'Wie Sie Ihren Polyurethan-Boden richtig reinigen und pflegen – Tipps vom Profi.',
-      cat: 'Pflege',
-      dateStr: '5. Januar 2026',
-      rt: '5',
-      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif'
-    },
-    {
-      filename: '/blog/rutschfeste-pmma-beschichtungen-sicherheit-und-effizienz-vereint',
-      title: 'Rutschfeste PMMA-Beschichtungen: Sicherheit und Effizienz vereint',
-      desc: 'Warum rutschhemmende PMMA-Systeme in Gewerbe und Industrie unverzichtbar sind.',
-      cat: 'PMMA',
-      dateStr: '20. Dezember 2025',
-      rt: '5',
-      img: 'https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif'
-    }
-  ];
+  function renderBlog(ARTICLES) {
+    if (!ARTICLES.length) return;
 
-  const featured = ARTICLES[0];
-  const rest = ARTICLES.slice(1);
+    const featured = ARTICLES[0];
+    const rest = ARTICLES.slice(1);
 
-  let html = `
-    <a href="${featured.filename}" style="display:grid;grid-template-columns:1.2fr 1fr;border:1px solid var(--dk-border);border-radius:20px;overflow:hidden;background:#fff;margin-bottom:4rem;text-decoration:none;color:inherit">
-      <div style="overflow:hidden;background:#f0f0f0"><img src="${featured.img}" alt="${featured.title}" style="width:100%;height:100%;object-fit:cover" loading="lazy"/></div>
-      <div style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center">
-        <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:.75rem;display:block">Neuester Beitrag · ${featured.cat}</span>
-        <h2 style="font-size:1.65rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:.9rem">${featured.title}</h2>
-        <p style="font-size:.9rem;color:var(--dk-muted);line-height:1.7;margin-bottom:1.5rem">${featured.desc}</p>
-        <div style="display:flex;align-items:center;gap:1.25rem">
-          <span class="arrow-link" style="font-weight:600;font-size:.875rem">
-            Artikel lesen
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
-          </span>
-          <span style="font-size:.76rem;color:var(--dk-muted)">${featured.dateStr} · ${featured.rt} Min.</span>
+    let html = `
+      <a href="${featured.slug}" class="blog-featured">
+        <div class="bf-img"><img src="${featured.img}" alt="${featured.title}" loading="lazy"/></div>
+        <div class="bf-body">
+          <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:.75rem;display:block">Neuester Beitrag · ${featured.cat}</span>
+          <h2 style="font-size:1.65rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:.9rem">${featured.title}</h2>
+          <p style="font-size:.9rem;color:var(--dk-muted);line-height:1.7;margin-bottom:1.5rem">${featured.desc}</p>
+          <div style="display:flex;align-items:center;gap:1.25rem">
+            <span class="arrow-link" style="font-weight:600;font-size:.875rem">
+              Artikel lesen
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </span>
+            <span style="font-size:.76rem;color:var(--dk-muted)">${featured.dateStr} · ${featured.rt} Min.</span>
+          </div>
         </div>
-      </div>
-    </a>
-    <h2 style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:1.75rem">Alle Beiträge</h2>
-    <div class="blog-grid">`;
+      </a>
+      <h2 style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:1.75rem">Alle Beiträge</h2>
+      <div class="blog-grid">`;
 
-  rest.forEach(a => {
-    html += `
-      <a href="${a.filename}" class="blog-card">
-        <div class="bc-img"><img src="${a.img}" alt="${a.title}" loading="lazy" width="600" height="338"/></div>
-        <div class="bc-body">
-          <div class="bc-cat">${a.cat}</div>
-          <h3 class="bc-title">${a.title}</h3>
-          <p class="bc-desc">${a.desc.substring(0,130)}${a.desc.length>130?'…':''}</p>
-          <div class="bc-foot"><span>${a.dateStr}</span><span>${a.rt} Min. Lesezeit</span></div>
-        </div>
-      </a>`;
-  });
+    rest.forEach(a => {
+      html += `
+        <a href="${a.slug}" class="blog-card">
+          <div class="bc-img"><img src="${a.img}" alt="${a.title}" loading="lazy"/></div>
+          <div class="bc-body">
+            <div class="bc-cat">${a.cat}</div>
+            <h3 class="bc-title">${a.title}</h3>
+            <p class="bc-desc">${a.desc.substring(0,130)}${a.desc.length>130?'…':''}</p>
+            <div class="bc-foot"><span>${a.dateStr}</span><span>${a.rt} Min. Lesezeit</span></div>
+          </div>
+        </a>`;
+    });
 
-  html += `</div>`;
+    html += `</div>`;
 
-  document.getElementById('blog-loading').style.display = 'none';
-  document.getElementById('blog-articles').innerHTML = html;
-  document.getElementById('blog-articles').style.display = 'block';
+    document.getElementById('blog-loading').style.display = 'none';
+    document.getElementById('blog-articles').innerHTML = html;
+    document.getElementById('blog-articles').style.display = 'block';
+  }
 })();
 </script>
 </body>

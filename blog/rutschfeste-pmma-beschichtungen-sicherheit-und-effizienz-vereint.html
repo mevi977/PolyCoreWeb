@@ -28,6 +28,7 @@
 .art a{border-bottom:1px solid currentColor}
 </style>
 <link rel="icon" href="/assets/img/favicon.svg"/>
+<meta property="og:image" content="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif"/>
 </head>
 <body>
 <nav class="nav">
@@ -149,7 +150,7 @@
   </div>
 </div>
 <section class="page-hero" style="min-height:75vh;display:flex;align-items:flex-end">
-  <div class="page-hero-bg"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif" alt="Rutschfeste PMMA-Beschichtungen – Sicherheit und Effizienz vereint" loading="eager" width="1920" height="800"/></div>
+  <div class="page-hero-bg"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif" alt="Rutschfeste PMMA-Beschichtungen – Sicherheit und Effizienz vereint" loading="eager" width="1920" height="800"/></div>
   <div class="page-hero-content container" style="padding:0 0 4rem">
     <nav class="breadcrumb"><a href="/">Start</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span style="color:rgba(255,255,255,.7)">PMMA</span></nav>
     <div style="display:flex;gap:.45rem;margin-bottom:1rem">
@@ -173,6 +174,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutschfeste PMMA-Beschichtungen – Sicherheit und Effizienz | POLYCORE GmbH</title>
 <link rel="icon" href="/assets/img/favicon.svg"/>
+<meta property="og:image" content="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif"/>
 </head>
 <body>
 
@@ -231,9 +233,44 @@
         für anspruchsvolle Umgebungen, in denen Zuverlässigkeit und kurze Bauzeiten gefragt sind.
     </p>
 
+
+<script>
+// Weitere Artikel – automatski iz posts.json
+(function() {
+  const currentSlug = '/blog/' + location.pathname.split('/').pop().replace('.html','');
+  fetch('/blog/posts.json')
+    .then(r => r.json())
+    .then(posts => {
+      const others = posts.filter(p => p.slug !== currentSlug).slice(0, 4);
+      if (!others.length) return;
+      const el = document.getElementById('weitere-artikel');
+      if (!el) return;
+      el.innerHTML = others.map(p => `
+        <a href="${p.slug}" style="display:flex;gap:.9rem;align-items:flex-start;padding:.9rem 0;border-bottom:1px solid #f0f0f0;text-decoration:none;color:inherit;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <img src="${p.img}" alt="${p.title}" style="width:68px;height:48px;object-fit:cover;border-radius:6px;flex-shrink:0"/>
+          <div>
+            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#999;margin-bottom:.2rem">${p.cat}</div>
+            <div style="font-size:.82rem;font-weight:600;line-height:1.35;color:#0a0a0a">${p.title.substring(0,65)}${p.title.length>65?'…':''}</div>
+          </div>
+        </a>`).join('');
+    })
+    .catch(() => {});
+})();
+</script>
 </body>
 </html>
     </article>
+
+        <div style="border:1px solid #e8e8e8;border-radius:12px;padding:1.5rem;margin-top:1.25rem">
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:.25rem">Weitere Artikel</div>
+          <div id="weitere-artikel">
+            <!-- automatski punjeno iz posts.json -->
+            <div style="height:180px;display:flex;align-items:center;justify-content:center">
+              <div style="width:20px;height:20px;border:2px solid #e0e0e0;border-top-color:#999;border-radius:50%;animation:spin .8s linear infinite"></div>
+            </div>
+          </div>
+        </div>
+        <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
     <div style="margin-top:2.75rem;padding:1.4rem;background:var(--light-bg);border-radius:12px;display:flex;align-items:center;gap:1.15rem">
       <div style="width:48px;height:48px;background:#0a0a0a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -275,5 +312,29 @@
   </div>
 </footer>
 <script src="../js/main.js"></script>
+
+<script>
+// Weitere Artikel – automatski iz posts.json
+(function() {
+  const currentSlug = '/blog/' + location.pathname.split('/').pop().replace('.html','');
+  fetch('/blog/posts.json')
+    .then(r => r.json())
+    .then(posts => {
+      const others = posts.filter(p => p.slug !== currentSlug).slice(0, 4);
+      if (!others.length) return;
+      const el = document.getElementById('weitere-artikel');
+      if (!el) return;
+      el.innerHTML = others.map(p => `
+        <a href="${p.slug}" style="display:flex;gap:.9rem;align-items:flex-start;padding:.9rem 0;border-bottom:1px solid #f0f0f0;text-decoration:none;color:inherit;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+          <img src="${p.img}" alt="${p.title}" style="width:68px;height:48px;object-fit:cover;border-radius:6px;flex-shrink:0"/>
+          <div>
+            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#999;margin-bottom:.2rem">${p.cat}</div>
+            <div style="font-size:.82rem;font-weight:600;line-height:1.35;color:#0a0a0a">${p.title.substring(0,65)}${p.title.length>65?'…':''}</div>
+          </div>
+        </a>`).join('');
+    })
+    .catch(() => {});
+})();
+</script>
 </body>
 </html>
