@@ -260,7 +260,7 @@
 <script>
 // Automatski učitava postove iz posts.json – bez ručnog dodavanja
 (function() {
-  fetch('/blog/posts.json')
+  fetch('./posts.json')
     .then(r => r.json())
     .then(ARTICLES => renderBlog(ARTICLES))
     .catch(() => {

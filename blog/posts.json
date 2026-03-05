@@ -1,62 +1,62 @@
 [
   {
-    "slug": "/blog/epoxidharz-boden-vorteile",
-    "title": "Epoxidharz-Boden: 7 Vorteile für Industriebetriebe",
-    "desc": "Aus der Praxis: Warum EP-Böden in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
-  },
-  {
-    "slug": "/blog/feuchter-keller-loesungen",
-    "title": "Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz",
-    "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4e9_9ba0a503-6e2f-4efb-ac3a-c0b3bba3b33d.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
-  },
-  {
     "slug": "/blog/keller-abdichten-bern",
     "title": "Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz",
     "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.",
     "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
+    "cat": "Bautenschutz",
+    "rt": "7",
+    "date": "2026-03-05",
+    "dateStr": "5. März 2026"
   },
   {
-    "slug": "/blog/pflege-und-reinigung-von-pu-boeden-polyurethan",
-    "title": "Pflege & Reinigung von PU-Böden | POLYCORE Blog",
-    "desc": "So pflegen und reinigen Sie Polyurethan-Böden richtig – Tipps und Empfehlungen vom Fachmann für langlebige PU-Beschichtungen.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
+    "slug": "/blog/epoxidharz-boden-vorteile",
+    "title": "Epoxidharz-Boden: 7 Vorteile für Industriebetriebe",
+    "desc": "Aus der Praxis: Warum EP-Böden in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.",
+    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif",
+    "cat": "Epoxidharz",
+    "rt": "6",
+    "date": "2026-02-12",
+    "dateStr": "12. Februar 2026"
   },
   {
     "slug": "/blog/pmma-vs-epoxidharz",
     "title": "PMMA vs. Epoxidharz – Welches System passt?",
     "desc": "Praxisnaher Vergleich: Wann PMMA und wann Epoxidharz die richtige Wahl ist. POLYCORE GmbH Bern.",
     "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
+    "cat": "Vergleich",
+    "rt": "7",
+    "date": "2026-01-28",
+    "dateStr": "28. Januar 2026"
+  },
+  {
+    "slug": "/blog/feuchter-keller-loesungen",
+    "title": "Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz",
+    "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.",
+    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4e9_9ba0a503-6e2f-4efb-ac3a-c0b3bba3b33d.avif",
+    "cat": "Bautenschutz",
+    "rt": "8",
+    "date": "2026-01-14",
+    "dateStr": "14. Januar 2026"
+  },
+  {
+    "slug": "/blog/pflege-und-reinigung-von-pu-boeden-polyurethan",
+    "title": "Pflege & Reinigung von PU-Böden | POLYCORE Blog",
+    "desc": "So pflegen und reinigen Sie Polyurethan-Böden richtig – Tipps und Empfehlungen vom Fachmann für langlebige PU-Beschichtungen.",
+    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif",
+    "cat": "Polyurethan",
+    "rt": "5",
+    "date": "2026-01-10",
+    "dateStr": "10. Januar 2026"
   },
   {
     "slug": "/blog/rutschfeste-pmma-beschichtungen-sicherheit-und-effizienz-vereint",
     "title": "Rutschfeste PMMA-Beschichtungen – Sicherheit & Effizienz | POLYCORE Blog",
     "desc": "Warum rutschfeste PMMA-Beschichtungen in Gewerbe und Industrie unverzichtbar sind – Eigenschaften, Einsatz und Vorteile im Überblick.",
     "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
+    "cat": "PMMA",
+    "rt": "5",
+    "date": "2025-12-20",
+    "dateStr": "20. Dezember 2025"
   }
 ]

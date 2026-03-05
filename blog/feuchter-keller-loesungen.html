@@ -409,7 +409,7 @@
 // Weitere Artikel – automatski iz posts.json
 (function() {
   const currentSlug = '/blog/' + location.pathname.split('/').pop().replace('.html','');
-  fetch('/blog/posts.json')
+  fetch('./posts.json')
     .then(r => r.json())
     .then(posts => {
       const others = posts.filter(p => p.slug !== currentSlug).slice(0, 4);
