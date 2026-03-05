@@ -8,8 +8,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"POLYCORE Blog","url":"https://www.polycore.ch/blog","description":"Expertenwissen zu Bodenbeschichtungen und Bautenschutz."}</script>
 <meta property="og:title" content="Blog | POLYCORE GmbH – Wissen rund um Böden & Bautenschutz"/>
 <meta property="og:description" content="Expertenwissen zu Epoxidharz, PMMA, Polyurethan, Steinteppich und Abdichtungen – der POLYCORE Blog aus Bern."/>
-<meta property="og:url" content="https://www.polycore.ch/blog"/>
-<meta property="og:type" content="website"/>
 <meta name="description" content="Praxisnahes Wissen zu Epoxidharz, PMMA, Polyurethan, Abdichtung. Der Blog von POLYCORE GmbH Bern."/>
 <link rel="canonical" href="https://www.polycore.ch/blog/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -20,32 +18,154 @@
 <link rel="stylesheet" href="../css/footer.css"/>
 <link rel="stylesheet" href="../css/page.css"/>
 <style>
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.blog-card{border:1px solid var(--dk-border);border-radius:16px;overflow:hidden;background:#fff;transition:border-color .2s,transform .2s,box-shadow .2s;display:flex;flex-direction:column;text-decoration:none;color:inherit}
-.blog-card:hover{border-color:#0a0a0a;transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.09)}
-.bc-img{aspect-ratio:16/9;overflow:hidden;background:#f0f0f0}
-.bc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.blog-card:hover .bc-img img{transform:scale(1.04)}
-.bc-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
-.bc-cat{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:.5rem}
-.bc-title{font-size:1.05rem;font-weight:600;line-height:1.35;margin-bottom:.6rem;letter-spacing:-.01em;color:#0a0a0a}
-.bc-desc{font-size:.83rem;color:var(--dk-muted);line-height:1.65;flex:1;margin-bottom:1.25rem}
-.bc-foot{display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:var(--dk-muted);border-top:1px solid var(--dk-border);padding-top:1rem;margin-top:auto}
-.blog-featured{display:grid;grid-template-columns:1.2fr 1fr;border:1px solid var(--dk-border);border-radius:20px;overflow:hidden;background:#fff;transition:border-color .2s;margin-bottom:4rem;text-decoration:none;color:inherit}
-.blog-featured:hover{border-color:#0a0a0a}
-.bf-img{overflow:hidden;background:#f0f0f0}
-.bf-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.blog-featured:hover .bf-img img{transform:scale(1.04)}
-.bf-body{padding:2.5rem;display:flex;flex-direction:column;justify-content:center}
-.skel{background:linear-gradient(90deg,#f0f0f0 25%,#e4e4e4 50%,#f0f0f0 75%);background-size:200% 100%;animation:shim 1.4s infinite;border-radius:6px}
-@keyframes shim{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.empty-state{text-align:center;padding:5rem 2rem;color:var(--dk-muted)}
-.empty-state svg{opacity:.3;margin:0 auto 1rem;display:block}
-@media(max-width:1024px){.blog-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){
-  .blog-grid{grid-template-columns:1fr}
-  .blog-featured{grid-template-columns:1fr}
-  .bf-body{padding:1.75rem}
+/* Blog list – bez slika, editorial stil */
+.blog-index-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.blog-header {
+  padding: 2rem 0 3.5rem;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 0;
+}
+
+.blog-header-tag {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.blog-header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+  color: #0a0a0a;
+}
+
+.blog-header p {
+  font-size: 1rem;
+  color: #666;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* List items */
+#blog-list {
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.bl-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: .4rem 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid #e8e8e8;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp .45s forwards;
+  transition: background .15s;
+  border-radius: 4px;
+  margin: 0 -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bl-item:hover .bl-title {
+  color: #6e1428;
+}
+
+.bl-item:hover .bl-arrow {
+  transform: translateX(4px);
+  color: #6e1428;
+}
+
+.bl-meta {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.bl-cat {
+  color: #6e1428;
+  font-weight: 700;
+}
+
+.bl-dot { color: #ccc; }
+
+.bl-content {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.bl-title {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.3;
+  color: #0a0a0a;
+  margin-bottom: .4rem;
+  transition: color .2s;
+}
+
+.bl-desc {
+  font-size: .875rem;
+  color: #777;
+  line-height: 1.65;
+  max-width: 600px;
+}
+
+.bl-arrow {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  display: flex;
+  align-items: center;
+  color: #ccc;
+  transition: transform .2s, color .2s;
+  flex-shrink: 0;
+}
+
+/* Skeleton */
+.bl-skel-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.skel {
+  background: linear-gradient(90deg,#f5f5f5 25%,#ebebeb 50%,#f5f5f5 75%);
+  background-size: 200% 100%;
+  animation: shim 1.4s infinite;
+  border-radius: 4px;
+}
+@keyframes shim { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+@media(max-width: 600px) {
+  .bl-desc { display: none; }
+  .bl-title { font-size: 1rem; }
 }
 </style>
 </head>
@@ -168,48 +288,35 @@
       076 475 97 01
     </a>
   </div>
+
+
+<div style="background:#fff;border-bottom:1px solid #e8e8e8">
+  <div class="blog-index-wrap">
+    <div class="blog-header">
+      <span class="blog-header-tag">Blog & Fachwissen</span>
+      <h1>Wissen aus<br/>der Praxis.</h1>
+      <p>Expertenwissen zu Bodenbeschichtungen, Bautenschutz und Kellersanierung – direkt aus dem Alltag von POLYCORE GmbH.</p>
+    </div>
+  </div>
 </div>
 
-<section class="page-hero" style="min-height:65vh;display:flex;align-items:flex-end">
-  <div class="page-hero-content container" style="padding:9rem 0 4rem">
-    <nav class="breadcrumb"><a href="/">Start</a><span>›</span><span style="color:rgba(255,255,255,.7)">Blog</span></nav>
-    <h1 class="h1">Blog & Fachwissen</h1>
-    <p class="lead" style="max-width:580px">Praxisnahes Wissen zu Bodenbeschichtungen, Bautenschutz und Kellersanierung – aus der täglichen Arbeit von POLYCORE GmbH.</p>
-  </div>
-</section>
+<section class="section" style="padding-top:0">
+  <div class="blog-index-wrap">
 
-<section class="section">
-  <div class="container">
-
-    <!-- LOADING STATE -->
     <div id="blog-loading">
-      <div style="display:grid;grid-template-columns:1.2fr 1fr;border-radius:20px;overflow:hidden;border:1px solid #e8e8e8;margin-bottom:4rem;min-height:300px">
-        <div class="skel" style="border-radius:0;min-height:280px"></div>
-        <div style="padding:2.5rem;display:flex;flex-direction:column;gap:1rem;justify-content:center">
-          <div class="skel" style="height:12px;width:40%"></div>
-          <div class="skel" style="height:28px"></div>
-          <div class="skel" style="height:28px;width:75%"></div>
-          <div class="skel" style="height:12px"></div>
-          <div class="skel" style="height:12px;width:90%"></div>
-          <div class="skel" style="height:12px;width:55%"></div>
-        </div>
-      </div>
-      <div class="blog-grid">
-        <div style="border:1px solid #e8e8e8;border-radius:16px;overflow:hidden"><div class="skel" style="aspect-ratio:16/9;border-radius:0"></div><div style="padding:1.4rem;display:flex;flex-direction:column;gap:.65rem"><div class="skel" style="height:10px;width:35%"></div><div class="skel" style="height:18px"></div><div class="skel" style="height:18px;width:80%"></div><div class="skel" style="height:12px;margin-top:.5rem"></div></div></div>
-        <div style="border:1px solid #e8e8e8;border-radius:16px;overflow:hidden"><div class="skel" style="aspect-ratio:16/9;border-radius:0"></div><div style="padding:1.4rem;display:flex;flex-direction:column;gap:.65rem"><div class="skel" style="height:10px;width:35%"></div><div class="skel" style="height:18px"></div><div class="skel" style="height:18px;width:80%"></div><div class="skel" style="height:12px;margin-top:.5rem"></div></div></div>
-        <div style="border:1px solid #e8e8e8;border-radius:16px;overflow:hidden"><div class="skel" style="aspect-ratio:16/9;border-radius:0"></div><div style="padding:1.4rem;display:flex;flex-direction:column;gap:.65rem"><div class="skel" style="height:10px;width:35%"></div><div class="skel" style="height:18px"></div><div class="skel" style="height:18px;width:80%"></div><div class="skel" style="height:12px;margin-top:.5rem"></div></div></div>
-      </div>
+      <div class="bl-skel-item"><div class="skel" style="height:10px;width:15%"></div><div class="skel" style="height:22px;width:65%"></div><div class="skel" style="height:14px;width:80%"></div></div>
+      <div class="bl-skel-item"><div class="skel" style="height:10px;width:20%"></div><div class="skel" style="height:22px;width:55%"></div><div class="skel" style="height:14px;width:70%"></div></div>
+      <div class="bl-skel-item"><div class="skel" style="height:10px;width:12%"></div><div class="skel" style="height:22px;width:70%"></div><div class="skel" style="height:14px;width:60%"></div></div>
     </div>
 
-    <!-- ARTICLES (injected by JS) -->
-    <div id="blog-articles" style="display:none"></div>
+    <div id="blog-list"></div>
 
   </div>
 </section>
 
 <section class="section light-bg">
   <div class="container">
-    <div style="text-align:center;max-width:660px;margin:0 auto">
+    <div style="text-align:center;max-width:580px;margin:0 auto">
       <span class="eyebrow">Konkrete Fragen?</span>
       <h2 class="h1">Wir beraten Sie persönlich</h2>
       <p class="sub" style="margin-bottom:2rem">Haben Sie nach dem Lesen noch offene Fragen? Wir klären diese kostenlos und unverbindlich.</p>
@@ -306,6 +413,40 @@
     document.getElementById('blog-articles').innerHTML = html;
     document.getElementById('blog-articles').style.display = 'block';
   }
+})();
+</script>
+</body>
+
+
+<script src="../js/main.js"></script>
+<script>
+// Blog podaci – ažuriraj: python3 blog/generate-posts.py
+(function() {
+  const ARTICLES = [{"slug": "/blog/epoxidharz-boden-vorteile","title": "Epoxidharz-Boden: 7 Vorteile für Industriebetriebe","desc": "Aus der Praxis: Warum EP-Böden in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.","img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif","cat": "","rt": "","date": "","dateStr": ""},{"slug": "/blog/feuchter-keller-loesungen","title": "Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz","desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.","img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif","cat": "","rt": "","date": "","dateStr": ""},{"slug": "/blog/keller-abdichten-bern","title": "Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz","desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.","img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif","cat": "","rt": "","date": "","dateStr": ""},{"slug": "/blog/pflege-und-reinigung-von-pu-boeden-polyurethan","title": "Pflege & Reinigung von PU-Böden | POLYCORE Blog","desc": "So pflegen und reinigen Sie Polyurethan-Böden richtig – Tipps und Empfehlungen vom Fachmann für langlebige PU-Beschichtungen.","img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif","cat": "","rt": "","date": "","dateStr": ""},{"slug": "/blog/pmma-vs-epoxidharz","title": "PMMA vs. Epoxidharz – Welches System passt?","desc": "Praxisnaher Vergleich: Wann PMMA und wann Epoxidharz die richtige Wahl ist. POLYCORE GmbH Bern.","img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif","cat": "","rt": "","date": "","dateStr": ""},{"slug": "/blog/rutschfeste-pmma-beschichtungen-sicherheit-und-effizienz-vereint","title": "Rutschfeste PMMA-Beschichtungen – Sicherheit & Effizienz | POLYCORE Blog","desc": "Warum rutschfeste PMMA-Beschichtungen in Gewerbe und Industrie unverzichtbar sind – Eigenschaften, Einsatz und Vorteile im Überblick.","img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif","cat": "","rt": "","date": "","dateStr": ""}];
+
+  const el = document.getElementById('blog-list');
+  if (!el || !ARTICLES.length) return;
+
+  el.innerHTML = ARTICLES.map((a, i) => `
+    <a href="${a.slug}" class="bl-item" style="animation-delay:${i*0.06}s">
+      <div class="bl-meta">
+        <span class="bl-cat">${a.cat}</span>
+        <span class="bl-dot">·</span>
+        <span class="bl-date">${a.dateStr}</span>
+        <span class="bl-dot">·</span>
+        <span class="bl-rt">${a.rt} Min.</span>
+      </div>
+      <div class="bl-content">
+        <h2 class="bl-title">${a.title}</h2>
+        <p class="bl-desc">${a.desc}</p>
+      </div>
+      <div class="bl-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>`).join('');
+
+  document.getElementById('blog-loading').style.display = 'none';
+  el.style.opacity = '1';
 })();
 </script>
 </body>
