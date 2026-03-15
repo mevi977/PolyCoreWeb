@@ -247,7 +247,7 @@
 
 <script src="../js/main.js"></script>
 <script>
-fetch('./posts.json')
+fetch('/blog/posts.json')
   .then(r => { if(!r.ok) throw new Error('not found'); return r.json(); })
   .then(posts => {
     const list = document.getElementById('bl-list');
