@@ -14,8 +14,211 @@
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
 <link rel="stylesheet" href="../css/page.css"/>
+<style>
+:root {
+  --bx: #6e1428;
+  --bx-dark: #4a0e1a;
+  --bx-light: #fdf5f6;
+  --bx-mid: #f7e8eb;
+}
+
+.rg-page { background: #fff; }
+
+.rg-hero-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+  border-bottom: 2px solid #0a0a0a;
+}
+
+.rg-eyebrow {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--bx);
+  margin-bottom: .9rem;
+}
+
+.rg-h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1.03;
+  margin-bottom: 1.3rem;
+  color: #0a0a0a;
+}
+
+.rg-h1 em {
+  font-style: normal;
+  color: var(--bx);
+}
+
+.rg-lead {
+  font-size: .975rem;
+  color: #666;
+  max-width: 500px;
+  line-height: 1.8;
+}
+
+.rg-grid-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.rg-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #e4e4e4;
+  border-left: 1px solid #e4e4e4;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.rg-card {
+  position: relative;
+  border-right: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 1.6rem 1.4rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  overflow: hidden;
+  transition: background .18s;
+  opacity: 0;
+  animation: fadeUp .4s forwards;
+}
+
+.rg-card:hover {
+  background: var(--bx-light);
+  z-index: 1;
+}
+
+.rg-card:hover .rg-bar {
+  transform: scaleY(1);
+}
+
+.rg-card:hover .rg-name {
+  color: var(--bx);
+  letter-spacing: -.015em;
+}
+
+.rg-card:hover .rg-arrow {
+  transform: translateX(5px);
+  color: var(--bx);
+  opacity: 1;
+}
+
+.rg-bar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--bx);
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform .28s cubic-bezier(.4,0,.2,1);
+}
+
+.rg-sub {
+  font-size: .62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: #aaa;
+  margin-bottom: .1rem;
+}
+
+.rg-name {
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  color: #0a0a0a;
+  transition: color .18s, letter-spacing .18s;
+  line-height: 1.25;
+}
+
+.rg-arrow {
+  font-size: .9rem;
+  color: #ccc;
+  opacity: .6;
+  margin-top: .4rem;
+  transition: transform .2s, color .2s, opacity .2s;
+  display: inline-block;
+}
+
+.rg-cta {
+  background: #0a0a0a;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.rg-cta-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: #fff;
+  margin-bottom: .8rem;
+}
+
+.rg-cta-sub {
+  font-size: .9rem;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 2rem;
+}
+
+.rg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .75rem 1.6rem;
+  border-radius: 6px;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-decoration: none;
+  transition: background .15s, color .15s, transform .1s;
+}
+
+.rg-btn:active { transform: scale(.98); }
+
+.rg-btn-bx {
+  background: var(--bx);
+  color: #fff;
+}
+
+.rg-btn-bx:hover {
+  background: var(--bx-dark);
+}
+
+.rg-btn-out {
+  border: 1.5px solid rgba(255,255,255,.25);
+  color: #fff;
+}
+
+.rg-btn-out:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.5);
+}
+
+@media(max-width: 900px) {
+  .rg-grid { grid-template-columns: repeat(3,1fr); }
+}
+@media(max-width: 600px) {
+  .rg-grid { grid-template-columns: repeat(2,1fr); }
+  .rg-card { padding: 1.2rem 1rem; }
+  .rg-name { font-size: .95rem; }
+  .rg-sub { display: none; }
+}
+</style>
 </head>
-<body>
+<body class="rg-page">
 
 <nav class="nav">
   <div class="nav-c">
@@ -135,173 +338,166 @@
   </div>
 </div>
 
-<div style="background:#fff;padding:5rem 0 0">
-  <div style="max-width:1080px;margin:0 auto;padding:0 1.5rem">
+<div class="rg-page">
+  <div class="rg-hero-wrap">
+    <span class="rg-eyebrow">Einsatzgebiet</span>
+    <h1 class="rg-h1">Wir kommen<br/>zu <em>Ihnen.</em></h1>
+    <p class="rg-lead">POLYCORE GmbH führt Bodenbeschichtungen und Bautenschutz im ganzen Kanton Bern aus – von der Stadt bis in die kleinste Gemeinde.</p>
+  </div>
 
-    <div style="padding-bottom:3.5rem;border-bottom:2px solid #0a0a0a">
-      <span style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6e1428;display:block;margin-bottom:.75rem">Einsatzgebiet</span>
-      <h1 style="font-size:clamp(2.2rem,5vw,3.75rem);font-weight:700;letter-spacing:-.04em;line-height:1.05;margin-bottom:1.25rem;color:#0a0a0a">Wir kommen<br/>zu Ihnen.</h1>
-      <p style="font-size:1rem;color:#666;max-width:540px;line-height:1.75">POLYCORE GmbH führt Bodenbeschichtungen und Bautenschutz im ganzen Kanton Bern aus – von der Stadt bis in die Gemeinde.</p>
+  <div class="rg-grid-wrap">
+    <div class="rg-grid">
+      <a href="/regionen/bern" class="rg-card" style="animation-delay:0.0s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Unser Heimmarkt</div>
+        <div class="rg-name">Bern</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/thun" class="rg-card" style="animation-delay:0.04s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Thuner Becken</div>
+        <div class="rg-name">Thun</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/biel-bienne" class="rg-card" style="animation-delay:0.08s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Industrie- & Gewerbestadt</div>
+        <div class="rg-name">Biel / Bienne</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/burgdorf" class="rg-card" style="animation-delay:0.12s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Zentrum des Emmentals</div>
+        <div class="rg-name">Burgdorf</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/solothurn" class="rg-card" style="animation-delay:0.16s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Zwischen Bern und Basel</div>
+        <div class="rg-name">Solothurn</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/koeniz" class="rg-card" style="animation-delay:0.2s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Grösste Gemeinde Berns</div>
+        <div class="rg-name">Köniz</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/ostermundigen" class="rg-card" style="animation-delay:0.24s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Osten der Stadt Bern</div>
+        <div class="rg-name">Ostermundigen</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/ittigen" class="rg-card" style="animation-delay:0.28s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Nördlich von Bern</div>
+        <div class="rg-name">Ittigen</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/zollikofen" class="rg-card" style="animation-delay:0.32s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Norden des Kantons</div>
+        <div class="rg-name">Zollikofen</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/bolligen" class="rg-card" style="animation-delay:0.36s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Ost von Bern</div>
+        <div class="rg-name">Bolligen</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/muri-bei-bern" class="rg-card" style="animation-delay:0.4s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Südosten Berns</div>
+        <div class="rg-name">Muri bei Bern</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/belp" class="rg-card" style="animation-delay:0.44s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Aaretal Region</div>
+        <div class="rg-name">Belp</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/heimberg" class="rg-card" style="animation-delay:0.48s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Nähe Thun</div>
+        <div class="rg-name">Heimberg</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/steffisburg" class="rg-card" style="animation-delay:0.52s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Rechtes Thunerseeufer</div>
+        <div class="rg-name">Steffisburg</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/spiez" class="rg-card" style="animation-delay:0.56s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Am Thunersee</div>
+        <div class="rg-name">Spiez</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/muensingen" class="rg-card" style="animation-delay:0.6s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Aaretal Mittelland</div>
+        <div class="rg-name">Münsingen</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/schwarzenburg" class="rg-card" style="animation-delay:0.64s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Sense Region</div>
+        <div class="rg-name">Schwarzenburg</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/worb" class="rg-card" style="animation-delay:0.68s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Östlich von Bern</div>
+        <div class="rg-name">Worb</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/kirchdorf" class="rg-card" style="animation-delay:0.72s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Aaretal</div>
+        <div class="rg-name">Kirchdorf</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/konolfingen" class="rg-card" style="animation-delay:0.76s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Mittelland Bern</div>
+        <div class="rg-name">Konolfingen</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/langenthal" class="rg-card" style="animation-delay:0.8s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Oberaargau</div>
+        <div class="rg-name">Langenthal</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/herzogenbuchsee" class="rg-card" style="animation-delay:0.84s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Knotenpunkt Mittelland</div>
+        <div class="rg-name">Herzogenbuchsee</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+      <a href="/regionen/langnau-im-emmental" class="rg-card" style="animation-delay:0.88s">
+        <div class="rg-bar"></div>
+        <div class="rg-sub">Emmental</div>
+        <div class="rg-name">Langnau i.E.</div>
+        <div class="rg-arrow">&#x2192;</div>
+      </a>
+
     </div>
-
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid #e8e8e8;border-top:1px solid #e8e8e8;margin:3rem 0">
-      <a href="/regionen/bern" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Unser Heimmarkt</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Bern</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/thun" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Thuner Becken</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Thun</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/biel-bienne" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Industrie- & Gewerbestadt</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Biel / Bienne</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/burgdorf" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Zentrum des Emmentals</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Burgdorf</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/solothurn" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Zwischen Bern und Basel</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Solothurn</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/koeniz" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Grösste Gemeinde Berns</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Köniz</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/ostermundigen" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Osten der Stadt Bern</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Ostermundigen</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/ittigen" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Nördlich von Bern</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Ittigen</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/zollikofen" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Norden des Kantons Bern</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Zollikofen</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/bolligen" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Ost von Bern</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Bolligen</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/muri-bei-bern" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Südosten Berns</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Muri bei Bern</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/belp" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Aaretal Region</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Belp</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/heimberg" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Nähe Thun</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Heimberg</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/steffisburg" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Rechtes Thunerseeufer</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Steffisburg</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/spiez" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Am Thunersee</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Spiez</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/muensingen" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Aaretal Mittelland</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Münsingen</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/schwarzenburg" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Sense Region</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Schwarzenburg</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/worb" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Östlich von Bern</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Worb</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/kirchdorf" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Aaretal</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Kirchdorf</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/konolfingen" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Mittelland Bern</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Konolfingen</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/langenthal" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Oberaargau</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Langenthal</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/herzogenbuchsee" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Knotenpunkt Mittelland</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Herzogenbuchsee</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-      <a href="/regionen/langnau-im-emmental" style="display:flex;flex-direction:column;gap:.4rem;padding:1.6rem 1.4rem;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .15s" onmouseover="this.style.background='#fdf8f8';this.querySelector('.rn').style.color='#6e1428';this.querySelector('.rn').style.transform='translateX(4px)'" onmouseout="this.style.background='';this.querySelector('.rn').style.color='#ccc';this.querySelector('.rn').style.transform=''">
-        <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .2s;transform-origin:bottom" class="rline"></div>
-        <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa">Emmental</div>
-        <div style="font-size:1.1rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .2s">Langnau i.E.</div>
-        <div class="rn" style="font-size:.8rem;color:#ccc;transition:transform .2s,color .2s;margin-top:.2rem">→</div>
-      </a>
-
-    </div>
-
   </div>
 </div>
 
-<section class="section light-bg">
-  <div class="container">
-    <div style="text-align:center;max-width:580px;margin:0 auto">
-      <span class="eyebrow">Nicht dabei?</span>
-      <h2 class="h1">Wir kommen auch zu Ihnen</h2>
-      <p class="sub" style="margin-bottom:2rem">Ist Ihre Gemeinde nicht aufgeführt? Kontaktieren Sie uns – wir sind im ganzen Kanton tätig.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-        <a href="/kontakt" class="btn btn-dark">Anfrage stellen</a>
-        <a href="tel:+41765397974" class="btn btn-outline">+41 76 539 79 74</a>
-      </div>
-    </div>
+<div class="rg-cta">
+  <div class="rg-cta-title">Ihre Gemeinde nicht dabei?</div>
+  <p class="rg-cta-sub">Wir sind im gesamten Kanton Bern und darüber hinaus tätig. Einfach anfragen.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="/kontakt" class="rg-btn rg-btn-bx">Anfrage stellen &rarr;</a>
+    <a href="tel:+41765397974" class="rg-btn rg-btn-out">+41 76 539 79 74</a>
   </div>
-</section>
+</div>
 
 <footer class="footer">
   <div class="container">
@@ -351,5 +547,9 @@
 @media(max-width:900px){div[style*="repeat(4,1fr)"]{grid-template-columns:repeat(3,1fr)!important}}
 @media(max-width:600px){div[style*="repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important}}
 </style>
+</body>
+
+
+<script src="../js/main.js"></script>
 </body>
 </html>
