@@ -2,35 +2,15 @@
 <html lang="de-CH">
 <head>
 <meta charset="UTF-8"/>
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Regionen | POLYCORE GmbH – Bern, Thun, Biel und Umgebung</title>
-<meta name="description" content="POLYCORE GmbH ist im Kanton Bern und Umgebung tätig – Bern, Thun, Biel, Burgdorf, Köniz, Münsingen, Zollikofen, Steffisburg und viele weitere Gemeinden."/>
+<title>Regionen | POLYCORE GmbH – Bern und Umgebung</title>
+<meta name="description" content="POLYCORE GmbH ist in Bern, Biel, Thun, Burgdorf und Solothurn taetig. Lokale Expertise, kurze Wege."/>
 <link rel="canonical" href="https://www.polycore.ch/regionen/"/>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "POLYCORE GmbH",
-  "description": "Spezialist für Bodenbeschichtungen und Bautenschutz im Kanton Bern und Umgebung.",
-  "url": "https://www.polycore.ch",
-  "telephone": "+41764759701",
-  "email": "info@polycore.ch",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Urtenen-Schönbühl",
-    "addressLocality": "Urtenen-Schönbühl",
-    "addressRegion": "BE",
-    "postalCode": "3322",
-    "addressCountry": "CH"
-  },
-  "areaServed": [
-    "Bern","Thun","Biel","Burgdorf","Solothurn","Köniz","Ostermundigen","Muri bei Bern",
-    "Zollikofen","Münsingen","Worb","Belp","Steffisburg","Heimberg","Spiez","Langenthal",
-    "Ittigen","Bolligen","Konolfingen","Herzogenbuchsee","Schwarzenburg","Langnau im Emmental","Kirchdorf"
-  ]
-}</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../css/design-system.css"/>
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
@@ -40,34 +20,47 @@
 
 <nav class="nav">
   <div class="nav-c">
-    <a href="/" class="nav-logo">
-      <img src="../assets/img/PolyCoreLogo.png" alt="POLYCORE"/>
-    </a>
+    <a href="/" class="nav-logo"><img src="../assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="../assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
     <ul class="nav-links">
       <li class="nav-drop">
-        <a class="nav-a nav-drop-toggle">Leistungen
-          <svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
-        </a>
+        <span class="nav-a nav-drop-toggle">Leistungen<svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></span>
         <div class="mega">
-          <div class="mega-grid">
-            <div class="mega-col">
-              <span class="eyebrow">Bodenlösungen</span>
-              <ul class="mega-list">
-                <li><a href="../leistungen/epoxidharz-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div><div class="mega-txt"><strong>Epoxidharz (EP)</strong><span>Industrieboden, robust &amp; fugenlos</span></div></a></li>
-                <li><a href="../leistungen/polyurethan-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/></svg></div><div class="mega-txt"><strong>Polyurethan (PU)</strong><span>Elastisch, thermisch stabil</span></div></a></li>
-                <li><a href="../leistungen/pmma-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div><div class="mega-txt"><strong>PMMA</strong><span>Schnellhärtend, kältestabil</span></div></a></li>
-                <li><a href="../leistungen/designerboden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="mega-txt"><strong>Designerboden</strong><span>Dekorativ &amp; stilvoll</span></div></a></li>
-                <li><a href="../leistungen/steinteppich.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="12" cy="16" r="2"/></svg></div><div class="mega-txt"><strong>Steinteppich</strong><span>Rutschfest, drainagefähig</span></div></a></li>
-              </ul>
+          <div class="mega-inner">
+            <div class="mega-intro">
+              <div>
+                <p class="mega-intro-tag">Unsere Leistungen</p>
+                <h2 class="mega-intro-title">Böden &amp; Bautenschutz aus einer Hand</h2>
+                <p class="mega-intro-desc">Ob industrielle Beschichtung, elastische Abdichtung oder dekorativer Designerboden – wir beraten Sie kompetent und führen alles sauber aus.</p>
+              </div>
+              <a href="../kontakt.html" class="mega-intro-cta">Kostenlose Beratung <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
             </div>
-            <div class="mega-col">
-              <span class="eyebrow">Bautenschutz</span>
-              <ul class="mega-list">
-                <li><a href="../leistungen/abdichtung.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="mega-txt"><strong>Flüssigkunststoff (FLK)</strong><span>Nahtlose Abdichtung</span></div></a></li>
-                <li><a href="../leistungen/injektionen.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2l4 4-14 14H4v-4L18 2z"/></svg></div><div class="mega-txt"><strong>Injektionen</strong><span>Rissabdichtung, Kellerwände</span></div></a></li>
-                <li><a href="../leistungen/combiflex.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div><div class="mega-txt"><strong>Combiflex</strong><span>Fugenbänder &amp; Anschlüsse</span></div></a></li>
-                <li><a href="../leistungen/plattenlegen.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg></div><div class="mega-txt"><strong>Plattenverlegung &amp; Reinigung</strong><span>Fliesen, Naturstein</span></div></a></li>
-              </ul>
+            <div class="mega-cols">
+              <div class="mega-col">
+                <span class="eyebrow">Bodenlösungen</span>
+                <ul class="mega-list">
+                  <li><a href="../leistungen/epoxidharz-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div><div class="mega-txt"><strong>Epoxidharz (EP)</strong><span>Industrieboden, robust &amp; fugenlos</span></div></a></li>
+                  <li><a href="../leistungen/polyurethan-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></div><div class="mega-txt"><strong>Polyurethan (PU)</strong><span>Elastisch, thermisch stabil</span></div></a></li>
+                  <li><a href="../leistungen/pmma-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></div><div class="mega-txt"><strong>PMMA</strong><span>Schnellhärtend, in Stunden begehbar</span></div></a></li>
+                  <li><a href="../leistungen/designerboden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="mega-txt"><strong>Designerboden</strong><span>Mikrozement &amp; Wohnflächen</span></div></a></li>
+                  <li><a href="../leistungen/steinteppich.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></div><div class="mega-txt"><strong>Steinteppich</strong><span>Naturstein, rutschfest &amp; fugenlos</span></div></a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <span class="eyebrow">Bautenschutz</span>
+                <ul class="mega-list">
+                  <li><a href="../leistungen/abdichtung.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div><div class="mega-txt"><strong>Flüssigkunststoff (FLK)</strong><span>Abdichtung für Terrassen &amp; Balkone</span></div></a></li>
+                  <li><a href="../leistungen/injektionen.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4M7 20h4"/></svg></div><div class="mega-txt"><strong>Injektionen</strong><span>Dauerhafte Feuchtigkeitssicherung</span></div></a></li>
+                  <li><a href="../leistungen/combiflex.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/></svg></div><div class="mega-txt"><strong>Combiflex</strong><span>Fugenabdichtung, hochflexibel</span></div></a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <span class="eyebrow">Service &amp; Weitere</span>
+                <ul class="mega-list">
+                  <li><a href="../leistungen/plattenlegen.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></div><div class="mega-txt"><strong>Plattenverlegung</strong><span>Naturstein, Reinigung &amp; Imprägnierung</span></div></a></li>
+                  <li><a href="../projekte.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg></div><div class="mega-txt"><strong>Projekte</strong><span>Referenzen &amp; Galerie</span></div></a></li>
+                  <li><a href="../kontakt.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.1.96.35 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.6 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="mega-txt"><strong>Beratung</strong><span>Kostenloses Erstgespräch</span></div></a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -77,231 +70,99 @@
       <li><a href="../blog/" class="nav-a">Blog</a></li>
       <li><a href="../kontakt.html" class="nav-a">Kontakt</a></li>
     </ul>
-    <div class="nav-cta"><a href="../kontakt.html" class="btn btn-light">Beratung anfragen</a></div>
-    <button class="nav-burger" aria-label="Menü"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <a href="tel:+41765397974" class="nav-phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.1.96.35 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.6 2.81.7A2 2 0 0122 16.92z"/></svg><span class="nav-phone-text">076 539 79 74</span></a>
+    <button class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mob-menu">
-  <button class="mob-close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <nav class="mob-nav">
-    <ul style="list-style:none;padding:0;margin:0">
-      <li class="mob-item">
-        <button onclick="this.parentElement.classList.toggle('open')">Leistungen
-          <svg class="mob-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="mob-sub">
-          <span class="sub-label">Bodenlösungen</span>
-          <a href="../leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a>
-          <a href="../leistungen/polyurethan-boden.html">Polyurethan (PU)</a>
-          <a href="../leistungen/pmma-boden.html">PMMA</a>
-          <a href="../leistungen/designerboden.html">Designerboden</a>
-          <a href="../leistungen/steinteppich.html">Steinteppich</a>
-          <span class="sub-label">Bautenschutz</span>
-          <a href="../leistungen/abdichtung.html">Flüssigkunststoff (FLK)</a>
-          <a href="../leistungen/injektionen.html">Injektionen</a>
-          <a href="../leistungen/combiflex.html">Combiflex</a>
-          <a href="../leistungen/plattenlegen.html">Plattenverlegung &amp; Reinigung</a>
-        </div>
+<div class="mob-backdrop" id="mobBackdrop"></div>
+<div class="mob-menu" id="mobMenu">
+  <div class="mob-header">
+    <a href="../index.html" class="mob-logo"><img src="../assets/img/1PolyCoreLogo.png" alt="POLYCORE"/></a>
+    <button class="mob-close" aria-label="Schliessen">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <div class="mob-body">
+
+    <!-- Glavna lista -->
+    <ul class="mob-main-list" id="mobMainList">
+      <li class="mob-main-item" data-expand="mobExpLeistungen">
+        <span>Leistungen</span>
+        <svg class="mob-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </li>
-      <li class="mob-item"><a href="../projekte.html">Projekte</a></li>
-      <li class="mob-item"><a href="../ueber-uns.html">Über uns</a></li>
-      <li class="mob-item"><a href="../blog/">Blog</a></li>
-      <li class="mob-item"><a href="../kontakt.html">Kontakt</a></li>
+      <li class="mob-main-item"><a href="../projekte.html">Projekte</a></li>
+      <li class="mob-main-item"><a href="../ueber-uns.html">Über uns</a></li>
+      <li class="mob-main-item"><a href="../blog/">Blog</a></li>
+      <li class="mob-main-item"><a href="../kontakt.html">Kontakt</a></li>
     </ul>
-  </nav>
+
+    <!-- Leistungen expand panel -->
+    <div class="mob-expand" id="mobExpLeistungen">
+      <div class="mob-expand-header">
+        <button class="mob-back">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          Zurück
+        </button>
+      </div>
+      <div class="mob-expand-title">Leistungen</div>
+      <div class="mob-expand-desc">Hochwertige Bodenbeschichtungen und Bautenschutzlösungen – präzise ausgeführt von POLYCORE GmbH.</div>
+      <a href="../leistungen/" class="mob-expand-overview">
+        Zur Übersicht
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <ul class="mob-expand-list">
+        <li class="mob-expand-section">Bodenlösungen</li>
+        <li><a href="../leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a></li>
+        <li><a href="../leistungen/polyurethan-boden.html">Polyurethan (PU)</a></li>
+        <li><a href="../leistungen/pmma-boden.html">PMMA</a></li>
+        <li><a href="../leistungen/designerboden.html">Designerboden</a></li>
+        <li><a href="../leistungen/steinteppich.html">Steinteppich</a></li>
+        <li class="mob-expand-section">Bautenschutz</li>
+        <li><a href="../leistungen/abdichtung.html">Flüssigkunststoff (FLK)</a></li>
+        <li><a href="../leistungen/injektionen.html">Injektionen</a></li>
+        <li><a href="../leistungen/combiflex.html">Combiflex</a></li>
+        <li><a href="../leistungen/plattenlegen.html">Plattenverlegung &amp; Reinigung</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /.mob-body -->
+
   <div class="mob-footer">
-    <a href="../kontakt.html" class="btn btn-light">Beratung anfragen</a>
+    <a href="tel:+41765397974" class="mob-tel">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 14.92z"/></svg>
+      076 539 79 74
+    </a>
   </div>
 </div>
 
 <section class="page-hero" style="min-height:40vh;display:flex;align-items:center">
   <div class="page-hero-content container" style="padding:9rem 0 4rem">
-    <nav class="breadcrumb"><a href="/">Start</a><span>&gt;</span><span style="color:rgba(255,255,255,.7)">Regionen</span></nav>
-    <h1 class="h1">Unser Tätigkeitsgebiet</h1>
-    <p class="lead">Lokal verwurzelt in Urtenen-Schönbühl – tätig im gesamten Kanton Bern und Umgebung. Kurze Wege, termintreue Ausführung.</p>
+    <nav class="breadcrumb"><a href="/">Start</a><span>></span><span style="color:rgba(255,255,255,.7)">Regionen</span></nav>
+    <h1 class="h1">Unser Taetigkeitsgebiet</h1>
+    <p class="lead">Lokal verwurzelt in Bern – taetig in der gesamten Region. Kurze Wege, termintreue Ausfuehrung.</p>
   </div>
 </section>
-
 <section class="section">
-  <div class="container">
-    <div style="text-align:center;max-width:600px;margin:0 auto 3rem">
-      <span class="eyebrow">Alle Regionen</span>
-      <h2 class="h1 reveal">Wo wir tätig sind</h2>
-      <p class="sub reveal d1">Von Bern bis Langenthal, vom Aaretal bis zum Thunersee – POLYCORE GmbH ist in der gesamten Region für Sie da.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem">
-
-      <a href="bern.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Bern</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Unser Heimmarkt – täglich vor Ort in der Bundesstadt und der gesamten Agglomeration.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="thun.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Thun</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerbliche und industrielle Projekte im Thuner Becken und Umgebung.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="biel-bienne.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Biel / Bienne</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Regelmässige Einsätze in der grössten zweisprachigen Stadt der Schweiz.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="burgdorf.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Burgdorf</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Wirtschaftliches Zentrum des Emmentals – regelmässige Einsätze in Gewerbe und Industrie.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="solothurn.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Solothurn</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Industrie- und Gewerbeprojekte im Kanton Solothurn.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="koeniz.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Köniz</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Grossgemeinde direkt an der Stadtgrenze Bern – Wohn- und Gewerbeobjekte.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="ostermundigen.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Ostermundigen</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerbestandort in der östlichen Berner Agglomeration.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="zollikofen.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Zollikofen</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerbegebiet nördlich von Bern – kurze Anfahrt ab Urtenen-Schönbühl.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="ittigen.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Ittigen</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerbe- und Dienstleistungsstandort nördlich von Bern.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="muensingen.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Münsingen</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Zentrum des Aaretals – Industrie, Gewerbe und Wohnbau.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="worb.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Worb</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Wachsende Wohn- und Gewerbegemeinde im Worblental.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="muri-bei-bern.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Muri bei Bern</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Attraktive Wohn- und Gewerbegemeinde in der Agglomeration Bern.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="bolligen.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Bolligen</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Östliche Berner Agglomeration – Gewerbe- und Wohnliegenschaften.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="steffisburg.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Steffisburg</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerbestandort im Thuner Becken – direkt neben Thun.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="heimberg.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Heimberg</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerbelage zwischen Thun und dem Aaretal.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="spiez.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Spiez</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerbe- und Wohnliegenschaften am Thunersee.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="belp.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Belp</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerbezentrum im Gürbetal mit Autobahnanschluss.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="kirchdorf.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Kirchdorf</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Aaretal zwischen Bern und Thun – Gewerbe und Wohnbau.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="konolfingen.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Konolfingen</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Region im Bernischen Mittelland – Gewerbe und Wohnbau.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="langenthal.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Langenthal</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Industriezentrum des Oberaargaus – Beschichtungen für Gewerbe und Industrie.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="herzogenbuchsee.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Herzogenbuchsee</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Gewerberegion an der Achse Bern–Olten.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="schwarzenburg.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Schwarzenburg</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Zentrum des Schwarzenburgerlands – Gewerbe und Handwerk.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-      <a href="langnau-im-emmental.html" style="display:block;border:1px solid var(--dk-border);border-radius:12px;padding:1.5rem;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">
-        <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:.4rem">Langnau im Emmental</h3>
-        <p style="font-size:.85rem;color:var(--dk-muted);line-height:1.5;margin-bottom:1rem">Hauptort des Emmentals – Gewerbe und Industrie in der Region.</p>
-        <span class="arrow-link" style="font-size:.83rem">Zur Region <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<section class="section light-bg">
-  <div class="container" style="text-align:center;max-width:600px;margin:0 auto">
-    <span class="eyebrow">Nicht dabei?</span>
-    <h2 class="h1 reveal">Auch ausserhalb dieser Regionen tätig</h2>
-    <p class="sub reveal d1" style="margin:1rem 0 2rem">Unser Tätigkeitsgebiet ist nicht auf diese Liste beschränkt. Nehmen Sie Kontakt auf – wir prüfen gerne, ob wir Ihr Projekt übernehmen können.</p>
-    <div class="btn-row" style="justify-content:center">
-      <a href="../kontakt.html" class="btn btn-dark">Anfrage stellen</a>
-      <a href="tel:+41764759701" class="btn btn-outline">+41 76 475 97 01</a>
-    </div>
-  </div>
+  <div class="container"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem"><a href="/regionen/bern" style="display:block;border:1px solid var(--dk-border);border-radius:12px;overflow:hidden;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''"><div style="aspect-ratio:16/9;overflow:hidden"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif" alt="Bern" loading="lazy" width="600" height="338" style="width:100%;height:100%;object-fit:cover"/></div><div style="padding:1.75rem"><h2 style="font-size:1.25rem;font-weight:600;margin-bottom:.5rem">Bern</h2><p style="font-size:.875rem;color:var(--dk-muted);margin-bottom:1.25rem;line-height:1.6">Bern ist unser Heimmarkt. Wir sind seit Jahren der bevorzugte Partner von Generalunternehmern, Gewer...</p><span class="arrow-link" style="font-size:.83rem;font-weight:500">Mehr <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></div></a><a href="/regionen/biel-bienne" style="display:block;border:1px solid var(--dk-border);border-radius:12px;overflow:hidden;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''"><div style="aspect-ratio:16/9;overflow:hidden"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4e9_9ba0a503-6e2f-4efb-ac3a-c0b3bba3b33d.avif" alt="Biel / Bienne" loading="lazy" width="600" height="338" style="width:100%;height:100%;object-fit:cover"/></div><div style="padding:1.75rem"><h2 style="font-size:1.25rem;font-weight:600;margin-bottom:.5rem">Biel / Bienne</h2><p style="font-size:.875rem;color:var(--dk-muted);margin-bottom:1.25rem;line-height:1.6">Biel ist eine bedeutende Industrie- und Gewerbestadt. POLYCORE GmbH ist regelmässig in Biel für Indu...</p><span class="arrow-link" style="font-size:.83rem;font-weight:500">Mehr <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></div></a><a href="/regionen/thun" style="display:block;border:1px solid var(--dk-border);border-radius:12px;overflow:hidden;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''"><div style="aspect-ratio:16/9;overflow:hidden"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif" alt="Thun" loading="lazy" width="600" height="338" style="width:100%;height:100%;object-fit:cover"/></div><div style="padding:1.75rem"><h2 style="font-size:1.25rem;font-weight:600;margin-bottom:.5rem">Thun</h2><p style="font-size:.875rem;color:var(--dk-muted);margin-bottom:1.25rem;line-height:1.6">Thun und das Thuner Becken sind stark durch Gewerbe und Industrie geprägt. POLYCORE führt in Thun re...</p><span class="arrow-link" style="font-size:.83rem;font-weight:500">Mehr <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></div></a><a href="/regionen/burgdorf" style="display:block;border:1px solid var(--dk-border);border-radius:12px;overflow:hidden;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''"><div style="aspect-ratio:16/9;overflow:hidden"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif" alt="Burgdorf" loading="lazy" width="600" height="338" style="width:100%;height:100%;object-fit:cover"/></div><div style="padding:1.75rem"><h2 style="font-size:1.25rem;font-weight:600;margin-bottom:.5rem">Burgdorf</h2><p style="font-size:.875rem;color:var(--dk-muted);margin-bottom:1.25rem;line-height:1.6">Burgdorf ist das wirtschaftliche Zentrum des Emmentals. POLYCORE GmbH ist regelmässig in Burgdorf un...</p><span class="arrow-link" style="font-size:.83rem;font-weight:500">Mehr <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></div></a><a href="/regionen/solothurn" style="display:block;border:1px solid var(--dk-border);border-radius:12px;overflow:hidden;transition:var(--tr);color:inherit;text-decoration:none" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''"><div style="aspect-ratio:16/9;overflow:hidden"><img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif" alt="Solothurn" loading="lazy" width="600" height="338" style="width:100%;height:100%;object-fit:cover"/></div><div style="padding:1.75rem"><h2 style="font-size:1.25rem;font-weight:600;margin-bottom:.5rem">Solothurn</h2><p style="font-size:.875rem;color:var(--dk-muted);margin-bottom:1.25rem;line-height:1.6">Solothurn liegt strategisch günstig zwischen Bern und Basel. POLYCORE GmbH ist regelmässig im Kanton...</p><span class="arrow-link" style="font-size:.83rem;font-weight:500">Mehr <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></div></a></div></div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
       <div>
-        <p class="footer-headline">Präzision. Schutz.<br/>Qualität. Vertrauen.</p>
+        <p class="footer-headline">Praezision. Schutz.<br/>Qualitaet. Vertrauen.</p>
         <a href="/kontakt.html" class="footer-cta-link">Kontakt aufnehmen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
       </div>
       <div class="foot-contact">
-        <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41764759701">+41 76 475 97 01</a></div>
+        <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41765397974">+41 76 539 79 74</a></div>
         <div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div>
         <div class="foot-contact-row"><p>Standort</p><a href="/kontakt.html">Urtenen-Schönbühl, Schweiz</a></div>
       </div>
       <nav class="foot-nav">
         <a href="/projekte.html" class="foot-link">Projekte</a>
         <a href="/leistungen/" class="foot-link">Leistungen</a>
-        <a href="/ueber-uns.html" class="foot-link">Über uns</a>
+        <a href="/ueber-uns.html" class="foot-link">Ueber uns</a>
         <a href="/kontakt.html" class="foot-link">Kontakt</a>
         <a href="/impressum.html" class="foot-link">Impressum</a>
         <a href="/datenschutz.html" class="foot-link">Datenschutz</a>
@@ -315,10 +176,8 @@
         <a href="#" class="social-a" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
         <a href="#" class="social-a" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
-      <p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge &amp; Bautenschutz · Urtenen-Schönbühl, Schweiz</p>
+      <p class="foot-copy">2026 POLYCORE GmbH - Bodenbelaege und Bautenschutz - Urtenen-Schönbühl, Schweiz</p>
     </div>
   </div>
 </footer>
-<script src="../js/main.js"></script>
-</body>
-</html>
+<script src="../js/main.js"></script></body></html>
