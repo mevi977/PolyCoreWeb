@@ -1,82 +1,62 @@
 [
   {
-    "slug": "/blog/proba",
-    "title": "proba",
-    "desc": "proba",
+    "slug": "/blog/keller-abdichten-bern",
+    "title": "Keller abdichten in Bern: Kellerwand & Kellerboden von innen",
+    "desc": "Feuchter Keller? Wir erklären die besten Methoden – Injektionen, Flüssigkunststoff, Combiflex.",
     "img": "",
-    "cat": "Plattenlegen",
-    "rt": "5",
-    "date": "2026-03-15",
-    "dateStr": "15. März 2026"
-  },
-  {
-    "slug": "/blog/test",
-    "title": "test",
-    "desc": "teeeest",
-    "img": "",
-    "cat": "Tipps & Ratgeber",
-    "rt": "5",
-    "date": "2026-03-15",
-    "dateStr": "15. MÃ¤rz 2026"
+    "cat": "Bautenschutz",
+    "rt": "7",
+    "date": "2026-03-05",
+    "dateStr": "5. März 2026"
   },
   {
     "slug": "/blog/epoxidharz-boden-vorteile",
-    "title": "Epoxidharz-Boden: 7 Vorteile fÃÂ¼r Industriebetriebe",
-    "desc": "Aus der Praxis: Warum EP-BÃÂ¶den in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
-  },
-  {
-    "slug": "/blog/feuchter-keller-loesungen",
-    "title": "Feuchter Keller: 5 LÃÂ¶sungsansÃÂ¤tze fÃÂ¼r dauerhaften Schutz",
-    "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklÃÂ¤rt die 5 bewÃÂ¤hrtesten Methoden gegen Kellerfeuchtigkeit.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
-  },
-  {
-    "slug": "/blog/keller-abdichten-bern",
-    "title": "Feuchter Keller: 5 LÃÂ¶sungsansÃÂ¤tze fÃÂ¼r dauerhaften Schutz",
-    "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklÃÂ¤rt die 5 bewÃÂ¤hrtesten Methoden gegen Kellerfeuchtigkeit.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
-  },
-  {
-    "slug": "/blog/pflege-und-reinigung-von-pu-boeden-polyurethan",
-    "title": "Pflege & Reinigung von PU-BÃÂ¶den | POLYCORE Blog",
-    "desc": "So pflegen und reinigen Sie Polyurethan-BÃÂ¶den richtig Ã¢ÂÂ Tipps und Empfehlungen vom Fachmann fÃÂ¼r langlebige PU-Beschichtungen.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
+    "title": "Epoxidharz-Boden: 7 Vorteile für Industriebetriebe",
+    "desc": "Aus der Praxis: Warum EP-Böden in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.",
+    "img": "",
+    "cat": "Epoxidharz",
+    "rt": "6",
+    "date": "2026-02-12",
+    "dateStr": "12. Februar 2026"
   },
   {
     "slug": "/blog/pmma-vs-epoxidharz",
-    "title": "PMMA vs. Epoxidharz Ã¢ÂÂ Welches System passt?",
+    "title": "PMMA vs. Epoxidharz – Welches System passt?",
     "desc": "Praxisnaher Vergleich: Wann PMMA und wann Epoxidharz die richtige Wahl ist. POLYCORE GmbH Bern.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
+    "img": "",
+    "cat": "Vergleich",
+    "rt": "7",
+    "date": "2026-01-28",
+    "dateStr": "28. Januar 2026"
+  },
+  {
+    "slug": "/blog/feuchter-keller-loesungen",
+    "title": "Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz",
+    "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.",
+    "img": "",
+    "cat": "Bautenschutz",
+    "rt": "8",
+    "date": "2026-01-14",
+    "dateStr": "14. Januar 2026"
+  },
+  {
+    "slug": "/blog/pflege-und-reinigung-von-pu-boeden-polyurethan",
+    "title": "Pflege & Reinigung von PU-Böden",
+    "desc": "So pflegen und reinigen Sie Polyurethan-Böden richtig – Tipps und Empfehlungen vom Fachmann.",
+    "img": "",
+    "cat": "Polyurethan",
+    "rt": "5",
+    "date": "2026-01-10",
+    "dateStr": "10. Januar 2026"
   },
   {
     "slug": "/blog/rutschfeste-pmma-beschichtungen-sicherheit-und-effizienz-vereint",
-    "title": "Rutschfeste PMMA-Beschichtungen Ã¢ÂÂ Sicherheit & Effizienz | POLYCORE Blog",
-    "desc": "Warum rutschfeste PMMA-Beschichtungen in Gewerbe und Industrie unverzichtbar sind Ã¢ÂÂ Eigenschaften, Einsatz und Vorteile im ÃÂberblick.",
-    "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif",
-    "cat": "",
-    "rt": "",
-    "date": "",
-    "dateStr": ""
+    "title": "Rutschfeste PMMA-Beschichtungen – Sicherheit & Effizienz",
+    "desc": "Warum rutschfeste PMMA-Beschichtungen in Gewerbe und Industrie unverzichtbar sind.",
+    "img": "",
+    "cat": "PMMA",
+    "rt": "5",
+    "date": "2025-12-20",
+    "dateStr": "20. Dezember 2025"
   }
 ]
