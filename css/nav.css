@@ -61,7 +61,7 @@
 
 /* Logo */
 .nav-logo{display:flex;align-items:center;flex-shrink:0;padding:8px 0}
-.nav-logo img{height:54px;width:auto;display:block}
+.nav-logo img{height:66px;width:auto;display:block}
 
 /* Links – sredina */
 .nav-links{
@@ -478,7 +478,7 @@
   /* Navbar viši na mobilnom */
   .nav-c{height:68px}
   /* Logo veći */
-  .nav-logo img{height:56px}
+  .nav-logo img{height:66px}
   /* Telefon ikona – gurni desno s margin-left:auto, razmak od burgera */
   .nav-phone{
     display:flex;align-items:center;
@@ -500,7 +500,7 @@
 @media(max-width:640px){
   .nav{top:.75rem;width:calc(100% - 1.5rem)}
   .nav-c{padding:0 1rem;height:68px}
-  .nav-logo img{height:52px}
+  .nav-logo img{height:62px}
   .mega{top:calc(.75rem + 68px + 6px);width:calc(100% - 1.5rem)}
   .mob-menu{
     top:calc(.75rem + 68px + 4px);
