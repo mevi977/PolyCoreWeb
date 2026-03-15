@@ -22,13 +22,15 @@
   position:absolute;
   inset:0;
   background:linear-gradient(105deg,
-    transparent 15%,
-    rgba(74,14,26,0) 30%,
-    rgba(120,20,40,.35) 45%,
-    rgba(160,30,55,.45) 50%,
-    rgba(120,20,40,.35) 55%,
-    rgba(74,14,26,0) 70%,
-    transparent 85%
+    transparent 10%,
+    rgba(44,24,16,0) 25%,
+    rgba(44,24,16,.4) 35%,
+    rgba(74,14,26,.5) 45%,
+    rgba(160,30,55,.55) 50%,
+    rgba(74,14,26,.5) 55%,
+    rgba(44,24,16,.4) 65%,
+    rgba(44,24,16,0) 75%,
+    transparent 90%
   );
   background-size:300% 100%;
   animation:navShimmer 5s ease-in-out infinite;
