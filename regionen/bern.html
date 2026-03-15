@@ -18,9 +18,67 @@
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
 <link rel="stylesheet" href="../css/page.css"/>
+<style>
+:root{--bx:#6e1428;--bx-d:#4a0e1a;--bx-l:#fdf5f6}
+.rp-wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+.rp-hero{padding:5rem 0 4rem;border-bottom:2px solid #0a0a0a}
+.rp-bc{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#aaa;margin-bottom:1.5rem}
+.rp-bc a{color:#aaa;text-decoration:none}
+.rp-bc a:hover{color:var(--bx)}
+.rp-bc span.city{color:var(--bx)}
+.rp-eye{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--bx);display:block;margin-bottom:.9rem}
+.rp-h1{font-size:clamp(2.2rem,5vw,3.75rem);font-weight:700;letter-spacing:-.045em;line-height:1.03;margin-bottom:1.25rem;color:#0a0a0a}
+.rp-h1 em{font-style:normal;color:var(--bx)}
+.rp-lead{font-size:1rem;color:#666;max-width:600px;line-height:1.8;margin-bottom:2.5rem}
+.rp-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.rp-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:6px;font-size:.85rem;font-weight:600;text-decoration:none;transition:background .15s,color .15s,border-color .15s}
+.rp-btn-dark{background:#0a0a0a;color:#fff;border:1.5px solid #0a0a0a}
+.rp-btn-dark:hover{background:var(--bx);border-color:var(--bx)}
+.rp-btn-out{border:1.5px solid #0a0a0a;color:#0a0a0a}
+.rp-btn-out:hover{background:#0a0a0a;color:#fff}
+.rp-body{padding:4rem 0}
+.rp-2col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem}
+.rp-col-eye{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bx);display:block;margin-bottom:.75rem}
+.rp-col-h2{font-size:clamp(1.3rem,2.5vw,1.75rem);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:1.1rem;color:#0a0a0a}
+.rp-col-p{font-size:.95rem;color:#555;line-height:1.8}
+.rp-cards{display:flex;flex-direction:column;gap:.75rem}
+.rp-card{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.25rem;border:1px solid #e4e4e4;border-radius:10px;transition:border-color .2s,background .2s}
+.rp-card:hover{border-color:var(--bx);background:var(--bx-l)}
+.rp-card-ico{width:38px;height:38px;background:var(--bx-l);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid #f0d8dc}
+.rp-card-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#aaa;margin-bottom:.2rem}
+.rp-card-title{font-size:.9rem;font-weight:600;color:#0a0a0a;margin-bottom:.15rem}
+.rp-card-sub{font-size:.8rem;color:#888}
+.rp-lst-head{border-top:1px solid #e4e4e4;padding-top:3.5rem}
+.rp-lst-eye{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--bx);display:block;margin-bottom:.75rem}
+.rp-lst-h2{font-size:clamp(1.3rem,2.5vw,1.75rem);font-weight:700;letter-spacing:-.03em;margin-bottom:2rem;color:#0a0a0a}
+.lc-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #e4e4e4;border-left:1px solid #e4e4e4}
+.lc{position:relative;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;padding:1.5rem 1.4rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.3rem;overflow:hidden;transition:background .18s}
+.lc:hover{background:var(--bx-l)}
+.lc:hover .lc-bar{transform:scaleY(1)}
+.lc:hover .lc-name{color:var(--bx)}
+.lc:hover .lc-arr{transform:translateX(5px);color:var(--bx)}
+.lc:hover .lc-ico svg{stroke:var(--bx)}
+.lc-bar{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--bx);transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom}
+.lc-ico{margin-bottom:.3rem;color:#aaa;transition:color .18s}
+.lc-ico svg{stroke:#aaa;transition:stroke .18s}
+.lc-desc{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa}
+.lc-name{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s}
+.lc-arr{font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block}
+.rp-cta{background:#0a0a0a;padding:4rem 1.5rem;text-align:center}
+.rp-cta-eye{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--bx);display:block;margin-bottom:.75rem}
+.rp-cta-h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;letter-spacing:-.03em;color:#fff;margin-bottom:.8rem}
+.rp-cta-p{font-size:.9rem;color:rgba(255,255,255,.45);margin-bottom:2rem}
+.rp-btn-bx{background:var(--bx);color:#fff;border:1.5px solid var(--bx)}
+.rp-btn-bx:hover{background:var(--bx-d);border-color:var(--bx-d)}
+.rp-btn-ghost{border:1.5px solid rgba(255,255,255,.25);color:#fff}
+.rp-btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.45)}
+@media(max-width:768px){
+  .rp-2col{grid-template-columns:1fr!important;gap:2.5rem}
+  .lc-grid{grid-template-columns:repeat(2,1fr)!important}
+}
+</style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-c">
     <a href="/" class="nav-logo"><img src="../assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="../assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
@@ -138,99 +196,118 @@
     </a>
   </div>
 </div>
-
 <div style="background:#fff">
-  <div style="max-width:1080px;margin:0 auto;padding:5rem 1.5rem 4rem;border-bottom:2px solid #0a0a0a">
-    <nav style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#aaa;margin-bottom:1.5rem">
-      <a href="/" style="color:#aaa;text-decoration:none">Start</a>
-      <span>›</span>
-      <a href="/regionen" style="color:#aaa;text-decoration:none">Regionen</a>
-      <span>›</span>
-      <span style="color:#6e1428">Bern</span>
-    </nav>
-    <span style="font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#6e1428;display:block;margin-bottom:.9rem">Region</span>
-    <h1 style="font-size:clamp(2.4rem,5.5vw,4rem);font-weight:700;letter-spacing:-.045em;line-height:1.03;margin-bottom:1.3rem;color:#0a0a0a">Bodenbeschichtung Bern</h1>
-    <p style="font-size:1rem;color:#666;max-width:600px;line-height:1.8;margin-bottom:2.5rem">Bern ist unser Heimmarkt. Wir sind seit Jahren der bevorzugte Partner von Generalunternehmern, Gewerbe und Industrie in der Bundesstadt und der gesamten Agglomeration.</p>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="/kontakt" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:6px;font-size:.85rem;font-weight:600;background:#0a0a0a;color:#fff;text-decoration:none;transition:background .15s" onmouseover="this.style.background='#6e1428'" onmouseout="this.style.background='#0a0a0a'">Offerte anfragen →</a>
-      <a href="tel:+41765397974" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:6px;font-size:.85rem;font-weight:600;border:1.5px solid #0a0a0a;color:#0a0a0a;text-decoration:none;transition:background .15s,color .15s" onmouseover="this.style.background='#0a0a0a';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='#0a0a0a'">+41 76 539 79 74</a>
+  <div class="rp-wrap">
+    <div class="rp-hero">
+      <nav class="rp-bc">
+        <a href="/">Start</a><span>›</span>
+        <a href="/regionen">Regionen</a><span>›</span>
+        <span class="city">Bern</span>
+      </nav>
+      <span class="rp-eye">Region</span>
+      <h1 class="rp-h1">Bodenbeschichtung<br/><em>Bern</em></h1>
+      <p class="rp-lead">Bern ist unser Heimmarkt. Wir sind seit Jahren der bevorzugte Partner von Generalunternehmern, Gewerbe und Industrie in der Bundesstadt und der gesamten Agglomeration.</p>
+      <div class="rp-btns">
+        <a href="/kontakt" class="rp-btn rp-btn-dark">Offerte anfragen →</a>
+        <a href="tel:+41765397974" class="rp-btn rp-btn-out">+41 76 539 79 74</a>
+      </div>
     </div>
   </div>
 
-  <div style="max-width:1080px;margin:0 auto;padding:4rem 1.5rem">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem">
+  <div class="rp-wrap rp-body">
+    <div class="rp-2col">
       <div>
-        <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6e1428;display:block;margin-bottom:.75rem">Bern & Umgebung</span>
-        <h2 style="font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.2rem;color:#0a0a0a">Kurze Anfahrt, direkte Kommunikation, termintreue Ausführung</h2>
-        <p style="font-size:.95rem;color:#555;line-height:1.8">Kurze Anfahrt, direkte Kommunikation, termintreue Ausführung – das zeichnet uns in der Region Bern aus.</p>
+        <span class="rp-col-eye">Bern & Umgebung</span>
+        <h2 class="rp-col-h2">Kurze Anfahrt, direkte Kommunikation, termintreue Ausführung</h2>
+        <p class="rp-col-p">Kurze Anfahrt, direkte Kommunikation, termintreue Ausführung – das zeichnet uns in der Region Bern aus.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:1rem">
-        <div style="display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;border:1px solid #e4e4e4;border-radius:10px">
-          <div style="width:36px;height:36px;background:#fdf5f6;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem">📍</div>
-          <div><div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#aaa;margin-bottom:.2rem">Standort</div><div style="font-size:.9rem;font-weight:600;color:#0a0a0a">Urtenen-Schönbühl BE</div><div style="font-size:.82rem;color:#888">Schnelle Anfahrt in die Region Bern</div></div>
+      <div class="rp-cards">
+        <div class="rp-card">
+          <div class="rp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6e1428" stroke-width="1.5" width="20" height="20"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="#6e1428" stroke="none"/></svg></div>
+          <div>
+            <div class="rp-card-label">Standort</div>
+            <div class="rp-card-title">Urtenen-Schönbühl BE</div>
+            <div class="rp-card-sub">Schnelle Anfahrt in die Region Bern</div>
+          </div>
         </div>
-        <div style="display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;border:1px solid #e4e4e4;border-radius:10px">
-          <div style="width:36px;height:36px;background:#fdf5f6;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem">✓</div>
-          <div><div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#aaa;margin-bottom:.2rem">Ausführung</div><div style="font-size:.9rem;font-weight:600;color:#0a0a0a">Eigene Monteure</div><div style="font-size:.82rem;color:#888">Keine Subunternehmer – direkt von POLYCORE</div></div>
+        <div class="rp-card">
+          <div class="rp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6e1428" stroke-width="1.5" width="20" height="20"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <div>
+            <div class="rp-card-label">Ausführung</div>
+            <div class="rp-card-title">Eigene Monteure</div>
+            <div class="rp-card-sub">Keine Subunternehmer – direkt von POLYCORE</div>
+          </div>
         </div>
-        <div style="display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;border:1px solid #e4e4e4;border-radius:10px">
-          <div style="width:36px;height:36px;background:#fdf5f6;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem">⚡</div>
-          <div><div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#aaa;margin-bottom:.2rem">Reaktionszeit</div><div style="font-size:.9rem;font-weight:600;color:#0a0a0a">Schnelle Besichtigung</div><div style="font-size:.82rem;color:#888">Kostenlose Vor-Ort-Beratung in Bern</div></div>
+        <div class="rp-card">
+          <div class="rp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6e1428" stroke-width="1.5" width="20" height="20"><path d="M13 2L4.09 12.96A1 1 0 005 14h6l-1 8 8.91-10.96A1 1 0 0019 10h-6l1-8z"/></svg></div>
+          <div>
+            <div class="rp-card-label">Reaktionszeit</div>
+            <div class="rp-card-title">Schnelle Besichtigung</div>
+            <div class="rp-card-sub">Kostenlose Vor-Ort-Beratung in Bern</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="border-top:1px solid #e4e4e4;padding-top:3.5rem">
-      <span style="font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#6e1428;display:block;margin-bottom:.75rem">Leistungen</span>
-      <h2 style="font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.03em;margin-bottom:2rem;color:#0a0a0a">Was wir in Bern anbieten</h2>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #e4e4e4;border-left:1px solid #e4e4e4">
-        <a href="/leistungen/epoxidharz-boden" style="display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.4rem;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .18s" onmouseover="this.style.background='#fdf5f6';this.querySelectorAll('.lv')[0].style.color='#6e1428';this.querySelectorAll('.la')[0].style.transform='translateX(5px)';this.querySelectorAll('.la')[0].style.color='#6e1428';this.querySelectorAll('.lb')[0].style.transform='scaleY(1)'" onmouseout="this.style.background='';this.querySelectorAll('.lv')[0].style.color='#0a0a0a';this.querySelectorAll('.la')[0].style.transform='';this.querySelectorAll('.la')[0].style.color='#ccc';this.querySelectorAll('.lb')[0].style.transform='scaleY(0)'">
-          <div class="lb" style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom"></div>
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa">Robust, fugenlos, chemikalienresistent</div>
-          <div class="lv" style="font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s">Epoxidharz (EP)</div>
-          <div class="la" style="font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block">→</div>
+    <div class="rp-lst-head">
+      <span class="rp-lst-eye">Leistungen</span>
+      <h2 class="rp-lst-h2">Was wir in Bern anbieten</h2>
+      <div class="lc-grid">
+        <a href="/leistungen/epoxidharz-boden" class="lc">
+          <div class="lc-bar"></div>
+          <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div>
+          <div class="lc-desc">Robust, fugenlos, chemikalienresistent</div>
+          <div class="lc-name">Epoxidharz (EP)</div>
+          <div class="lc-arr">→</div>
         </a>
-        <a href="/leistungen/polyurethan-boden" style="display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.4rem;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .18s" onmouseover="this.style.background='#fdf5f6';this.querySelectorAll('.lv')[0].style.color='#6e1428';this.querySelectorAll('.la')[0].style.transform='translateX(5px)';this.querySelectorAll('.la')[0].style.color='#6e1428';this.querySelectorAll('.lb')[0].style.transform='scaleY(1)'" onmouseout="this.style.background='';this.querySelectorAll('.lv')[0].style.color='#0a0a0a';this.querySelectorAll('.la')[0].style.transform='';this.querySelectorAll('.la')[0].style.color='#ccc';this.querySelectorAll('.lb')[0].style.transform='scaleY(0)'">
-          <div class="lb" style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom"></div>
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa">Elastisch, thermisch stabil</div>
-          <div class="lv" style="font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s">Polyurethan (PU)</div>
-          <div class="la" style="font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block">→</div>
+        <a href="/leistungen/polyurethan-boden" class="lc">
+          <div class="lc-bar"></div>
+          <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2" opacity=".3"/></svg></div>
+          <div class="lc-desc">Elastisch, thermisch stabil</div>
+          <div class="lc-name">Polyurethan (PU)</div>
+          <div class="lc-arr">→</div>
         </a>
-        <a href="/leistungen/pmma-boden" style="display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.4rem;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .18s" onmouseover="this.style.background='#fdf5f6';this.querySelectorAll('.lv')[0].style.color='#6e1428';this.querySelectorAll('.la')[0].style.transform='translateX(5px)';this.querySelectorAll('.la')[0].style.color='#6e1428';this.querySelectorAll('.lb')[0].style.transform='scaleY(1)'" onmouseout="this.style.background='';this.querySelectorAll('.lv')[0].style.color='#0a0a0a';this.querySelectorAll('.la')[0].style.transform='';this.querySelectorAll('.la')[0].style.color='#ccc';this.querySelectorAll('.lb')[0].style.transform='scaleY(0)'">
-          <div class="lb" style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom"></div>
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa">In 1–2 Stunden begehbar</div>
-          <div class="lv" style="font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s">PMMA</div>
-          <div class="la" style="font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block">→</div>
+        <a href="/leistungen/pmma-boden" class="lc">
+          <div class="lc-bar"></div>
+          <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+          <div class="lc-desc">In 1–2 Stunden begehbar</div>
+          <div class="lc-name">PMMA</div>
+          <div class="lc-arr">→</div>
         </a>
-        <a href="/leistungen/designerboden" style="display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.4rem;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .18s" onmouseover="this.style.background='#fdf5f6';this.querySelectorAll('.lv')[0].style.color='#6e1428';this.querySelectorAll('.la')[0].style.transform='translateX(5px)';this.querySelectorAll('.la')[0].style.color='#6e1428';this.querySelectorAll('.lb')[0].style.transform='scaleY(1)'" onmouseout="this.style.background='';this.querySelectorAll('.lv')[0].style.color='#0a0a0a';this.querySelectorAll('.la')[0].style.transform='';this.querySelectorAll('.la')[0].style.color='#ccc';this.querySelectorAll('.lb')[0].style.transform='scaleY(0)'">
-          <div class="lb" style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom"></div>
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa">Mikrozement & Wohnflächen</div>
-          <div class="lv" style="font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s">Designerboden</div>
-          <div class="la" style="font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block">→</div>
+        <a href="/leistungen/designerboden" class="lc">
+          <div class="lc-bar"></div>
+          <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div class="lc-desc">Mikrozement & Wohnflächen</div>
+          <div class="lc-name">Designerboden</div>
+          <div class="lc-arr">→</div>
         </a>
-        <a href="/leistungen/steinteppich" style="display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.4rem;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .18s" onmouseover="this.style.background='#fdf5f6';this.querySelectorAll('.lv')[0].style.color='#6e1428';this.querySelectorAll('.la')[0].style.transform='translateX(5px)';this.querySelectorAll('.la')[0].style.color='#6e1428';this.querySelectorAll('.lb')[0].style.transform='scaleY(1)'" onmouseout="this.style.background='';this.querySelectorAll('.lv')[0].style.color='#0a0a0a';this.querySelectorAll('.la')[0].style.transform='';this.querySelectorAll('.la')[0].style.color='#ccc';this.querySelectorAll('.lb')[0].style.transform='scaleY(0)'">
-          <div class="lb" style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom"></div>
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa">Naturstein, rutschfest & fugenlos</div>
-          <div class="lv" style="font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s">Steinteppich</div>
-          <div class="la" style="font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block">→</div>
+        <a href="/leistungen/steinteppich" class="lc">
+          <div class="lc-bar"></div>
+          <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="7" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="13" cy="11" r="1.5" fill="currentColor" stroke="none"/><circle cx="6" cy="18" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></div>
+          <div class="lc-desc">Naturstein, rutschfest & fugenlos</div>
+          <div class="lc-name">Steinteppich</div>
+          <div class="lc-arr">→</div>
         </a>
-        <a href="/leistungen/abdichtung" style="display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.4rem;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .18s" onmouseover="this.style.background='#fdf5f6';this.querySelectorAll('.lv')[0].style.color='#6e1428';this.querySelectorAll('.la')[0].style.transform='translateX(5px)';this.querySelectorAll('.la')[0].style.color='#6e1428';this.querySelectorAll('.lb')[0].style.transform='scaleY(1)'" onmouseout="this.style.background='';this.querySelectorAll('.lv')[0].style.color='#0a0a0a';this.querySelectorAll('.la')[0].style.transform='';this.querySelectorAll('.la')[0].style.color='#ccc';this.querySelectorAll('.lb')[0].style.transform='scaleY(0)'">
-          <div class="lb" style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom"></div>
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa">Terrassen & Balkone</div>
-          <div class="lv" style="font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s">Flüssigkunststoff</div>
-          <div class="la" style="font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block">→</div>
+        <a href="/leistungen/abdichtung" class="lc">
+          <div class="lc-bar"></div>
+          <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div>
+          <div class="lc-desc">Terrassen & Balkone</div>
+          <div class="lc-name">Flüssigkunststoff</div>
+          <div class="lc-arr">→</div>
         </a>
-        <a href="/leistungen/combiflex" style="display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.4rem;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .18s" onmouseover="this.style.background='#fdf5f6';this.querySelectorAll('.lv')[0].style.color='#6e1428';this.querySelectorAll('.la')[0].style.transform='translateX(5px)';this.querySelectorAll('.la')[0].style.color='#6e1428';this.querySelectorAll('.lb')[0].style.transform='scaleY(1)'" onmouseout="this.style.background='';this.querySelectorAll('.lv')[0].style.color='#0a0a0a';this.querySelectorAll('.la')[0].style.transform='';this.querySelectorAll('.la')[0].style.color='#ccc';this.querySelectorAll('.lb')[0].style.transform='scaleY(0)'">
-          <div class="lb" style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom"></div>
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa">Bewegungsfugen & Übergänge</div>
-          <div class="lv" style="font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s">Combiflex</div>
-          <div class="la" style="font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block">→</div>
+        <a href="/leistungen/combiflex" class="lc">
+          <div class="lc-bar"></div>
+          <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M3 12h18M12 3v18"/><rect x="7" y="7" width="10" height="10" rx="1" stroke-dasharray="2 2"/></svg></div>
+          <div class="lc-desc">Bewegungsfugen & Übergänge</div>
+          <div class="lc-name">Combiflex</div>
+          <div class="lc-arr">→</div>
         </a>
-        <a href="/leistungen/injektionen" style="display:flex;flex-direction:column;gap:.35rem;padding:1.5rem 1.4rem;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .18s" onmouseover="this.style.background='#fdf5f6';this.querySelectorAll('.lv')[0].style.color='#6e1428';this.querySelectorAll('.la')[0].style.transform='translateX(5px)';this.querySelectorAll('.la')[0].style.color='#6e1428';this.querySelectorAll('.lb')[0].style.transform='scaleY(1)'" onmouseout="this.style.background='';this.querySelectorAll('.lv')[0].style.color='#0a0a0a';this.querySelectorAll('.la')[0].style.transform='';this.querySelectorAll('.la')[0].style.color='#ccc';this.querySelectorAll('.lb')[0].style.transform='scaleY(0)'">
-          <div class="lb" style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#6e1428;transform:scaleY(0);transition:transform .28s cubic-bezier(.4,0,.2,1);transform-origin:bottom"></div>
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#aaa">Kellersanierung dauerhaft dicht</div>
-          <div class="lv" style="font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;transition:color .18s">Injektionen</div>
-          <div class="la" style="font-size:.9rem;color:#ccc;margin-top:.3rem;transition:transform .2s,color .2s;display:inline-block">→</div>
+        <a href="/leistungen/injektionen" class="lc">
+          <div class="lc-bar"></div>
+          <div class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M9 3h6v4l2 2v8a2 2 0 01-2 2H9a2 2 0 01-2-2V9l2-2V3z"/><path d="M9 3v4h6V3M12 13v3"/></svg></div>
+          <div class="lc-desc">Kellersanierung dauerhaft dicht</div>
+          <div class="lc-name">Injektionen</div>
+          <div class="lc-arr">→</div>
         </a>
 
       </div>
@@ -238,14 +315,14 @@
   </div>
 </div>
 
-<div style="background:#0a0a0a;padding:4rem 1.5rem;text-align:center">
-  <div style="max-width:580px;margin:0 auto">
-    <span style="font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#6e1428;display:block;margin-bottom:.75rem">Projekt in Bern?</span>
-    <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;letter-spacing:-.03em;color:#fff;margin-bottom:.8rem">Kostenlose Beratung<br/>und Vor-Ort-Besichtigung</h2>
-    <p style="font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:2rem">Wir kommen zu Ihnen nach Bern und besichtigen Ihr Projekt unverbindlich.</p>
+<div class="rp-cta">
+  <div style="max-width:560px;margin:0 auto">
+    <span class="rp-cta-eye">Projekt in Bern?</span>
+    <h2 class="rp-cta-h2">Kostenlose Beratung<br/>und Vor-Ort-Besichtigung</h2>
+    <p class="rp-cta-p">Wir kommen zu Ihnen nach Bern und besichtigen Ihr Projekt unverbindlich.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="/kontakt" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:6px;font-size:.85rem;font-weight:600;background:#6e1428;color:#fff;text-decoration:none;transition:background .15s" onmouseover="this.style.background='#4a0e1a'" onmouseout="this.style.background='#6e1428'">Jetzt anfragen →</a>
-      <a href="tel:+41765397974" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:6px;font-size:.85rem;font-weight:600;border:1.5px solid rgba(255,255,255,.25);color:#fff;text-decoration:none;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.background=''">+41 76 539 79 74</a>
+      <a href="/kontakt" class="rp-btn rp-btn-bx">Jetzt anfragen →</a>
+      <a href="tel:+41765397974" class="rp-btn rp-btn-ghost">+41 76 539 79 74</a>
     </div>
   </div>
 </div>
@@ -300,13 +377,6 @@
 </style>
 </body>
 
-
 <script src="../js/main.js"></script>
-<style>
-@media(max-width:768px){
-  div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
-  div[style*="repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important}
-}
-</style>
 </body>
 </html>
