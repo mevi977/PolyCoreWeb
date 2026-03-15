@@ -18,7 +18,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 .light-bg{background:var(--light-bg)}
 
 /* Type */
-.h-hero{font-size:clamp(3.5rem,9vw,7.5rem);font-weight:700;line-height:1.0;letter-spacing:-0.04em}
+.h-hero{font-size:clamp(2.4rem,5.5vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-0.04em}
 .h1{font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.1;letter-spacing:-0.02em}
 .h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:600;line-height:1.2;letter-spacing:-0.02em}
 .h3{font-size:1.1rem;font-weight:600;line-height:1.3}
@@ -74,8 +74,8 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} ul{list-
 @keyframes mr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .m-fade{-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent)}
 .m-item{display:flex;align-items:center;gap:3rem;padding:0 1.5rem}
-.m-sep{font-size:.7rem;color:#4a0e1a;opacity:.7;flex-shrink:0}
-.m-txt{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(74,14,26,.55);white-space:nowrap}
+.m-sep{font-size:.6rem;color:#4a0e1a;opacity:1;flex-shrink:0;filter:brightness(1.8)}
+.m-txt{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);white-space:nowrap}
 
 /* Tabs */
 .tab-btn{padding:.45rem 1rem;border:1px solid var(--dk-border);border-radius:100px;font-size:.78rem;font-weight:500;cursor:pointer;transition:var(--tr);background:transparent;font-family:var(--font);color:var(--dk-muted)}

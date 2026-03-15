@@ -10,7 +10,8 @@
   background:rgba(10,10,12,.88);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 0 1px rgba(74,14,26,.3), 0 8px 32px rgba(0,0,0,.4);
   outline:3px solid rgba(255,255,255,.08);
   border-radius:12px;
   transition:box-shadow .3s ease;
@@ -21,20 +22,22 @@
   position:absolute;
   inset:0;
   background:linear-gradient(105deg,
-    transparent 20%,
-    rgba(74,14,26,.18) 38%,
-    rgba(74,14,26,.22) 50%,
-    rgba(74,14,26,.18) 62%,
-    transparent 80%
+    transparent 15%,
+    rgba(74,14,26,0) 30%,
+    rgba(120,20,40,.35) 45%,
+    rgba(160,30,55,.45) 50%,
+    rgba(120,20,40,.35) 55%,
+    rgba(74,14,26,0) 70%,
+    transparent 85%
   );
-  background-size:200% 100%;
-  animation:navShimmer 6s ease-in-out infinite;
+  background-size:300% 100%;
+  animation:navShimmer 5s ease-in-out infinite;
   pointer-events:none !important;
   border-radius:12px;
 }
 @keyframes navShimmer{
   0%   {background-position:200% 0}
-  50%  {background-position:0% 0}
+  50%  {background-position:-50% 0}
   100% {background-position:200% 0}
 }
 /* Sve unutar nav mora biti iznad ::before */
@@ -118,7 +121,8 @@
   width:calc(100% - 4rem);
   max-width:1200px;
   background:#0d0d10;
-  border:1px solid rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 0 1px rgba(74,14,26,.3), 0 8px 32px rgba(0,0,0,.4);
   outline:3px solid rgba(255,255,255,.08);
   border-radius:12px;
   box-shadow:0 24px 64px rgba(0,0,0,.7);
