@@ -33,7 +33,7 @@
     transparent 90%
   );
   background-size:300% 100%;
-  animation:navShimmer 5s ease-in-out infinite;
+  animation:navShimmer 10s ease-in-out infinite;
   pointer-events:none !important;
   border-radius:12px;
 }
