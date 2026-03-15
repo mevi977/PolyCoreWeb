@@ -5,7 +5,12 @@
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Blog | POLYCORE GmbH – Wissen rund um Bodenbeschichtungen</title>
-<meta name="description" content="Praxisnahes Wissen zu Epoxidharz, PMMA, Polyurethan, Abdichtung und Kellersanierung. Der Blog von POLYCORE GmbH Bern."/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"POLYCORE Blog","url":"https://www.polycore.ch/blog","description":"Expertenwissen zu Bodenbeschichtungen und Bautenschutz."}</script>
+<meta property="og:title" content="Blog | POLYCORE GmbH – Wissen rund um Böden & Bautenschutz"/>
+<meta property="og:description" content="Expertenwissen zu Epoxidharz, PMMA, Polyurethan, Steinteppich und Abdichtungen – der POLYCORE Blog aus Bern."/>
+<meta property="og:url" content="https://www.polycore.ch/blog"/>
+<meta property="og:type" content="website"/>
+<meta name="description" content="Praxisnahes Wissen zu Epoxidharz, PMMA, Polyurethan, Abdichtung. Der Blog von POLYCORE GmbH Bern."/>
 <link rel="canonical" href="https://www.polycore.ch/blog/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -15,29 +20,33 @@
 <link rel="stylesheet" href="../css/footer.css"/>
 <link rel="stylesheet" href="../css/page.css"/>
 <style>
-:root{--bx:#4a0e1a;--bx-l:#fdf5f6}
-.bl-wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
-.bl-hero{padding:5rem 0 3.5rem;border-bottom:2px solid #0a0a0a}
-.bl-eye{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--bx);display:block;margin-bottom:.9rem}
-.bl-h1{font-size:clamp(2.2rem,5vw,3.75rem);font-weight:700;letter-spacing:-.04em;line-height:1.03;margin-bottom:1.25rem;color:#0a0a0a}
-.bl-h1 em{font-style:normal;color:var(--bx)}
-.bl-lead{font-size:1rem;color:#666;max-width:500px;line-height:1.75}
-.bl-list{padding:0 0 4rem}
-.bl-item{display:flex;align-items:center;gap:1.5rem;padding:1.75rem 1rem;border-bottom:1px solid #e8e8e8;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:padding-left .2s,background .18s;border-radius:4px;margin:0 -1rem;opacity:0;animation:fadeUp .45s forwards}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(10px)}}
-.bl-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--bx);transform:scaleY(0);transition:transform .25s cubic-bezier(.4,0,.2,1);transform-origin:bottom}
-.bl-item:hover{background:var(--bx-l);padding-left:1.75rem}
-.bl-item:hover::before{transform:scaleY(1)}
-.bl-item:hover .bl-title{color:var(--bx)}
-.bl-item:hover .bl-arrow{transform:translateX(5px);color:var(--bx)}
-.bl-left{flex:1}
-.bl-meta{display:flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#aaa;margin-bottom:.5rem}
-.bl-cat{color:var(--bx)}
-.bl-dot{color:#ddd}
-.bl-title{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600;letter-spacing:-.02em;line-height:1.3;color:#0a0a0a;margin-bottom:.35rem;transition:color .18s}
-.bl-desc{font-size:.85rem;color:#888;line-height:1.6}
-.bl-arrow{color:#ccc;flex-shrink:0;font-size:1.1rem;transition:transform .2s,color .2s}
-@media(max-width:600px){.bl-desc{display:none}.bl-arrow{display:none}}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.blog-card{border:1px solid var(--dk-border);border-radius:16px;overflow:hidden;background:#fff;transition:border-color .2s,transform .2s,box-shadow .2s;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.blog-card:hover{border-color:#0a0a0a;transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.09)}
+.bc-img{aspect-ratio:16/9;overflow:hidden;background:#f0f0f0}
+.bc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.blog-card:hover .bc-img img{transform:scale(1.04)}
+.bc-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+.bc-cat{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:.5rem}
+.bc-title{font-size:1.05rem;font-weight:600;line-height:1.35;margin-bottom:.6rem;letter-spacing:-.01em;color:#0a0a0a}
+.bc-desc{font-size:.83rem;color:var(--dk-muted);line-height:1.65;flex:1;margin-bottom:1.25rem}
+.bc-foot{display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:var(--dk-muted);border-top:1px solid var(--dk-border);padding-top:1rem;margin-top:auto}
+.blog-featured{display:grid;grid-template-columns:1.2fr 1fr;border:1px solid var(--dk-border);border-radius:20px;overflow:hidden;background:#fff;transition:border-color .2s;margin-bottom:4rem;text-decoration:none;color:inherit}
+.blog-featured:hover{border-color:#0a0a0a}
+.bf-img{overflow:hidden;background:#f0f0f0}
+.bf-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.blog-featured:hover .bf-img img{transform:scale(1.04)}
+.bf-body{padding:2.5rem;display:flex;flex-direction:column;justify-content:center}
+.skel{background:linear-gradient(90deg,#f0f0f0 25%,#e4e4e4 50%,#f0f0f0 75%);background-size:200% 100%;animation:shim 1.4s infinite;border-radius:6px}
+@keyframes shim{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.empty-state{text-align:center;padding:5rem 2rem;color:var(--dk-muted)}
+.empty-state svg{opacity:.3;margin:0 auto 1rem;display:block}
+@media(max-width:1024px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){
+  .blog-grid{grid-template-columns:1fr}
+  .blog-featured{grid-template-columns:1fr}
+  .bf-body{padding:1.75rem}
+}
 </style>
 </head>
 <body>
@@ -95,7 +104,7 @@
       <li><a href="../blog/" class="nav-a">Blog</a></li>
       <li><a href="../kontakt.html" class="nav-a">Kontakt</a></li>
     </ul>
-    <a href="tel:+41765397974" class="nav-phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.1.96.35 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.6 2.81.7A2 2 0 0122 16.92z"/></svg><span class="nav-phone-text">076 539 79 74</span></a>
+    <a href="tel:+41764759701" class="nav-phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.1.96.35 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.6 2.81.7A2 2 0 0122 16.92z"/></svg><span class="nav-phone-text">076 475 97 01</span></a>
     <button class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -154,120 +163,59 @@
   </div><!-- /.mob-body -->
 
   <div class="mob-footer">
-    <a href="tel:+41765397974" class="mob-tel">
+    <a href="tel:+41764759701" class="mob-tel">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 14.92z"/></svg>
-      076 539 79 74
+      076 475 97 01
     </a>
   </div>
 </div>
 
-
-<div style="background:#fff">
-  <div class="bl-wrap">
-    <div class="bl-hero">
-      <span class="bl-eye">Blog & Fachwissen</span>
-      <h1 class="bl-h1">Wissen aus<br/>der <em>Praxis.</em></h1>
-      <p class="bl-lead">Expertenwissen zu Bodenbeschichtungen, Bautenschutz und Kellersanierung – direkt von POLYCORE GmbH Bern.</p>
-    </div>
-    <div class="bl-list">
-    <a href="/blog/keller-abdichten-bern" class="bl-item" style="animation-delay:0.0s">
-      <div class="bl-left">
-        <div class="bl-meta">
-          <span class="bl-cat">Bautenschutz</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-date">5. März 2026</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-rt">7 Min.</span>
-        </div>
-        <h2 class="bl-title">Keller abdichten in Bern: Kellerwand & Kellerboden von innen</h2>
-        <p class="bl-desc">Feuchter Keller? Wir erklären die besten Methoden – Injektionen, Flüssigkunststoff, Combiflex – und wann welche Lösung passt.</p>
-      </div>
-      <div class="bl-arrow">→</div>
-    </a>
-    <a href="/blog/epoxidharz-boden-vorteile" class="bl-item" style="animation-delay:0.07s">
-      <div class="bl-left">
-        <div class="bl-meta">
-          <span class="bl-cat">Epoxidharz</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-date">12. Februar 2026</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-rt">6 Min.</span>
-        </div>
-        <h2 class="bl-title">Epoxidharz-Boden: 7 Vorteile für Industriebetriebe</h2>
-        <p class="bl-desc">Aus der Praxis: Warum EP-Böden in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.</p>
-      </div>
-      <div class="bl-arrow">→</div>
-    </a>
-    <a href="/blog/pmma-vs-epoxidharz" class="bl-item" style="animation-delay:0.14s">
-      <div class="bl-left">
-        <div class="bl-meta">
-          <span class="bl-cat">Vergleich</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-date">28. Januar 2026</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-rt">7 Min.</span>
-        </div>
-        <h2 class="bl-title">PMMA vs. Epoxidharz – Welches System passt?</h2>
-        <p class="bl-desc">Praxisnaher Vergleich: Wann PMMA und wann Epoxidharz die richtige Wahl ist. POLYCORE GmbH Bern.</p>
-      </div>
-      <div class="bl-arrow">→</div>
-    </a>
-    <a href="/blog/feuchter-keller-loesungen" class="bl-item" style="animation-delay:0.21000000000000002s">
-      <div class="bl-left">
-        <div class="bl-meta">
-          <span class="bl-cat">Bautenschutz</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-date">14. Januar 2026</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-rt">8 Min.</span>
-        </div>
-        <h2 class="bl-title">Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz</h2>
-        <p class="bl-desc">Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.</p>
-      </div>
-      <div class="bl-arrow">→</div>
-    </a>
-    <a href="/blog/pflege-und-reinigung-von-pu-boeden-polyurethan" class="bl-item" style="animation-delay:0.28s">
-      <div class="bl-left">
-        <div class="bl-meta">
-          <span class="bl-cat">Polyurethan</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-date">10. Januar 2026</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-rt">5 Min.</span>
-        </div>
-        <h2 class="bl-title">Pflege & Reinigung von PU-Böden</h2>
-        <p class="bl-desc">So pflegen und reinigen Sie Polyurethan-Böden richtig – Tipps und Empfehlungen vom Fachmann für langlebige Beschichtungen.</p>
-      </div>
-      <div class="bl-arrow">→</div>
-    </a>
-    <a href="/blog/rutschfeste-pmma-beschichtungen-sicherheit-und-effizienz-vereint" class="bl-item" style="animation-delay:0.35000000000000003s">
-      <div class="bl-left">
-        <div class="bl-meta">
-          <span class="bl-cat">PMMA</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-date">20. Dezember 2025</span>
-          <span class="bl-dot">·</span>
-          <span class="bl-rt">5 Min.</span>
-        </div>
-        <h2 class="bl-title">Rutschfeste PMMA-Beschichtungen – Sicherheit & Effizienz</h2>
-        <p class="bl-desc">Warum rutschfeste PMMA-Beschichtungen in Gewerbe und Industrie unverzichtbar sind.</p>
-      </div>
-      <div class="bl-arrow">→</div>
-    </a>
-
-    </div>
+<section class="page-hero" style="min-height:65vh;display:flex;align-items:flex-end">
+  <div class="page-hero-content container" style="padding:9rem 0 4rem">
+    <nav class="breadcrumb"><a href="/">Start</a><span>›</span><span style="color:rgba(255,255,255,.7)">Blog</span></nav>
+    <h1 class="h1">Blog & Fachwissen</h1>
+    <p class="lead" style="max-width:580px">Praxisnahes Wissen zu Bodenbeschichtungen, Bautenschutz und Kellersanierung – aus der täglichen Arbeit von POLYCORE GmbH.</p>
   </div>
-</div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- LOADING STATE -->
+    <div id="blog-loading">
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;border-radius:20px;overflow:hidden;border:1px solid #e8e8e8;margin-bottom:4rem;min-height:300px">
+        <div class="skel" style="border-radius:0;min-height:280px"></div>
+        <div style="padding:2.5rem;display:flex;flex-direction:column;gap:1rem;justify-content:center">
+          <div class="skel" style="height:12px;width:40%"></div>
+          <div class="skel" style="height:28px"></div>
+          <div class="skel" style="height:28px;width:75%"></div>
+          <div class="skel" style="height:12px"></div>
+          <div class="skel" style="height:12px;width:90%"></div>
+          <div class="skel" style="height:12px;width:55%"></div>
+        </div>
+      </div>
+      <div class="blog-grid">
+        <div style="border:1px solid #e8e8e8;border-radius:16px;overflow:hidden"><div class="skel" style="aspect-ratio:16/9;border-radius:0"></div><div style="padding:1.4rem;display:flex;flex-direction:column;gap:.65rem"><div class="skel" style="height:10px;width:35%"></div><div class="skel" style="height:18px"></div><div class="skel" style="height:18px;width:80%"></div><div class="skel" style="height:12px;margin-top:.5rem"></div></div></div>
+        <div style="border:1px solid #e8e8e8;border-radius:16px;overflow:hidden"><div class="skel" style="aspect-ratio:16/9;border-radius:0"></div><div style="padding:1.4rem;display:flex;flex-direction:column;gap:.65rem"><div class="skel" style="height:10px;width:35%"></div><div class="skel" style="height:18px"></div><div class="skel" style="height:18px;width:80%"></div><div class="skel" style="height:12px;margin-top:.5rem"></div></div></div>
+        <div style="border:1px solid #e8e8e8;border-radius:16px;overflow:hidden"><div class="skel" style="aspect-ratio:16/9;border-radius:0"></div><div style="padding:1.4rem;display:flex;flex-direction:column;gap:.65rem"><div class="skel" style="height:10px;width:35%"></div><div class="skel" style="height:18px"></div><div class="skel" style="height:18px;width:80%"></div><div class="skel" style="height:12px;margin-top:.5rem"></div></div></div>
+      </div>
+    </div>
+
+    <!-- ARTICLES (injected by JS) -->
+    <div id="blog-articles" style="display:none"></div>
+
+  </div>
+</section>
 
 <section class="section light-bg">
   <div class="container">
-    <div style="text-align:center;max-width:580px;margin:0 auto">
-      <span class="eyebrow" style="color:#4a0e1a">Konkrete Fragen?</span>
+    <div style="text-align:center;max-width:660px;margin:0 auto">
+      <span class="eyebrow">Konkrete Fragen?</span>
       <h2 class="h1">Wir beraten Sie persönlich</h2>
       <p class="sub" style="margin-bottom:2rem">Haben Sie nach dem Lesen noch offene Fragen? Wir klären diese kostenlos und unverbindlich.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-        <a href="/kontakt" class="btn btn-dark">Beratung anfragen</a>
-        <a href="tel:+41765397974" class="btn btn-outline">+41 76 539 79 74</a>
+        <a href="../kontakt.html" class="btn btn-dark">Beratung anfragen</a>
+        <a href="tel:+41764759701" class="btn btn-outline">+41 76 475 97 01</a>
       </div>
     </div>
   </div>
@@ -277,11 +225,11 @@
   <div class="container">
     <div class="footer-top">
       <div>
-        <p class="footer-headline">Qualität liegt im Detail – bei jedem Handgriff.</p>
+        <p class="footer-headline">Präzision. Schutz.<br/>Qualität. Vertrauen.</p>
         <a href="../kontakt.html" class="footer-cta-link">Kontakt aufnehmen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
       </div>
       <div class="foot-contact">
-        <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41765397974">+41 76 539 79 74</a></div>
+        <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41764759701">+41 76 475 97 01</a></div>
         <div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div>
         <div class="foot-contact-row"><p>Standort</p><span>Urtenen-Schönbühl, Schweiz</span></div>
       </div>
@@ -306,28 +254,65 @@
     </div>
   </div>
 </footer>
-<script src="../js/main.js"></script>
 
+<script src="../js/main.js"></script>
 <script>
+<script>
+// Automatski učitava postove iz posts.json – bez ručnog dodavanja
 (function() {
-  const posts = [{"slug": "/blog/epoxidharz-boden-vorteile", "title": "Epoxidharz-Boden: 7 Vorteile für Industriebetriebe", "desc": "Aus der Praxis: Warum EP-Böden in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.", "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif", "cat": "", "rt": "", "date": "", "dateStr": ""}, {"slug": "/blog/feuchter-keller-loesungen", "title": "Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz", "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.", "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif", "cat": "", "rt": "", "date": "", "dateStr": ""}, {"slug": "/blog/keller-abdichten-bern", "title": "Feuchter Keller: 5 Lösungsansätze für dauerhaften Schutz", "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklärt die 5 bewährtesten Methoden gegen Kellerfeuchtigkeit.", "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif", "cat": "", "rt": "", "date": "", "dateStr": ""}, {"slug": "/blog/pflege-und-reinigung-von-pu-boeden-polyurethan", "title": "Pflege & Reinigung von PU-Böden | POLYCORE Blog", "desc": "So pflegen und reinigen Sie Polyurethan-Böden richtig – Tipps und Empfehlungen vom Fachmann für langlebige PU-Beschichtungen.", "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif", "cat": "", "rt": "", "date": "", "dateStr": ""}, {"slug": "/blog/pmma-vs-epoxidharz", "title": "PMMA vs. Epoxidharz – Welches System passt?", "desc": "Praxisnaher Vergleich: Wann PMMA und wann Epoxidharz die richtige Wahl ist. POLYCORE GmbH Bern.", "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif", "cat": "", "rt": "", "date": "", "dateStr": ""}, {"slug": "/blog/rutschfeste-pmma-beschichtungen-sicherheit-und-effizienz-vereint", "title": "Rutschfeste PMMA-Beschichtungen – Sicherheit & Effizienz | POLYCORE Blog", "desc": "Warum rutschfeste PMMA-Beschichtungen in Gewerbe und Industrie unverzichtbar sind – Eigenschaften, Einsatz und Vorteile im Überblick.", "img": "https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif", "cat": "", "rt": "", "date": "", "dateStr": ""}];
-  const currentSlug = '/blog/' + location.pathname.split('/').pop().replace('.html','');
-  const others = posts.filter(p => p.slug !== currentSlug).slice(0, 4);
-  const el = document.getElementById('weitere-artikel');
-  if (!el || !others.length) return;
-  el.innerHTML = others.map(p => `
-    <a href="${p.slug}" style="display:flex;gap:.9rem;align-items:flex-start;padding:.9rem 0;border-bottom:1px solid #f0f0f0;text-decoration:none;color:inherit;transition:opacity .2s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
-      <img src="${p.img}" alt="${p.title}" style="width:68px;height:48px;object-fit:cover;border-radius:6px;flex-shrink:0"/>
-      <div>
-        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#999;margin-bottom:.2rem">${p.cat}</div>
-        <div style="font-size:.82rem;font-weight:600;line-height:1.35;color:#0a0a0a">${p.title.substring(0,65)}${p.title.length>65?'…':''}</div>
-      </div>
-    </a>`).join('');
+  fetch('/blog/posts.json')
+    .then(r => r.json())
+    .then(ARTICLES => renderBlog(ARTICLES))
+    .catch(() => {
+      document.getElementById('blog-loading').innerHTML =
+        '<p style="text-align:center;color:#888;padding:4rem">Blog se trenutno ažurira.</p>';
+    });
+
+  function renderBlog(ARTICLES) {
+    if (!ARTICLES.length) return;
+
+    const featured = ARTICLES[0];
+    const rest = ARTICLES.slice(1);
+
+    let html = `
+      <a href="${featured.slug}" class="blog-featured">
+        <div class="bf-img"><img src="${featured.img}" alt="${featured.title}" loading="lazy"/></div>
+        <div class="bf-body">
+          <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:.75rem;display:block">Neuester Beitrag · ${featured.cat}</span>
+          <h2 style="font-size:1.65rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:.9rem">${featured.title}</h2>
+          <p style="font-size:.9rem;color:var(--dk-muted);line-height:1.7;margin-bottom:1.5rem">${featured.desc}</p>
+          <div style="display:flex;align-items:center;gap:1.25rem">
+            <span class="arrow-link" style="font-weight:600;font-size:.875rem">
+              Artikel lesen
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </span>
+            <span style="font-size:.76rem;color:var(--dk-muted)">${featured.dateStr} · ${featured.rt} Min.</span>
+          </div>
+        </div>
+      </a>
+      <h2 style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dk-muted);margin-bottom:1.75rem">Alle Beiträge</h2>
+      <div class="blog-grid">`;
+
+    rest.forEach(a => {
+      html += `
+        <a href="${a.slug}" class="blog-card">
+          <div class="bc-img"><img src="${a.img}" alt="${a.title}" loading="lazy"/></div>
+          <div class="bc-body">
+            <div class="bc-cat">${a.cat}</div>
+            <h3 class="bc-title">${a.title}</h3>
+            <p class="bc-desc">${a.desc.substring(0,130)}${a.desc.length>130?'…':''}</p>
+            <div class="bc-foot"><span>${a.dateStr}</span><span>${a.rt} Min. Lesezeit</span></div>
+          </div>
+        </a>`;
+    });
+
+    html += `</div>`;
+
+    document.getElementById('blog-loading').style.display = 'none';
+    document.getElementById('blog-articles').innerHTML = html;
+    document.getElementById('blog-articles').style.display = 'block';
+  }
 })();
 </script>
-</body>
-
-
-<script src="../js/main.js"></script>
 </body>
 </html>
