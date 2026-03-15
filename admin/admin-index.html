@@ -916,6 +916,20 @@ ${edContent}
 
   try{
     await ghPut('blog/'+filename,html,`Blog: "${title}"`,sha);
+
+    // Automatski ažuriraj posts.json
+    try{
+      const slugClean='/blog/'+filename.replace('.html','');
+      let posts=[];
+      try{const pf=await ghGet('blog/posts.json');posts=JSON.parse(atob(pf.content.replace(/\n/g,'')));}catch(e){posts=[];}
+      const existing=posts.findIndex(p=>p.slug===slugClean);
+      const entry={slug:slugClean,title,desc:meta,img:imgUrl||'',cat,rt,date:dateVal,dateStr};
+      if(existing>-1)posts[existing]=entry;else posts.unshift(entry);
+      posts.sort((a,b)=>b.date.localeCompare(a.date));
+      let psha=null;try{const pf2=await ghGet('blog/posts.json');psha=pf2.sha;}catch(e){}
+      await ghPut('blog/posts.json',JSON.stringify(posts,null,2),'CMS: posts.json aktualisiert',psha);
+    }catch(e){console.warn('posts.json update failed:',e);}
+
     toast('Artikel veröffentlicht! Erscheint in ~60s auf der Website','success');
     document.getElementById('b-slug').value=filename;
     const f2=await ghGet('blog/'+filename);document.getElementById('b-sha').value=f2.sha;
