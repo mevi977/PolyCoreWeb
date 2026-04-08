@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>RAL Farbpalette | POLYCORE GmbH – Bodenbeläge & Bautenschutz Bern</title>
+<meta name="description" content="Wählen Sie Ihre Wunschfarbe aus der RAL Classic Farbpalette. POLYCORE GmbH realisiert Bodenbeschichtungen in allen RAL-Farben."/>
+<link rel="canonical" href="https://www.polycore.ch/farbpalette"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/design-system.css"/>
+<link rel="stylesheet" href="css/nav.css"/>
+<link rel="stylesheet" href="css/footer.css"/>
+<link rel="stylesheet" href="css/page.css"/>
+<style>
+:root{--bx:#4a0e1a;--bx-l:#fdf5f6}
+
+.fp-hero{padding:5rem 0 4rem;border-bottom:2px solid #0a0a0a;background:#fff}
+.fp-hero-wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+.fp-eye{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--bx);display:block;margin-bottom:.9rem}
+.fp-h1{font-size:clamp(2.2rem,5vw,3.75rem);font-weight:700;letter-spacing:-.04em;line-height:1.03;margin-bottom:1.25rem;color:#0a0a0a}
+.fp-h1 em{font-style:normal;color:var(--bx)}
+.fp-lead{font-size:1rem;color:#666;max-width:560px;line-height:1.8}
+
+.fp-main{max-width:1200px;margin:0 auto;padding:3rem 1.5rem 5rem}
+
+/* Search + Filters */
+.fp-search-wrap{position:relative;margin-bottom:1.25rem}
+.fp-search{width:100%;padding:.8rem 1rem .8rem 2.75rem;border:1.5px solid #e0e0e0;border-radius:10px;font-size:.9rem;font-family:inherit;outline:none;transition:border-color .2s;background:#fff;color:#0a0a0a}
+.fp-search:focus{border-color:var(--bx)}
+.fp-search-ico{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:#aaa;pointer-events:none}
+.fp-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.fp-btn{padding:.45rem 1.1rem;border-radius:6px;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border:1.5px solid #e0e0e0;background:#fff;color:#666;transition:all .15s;font-family:inherit}
+.fp-btn:hover{border-color:var(--bx);color:var(--bx)}
+.fp-btn.active{background:var(--bx);color:#fff;border-color:var(--bx)}
+
+/* Compare bar */
+.fp-compare-bar{display:none;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#0a0a0a;border-radius:12px;margin-bottom:2rem;flex-wrap:wrap}
+.fp-compare-bar.show{display:flex}
+.fp-compare-slot{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.08);border-radius:8px;padding:.6rem 1rem;flex:1;min-width:200px}
+.fp-compare-swatch{width:40px;height:40px;border-radius:6px;flex-shrink:0;border:1px solid rgba(255,255,255,.15)}
+.fp-compare-info{flex:1}
+.fp-compare-code{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.05em}
+.fp-compare-name{font-size:.88rem;font-weight:600;color:#fff}
+.fp-compare-empty{font-size:.85rem;color:rgba(255,255,255,.35);font-style:italic}
+.fp-compare-remove{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.4);font-size:1.1rem;padding:.2rem;transition:color .15s;font-family:inherit}
+.fp-compare-remove:hover{color:#fff}
+.fp-compare-clear{background:rgba(255,255,255,.1);border:none;cursor:pointer;color:rgba(255,255,255,.7);font-size:.75rem;font-weight:600;padding:.5rem 1rem;border-radius:6px;transition:background .15s;font-family:inherit;white-space:nowrap}
+.fp-compare-clear:hover{background:rgba(255,255,255,.2)}
+
+/* Count */
+.fp-count{font-size:.75rem;color:#aaa;margin-bottom:1.5rem}
+
+/* Grid */
+.fp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem}
+.fp-card{border-radius:12px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:transform .2s,border-color .2s,box-shadow .2s;background:#fff}
+.fp-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.fp-card.selected{border-color:var(--bx);box-shadow:0 0 0 4px rgba(74,14,26,.12)}
+.fp-card.in-compare{border-color:#0a0a0a;box-shadow:0 0 0 4px rgba(0,0,0,.08)}
+.fp-swatch{height:95px;width:100%;transition:height .2s}
+.fp-card:hover .fp-swatch{height:110px}
+.fp-card-info{padding:.65rem .8rem;border-top:1px solid #f0f0f0}
+.fp-card-code{font-size:.62rem;font-weight:700;letter-spacing:.07em;color:#aaa;margin-bottom:.15rem}
+.fp-card-name{font-size:.75rem;font-weight:600;color:#0a0a0a;line-height:1.3}
+.fp-card-actions{display:none;gap:.4rem;padding:.5rem .8rem;border-top:1px solid #f0f0f0}
+.fp-card:hover .fp-card-actions{display:flex}
+.fp-action-btn{flex:1;padding:.35rem .5rem;border-radius:5px;font-size:.65rem;font-weight:700;letter-spacing:.04em;cursor:pointer;border:1px solid #e0e0e0;background:#fff;color:#555;transition:all .15s;font-family:inherit;text-align:center}
+.fp-action-btn:hover{border-color:var(--bx);color:var(--bx)}
+.fp-action-btn.cmp{border-color:#0a0a0a;color:#0a0a0a}
+.fp-action-btn.cmp:hover{background:#0a0a0a;color:#fff}
+
+/* Modal */
+.fp-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9000;align-items:center;justify-content:center;padding:1.5rem}
+.fp-modal-bg.show{display:flex}
+.fp-modal{background:#fff;border-radius:20px;max-width:520px;width:100%;overflow:hidden;animation:modalIn .25s ease}
+@keyframes modalIn{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+.fp-modal-swatch{height:220px;width:100%}
+.fp-modal-body{padding:2rem}
+.fp-modal-code{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bx);margin-bottom:.4rem}
+.fp-modal-title{font-size:1.75rem;font-weight:700;letter-spacing:-.03em;color:#0a0a0a;margin-bottom:.5rem}
+.fp-modal-hex{font-family:monospace;font-size:.85rem;background:#f5f5f5;padding:.35rem .85rem;border-radius:6px;color:#555;display:inline-block;margin-bottom:1.5rem}
+.fp-modal-group{font-size:.8rem;color:#888;margin-bottom:1.5rem}
+.fp-modal-cta{display:flex;gap:.75rem;flex-wrap:wrap}
+.fp-modal-close{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.15);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .15s;font-family:inherit}
+.fp-modal-close:hover{background:rgba(0,0,0,.3)}
+.fp-modal-wrap{position:relative}
+
+/* CTA */
+.fp-cta{background:#0a0a0a;padding:4rem 1.5rem;text-align:center;margin-top:2rem}
+.fp-cta h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;letter-spacing:-.03em;color:#fff;margin-bottom:.75rem}
+.fp-cta p{font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:2rem}
+
+@media(max-width:600px){
+  .fp-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
+  .fp-card-actions{display:none!important}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-c">
+    <a href="/" class="nav-logo"><img src="assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
+    <ul class="nav-links">
+      <li class="nav-drop">
+        <span class="nav-a nav-drop-toggle">Leistungen<svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></span>
+        <div class="mega">
+          <div class="mega-inner">
+            <div class="mega-intro">
+              <div>
+                <p class="mega-intro-tag">Unsere Leistungen</p>
+                <h2 class="mega-intro-title">Böden &amp; Bautenschutz aus einer Hand</h2>
+                <p class="mega-intro-desc">Ob industrielle Beschichtung, elastische Abdichtung oder dekorativer Designerboden – wir beraten Sie kompetent und führen alles sauber aus.</p>
+              </div>
+              <a href="kontakt.html" class="mega-intro-cta">Kostenlose Beratung <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+            </div>
+            <div class="mega-cols">
+              <div class="mega-col">
+                <span class="eyebrow" style="color:#4a0e1a">Bodenlösungen</span>
+                <ul class="mega-list">
+                  <li><a href="leistungen/epoxidharz-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div><div class="mega-txt"><strong>Epoxidharz (EP)</strong><span>Industrieboden, robust &amp; fugenlos</span></div></a></li>
+                  <li><a href="leistungen/polyurethan-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></div><div class="mega-txt"><strong>Polyurethan (PU)</strong><span>Elastisch, thermisch stabil</span></div></a></li>
+                  <li><a href="leistungen/pmma-boden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></div><div class="mega-txt"><strong>PMMA</strong><span>Schnellhärtend, in Stunden begehbar</span></div></a></li>
+                  <li><a href="leistungen/designerboden.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="mega-txt"><strong>Designerboden</strong><span>Mikrozement &amp; Wohnflächen</span></div></a></li>
+                  <li><a href="leistungen/steinteppich.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></div><div class="mega-txt"><strong>Steinteppich</strong><span>Naturstein, rutschfest &amp; fugenlos</span></div></a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <span class="eyebrow" style="color:#4a0e1a">Bautenschutz</span>
+                <ul class="mega-list">
+                  <li><a href="leistungen/abdichtung.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div><div class="mega-txt"><strong>Flüssigkunststoff (FLK)</strong><span>Abdichtung für Terrassen &amp; Balkone</span></div></a></li>
+                  <li><a href="leistungen/injektionen.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4M7 20h4"/></svg></div><div class="mega-txt"><strong>Injektionen</strong><span>Dauerhafte Feuchtigkeitssicherung</span></div></a></li>
+                  <li><a href="leistungen/combiflex.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/></svg></div><div class="mega-txt"><strong>Combiflex</strong><span>Fugenabdichtung, hochflexibel</span></div></a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <span class="eyebrow" style="color:#4a0e1a">Service &amp; Weitere</span>
+                <ul class="mega-list">
+                  <li><a href="leistungen/plattenlegen.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></div><div class="mega-txt"><strong>Plattenverlegung</strong><span>Naturstein, Reinigung &amp; Imprägnierung</span></div></a></li>
+                  <li><a href="projekte.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg></div><div class="mega-txt"><strong>Projekte</strong><span>Referenzen &amp; Galerie</span></div></a></li>
+                  <li><a href="kontakt.html" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.1.96.35 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.6 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="mega-txt"><strong>Beratung</strong><span>Kostenloses Erstgespräch</span></div></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="projekte.html" class="nav-a">Projekte</a></li>
+      <li><a href="ueber-uns.html" class="nav-a">Über uns</a></li>
+      <li><a href="blog/" class="nav-a">Blog</a></li>
+      <li><a href="kontakt.html" class="nav-a">Kontakt</a></li>
+    </ul>
+    <a href="tel:+41765397974" class="nav-phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.1.96.35 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.6 2.81.7A2 2 0 0122 16.92z"/></svg><span class="nav-phone-text">076 539 79 74</span></a>
+    <button class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-backdrop" id="mobBackdrop"></div>
+<div class="mob-menu" id="mobMenu">
+  <div class="mob-header">
+    <a href="/" class="mob-logo"><img src="assets/img/1PolyCoreLogo.png" alt="POLYCORE"/></a>
+    <button class="mob-close" aria-label="Schliessen">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <div class="mob-body">
+
+    <!-- Glavna lista -->
+    <ul class="mob-main-list" id="mobMainList">
+      <li class="mob-main-item" data-expand="mobExpLeistungen">
+        <span>Leistungen</span>
+        <svg class="mob-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </li>
+      <li class="mob-main-item"><a href="projekte.html">Projekte</a></li>
+      <li class="mob-main-item"><a href="ueber-uns.html">Über uns</a></li>
+      <li class="mob-main-item"><a href="blog/">Blog</a></li>
+      <li class="mob-main-item"><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+
+    <!-- Leistungen expand panel -->
+    <div class="mob-expand" id="mobExpLeistungen">
+      <div class="mob-expand-header">
+        <button class="mob-back">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          Zurück
+        </button>
+      </div>
+      <div class="mob-expand-title">Leistungen</div>
+      <div class="mob-expand-desc">Hochwertige Bodenbeschichtungen und Bautenschutzlösungen – präzise ausgeführt von POLYCORE GmbH.</div>
+      <a href="leistungen/" class="mob-expand-overview">
+        Zur Übersicht
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <ul class="mob-expand-list">
+        <li class="mob-expand-section">Bodenlösungen</li>
+        <li><a href="leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a></li>
+        <li><a href="leistungen/polyurethan-boden.html">Polyurethan (PU)</a></li>
+        <li><a href="leistungen/pmma-boden.html">PMMA</a></li>
+        <li><a href="leistungen/designerboden.html">Designerboden</a></li>
+        <li><a href="leistungen/steinteppich.html">Steinteppich</a></li>
+        <li class="mob-expand-section">Bautenschutz</li>
+        <li><a href="leistungen/abdichtung.html">Flüssigkunststoff (FLK)</a></li>
+        <li><a href="leistungen/injektionen.html">Injektionen</a></li>
+        <li><a href="leistungen/combiflex.html">Combiflex</a></li>
+        <li><a href="leistungen/plattenlegen.html">Plattenverlegung &amp; Reinigung</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /.mob-body -->
+
+  <div class="mob-footer">
+    <a href="tel:+41765397974" class="mob-tel">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 14.92z"/></svg>
+      076 539 79 74
+    </a>
+  </div>
+</div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg">
+    <img src="/assets/img/balkonbern.png"
+         alt="Epoxidharz-Industrieboden von POLYCORE GmbH Bern" fetchpriority="high" loading="eager" width="1920" height="1080"/>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="container">
+      <p class="hero-label fu" style="color:rgba(255,255,255,.5);letter-spacing:.16em">Bodenbeläge & Bautenschutz · Urtenen-Schönbühl, Schweiz</p>
+      <h1 class="h-hero">
+        <span class="fu d1">Qualität liegt<br/>im <em style="font-style:normal;color:#c4374f">Detail.</em></span>
+      </h1>
+      <p class="fu d3" style="font-size:clamp(.85rem,1.5vw,1.05rem);color:rgba(255,255,255,.5);letter-spacing:.02em;margin-bottom:2rem;max-width:480px;line-height:1.7">Bei jedem Handgriff. Auf jeder Fläche. Für jeden Auftrag.</p>
+      <div class="hero-btns fu d4">
+        <a href="kontakt.html" class="btn btn-light">Beratung anfragen</a>
+        <a href="projekte.html" class="btn btn-ghost-light">Unsere Projekte</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- LEISTUNGEN MARQUEE -->
+
+<div class="fp-hero">
+  <div class="fp-hero-wrap">
+    <span class="fp-eye">Farbberatung</span>
+    <h1 class="fp-h1">RAL <em>Farbpalette</em></h1>
+    <p class="fp-lead">Wählen Sie Ihre Wunschfarbe aus über 200 RAL Classic Tönen. POLYCORE GmbH realisiert Bodenbeschichtungen in allen RAL-Farben – präzise und dauerhaft.</p>
+  </div>
+</div>
+
+<div class="fp-main">
+
+  <div class="fp-search-wrap">
+    <svg class="fp-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input class="fp-search" id="fp-search" placeholder="RAL-Code oder Farbname suchen... z.B. RAL 7016 oder Anthrazit"/>
+  </div>
+
+  <div class="fp-filters" id="fp-filters"></div>
+
+  <div class="fp-compare-bar" id="fp-compare-bar">
+    <div style="color:rgba(255,255,255,.6);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">Vergleich</div>
+    <div class="fp-compare-slot" id="cmp-slot-0">
+      <div class="fp-compare-swatch" id="cmp-sw-0" style="background:#333"></div>
+      <div class="fp-compare-info">
+        <div class="fp-compare-code" id="cmp-code-0">—</div>
+        <div class="fp-compare-name fp-compare-empty" id="cmp-name-0">Farbe wählen</div>
+      </div>
+    </div>
+    <div style="color:rgba(255,255,255,.3);font-size:1.2rem">↔</div>
+    <div class="fp-compare-slot" id="cmp-slot-1">
+      <div class="fp-compare-swatch" id="cmp-sw-1" style="background:#333"></div>
+      <div class="fp-compare-info">
+        <div class="fp-compare-code" id="cmp-code-1">—</div>
+        <div class="fp-compare-name fp-compare-empty" id="cmp-name-1">Farbe wählen</div>
+      </div>
+    </div>
+    <button class="fp-compare-clear" onclick="clearCompare()">Vergleich löschen</button>
+  </div>
+
+  <div class="fp-count" id="fp-count"></div>
+  <div class="fp-grid" id="fp-grid"></div>
+</div>
+
+<div class="fp-cta">
+  <h2>Ihre Farbe gefunden?</h2>
+  <p>Kontaktieren Sie uns – wir beraten Sie kostenlos zur richtigen Beschichtung und Farbwahl.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="/kontakt" class="btn btn-light" style="background:var(--bx);color:#fff;border:none;padding:.75rem 1.6rem;border-radius:6px;font-weight:600;font-size:.85rem;text-decoration:none">Beratung anfragen →</a>
+    <a href="tel:+41765397974" class="btn" style="border:1.5px solid rgba(255,255,255,.25);color:#fff;padding:.75rem 1.6rem;border-radius:6px;font-weight:600;font-size:.85rem;text-decoration:none">+41 76 539 79 74</a>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="fp-modal-bg" id="fp-modal" onclick="if(event.target===this)closeModal()">
+  <div class="fp-modal">
+    <div class="fp-modal-wrap">
+      <button class="fp-modal-close" onclick="closeModal()">✕</button>
+      <div class="fp-modal-swatch" id="m-swatch"></div>
+    </div>
+    <div class="fp-modal-body">
+      <div class="fp-modal-code" id="m-code"></div>
+      <div class="fp-modal-title" id="m-name"></div>
+      <div class="fp-modal-hex" id="m-hex"></div>
+      <div class="fp-modal-group" id="m-group"></div>
+      <div class="fp-modal-cta">
+        <a href="/kontakt" style="flex:1;text-align:center;padding:.75rem 1rem;background:#4a0e1a;color:#fff;border-radius:8px;font-weight:600;font-size:.85rem;text-decoration:none">Diese Farbe anfragen</a>
+        <button onclick="addToCompare(currentModal);closeModal()" style="flex:1;padding:.75rem 1rem;border:1.5px solid #0a0a0a;background:#fff;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;font-family:inherit">Vergleichen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <p class="footer-headline">Qualität liegt im Detail – bei jedem Handgriff.</p>
+        <a href="kontakt.html" class="footer-cta-link">
+          Kontakt aufnehmen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+      <div class="foot-contact">
+        <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41765397974">+41 76 539 79 74</a></div>
+        <div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div>
+        <div class="foot-contact-row"><p>Standort</p><a href="kontakt.html">Urtenen-Schönbühl, Schweiz</a></div>
+      </div>
+      <nav class="foot-nav">
+        <a href="projekte.html" class="foot-link">Projekte</a>
+        <a href="leistungen/" class="foot-link">Leistungen</a>
+        <a href="ueber-uns.html" class="foot-link">Über uns</a>
+        <a href="kontakt.html" class="foot-link">Kontakt</a>
+        <a href="impressum.html" class="foot-link">Impressum</a>
+        <a href="datenschutz.html" class="foot-link">Datenschutz</a>
+        <a href="blog/" class="foot-link">Blog</a>
+        <a href="regionen/" class="foot-link">Regionen</a>
+      </nav>
+      <div class="foot-req"><a href="kontakt.html">Anfrage stellen</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="socials">
+        <a href="#" class="social-a" aria-label="Instagram"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.44c2.14 0 2.39.01 3.23.05a4.42 4.42 0 011.49.28 2.64 2.64 0 011.52 1.52 4.42 4.42 0 01.28 1.49c.04.84.05 1.1.05 3.23s-.01 2.39-.05 3.23a4.42 4.42 0 01-.28 1.49 2.64 2.64 0 01-1.52 1.52 4.42 4.42 0 01-1.49.28c-.84.04-1.09.05-3.23.05s-2.39-.01-3.23-.05a4.42 4.42 0 01-1.49-.28 2.64 2.64 0 01-1.52-1.52 4.42 4.42 0 01-.27-1.49C.01 10.39 0 10.14 0 8s.01-2.39.05-3.23a4.42 4.42 0 01.27-1.49 2.64 2.64 0 011.52-1.52 4.42 4.42 0 011.49-.27C4.17 1.45 4.43 1.44 8 1.44M8 0C5.83 0 5.56.01 4.7.05A5.87 5.87 0 002.76.42 3.91 3.91 0 00.42 2.76 5.87 5.87 0 00.05 4.7C.01 5.56 0 5.83 0 8s.01 2.45.05 3.3a5.87 5.87 0 00.37 1.94 3.91 3.91 0 002.34 2.34 5.87 5.87 0 001.94.37C5.55 15.99 5.83 16 8 16s2.45-.01 3.3-.05a5.87 5.87 0 001.94-.37 4.09 4.09 0 002.34-2.34A5.87 5.87 0 0015.95 11.3C15.99 10.45 16 10.17 16 8s-.01-2.45-.05-3.3a5.87 5.87 0 00-.37-1.94 3.91 3.91 0 00-2.34-2.34A5.87 5.87 0 0011.3.05C10.45.01 10.17 0 8 0z"/><path d="M8 3.89a4.11 4.11 0 100 8.22A4.11 4.11 0 008 3.89zm0 6.78A2.67 2.67 0 1110.67 8 2.67 2.67 0 018 10.67z"/><circle cx="12.27" cy="3.73" r=".96"/></svg></a>
+        <a href="#" class="social-a" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.3 0H.7C.3 0 0 .3 0 .7v14.7c0 .3.3.6.7.6h14.7c.4 0 .7-.3.7-.6V.7C16 .3 15.7 0 15.3 0zM4.7 13.6H2.4V6h2.4v7.6zm-1.1-8.6C2.8 5 2.2 4.3 2.2 3.6c0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4C4.9 4.3 4.3 5 3.6 5zm10 8.6h-2.4V9.9c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8H6.2V6h2.3v1h.1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4.2z"/></svg></a>
+      </div>
+      <p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge & Bautenschutz · Urtenen-Schönbühl, Schweiz</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+
+
+<script src="js/main.js"></script>
+<script>
+const COLORS=[
+  {g:'Gelb',code:'RAL 1000',name:'Grünbeige',hex:'#BEBD7F'},
+  {g:'Gelb',code:'RAL 1001',name:'Beige',hex:'#C2B078'},
+  {g:'Gelb',code:'RAL 1002',name:'Sandgelb',hex:'#C6A664'},
+  {g:'Gelb',code:'RAL 1003',name:'Signalgelb',hex:'#E5BE01'},
+  {g:'Gelb',code:'RAL 1004',name:'Goldgelb',hex:'#CDA434'},
+  {g:'Gelb',code:'RAL 1005',name:'Honiggelb',hex:'#A98307'},
+  {g:'Gelb',code:'RAL 1007',name:'Narzissengelb',hex:'#E2A300'},
+  {g:'Gelb',code:'RAL 1011',name:'Braunbeige',hex:'#AF8050'},
+  {g:'Gelb',code:'RAL 1012',name:'Zitronengelb',hex:'#D6AE01'},
+  {g:'Gelb',code:'RAL 1013',name:'Perlweiß',hex:'#E7EBDA'},
+  {g:'Gelb',code:'RAL 1014',name:'Elfenbein',hex:'#E0CC8B'},
+  {g:'Gelb',code:'RAL 1015',name:'Hellelfenbein',hex:'#E6D690'},
+  {g:'Gelb',code:'RAL 1016',name:'Schwefelgelb',hex:'#EDFF21'},
+  {g:'Gelb',code:'RAL 1018',name:'Zinkgelb',hex:'#F8F32B'},
+  {g:'Gelb',code:'RAL 1021',name:'Rapsgelb',hex:'#F3B500'},
+  {g:'Gelb',code:'RAL 1023',name:'Verkehrsgelb',hex:'#FAD201'},
+  {g:'Gelb',code:'RAL 1024',name:'Ockergelb',hex:'#AEA04B'},
+  {g:'Gelb',code:'RAL 1026',name:'Leuchtgelb',hex:'#FFFF00'},
+  {g:'Gelb',code:'RAL 1028',name:'Melonengelb',hex:'#F8B700'},
+  {g:'Gelb',code:'RAL 1032',name:'Ginstergelb',hex:'#E2B007'},
+  {g:'Gelb',code:'RAL 1033',name:'Dahliengelb',hex:'#F99A1C'},
+  {g:'Gelb',code:'RAL 1034',name:'Pastellgelb',hex:'#EB9C52'},
+  {g:'Orange',code:'RAL 2000',name:'Gelborange',hex:'#ED760E'},
+  {g:'Orange',code:'RAL 2001',name:'Rotorange',hex:'#C93C20'},
+  {g:'Orange',code:'RAL 2002',name:'Blutorange',hex:'#CB2821'},
+  {g:'Orange',code:'RAL 2003',name:'Pastellorange',hex:'#FF7514'},
+  {g:'Orange',code:'RAL 2004',name:'Reinorange',hex:'#F44611'},
+  {g:'Orange',code:'RAL 2008',name:'Hellrotorange',hex:'#F75E25'},
+  {g:'Orange',code:'RAL 2009',name:'Verkehrsorange',hex:'#F54021'},
+  {g:'Orange',code:'RAL 2010',name:'Signalorange',hex:'#D05A21'},
+  {g:'Orange',code:'RAL 2011',name:'Tieforange',hex:'#EC7C26'},
+  {g:'Orange',code:'RAL 2012',name:'Lachsorange',hex:'#E55137'},
+  {g:'Orange',code:'RAL 2013',name:'Perlorange',hex:'#C35831'},
+  {g:'Rot',code:'RAL 3000',name:'Feuerrot',hex:'#AF2B1E'},
+  {g:'Rot',code:'RAL 3001',name:'Signalrot',hex:'#A52019'},
+  {g:'Rot',code:'RAL 3002',name:'Karminrot',hex:'#A2231D'},
+  {g:'Rot',code:'RAL 3003',name:'Rubinrot',hex:'#9B111E'},
+  {g:'Rot',code:'RAL 3004',name:'Purpurrot',hex:'#75151E'},
+  {g:'Rot',code:'RAL 3005',name:'Weinrot',hex:'#5E2129'},
+  {g:'Rot',code:'RAL 3009',name:'Oxidrot',hex:'#763C28'},
+  {g:'Rot',code:'RAL 3011',name:'Braunrot',hex:'#8B1C0F'},
+  {g:'Rot',code:'RAL 3012',name:'Beigerot',hex:'#C1876B'},
+  {g:'Rot',code:'RAL 3013',name:'Tomatenrot',hex:'#963421'},
+  {g:'Rot',code:'RAL 3014',name:'Altrosa',hex:'#D36E70'},
+  {g:'Rot',code:'RAL 3015',name:'Hellrosa',hex:'#EA899A'},
+  {g:'Rot',code:'RAL 3016',name:'Korallenrot',hex:'#B32821'},
+  {g:'Rot',code:'RAL 3017',name:'Rose',hex:'#E63244'},
+  {g:'Rot',code:'RAL 3018',name:'Erdbeerrot',hex:'#D53032'},
+  {g:'Rot',code:'RAL 3020',name:'Verkehrsrot',hex:'#CC0605'},
+  {g:'Rot',code:'RAL 3022',name:'Lachsrot',hex:'#D95030'},
+  {g:'Rot',code:'RAL 3024',name:'Leuchtrot',hex:'#F80000'},
+  {g:'Rot',code:'RAL 3026',name:'Leuchthellrot',hex:'#FE0000'},
+  {g:'Rot',code:'RAL 3027',name:'Himbeerrot',hex:'#C0132F'},
+  {g:'Rot',code:'RAL 3028',name:'Reinrot',hex:'#CC0605'},
+  {g:'Rot',code:'RAL 3031',name:'Orientrot',hex:'#A63437'},
+  {g:'Violett',code:'RAL 4001',name:'Rotlila',hex:'#8D1D76'},
+  {g:'Violett',code:'RAL 4002',name:'Rotviolett',hex:'#922B3E'},
+  {g:'Violett',code:'RAL 4003',name:'Erikaviolett',hex:'#DE4C8A'},
+  {g:'Violett',code:'RAL 4004',name:'Bordeauxviolett',hex:'#641C34'},
+  {g:'Violett',code:'RAL 4005',name:'Blaulila',hex:'#6C4675'},
+  {g:'Violett',code:'RAL 4006',name:'Verkehrspurpur',hex:'#A03472'},
+  {g:'Violett',code:'RAL 4007',name:'Purpurviolett',hex:'#4A192C'},
+  {g:'Violett',code:'RAL 4008',name:'Signalviolett',hex:'#924E7D'},
+  {g:'Violett',code:'RAL 4009',name:'Pastellviolett',hex:'#A18594'},
+  {g:'Violett',code:'RAL 4010',name:'Telemagenta',hex:'#CF3476'},
+  {g:'Blau',code:'RAL 5000',name:'Violettblau',hex:'#354D73'},
+  {g:'Blau',code:'RAL 5001',name:'Grünblau',hex:'#1F3438'},
+  {g:'Blau',code:'RAL 5002',name:'Ultramarinblau',hex:'#20214F'},
+  {g:'Blau',code:'RAL 5003',name:'Saphirblau',hex:'#1D1E33'},
+  {g:'Blau',code:'RAL 5004',name:'Schwarzblau',hex:'#18171C'},
+  {g:'Blau',code:'RAL 5005',name:'Signalblau',hex:'#1E2460'},
+  {g:'Blau',code:'RAL 5007',name:'Brillantblau',hex:'#3E5F8A'},
+  {g:'Blau',code:'RAL 5008',name:'Graublau',hex:'#26252D'},
+  {g:'Blau',code:'RAL 5009',name:'Azurblau',hex:'#025669'},
+  {g:'Blau',code:'RAL 5010',name:'Enzianblau',hex:'#0E294B'},
+  {g:'Blau',code:'RAL 5011',name:'Stahlblau',hex:'#231A24'},
+  {g:'Blau',code:'RAL 5012',name:'Lichtblau',hex:'#3B83BD'},
+  {g:'Blau',code:'RAL 5013',name:'Kobaltblau',hex:'#1E213D'},
+  {g:'Blau',code:'RAL 5014',name:'Taubenblau',hex:'#606E8C'},
+  {g:'Blau',code:'RAL 5015',name:'Himmelblau',hex:'#2271B3'},
+  {g:'Blau',code:'RAL 5017',name:'Verkehrsblau',hex:'#063971'},
+  {g:'Blau',code:'RAL 5018',name:'Türkisblau',hex:'#3F888F'},
+  {g:'Blau',code:'RAL 5019',name:'Capriblau',hex:'#1B5583'},
+  {g:'Blau',code:'RAL 5020',name:'Ozeanblau',hex:'#1D334A'},
+  {g:'Blau',code:'RAL 5021',name:'Wasserblau',hex:'#256D7B'},
+  {g:'Blau',code:'RAL 5022',name:'Nachtblau',hex:'#252850'},
+  {g:'Blau',code:'RAL 5023',name:'Fernblau',hex:'#49678D'},
+  {g:'Blau',code:'RAL 5024',name:'Pastellblau',hex:'#5D9B9B'},
+  {g:'Blau',code:'RAL 5025',name:'Perlenzian',hex:'#2A6478'},
+  {g:'Blau',code:'RAL 5026',name:'Perlnachtblau',hex:'#102C54'},
+  {g:'Grün',code:'RAL 6000',name:'Patinagrün',hex:'#316650'},
+  {g:'Grün',code:'RAL 6001',name:'Smaragdgrün',hex:'#287233'},
+  {g:'Grün',code:'RAL 6002',name:'Laubgrün',hex:'#2D572C'},
+  {g:'Grün',code:'RAL 6003',name:'Olivgrün',hex:'#424632'},
+  {g:'Grün',code:'RAL 6004',name:'Blaugrün',hex:'#1F3A21'},
+  {g:'Grün',code:'RAL 6005',name:'Moosgrün',hex:'#1F3A21'},
+  {g:'Grün',code:'RAL 6006',name:'Grauoliv',hex:'#3E3B32'},
+  {g:'Grün',code:'RAL 6007',name:'Flaschengrün',hex:'#343B29'},
+  {g:'Grün',code:'RAL 6008',name:'Braungrün',hex:'#39352A'},
+  {g:'Grün',code:'RAL 6009',name:'Tannengrün',hex:'#31372B'},
+  {g:'Grün',code:'RAL 6010',name:'Grasgrün',hex:'#35682D'},
+  {g:'Grün',code:'RAL 6011',name:'Resedagrün',hex:'#587246'},
+  {g:'Grün',code:'RAL 6012',name:'Schwarzgrün',hex:'#343E40'},
+  {g:'Grün',code:'RAL 6013',name:'Schilfgrün',hex:'#6C7156'},
+  {g:'Grün',code:'RAL 6014',name:'Gelboliv',hex:'#47402E'},
+  {g:'Grün',code:'RAL 6015',name:'Schwarzoliv',hex:'#3B3C36'},
+  {g:'Grün',code:'RAL 6016',name:'Türkisgrün',hex:'#1E5945'},
+  {g:'Grün',code:'RAL 6017',name:'Maigrün',hex:'#4C9141'},
+  {g:'Grün',code:'RAL 6018',name:'Gelbgrün',hex:'#57A639'},
+  {g:'Grün',code:'RAL 6019',name:'Weißgrün',hex:'#BDECB6'},
+  {g:'Grün',code:'RAL 6024',name:'Verkehrsgrün',hex:'#308446'},
+  {g:'Grün',code:'RAL 6025',name:'Farngrün',hex:'#3D6B4D'},
+  {g:'Grün',code:'RAL 6026',name:'Opalgrün',hex:'#1C542D'},
+  {g:'Grün',code:'RAL 6027',name:'Lichtgrün',hex:'#83C5A8'},
+  {g:'Grün',code:'RAL 6028',name:'Kieferngrün',hex:'#2D572C'},
+  {g:'Grün',code:'RAL 6029',name:'Mintgrün',hex:'#20603D'},
+  {g:'Grün',code:'RAL 6032',name:'Signalgrün',hex:'#317F43'},
+  {g:'Grün',code:'RAL 6033',name:'Minttürkis',hex:'#497E76'},
+  {g:'Grün',code:'RAL 6034',name:'Pastelltürkis',hex:'#7FB5B5'},
+  {g:'Grün',code:'RAL 6035',name:'Perlgrün',hex:'#1C542D'},
+  {g:'Grün',code:'RAL 6036',name:'Perlopalgrün',hex:'#1E5945'},
+  {g:'Grün',code:'RAL 6037',name:'Reingrün',hex:'#008B29'},
+  {g:'Grün',code:'RAL 6038',name:'Leuchtgrün',hex:'#00BB2D'},
+  {g:'Grau',code:'RAL 7000',name:'Fehgrau',hex:'#78858B'},
+  {g:'Grau',code:'RAL 7001',name:'Silbergrau',hex:'#8A9597'},
+  {g:'Grau',code:'RAL 7002',name:'Olivgrau',hex:'#817F68'},
+  {g:'Grau',code:'RAL 7003',name:'Moosgrau',hex:'#7A7B6D'},
+  {g:'Grau',code:'RAL 7004',name:'Signalgrau',hex:'#9EA0A1'},
+  {g:'Grau',code:'RAL 7005',name:'Mausgrau',hex:'#6C7059'},
+  {g:'Grau',code:'RAL 7006',name:'Beigegrau',hex:'#756F61'},
+  {g:'Grau',code:'RAL 7008',name:'Khakigrau',hex:'#746643'},
+  {g:'Grau',code:'RAL 7009',name:'Grüngrau',hex:'#5B6259'},
+  {g:'Grau',code:'RAL 7010',name:'Zeltgrau',hex:'#575D57'},
+  {g:'Grau',code:'RAL 7011',name:'Eisengrau',hex:'#555D61'},
+  {g:'Grau',code:'RAL 7012',name:'Basaltgrau',hex:'#596163'},
+  {g:'Grau',code:'RAL 7013',name:'Braungrau',hex:'#55504F'},
+  {g:'Grau',code:'RAL 7015',name:'Schiefergrau',hex:'#51565C'},
+  {g:'Grau',code:'RAL 7016',name:'Anthrazitgrau',hex:'#373F43'},
+  {g:'Grau',code:'RAL 7021',name:'Schwarzgrau',hex:'#2E3234'},
+  {g:'Grau',code:'RAL 7022',name:'Umbragrau',hex:'#43464B'},
+  {g:'Grau',code:'RAL 7023',name:'Betongrau',hex:'#818479'},
+  {g:'Grau',code:'RAL 7024',name:'Graphitgrau',hex:'#474A51'},
+  {g:'Grau',code:'RAL 7026',name:'Granitgrau',hex:'#374447'},
+  {g:'Grau',code:'RAL 7030',name:'Steingrau',hex:'#939388'},
+  {g:'Grau',code:'RAL 7031',name:'Blaugrau',hex:'#596268'},
+  {g:'Grau',code:'RAL 7032',name:'Kieselgrau',hex:'#B8B799'},
+  {g:'Grau',code:'RAL 7033',name:'Zementgrau',hex:'#7D8471'},
+  {g:'Grau',code:'RAL 7034',name:'Gelbgrau',hex:'#8F8B66'},
+  {g:'Grau',code:'RAL 7035',name:'Lichtgrau',hex:'#D7D7D7'},
+  {g:'Grau',code:'RAL 7036',name:'Platingrau',hex:'#7F7679'},
+  {g:'Grau',code:'RAL 7037',name:'Staubgrau',hex:'#7D7F7D'},
+  {g:'Grau',code:'RAL 7038',name:'Achatgrau',hex:'#B5B8B1'},
+  {g:'Grau',code:'RAL 7039',name:'Quarzgrau',hex:'#6C6960'},
+  {g:'Grau',code:'RAL 7040',name:'Fenstergrau',hex:'#9DA1AA'},
+  {g:'Grau',code:'RAL 7042',name:'Verkehrsgrau A',hex:'#8D9296'},
+  {g:'Grau',code:'RAL 7043',name:'Verkehrsgrau B',hex:'#4E5452'},
+  {g:'Grau',code:'RAL 7044',name:'Seidengrau',hex:'#CAC4B0'},
+  {g:'Grau',code:'RAL 7045',name:'Telegrau 1',hex:'#909090'},
+  {g:'Grau',code:'RAL 7046',name:'Telegrau 2',hex:'#82898F'},
+  {g:'Grau',code:'RAL 7047',name:'Telegrau 4',hex:'#D0D0D0'},
+  {g:'Grau',code:'RAL 7048',name:'Perlmausgrau',hex:'#898176'},
+  {g:'Braun',code:'RAL 8000',name:'Grünbraun',hex:'#826C34'},
+  {g:'Braun',code:'RAL 8001',name:'Ockerbraun',hex:'#955F20'},
+  {g:'Braun',code:'RAL 8002',name:'Signalbraun',hex:'#6C3B2A'},
+  {g:'Braun',code:'RAL 8003',name:'Lehmbraun',hex:'#734222'},
+  {g:'Braun',code:'RAL 8004',name:'Kupferbraun',hex:'#8E402A'},
+  {g:'Braun',code:'RAL 8007',name:'Rehbraun',hex:'#59351F'},
+  {g:'Braun',code:'RAL 8008',name:'Olivbraun',hex:'#6F4F28'},
+  {g:'Braun',code:'RAL 8011',name:'Nußbraun',hex:'#5B3A29'},
+  {g:'Braun',code:'RAL 8012',name:'Rotbraun',hex:'#592321'},
+  {g:'Braun',code:'RAL 8014',name:'Sepiabraun',hex:'#382C1E'},
+  {g:'Braun',code:'RAL 8015',name:'Kastanienbraun',hex:'#633A34'},
+  {g:'Braun',code:'RAL 8016',name:'Mahagonibraun',hex:'#4C2F27'},
+  {g:'Braun',code:'RAL 8017',name:'Schokoladenbraun',hex:'#45322E'},
+  {g:'Braun',code:'RAL 8019',name:'Graubraun',hex:'#403A3A'},
+  {g:'Braun',code:'RAL 8022',name:'Schwarzbraun',hex:'#212121'},
+  {g:'Braun',code:'RAL 8023',name:'Orangebraun',hex:'#A65E2E'},
+  {g:'Braun',code:'RAL 8024',name:'Beigebraun',hex:'#79553D'},
+  {g:'Braun',code:'RAL 8025',name:'Blassbraun',hex:'#755C48'},
+  {g:'Braun',code:'RAL 8028',name:'Terrabraun',hex:'#4E3B31'},
+  {g:'Braun',code:'RAL 8029',name:'Perlkupfer',hex:'#763C28'},
+  {g:'Weiß & Schwarz',code:'RAL 9001',name:'Cremeweiß',hex:'#FDF4E3'},
+  {g:'Weiß & Schwarz',code:'RAL 9002',name:'Grauweiß',hex:'#E7EBDA'},
+  {g:'Weiß & Schwarz',code:'RAL 9003',name:'Signalweiß',hex:'#F4F4F4'},
+  {g:'Weiß & Schwarz',code:'RAL 9004',name:'Signalschwarz',hex:'#282828'},
+  {g:'Weiß & Schwarz',code:'RAL 9005',name:'Tiefschwarz',hex:'#0A0A0A'},
+  {g:'Weiß & Schwarz',code:'RAL 9006',name:'Weißaluminium',hex:'#A5A5A5'},
+  {g:'Weiß & Schwarz',code:'RAL 9007',name:'Graualuminium',hex:'#8F8F8F'},
+  {g:'Weiß & Schwarz',code:'RAL 9010',name:'Reinweiß',hex:'#F1F1F1'},
+  {g:'Weiß & Schwarz',code:'RAL 9011',name:'Graphitschwarz',hex:'#1C1C1C'},
+  {g:'Weiß & Schwarz',code:'RAL 9012',name:'Schmutzweiß',hex:'#F0EDE5'},
+  {g:'Weiß & Schwarz',code:'RAL 9016',name:'Verkehrsweiß',hex:'#F6F6F6'},
+  {g:'Weiß & Schwarz',code:'RAL 9017',name:'Verkehrsschwarz',hex:'#1E1E1E'},
+  {g:'Weiß & Schwarz',code:'RAL 9018',name:'Papyrusweiß',hex:'#D7D7D7'},
+];
+
+let activeGroup='Alle';
+let compareList=[];
+let currentModal=null;
+
+function hexTextColor(hex){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return (r*299+g*587+b*114)/1000>128?'#0a0a0a':'#fff';
+}
+
+function render(){
+  const q=document.getElementById('fp-search').value.toLowerCase().trim();
+  const filtered=COLORS.filter(c=>{
+    const gm=activeGroup==='Alle'||c.g===activeGroup;
+    const qm=!q||c.code.toLowerCase().includes(q)||c.name.toLowerCase().includes(q);
+    return gm&&qm;
+  });
+  document.getElementById('fp-count').textContent=filtered.length+' Farbtöne';
+  const inCmp=compareList.map(c=>c.code);
+  document.getElementById('fp-grid').innerHTML=filtered.map((c,i)=>{
+    const isCmp=inCmp.includes(c.code);
+    return `<div class="fp-card${isCmp?' in-compare':''}" style="animation:fadeUp .3s ${i*0.02}s both">
+      <div class="fp-swatch" style="background:${c.hex}"></div>
+      <div class="fp-card-info">
+        <div class="fp-card-code">${c.code}</div>
+        <div class="fp-card-name">${c.name}</div>
+      </div>
+      <div class="fp-card-actions">
+        <button class="fp-action-btn" onclick="openModal('${c.code}')">Details</button>
+        <button class="fp-action-btn cmp" onclick="addToCompare('${c.code}')">${isCmp?'✓ Aktiv':'Vergl.'}</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openModal(code){
+  const c=COLORS.find(x=>x.code===code);
+  if(!c)return;
+  currentModal=code;
+  document.getElementById('m-swatch').style.background=c.hex;
+  document.getElementById('m-code').textContent=c.code;
+  document.getElementById('m-name').textContent=c.name;
+  document.getElementById('m-hex').textContent=c.hex.toUpperCase();
+  document.getElementById('m-group').textContent='Gruppe: '+c.g;
+  document.getElementById('fp-modal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('fp-modal').classList.remove('show');
+  document.body.style.overflow='';
+  currentModal=null;
+}
+
+function addToCompare(code){
+  const c=COLORS.find(x=>x.code===code);
+  if(!c)return;
+  const idx=compareList.findIndex(x=>x.code===code);
+  if(idx>-1){compareList.splice(idx,1);}
+  else{
+    if(compareList.length>=2)compareList.shift();
+    compareList.push(c);
+  }
+  updateCompareBar();
+  render();
+}
+
+function updateCompareBar(){
+  const bar=document.getElementById('fp-compare-bar');
+  bar.classList.toggle('show',compareList.length>0);
+  [0,1].forEach(i=>{
+    const c=compareList[i];
+    document.getElementById('cmp-sw-'+i).style.background=c?c.hex:'#333';
+    document.getElementById('cmp-code-'+i).textContent=c?c.code:'—';
+    const nm=document.getElementById('cmp-name-'+i);
+    nm.textContent=c?c.name:'Farbe wählen';
+    nm.className='fp-compare-name'+(c?'':' fp-compare-empty');
+  });
+}
+
+function clearCompare(){
+  compareList=[];
+  updateCompareBar();
+  render();
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.getElementById('fp-search').addEventListener('input',render);
+
+const groups=[...new Set(COLORS.map(c=>c.g))];
+const filtersEl=document.getElementById('fp-filters');
+['Alle',...groups].forEach(g=>{
+  const btn=document.createElement('button');
+  btn.className='fp-btn'+(g==='Alle'?' active':'');
+  btn.textContent=g;
+  btn.onclick=()=>{
+    activeGroup=g;
+    document.querySelectorAll('.fp-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  };
+  filtersEl.appendChild(btn);
+});
+
+const style=document.createElement('style');
+style.textContent='@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}';
+document.head.appendChild(style);
+
+render();
+</script>
+</body>
+</html>
