@@ -3,7 +3,7 @@
     "slug": "/blog/steinteppich-im-aussenbereich-ihre-fragen-unsere-antworten",
     "title": "Steinteppich im Aussenbereich – Ihre Fragen, unsere Antworten",
     "desc": "Ist Steinteppich rutschfest, frostbeständig und pflegeleicht? Wir beantworten die häufigsten Fragen rund um Steinteppich auf Terrassen, Balkonen und Treppen.",
-    "img": "assets/img/Steinteppich.png",
+    "img": "https://www.polycore.ch/assets/img/Steinteppich.png",
     "cat": "Tipps & Ratgeber",
     "rt": "5",
     "date": "2026-04-20",
@@ -12,17 +12,17 @@
   {
     "slug": "/blog/keller-abdichten-bern",
     "title": "Keller abdichten in Bern: Kellerwand & Kellerboden von innen",
-    "desc": "Feuchter Keller? Wir erklÃ¤ren die besten Methoden â Injektionen, FlÃ¼ssigkunststoff, Combiflex.",
+    "desc": "Feuchter Keller? Wir erklÃÂ¤ren die besten Methoden Ã¢ÂÂ Injektionen, FlÃÂ¼ssigkunststoff, Combiflex.",
     "img": "",
     "cat": "Bautenschutz",
     "rt": "7",
     "date": "2026-03-05",
-    "dateStr": "5. MÃ¤rz 2026"
+    "dateStr": "5. MÃÂ¤rz 2026"
   },
   {
     "slug": "/blog/epoxidharz-boden-vorteile",
-    "title": "Epoxidharz-Boden: 7 Vorteile fÃ¼r Industriebetriebe",
-    "desc": "Aus der Praxis: Warum EP-BÃ¶den in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.",
+    "title": "Epoxidharz-Boden: 7 Vorteile fÃÂ¼r Industriebetriebe",
+    "desc": "Aus der Praxis: Warum EP-BÃÂ¶den in Industrie, Gewerbe und Lager unschlagbar sind. POLYCORE GmbH Bern.",
     "img": "",
     "cat": "Epoxidharz",
     "rt": "6",
@@ -31,7 +31,7 @@
   },
   {
     "slug": "/blog/pmma-vs-epoxidharz",
-    "title": "PMMA vs. Epoxidharz â Welches System passt?",
+    "title": "PMMA vs. Epoxidharz Ã¢ÂÂ Welches System passt?",
     "desc": "Praxisnaher Vergleich: Wann PMMA und wann Epoxidharz die richtige Wahl ist. POLYCORE GmbH Bern.",
     "img": "",
     "cat": "Vergleich",
@@ -41,8 +41,8 @@
   },
   {
     "slug": "/blog/feuchter-keller-loesungen",
-    "title": "Feuchter Keller: 5 LÃ¶sungsansÃ¤tze fÃ¼r dauerhaften Schutz",
-    "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklÃ¤rt die 5 bewÃ¤hrtesten Methoden gegen Kellerfeuchtigkeit.",
+    "title": "Feuchter Keller: 5 LÃÂ¶sungsansÃÂ¤tze fÃÂ¼r dauerhaften Schutz",
+    "desc": "Ursachen erkennen, richtig handeln. POLYCORE GmbH Bern erklÃÂ¤rt die 5 bewÃÂ¤hrtesten Methoden gegen Kellerfeuchtigkeit.",
     "img": "",
     "cat": "Bautenschutz",
     "rt": "8",
@@ -51,8 +51,8 @@
   },
   {
     "slug": "/blog/pflege-und-reinigung-von-pu-boeden-polyurethan",
-    "title": "Pflege & Reinigung von PU-BÃ¶den",
-    "desc": "So pflegen und reinigen Sie Polyurethan-BÃ¶den richtig â Tipps und Empfehlungen vom Fachmann.",
+    "title": "Pflege & Reinigung von PU-BÃÂ¶den",
+    "desc": "So pflegen und reinigen Sie Polyurethan-BÃÂ¶den richtig Ã¢ÂÂ Tipps und Empfehlungen vom Fachmann.",
     "img": "",
     "cat": "Polyurethan",
     "rt": "5",
@@ -61,7 +61,7 @@
   },
   {
     "slug": "/blog/rutschfeste-pmma-beschichtungen-sicherheit-und-effizienz-vereint",
-    "title": "Rutschfeste PMMA-Beschichtungen â Sicherheit & Effizienz",
+    "title": "Rutschfeste PMMA-Beschichtungen Ã¢ÂÂ Sicherheit & Effizienz",
     "desc": "Warum rutschfeste PMMA-Beschichtungen in Gewerbe und Industrie unverzichtbar sind.",
     "img": "",
     "cat": "PMMA",
