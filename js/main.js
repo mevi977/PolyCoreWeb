@@ -174,6 +174,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* Telefon plutajući gumb */
+  const tel = document.createElement('a');
+  tel.href = 'tel:+41765397974';
+  tel.setAttribute('aria-label', 'Anrufen');
+  tel.innerHTML = `
+    <style>
+      .tel-btn {
+        position: fixed;
+        bottom: 6rem;
+        right: 1.75rem;
+        z-index: 9000;
+        width: 50px;
+        height: 50px;
+        background: #0a0a0a;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(0,0,0,.25);
+        text-decoration: none;
+        transition: transform .2s, background .15s, box-shadow .2s;
+      }
+      .tel-btn:hover {
+        background: #4a0e1a;
+        transform: translateY(-3px) scale(1.08);
+        box-shadow: 0 8px 24px rgba(74,14,26,.4);
+      }
+      @media(max-width: 480px) {
+        .tel-btn { bottom: 5.5rem; right: 1.25rem; width: 46px; height: 46px; }
+      }
+    </style>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 16.92z"/></svg>`;
+  tel.className = 'tel-btn';
+  document.body.appendChild(tel);
+
   /* WhatsApp plutajući gumb */
   const wa = document.createElement('a');
   wa.href = 'https://wa.me/41765397974';
