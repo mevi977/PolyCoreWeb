@@ -174,4 +174,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* WhatsApp plutajući gumb */
+  const wa = document.createElement('a');
+  wa.href = 'https://wa.me/41765397974';
+  wa.target = '_blank';
+  wa.rel = 'noopener noreferrer';
+  wa.setAttribute('aria-label', 'WhatsApp');
+  wa.innerHTML = `
+    <style>
+      .wa-btn {
+        position: fixed;
+        bottom: 1.75rem;
+        right: 1.75rem;
+        z-index: 9000;
+        display: flex;
+        align-items: center;
+        gap: .65rem;
+        background: #25D366;
+        color: #fff;
+        border-radius: 50px;
+        padding: .65rem 1.1rem .65rem .85rem;
+        box-shadow: 0 4px 20px rgba(37,211,102,.35), 0 2px 8px rgba(0,0,0,.15);
+        text-decoration: none;
+        font-family: 'Instrument Sans', sans-serif;
+        font-size: .82rem;
+        font-weight: 700;
+        letter-spacing: .01em;
+        transition: transform .2s, box-shadow .2s, background .15s;
+        animation: waPulse 2.5s ease-in-out infinite;
+      }
+      .wa-btn:hover {
+        background: #1ebe5d;
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 8px 28px rgba(37,211,102,.45), 0 4px 12px rgba(0,0,0,.2);
+        animation: none;
+      }
+      .wa-btn svg { flex-shrink: 0; }
+      .wa-btn span { white-space: nowrap; }
+      @keyframes waPulse {
+        0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.35), 0 2px 8px rgba(0,0,0,.15); }
+        50% { box-shadow: 0 4px 28px rgba(37,211,102,.6), 0 2px 8px rgba(0,0,0,.15); }
+      }
+      @media(max-width: 480px) {
+        .wa-btn span { display: none; }
+        .wa-btn { padding: .75rem; border-radius: 50%; }
+      }
+    </style>
+    <svg width="22" height="22" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.466.666 4.778 1.826 6.766L2 30l7.434-1.794A13.938 13.938 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.55 11.55 0 01-5.896-1.614l-.422-.252-4.41 1.064 1.098-4.3-.276-.442A11.558 11.558 0 014.4 16C4.4 9.593 9.593 4.4 16 4.4S27.6 9.593 27.6 16 22.407 27.6 16 27.6zm6.334-8.666c-.346-.174-2.05-1.01-2.368-1.124-.316-.116-.546-.174-.776.174-.228.346-.89 1.124-1.092 1.354-.2.228-.4.26-.748.086-.346-.174-1.46-.538-2.78-1.716-1.028-.916-1.722-2.048-1.924-2.394-.2-.346-.022-.534.152-.706.156-.156.346-.406.52-.61.174-.202.232-.346.346-.578.116-.23.058-.432-.028-.608-.088-.174-.776-1.872-1.064-2.564-.28-.672-.564-.58-.776-.59l-.66-.012a1.264 1.264 0 00-.916.43c-.316.346-1.2 1.172-1.2 2.858s1.228 3.316 1.4 3.544c.174.228 2.418 3.692 5.858 5.178.818.354 1.458.564 1.956.722.822.26 1.57.224 2.16.136.66-.098 2.05-.838 2.34-1.648.29-.81.29-1.504.202-1.648-.086-.146-.316-.232-.66-.406z"/>
+    </svg>
+    <span>076 539 79 74</span>`;
+  wa.className = 'wa-btn';
+  document.body.appendChild(wa);
+
 });
