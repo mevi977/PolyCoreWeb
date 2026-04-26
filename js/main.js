@@ -174,102 +174,135 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* Telefon plutajući gumb */
-  const tel = document.createElement('a');
-  tel.href = 'tel:+41765397974';
-  tel.setAttribute('aria-label', 'Anrufen');
-  tel.innerHTML = `
-    <style>
-      .tel-btn {
-        position: fixed;
-        bottom: 8.5rem;
-        right: 1.75rem;
-        z-index: 9000;
-        display: flex;
-        align-items: center;
-        gap: .65rem;
-        background: #0a0a0a;
-        color: #fff;
-        border-radius: 50px;
-        padding: .65rem 1.1rem .65rem .85rem;
-        box-shadow: 0 4px 20px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.15);
-        text-decoration: none;
-        font-family: 'Instrument Sans', sans-serif;
-        font-size: .82rem;
-        font-weight: 700;
-        letter-spacing: .01em;
-        transition: transform .2s, box-shadow .2s, background .15s;
-      }
-      .tel-btn:hover {
-        background: #4a0e1a;
-        transform: translateY(-3px) scale(1.04);
-        box-shadow: 0 8px 28px rgba(74,14,26,.45), 0 4px 12px rgba(0,0,0,.2);
-      }
-      .tel-btn svg { flex-shrink: 0; }
-      .tel-btn span { white-space: nowrap; }
-      @media(max-width: 480px) {
-        .tel-btn span { display: none; }
-        .tel-btn { padding: .75rem; border-radius: 50%; bottom: 7.5rem; right: 1.25rem; }
-      }
-    </style>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6.5c0-.6.4-1 1-1H7.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
-    </svg>
-    <span>076 539 79 74</span>`;
-  tel.className = 'tel-btn';
-  document.body.appendChild(tel);
-
-  /* WhatsApp plutajući gumb */
-  const wa = document.createElement('a');
-  wa.href = 'https://wa.me/41765397974';
-  wa.target = '_blank';
-  wa.rel = 'noopener noreferrer';
-  wa.setAttribute('aria-label', 'WhatsApp');
-  wa.innerHTML = `
-    <style>
-      .wa-btn {
+  /* Plutajući kontakt gumb – expand na klik */
+  (function() {
+    const style = document.createElement('style');
+    style.textContent = `
+      .fab-wrap {
         position: fixed;
         bottom: 1.75rem;
         right: 1.75rem;
         z-index: 9000;
         display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: .75rem;
+      }
+      .fab-options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: .65rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition: opacity .25s ease, transform .25s ease;
+      }
+      .fab-options.open {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+      }
+      .fab-option {
+        display: flex;
         align-items: center;
         gap: .65rem;
-        background: #25D366;
-        color: #fff;
+        padding: .6rem 1.1rem .6rem .85rem;
         border-radius: 50px;
-        padding: .65rem 1.1rem .65rem .85rem;
-        box-shadow: 0 4px 20px rgba(37,211,102,.35), 0 2px 8px rgba(0,0,0,.15);
         text-decoration: none;
         font-family: 'Instrument Sans', sans-serif;
         font-size: .82rem;
         font-weight: 700;
         letter-spacing: .01em;
-        transition: transform .2s, box-shadow .2s, background .15s;
-        animation: waPulse 2.5s ease-in-out infinite;
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(0,0,0,.2);
+        transition: transform .2s, box-shadow .2s, filter .15s;
+        white-space: nowrap;
       }
-      .wa-btn:hover {
-        background: #1ebe5d;
-        transform: translateY(-3px) scale(1.04);
-        box-shadow: 0 8px 28px rgba(37,211,102,.45), 0 4px 12px rgba(0,0,0,.2);
-        animation: none;
+      .fab-option:hover {
+        transform: translateX(-4px);
+        box-shadow: 0 6px 20px rgba(0,0,0,.3);
+        filter: brightness(1.08);
       }
-      .wa-btn svg { flex-shrink: 0; }
-      .wa-btn span { white-space: nowrap; }
-      @keyframes waPulse {
-        0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.35), 0 2px 8px rgba(0,0,0,.15); }
-        50% { box-shadow: 0 4px 28px rgba(37,211,102,.6), 0 2px 8px rgba(0,0,0,.15); }
+      .fab-option svg { flex-shrink: 0; }
+      .fab-option.tel { background: #0a0a0a; }
+      .fab-option.wa  { background: #25D366; animation: waPulse2 2.5s ease-in-out infinite; }
+      .fab-option.mail{ background: #4a0e1a; }
+      @keyframes waPulse2 {
+        0%,100% { box-shadow: 0 4px 16px rgba(37,211,102,.3); }
+        50%      { box-shadow: 0 4px 24px rgba(37,211,102,.6); }
       }
+      .fab-main {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #0a0a0a;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0,0,0,.3);
+        transition: transform .25s, background .2s, box-shadow .2s;
+        position: relative;
+      }
+      .fab-main:hover {
+        background: #4a0e1a;
+        box-shadow: 0 6px 24px rgba(74,14,26,.4);
+      }
+      .fab-main.open {
+        background: #4a0e1a;
+        transform: rotate(45deg);
+        box-shadow: 0 6px 24px rgba(74,14,26,.4);
+      }
+      .fab-main svg { transition: transform .25s; }
       @media(max-width: 480px) {
-        .wa-btn span { display: none; }
-        .wa-btn { padding: .75rem; border-radius: 50%; }
+        .fab-wrap { bottom: 1.25rem; right: 1.25rem; }
+        .fab-option span { display: none; }
+        .fab-option { padding: .75rem; border-radius: 50%; }
       }
-    </style>
-    <svg width="22" height="22" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.466.666 4.778 1.826 6.766L2 30l7.434-1.794A13.938 13.938 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.55 11.55 0 01-5.896-1.614l-.422-.252-4.41 1.064 1.098-4.3-.276-.442A11.558 11.558 0 014.4 16C4.4 9.593 9.593 4.4 16 4.4S27.6 9.593 27.6 16 22.407 27.6 16 27.6zm6.334-8.666c-.346-.174-2.05-1.01-2.368-1.124-.316-.116-.546-.174-.776.174-.228.346-.89 1.124-1.092 1.354-.2.228-.4.26-.748.086-.346-.174-1.46-.538-2.78-1.716-1.028-.916-1.722-2.048-1.924-2.394-.2-.346-.022-.534.152-.706.156-.156.346-.406.52-.61.174-.202.232-.346.346-.578.116-.23.058-.432-.028-.608-.088-.174-.776-1.872-1.064-2.564-.28-.672-.564-.58-.776-.59l-.66-.012a1.264 1.264 0 00-.916.43c-.316.346-1.2 1.172-1.2 2.858s1.228 3.316 1.4 3.544c.174.228 2.418 3.692 5.858 5.178.818.354 1.458.564 1.956.722.822.26 1.57.224 2.16.136.66-.098 2.05-.838 2.34-1.648.29-.81.29-1.504.202-1.648-.086-.146-.316-.232-.66-.406z"/>
-    </svg>
-    <span>076 539 79 74</span>`;
-  wa.className = 'wa-btn';
-  document.body.appendChild(wa);
+    `;
+    document.head.appendChild(style);
+
+    const wrap = document.createElement('div');
+    wrap.className = 'fab-wrap';
+    wrap.innerHTML = `
+      <div class="fab-options" id="fabOptions">
+        <a href="tel:+41765397974" class="fab-option tel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6.5c0-.6.4-1 1-1H7.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          <span>076 539 79 74</span>
+        </a>
+        <a href="https://wa.me/41765397974" target="_blank" rel="noopener" class="fab-option wa">
+          <svg width="18" height="18" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.466.666 4.778 1.826 6.766L2 30l7.434-1.794A13.938 13.938 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.55 11.55 0 01-5.896-1.614l-.422-.252-4.41 1.064 1.098-4.3-.276-.442A11.558 11.558 0 014.4 16C4.4 9.593 9.593 4.4 16 4.4S27.6 9.593 27.6 16 22.407 27.6 16 27.6zm6.334-8.666c-.346-.174-2.05-1.01-2.368-1.124-.316-.116-.546-.174-.776.174-.228.346-.89 1.124-1.092 1.354-.2.228-.4.26-.748.086-.346-.174-1.46-.538-2.78-1.716-1.028-.916-1.722-2.048-1.924-2.394-.2-.346-.022-.534.152-.706.156-.156.346-.406.52-.61.174-.202.232-.346.346-.578.116-.23.058-.432-.028-.608-.088-.174-.776-1.872-1.064-2.564-.28-.672-.564-.58-.776-.59l-.66-.012a1.264 1.264 0 00-.916.43c-.316.346-1.2 1.172-1.2 2.858s1.228 3.316 1.4 3.544c.174.228 2.418 3.692 5.858 5.178.818.354 1.458.564 1.956.722.822.26 1.57.224 2.16.136.66-.098 2.05-.838 2.34-1.648.29-.81.29-1.504.202-1.648-.086-.146-.316-.232-.66-.406z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="mailto:info@polycore.ch" class="fab-option mail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@polycore.ch</span>
+        </a>
+      </div>
+      <button class="fab-main" id="fabMain" aria-label="Kontakt">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+      </button>
+    `;
+    document.body.appendChild(wrap);
+
+    const btn = document.getElementById('fabMain');
+    const opts = document.getElementById('fabOptions');
+    btn.addEventListener('click', () => {
+      const open = opts.classList.toggle('open');
+      btn.classList.toggle('open', open);
+    });
+    document.addEventListener('click', e => {
+      if (!wrap.contains(e.target)) {
+        opts.classList.remove('open');
+        btn.classList.remove('open');
+      }
+    });
+  })();
 
 });
+
