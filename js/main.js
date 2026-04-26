@@ -182,31 +182,40 @@ document.addEventListener('DOMContentLoaded', () => {
     <style>
       .tel-btn {
         position: fixed;
-        bottom: 6rem;
+        bottom: 8.5rem;
         right: 1.75rem;
         z-index: 9000;
-        width: 50px;
-        height: 50px;
-        background: #0a0a0a;
-        color: #fff;
-        border-radius: 50%;
         display: flex;
         align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 16px rgba(0,0,0,.25);
+        gap: .65rem;
+        background: #0a0a0a;
+        color: #fff;
+        border-radius: 50px;
+        padding: .65rem 1.1rem .65rem .85rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.15);
         text-decoration: none;
-        transition: transform .2s, background .15s, box-shadow .2s;
+        font-family: 'Instrument Sans', sans-serif;
+        font-size: .82rem;
+        font-weight: 700;
+        letter-spacing: .01em;
+        transition: transform .2s, box-shadow .2s, background .15s;
       }
       .tel-btn:hover {
         background: #4a0e1a;
-        transform: translateY(-3px) scale(1.08);
-        box-shadow: 0 8px 24px rgba(74,14,26,.4);
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 8px 28px rgba(74,14,26,.45), 0 4px 12px rgba(0,0,0,.2);
       }
+      .tel-btn svg { flex-shrink: 0; }
+      .tel-btn span { white-space: nowrap; }
       @media(max-width: 480px) {
-        .tel-btn { bottom: 5.5rem; right: 1.25rem; width: 46px; height: 46px; }
+        .tel-btn span { display: none; }
+        .tel-btn { padding: .75rem; border-radius: 50%; bottom: 7.5rem; right: 1.25rem; }
       }
     </style>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 16.92z"/></svg>`;
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6.5c0-.6.4-1 1-1H7.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+    </svg>
+    <span>076 539 79 74</span>`;
   tel.className = 'tel-btn';
   document.body.appendChild(tel);
 
