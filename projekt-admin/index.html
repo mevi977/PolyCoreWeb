@@ -133,7 +133,7 @@ function showToast(msg, type) {
   var el = document.getElementById('toast-el');
   el.textContent = msg;
   el.className = 'toast show' + (type ? ' ' + type : '');
-  setTimeout(function() { el.className = "toast"; }, 5000);
+  setTimeout(function() { el.className = 'toast'; }, 5000);
 }
 
 // ======= GITHUB API =======
@@ -221,18 +221,32 @@ function loadProjects() {
 }
 
 function saveProjects(callback) {
-  ghFetch('bericht/projekte.json')
-    .then(function(f) { return f.sha; })
-    .catch(function() { return null; })
-    .then(function(sha) {
-      return ghPut('bericht/projekte.json', JSON.stringify(allProjects, null, 2), 'Projekte aktualisiert', sha);
-    })
-    .then(function() {
-      if (callback) callback();
-    })
-    .catch(function(e) {
-      showToast('Fehler: ' + e.message, 'err');
-    });
+  // Uvijek uzmi SHA direktno - ako fajl ne postoji sha = null (novi fajl)
+  function doSave(retries) {
+    retries = retries || 0;
+    ghFetch('bericht/projekte.json')
+      .then(function(f) { return f.sha; })
+      .catch(function() { return null; })
+      .then(function(sha) {
+        var content = JSON.stringify(allProjects, null, 2);
+        return ghPut('bericht/projekte.json', content, 'Projekte aktualisiert', sha);
+      })
+      .then(function() {
+        showToast('Gespeichert!', 'ok');
+        if (callback) callback();
+      })
+      .catch(function(e) {
+        var msg = e.message || '';
+        if ((msg.indexOf('409') !== -1 || msg.indexOf('422') !== -1) && retries < 3) {
+          // SHA conflict - cekaj malo pa retry
+          setTimeout(function() { doSave(retries + 1); }, 800 * (retries + 1));
+        } else {
+          showToast('Speicher-Fehler: ' + msg.slice(0, 100), 'err');
+          console.error('saveProjects error:', msg);
+        }
+      });
+  }
+  doSave(0);
 }
 
 function renderSidebar() {
@@ -330,6 +344,7 @@ function createProject() {
     etappen: []
   };
   
+  console.log('Kreiranje projekta:', slug, allProjects[slug]);
   saveProjects(function() {
     showToast('Projekt erstellt!', 'ok');
     activSlug = slug;
@@ -417,7 +432,6 @@ function readEditorFields(slug) {
 function saveProject(slug) {
   readEditorFields(slug);
   saveProjects(function() {
-    showToast('Gespeichert!', 'ok');
     renderSidebar();
   });
 }
