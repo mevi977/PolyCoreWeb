@@ -479,12 +479,13 @@ function renderEtappe(e, i, slug) {
   var st = e.status || 'pending';
   var stNames = {pending: 'Ausstehend', active: 'Aktiv', completed: 'Fertig'};
   var stOpts = ['pending','active','completed'].map(function(s) {
-    return '<option value="' + s + '"' + (st === s ? ' selected' : '') + '>' + {pending:'Ausstehend',active:'In Bearbeitung',completed:'Abgeschlossen'}[s] + '</option>';
+    var label = {pending:'Ausstehend',active:'In Bearbeitung',completed:'Abgeschlossen'}[s];
+    return '<option value="' + s + '"' + (st === s ? ' selected' : '') + '>' + label + '</option>';
   }).join('');
   
   var fotosHtml = (e.fotos || []).map(function(f, fi) {
     return '<div class="ft"><img src="' + f.url + '" alt=""/>' +
-      '<button class="fdel" onclick="delFoto('' + slug + '',' + i + ',' + fi + ')">x</button></div>';
+      '<button class="fdel" data-slug="' + slug + '" data-i="' + i + '" data-fi="' + fi + '" data-action="delfoto">x</button></div>';
   }).join('');
   
   var cmtsHtml = (e.kommentare || []).map(function(k, ki) {
@@ -492,12 +493,12 @@ function renderEtappe(e, i, slug) {
       '<div style="flex:1;font-size:.8rem;background:#fff;border:1px solid var(--border);border-radius:6px;padding:.5rem .75rem">' +
         '<span style="font-size:.65rem;color:var(--muted);display:block">' + (k.datum||'') + '</span>' + k.text +
       '</div>' +
-      '<button class="btn bdel" style="padding:.3rem .5rem;font-size:.7rem" onclick="delKommentar('' + slug + '',' + i + ',' + ki + ')">x</button>' +
+      '<button class="btn bdel" style="padding:.3rem .5rem;font-size:.7rem" data-slug="' + slug + '" data-i="' + i + '" data-ki="' + ki + '" data-action="delcmt">x</button>' +
     '</div>';
   }).join('');
 
   return '<div class="ec" id="ec-' + slug + '-' + i + '">' +
-    '<div class="eh" onclick="toggleEt(' + i + ')">' +
+    '<div class="eh" data-i="' + i + '" data-action="toggleet">' +
       '<div class="en">' + (i+1) + '</div>' +
       '<div class="etname">' + (e.titel || 'Etappe ' + (i+1)) + '</div>' +
       '<span class="sp ' + st + '">' + stNames[st] + '</span>' +
@@ -505,20 +506,20 @@ function renderEtappe(e, i, slug) {
     '</div>' +
     '<div class="eb" id="eb-' + i + '">' +
       '<div class="fr2">' +
-        '<div class="fg"><label class="fl">Titel</label><input class="fi fi2" value="' + (e.titel||'') + '" onchange="updateEt('' + slug + '',' + i + ','titel',this.value)"/></div>' +
-        '<div class="fg"><label class="fl">Datum</label><input class="fi fi2" type="date" value="' + (e.datum||'') + '" onchange="updateEt('' + slug + '',' + i + ','datum',this.value)"/></div>' +
+        '<div class="fg"><label class="fl">Titel</label><input class="fi fi2" value="' + (e.titel||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="titel" data-action="upet"/></div>' +
+        '<div class="fg"><label class="fl">Datum</label><input class="fi fi2" type="date" value="' + (e.datum||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="datum" data-action="upet"/></div>' +
       '</div>' +
       '<div class="fr3" style="margin-top:1rem">' +
-        '<div class="fg"><label class="fl">Stunden</label><input class="fi fi2" type="number" value="' + (e.stunden||'') + '" onchange="updateEt('' + slug + '',' + i + ','stunden',+this.value)"/></div>' +
-        '<div class="fg"><label class="fl">Team</label><input class="fi fi2" value="' + (e.mitarbeiter||'') + '" onchange="updateEt('' + slug + '',' + i + ','mitarbeiter',this.value)"/></div>' +
-        '<div class="fg"><label class="fl">Status</label><select class="fi fi2" onchange="updateEt('' + slug + '',' + i + ','status',this.value)">' + stOpts + '</select></div>' +
+        '<div class="fg"><label class="fl">Stunden</label><input class="fi fi2" type="number" value="' + (e.stunden||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="stunden" data-action="upet-num"/></div>' +
+        '<div class="fg"><label class="fl">Team</label><input class="fi fi2" value="' + (e.mitarbeiter||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="mitarbeiter" data-action="upet"/></div>' +
+        '<div class="fg"><label class="fl">Status</label><select class="fi fi2" data-slug="' + slug + '" data-i="' + i + '" data-key="status" data-action="upet">' + stOpts + '</select></div>' +
       '</div>' +
-      '<div class="fg" style="margin-top:1rem"><label class="fl">Material</label><input class="fi fi2" value="' + (e.material||'') + '" onchange="updateEt('' + slug + '',' + i + ','material',this.value)" placeholder="z.B. Sikafloor 151"/></div>' +
-      '<div class="fg" style="margin-top:1rem"><label class="fl">Beschreibung</label><textarea class="fi fi2" onchange="updateEt('' + slug + '',' + i + ','beschreibung',this.value)">' + (e.beschreibung||'') + '</textarea></div>' +
-      '<div class="fg" style="margin-top:1rem"><label class="fl">3D-Scan / Polycam URL</label><input class="fi fi2" value="' + (e.obj_url||'') + '" onchange="updateEt('' + slug + '',' + i + ','obj_url',this.value)" placeholder="https://..."/></div>' +
+      '<div class="fg" style="margin-top:1rem"><label class="fl">Material</label><input class="fi fi2" value="' + (e.material||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="material" data-action="upet" placeholder="z.B. Sikafloor 151"/></div>' +
+      '<div class="fg" style="margin-top:1rem"><label class="fl">Beschreibung</label><textarea class="fi fi2" data-slug="' + slug + '" data-i="' + i + '" data-key="beschreibung" data-action="upet">' + (e.beschreibung||'') + '</textarea></div>' +
+      '<div class="fg" style="margin-top:1rem"><label class="fl">3D-Scan / Polycam URL</label><input class="fi fi2" value="' + (e.obj_url||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="obj_url" data-action="upet" placeholder="https://..."/></div>' +
       '<div class="fg" style="margin-top:1rem"><label class="fl">Fotos</label>' +
         '<div class="fgrid">' + fotosHtml +
-          '<div class="fadd" onclick="addFoto('' + slug + '',' + i + ')">' +
+          '<div class="fadd" data-slug="' + slug + '" data-i="' + i + '" data-action="addfoto">' +
             '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="21 15 16 10 5 21"/></svg>' +
             '<span>+ Foto URL</span>' +
           '</div>' +
@@ -528,11 +529,11 @@ function renderEtappe(e, i, slug) {
         cmtsHtml +
         '<div style="display:flex;gap:.5rem">' +
           '<input class="fi fi2" style="flex:1" id="nk-' + i + '" placeholder="Kommentar..."/>' +
-          '<button class="btn bd" style="padding:.55rem 1rem" onclick="addKommentar('' + slug + '',' + i + ')">+</button>' +
+          '<button class="btn bd" style="padding:.55rem 1rem" data-slug="' + slug + '" data-i="' + i + '" data-action="addcmt">+</button>' +
         '</div>' +
       '</div>' +
       '<div style="display:flex;justify-content:flex-end;margin-top:.75rem">' +
-        '<button class="btn bdel" style="padding:.4rem .9rem;font-size:.75rem" onclick="deleteEtappe('' + slug + '',' + i + ')">Etappe loschen</button>' +
+        '<button class="btn bdel" style="padding:.4rem .9rem;font-size:.75rem" data-slug="' + slug + '" data-i="' + i + '" data-action="delet">Etappe loschen</button>' +
       '</div>' +
     '</div>' +
   '</div>';
@@ -546,6 +547,35 @@ function toggleEt(i) {
 function updateEt(slug, i, key, val) {
   allProjects[slug].etappen[i][key] = val;
 }
+
+// Event delegation za etappen akcije
+document.addEventListener('click', function(e) {
+  var target = e.target.closest('[data-action]');
+  if (!target) return;
+  var action = target.dataset.action;
+  var slug = target.dataset.slug;
+  var i = parseInt(target.dataset.i);
+  var fi = parseInt(target.dataset.fi);
+  var ki = parseInt(target.dataset.ki);
+  
+  if (action === 'toggleet') { toggleEt(parseInt(target.dataset.i)); }
+  else if (action === 'delfoto') { delFoto(slug, i, fi); }
+  else if (action === 'delcmt') { delKommentar(slug, i, ki); }
+  else if (action === 'addfoto') { addFoto(slug, i); }
+  else if (action === 'addcmt') { addKommentar(slug, i); }
+  else if (action === 'delet') { deleteEtappe(slug, i); }
+});
+
+document.addEventListener('change', function(e) {
+  var target = e.target.closest('[data-action]');
+  if (!target) return;
+  var action = target.dataset.action;
+  var slug = target.dataset.slug;
+  var i = parseInt(target.dataset.i);
+  var key = target.dataset.key;
+  if (action === 'upet') { updateEt(slug, i, key, target.value); }
+  else if (action === 'upet-num') { updateEt(slug, i, key, +target.value); }
+});
 
 function addEtappe(slug) {
   allProjects[slug].etappen.push({
