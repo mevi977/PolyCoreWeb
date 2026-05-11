@@ -22,7 +22,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-11T21:10:44.819Z",
+    "updated": "2026-05-11T21:13:28.573Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -37,7 +37,12 @@
         "titel": "Untergrundvorbereitung Grundierung",
         "datum": "2026-05-11",
         "status": "pending",
-        "fotos": [],
+        "fotos": [
+          {
+            "url": "https://home.mycloud.com/action/share/1d2dba59-eae8-455c-9c9b-162c57b0f39e",
+            "caption": ""
+          }
+        ],
         "kommentare": [],
         "stunden": 9,
         "material": "Sikafloor 151"
