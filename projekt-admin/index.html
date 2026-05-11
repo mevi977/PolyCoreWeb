@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Projekt Admin | POLYCORE GmbH</title>
+<link rel="icon" href="/assets/img/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bx:#4a0e1a;--ink:#0a0a0a;--muted:#666;--border:#e4e4e4;--bg:#f8f7f5}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+.login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+.lbox{background:#fff;border-radius:16px;padding:2.5rem;width:100%;max-width:380px;box-shadow:0 8px 40px rgba(0,0,0,.08);text-align:center}
+.lbox img{width:140px;margin-bottom:1.5rem}
+.lbox h2{font-size:1.2rem;font-weight:700;margin-bottom:.3rem}
+.lbox p{font-size:.83rem;color:var(--muted);margin-bottom:1.5rem}
+.fi{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-size:.88rem;font-family:inherit;outline:none;transition:border-color .2s;margin-bottom:.75rem}
+.fi:focus{border-color:var(--bx)}
+.fi0{margin-bottom:0}
+select.fi,select.fi0{cursor:pointer}
+textarea.fi,textarea.fi0{resize:vertical;min-height:80px}
+.btnp{width:100%;padding:.75rem;background:var(--bx);color:#fff;border:none;border-radius:8px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit}
+.app{display:none}
+.sb{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--ink);padding:1.5rem;overflow-y:auto;z-index:10}
+.sb img{width:110px;margin-bottom:2rem;opacity:.9}
+.sb-lbl{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem;padding-left:.5rem}
+.sbb{display:flex;align-items:center;gap:.6rem;width:100%;padding:.65rem .75rem;border-radius:8px;border:none;background:none;color:rgba(255,255,255,.65);font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;text-align:left;transition:background .15s,color .15s;margin-bottom:.2rem}
+.sbb:hover{background:rgba(255,255,255,.08);color:#fff}
+.sbdiv{height:1px;background:rgba(255,255,255,.08);margin:1rem 0}
+.pi{display:flex;align-items:center;gap:.6rem;padding:.6rem .75rem;border-radius:8px;cursor:pointer;transition:background .15s;margin-bottom:.15rem}
+.pi:hover{background:rgba(255,255,255,.06)}.pi.active{background:rgba(74,14,26,.5)}
+.pdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.pdot.active{background:#4caf50}.pdot.done{background:rgba(255,255,255,.3)}.pdot.paused{background:#ff9800}
+.pname{font-size:.78rem;color:rgba(255,255,255,.7);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pi.active .pname{color:#fff}
+.cnt{margin-left:260px;padding:2rem;min-height:100vh}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;gap:1rem;flex-wrap:wrap}
+.ct{font-size:1.4rem;font-weight:700;letter-spacing:-.03em}
+.btn{padding:.6rem 1.2rem;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:background .15s;display:inline-flex;align-items:center;gap:.4rem}
+.bd{background:var(--ink);color:#fff}.bd:hover{background:var(--bx)}
+.bb{background:var(--bx);color:#fff}.bb:hover{background:#3a0a14}
+.bo{border:1.5px solid var(--border);background:#fff;color:var(--ink)}.bo:hover{border-color:var(--ink)}
+.bdel{background:#fee;color:#c0392b;border:1.5px solid #fcc}
+.card{background:#fff;border-radius:12px;padding:1.5rem;border:1px solid var(--border);margin-bottom:1.25rem}
+.ctitle{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
+.fg{margin-bottom:1rem}
+.fl{display:block;font-size:.75rem;font-weight:700;letter-spacing:.04em;color:var(--muted);margin-bottom:.35rem}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.ec{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:.75rem}
+.eh{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+.en{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.etname{font-size:.9rem;font-weight:600;flex:1}
+.sp{font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:50px;text-transform:uppercase}
+.sp.completed{background:#e8f5e9;color:#2e7d32}.sp.active{background:#fff3e0;color:#e65100}.sp.pending{background:#f5f5f5;color:#666}
+.eb{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)}
+.eb.open{display:block}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.5rem;margin-top:.5rem}
+.ft{position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#f0f0f0}
+.ft img{width:100%;height:100%;object-fit:cover}
+.fdel{position:absolute;top:.25rem;right:.25rem;background:rgba(0,0,0,.6);color:#fff;border:none;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:.65rem;display:flex;align-items:center;justify-content:center}
+.fadd{aspect-ratio:4/3;border-radius:6px;border:2px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:.3rem;background:#fff;transition:border-color .2s}
+.fadd:hover{border-color:var(--bx)}
+.fadd span{font-size:.65rem;color:var(--muted)}
+.lbx{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+.lurl{font-size:.78rem;font-family:monospace;color:var(--bx);flex:1;word-break:break-all}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;padding:.75rem 1.25rem;border-radius:8px;font-size:.82rem;font-weight:600;opacity:0;transform:translateY(10px);transition:all .3s;z-index:9999;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.success{background:#2e7d32}.toast.error{background:#c0392b}
+.empty{text-align:center;padding:4rem 2rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="login" id="lw">
+  <div class="lbox">
+    <img src="/assets/img/PolyCoreLogo.png" alt="POLYCORE"/>
+    <h2>Projekt Admin</h2>
+    <p>Baustellenberichte erstellen und verwalten</p>
+    <input class="fi" type="password" id="apw" placeholder="Admin-Passwort"/>
+    <button class="btnp" onclick="login()">Einloggen</button>
+  </div>
+</div>
+<div class="app" id="aw">
+  <div class="sb">
+    <img src="/assets/img/1PolyCoreLogo.png" alt="POLYCORE"/>
+    <div class="sb-lbl">Projekte</div>
+    <div id="plist"></div>
+    <div class="sbdiv"></div>
+    <button class="sbb" onclick="showNew()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Neues Projekt
+    </button>
+    <button class="sbb" onclick="location.reload()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Abmelden
+    </button>
+  </div>
+  <div class="cnt" id="cnt">
+    <div class="empty"><h3>Kein Projekt ausgewaehlt</h3><p style="margin-top:.5rem">Links ein Projekt waehlen oder neues erstellen.</p></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const APW='polycore2026',REPO='mevi977/PolyCoreWeb',BR='main';
+let tok=null,P={},cur=null;
+
+function login(){
+  if(document.getElementById('apw').value!==APW){toast('Falsches Passwort','error');return;}
+  tok=prompt('GitHub Personal Access Token:');
+  if(!tok)return;
+  document.getElementById('lw').style.display='none';
+  document.getElementById('aw').style.display='block';
+  load();
+}
+document.getElementById('apw').addEventListener('keydown',e=>{if(e.key==='Enter')login();});
+
+async function ghReq(path,method,body){
+  const r=await fetch('https://api.github.com/repos/'+REPO+'/contents/'+path,{
+    method:method||'GET',
+    headers:{'Authorization':'token '+tok,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},
+    body:body?JSON.stringify(body):null
+  });
+  if(!r.ok)throw new Error(await r.text());
+  return r.json();
+}
+function dec(c){return new TextDecoder().decode(Uint8Array.from(atob(c.replace(/\n/g,'')),x=>x.charCodeAt(0)));}
+async function put(path,content,msg,sha){
+  const b={message:msg,content:btoa(unescape(encodeURIComponent(content))),branch:BR};
+  if(sha)b.sha=sha;
+  return ghReq(path,'PUT',b);
+}
+
+async function load(){
+  try{const f=await ghReq('bericht/projekte.json');P=JSON.parse(dec(f.content));}catch(e){P={};}
+  rSb();
+}
+async function savePro(){
+  let sha=null;
+  try{const f=await ghReq('bericht/projekte.json');sha=f.sha;}catch(e){}
+  await put('bericht/projekte.json',JSON.stringify(P,null,2),'Projekte aktualisiert',sha);
+}
+async function publish(slug){
+  const p=P[slug];
+  const tf=await ghReq('bericht/template.html');
+  let html=dec(tf.content);
+  const ds='<scr'+'ipt>window.PROJEKT_DATA='+JSON.stringify(p)+';<'+'/scr'+'ipt>';
+  html=html.replace('</head>',ds+'</head>');
+  let sha=null;
+  try{const f=await ghReq('bericht/'+slug+'.html');sha=f.sha;}catch(e){}
+  await put('bericht/'+slug+'.html',html,'Bericht: '+p.titel,sha);
+}
+
+function rSb(){
+  const el=document.getElementById('plist');
+  const slugs=Object.keys(P).sort((a,b)=>(P[b].updated||'').localeCompare(P[a].updated||''));
+  if(!slugs.length){el.innerHTML='<div style="font-size:.75rem;color:rgba(255,255,255,.3);padding:.5rem">Noch keine Projekte</div>';return;}
+  el.innerHTML=slugs.map(s=>{
+    const p=P[s];
+    return '<div class="pi '+(s===cur?'active':'')+'" onclick="open2(''+s+'')"><div class="pdot '+p.status+'"></div><span class="pname">'+p.titel+'</span></div>';
+  }).join('');
+}
+function open2(slug){cur=slug;rSb();rEdit(slug);}
+
+function showNew(){
+  cur=null;rSb();
+  document.getElementById('cnt').innerHTML=`
+    <div class="ch"><div class="ct">Neues Projekt</div></div>
+    <div class="card">
+      <div class="ctitle">Projektdaten</div>
+      <div class="fr2">
+        <div class="fg"><label class="fl">Projekttitel *</label><input class="fi fi0" id="nT" placeholder="z.B. Epoxidharz Lagerhalle Bern"/></div>
+        <div class="fg"><label class="fl">URL-Slug *</label><input class="fi fi0" id="nS" placeholder="z.B. mueller-ag-2026"/></div>
+      </div>
+      <div class="fr2" style="margin-top:1rem">
+        <div class="fg"><label class="fl">Auftraggeber</label><input class="fi fi0" id="nK" placeholder="Firma oder Name"/></div>
+        <div class="fg"><label class="fl">Objekt / Adresse</label><input class="fi fi0" id="nO" placeholder="Adresse"/></div>
+      </div>
+      <div class="fr3" style="margin-top:1rem">
+        <div class="fg"><label class="fl">Startdatum</label><input class="fi fi0" type="date" id="nD"/></div>
+        <div class="fg"><label class="fl">Flaeche</label><input class="fi fi0" id="nF" placeholder="z.B. 450 m2"/></div>
+        <div class="fg"><label class="fl">System</label><input class="fi fi0" id="nSy" placeholder="z.B. Epoxidharz EP"/></div>
+      </div>
+      <div class="fr2" style="margin-top:1rem">
+        <div class="fg"><label class="fl">Kunden-Passwort *</label><input class="fi fi0" id="nP" placeholder="z.B. mueller2026"/></div>
+        <div class="fg"><label class="fl">Status</label>
+          <select class="fi fi0" id="nSt">
+            <option value="active">In Ausfuehrung</option>
+            <option value="done">Abgeschlossen</option>
+            <option value="paused">Pausiert</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+        <button class="btn bb" onclick="create()">Projekt erstellen &rarr;</button>
+      </div>
+    </div>`;
+}
+
+async function create(){
+  const titel=document.getElementById('nT').value.trim();
+  const slug=document.getElementById('nS').value.trim().replace(/\s+/g,'-').toLowerCase();
+  const pw=document.getElementById('nP').value.trim();
+  if(!titel||!slug||!pw){toast('Pflichtfelder ausfullen!','error');return;}
+  P[slug]={titel,slug,
+    kunde:document.getElementById('nK').value,
+    objekt:document.getElementById('nO').value,
+    startdatum:document.getElementById('nD').value,
+    flaeche:document.getElementById('nF').value,
+    system:document.getElementById('nSy').value,
+    passwort:pw,
+    status:document.getElementById('nSt').value,
+    updated:new Date().toISOString(),
+    etappen:[]
+  };
+  try{await savePro();toast('Erstellt!','success');cur=slug;rSb();rEdit(slug);}
+  catch(e){toast('Fehler: '+e.message,'error');}
+}
+
+function rEdit(slug){
+  const p=P[slug];
+  const url='https://www.polycore.ch/bericht/'+slug;
+  const sm={active:'In Ausfuehrung',done:'Abgeschlossen',paused:'Pausiert'};
+  document.getElementById('cnt').innerHTML=
+    '<div class="ch">'+
+      '<div class="ct">'+p.titel+'</div>'+
+      '<div style="display:flex;gap:.5rem;flex-wrap:wrap">'+
+        '<button class="btn bo" onclick="pubCopy(''+slug+'')">Veroeffentlichen &amp; Link</button>'+
+        '<button class="btn bb" onclick="save(''+slug+'')">Speichern</button>'+
+      '</div>'+
+    '</div>'+
+    '<div class="lbx">'+
+      '<span class="lurl">'+url+'</span>'+
+      '<span style="font-size:.72rem;color:var(--muted)">PW: <strong>'+p.passwort+'</strong></span>'+
+      '<button class="btn bo" style="padding:.35rem .75rem;font-size:.72rem" onclick="navigator.clipboard.writeText(''+url+'');toast('Kopiert!','success')">Link kopieren</button>'+
+    '</div>'+
+    '<div class="card">'+
+      '<div class="ctitle">Projektdaten</div>'+
+      '<div class="fr2"><div class="fg"><label class="fl">Auftraggeber</label><input class="fi fi0" id="eK" value="'+(p.kunde||'')+'"/></div><div class="fg"><label class="fl">Objekt</label><input class="fi fi0" id="eO" value="'+(p.objekt||'')+'"/></div></div>'+
+      '<div class="fr3" style="margin-top:1rem"><div class="fg"><label class="fl">Startdatum</label><input class="fi fi0" type="date" id="eD" value="'+(p.startdatum||'')+'"/></div><div class="fg"><label class="fl">Flaeche</label><input class="fi fi0" id="eF" value="'+(p.flaeche||'')+'"/></div><div class="fg"><label class="fl">System</label><input class="fi fi0" id="eSy" value="'+(p.system||'')+'"/></div></div>'+
+      '<div class="fr2" style="margin-top:1rem"><div class="fg"><label class="fl">Kunden-Passwort</label><input class="fi fi0" id="eP" value="'+(p.passwort||'')+'"/></div><div class="fg"><label class="fl">Status</label><select class="fi fi0" id="eSt"><option value="active" '+(p.status==='active'?'selected':'')+'>In Ausfuehrung</option><option value="done" '+(p.status==='done'?'selected':'')+'>Abgeschlossen</option><option value="paused" '+(p.status==='paused'?'selected':'')+'>Pausiert</option></select></div></div>'+
+    '</div>'+
+    '<div class="card">'+
+      '<div class="ctitle"><span>Etappen ('+p.etappen.length+')</span><button class="btn bd" style="padding:.4rem .9rem;font-size:.75rem" onclick="addEt(''+slug+'')">+ Etappe</button></div>'+
+      '<div id="etL">'+p.etappen.map((e,i)=>rEt(e,i,slug)).join('')+(p.etappen.length?'':'<p style="text-align:center;color:var(--muted);padding:1.5rem;font-size:.83rem">Noch keine Etappen.</p>')+'</div>'+
+    '</div>'+
+    '<div style="display:flex;justify-content:flex-end;margin-top:.5rem"><button class="btn bdel" onclick="delPro(''+slug+'')">Projekt loeschen</button></div>';
+}
+
+function rEt(e,i,slug){
+  const st=e.status||'pending';
+  const stl={pending:'Ausstehend',active:'In Bearbeitung',completed:'Abgeschlossen'};
+  const stlS={pending:'Ausstehend',active:'Aktiv',completed:'Fertig'};
+  const sopts=['pending','active','completed'].map(s=>'<option value="'+s+'" '+(st===s?'selected':'')+'>'+stl[s]+'</option>').join('');
+  const fotos=(e.fotos||[]).map((f,fi)=>'<div class="ft"><img src="'+f.url+'" alt=""/><button class="fdel" onclick="dF(''+slug+'','+i+','+fi+')">x</button></div>').join('');
+  const cmts=(e.kommentare||[]).map((k,ki)=>'<div style="display:flex;gap:.5rem;margin-bottom:.5rem"><div style="flex:1;font-size:.8rem;background:#fff;border:1px solid var(--border);border-radius:6px;padding:.5rem .75rem"><span style="font-size:.65rem;color:var(--muted);display:block">'+k.datum+'</span>'+k.text+'</div><button class="btn bdel" style="padding:.3rem .5rem;font-size:.7rem" onclick="dC(''+slug+'','+i+','+ki+')">x</button></div>').join('');
+
+  return '<div class="ec">'+
+    '<div class="eh" onclick="document.getElementById('eb'+i+'').classList.toggle('open')">'+
+      '<div class="en">'+(i+1)+'</div>'+
+      '<div class="etname">'+(e.titel||'Etappe '+(i+1))+'</div>'+
+      '<span class="sp '+st+'">'+stlS[st]+'</span>'+
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'+
+    '</div>'+
+    '<div class="eb" id="eb'+i+'">'+
+      '<div class="fr2"><div class="fg"><label class="fl">Titel</label><input class="fi fi0" value="'+(e.titel||'')+'" onchange="upE(''+slug+'','+i+','titel',this.value)"/></div><div class="fg"><label class="fl">Datum</label><input class="fi fi0" type="date" value="'+(e.datum||'')+'" onchange="upE(''+slug+'','+i+','datum',this.value)"/></div></div>'+
+      '<div class="fr3" style="margin-top:1rem"><div class="fg"><label class="fl">Stunden</label><input class="fi fi0" type="number" value="'+(e.stunden||'')+'" onchange="upE(''+slug+'','+i+','stunden',+this.value)"/></div><div class="fg"><label class="fl">Team</label><input class="fi fi0" value="'+(e.mitarbeiter||'')+'" onchange="upE(''+slug+'','+i+','mitarbeiter',this.value)"/></div><div class="fg"><label class="fl">Status</label><select class="fi fi0" onchange="upE(''+slug+'','+i+','status',this.value)">'+sopts+'</select></div></div>'+
+      '<div class="fg" style="margin-top:1rem"><label class="fl">Material</label><input class="fi fi0" value="'+(e.material||'')+'" onchange="upE(''+slug+'','+i+','material',this.value)" placeholder="z.B. Sikafloor 151"/></div>'+
+      '<div class="fg" style="margin-top:1rem"><label class="fl">Beschreibung</label><textarea class="fi fi0" onchange="upE(''+slug+'','+i+','beschreibung',this.value)">'+(e.beschreibung||'')+'</textarea></div>'+
+      '<div class="fg" style="margin-top:1rem"><label class="fl">3D-Scan / Polycam URL</label><input class="fi fi0" value="'+(e.obj_url||'')+'" onchange="upE(''+slug+'','+i+','obj_url',this.value)" placeholder="https://..."/></div>'+
+      '<div class="fg" style="margin-top:1rem"><label class="fl">Fotos</label><div class="fgrid">'+fotos+'<div class="fadd" onclick="aF(''+slug+'','+i+')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="21 15 16 10 5 21"/></svg><span>+ Foto URL</span></div></div></div>'+
+      '<div class="fg" style="margin-top:.5rem"><label class="fl">Kommentare</label>'+cmts+'<div style="display:flex;gap:.5rem"><input class="fi fi0" style="flex:1" id="nc'+i+'" placeholder="Kommentar..."/><button class="btn bd" style="padding:.55rem 1rem" onclick="aC(''+slug+'','+i+')">+</button></div></div>'+
+      '<div style="display:flex;justify-content:flex-end;margin-top:.75rem"><button class="btn bdel" style="padding:.4rem .9rem;font-size:.75rem" onclick="dE(''+slug+'','+i+')">Etappe loeschen</button></div>'+
+    '</div>'+
+  '</div>';
+}
+
+function upE(s,i,k,v){P[s].etappen[i][k]=v;}
+function addEt(s){P[s].etappen.push({titel:'Neue Etappe',datum:new Date().toISOString().slice(0,10),status:'pending',fotos:[],kommentare:[]});rEdit(s);}
+function dE(s,i){if(!confirm('Etappe loeschen?'))return;P[s].etappen.splice(i,1);rEdit(s);}
+function aF(s,i){const u=prompt('Foto URL:');if(!u)return;const c=prompt('Beschriftung (optional):')||'';if(!P[s].etappen[i].fotos)P[s].etappen[i].fotos=[];P[s].etappen[i].fotos.push({url:u,caption:c});rEdit(s);}
+function dF(s,i,fi){P[s].etappen[i].fotos.splice(fi,1);rEdit(s);}
+function aC(s,i){const t=document.getElementById('nc'+i).value.trim();if(!t)return;if(!P[s].etappen[i].kommentare)P[s].etappen[i].kommentare=[];P[s].etappen[i].kommentare.push({datum:new Date().toLocaleDateString('de-CH'),text:t});rEdit(s);}
+function dC(s,i,ki){P[s].etappen[i].kommentare.splice(ki,1);rEdit(s);}
+
+async function save(slug){
+  const p=P[slug];
+  p.kunde=document.getElementById('eK').value;p.objekt=document.getElementById('eO').value;p.startdatum=document.getElementById('eD').value;p.flaeche=document.getElementById('eF').value;p.system=document.getElementById('eSy').value;p.passwort=document.getElementById('eP').value;p.status=document.getElementById('eSt').value;p.updated=new Date().toISOString();
+  try{await savePro();toast('Gespeichert!','success');rSb();}catch(e){toast('Fehler: '+e.message,'error');}
+}
+async function pubCopy(slug){
+  const p=P[slug];
+  p.kunde=document.getElementById('eK').value;p.objekt=document.getElementById('eO').value;p.startdatum=document.getElementById('eD').value;p.flaeche=document.getElementById('eF').value;p.system=document.getElementById('eSy').value;p.passwort=document.getElementById('eP').value;p.status=document.getElementById('eSt').value;p.updated=new Date().toISOString();
+  try{await savePro();await publish(slug);const url='https://www.polycore.ch/bericht/'+slug;await navigator.clipboard.writeText(url);toast('Veroeffentlicht! Link kopiert','success');}
+  catch(e){toast('Fehler: '+e.message,'error');}
+}
+async function delPro(slug){
+  if(!confirm('Projekt wirklich loeschen?'))return;
+  try{
+    try{const f=await ghReq('bericht/'+slug+'.html');await fetch('https://api.github.com/repos/'+REPO+'/contents/bericht/'+slug+'.html',{method:'DELETE',headers:{'Authorization':'token '+tok,'Content-Type':'application/json'},body:JSON.stringify({message:'Geloescht',sha:f.sha,branch:BR})});}catch(e){}
+    delete P[slug];await savePro();cur=null;rSb();
+    document.getElementById('cnt').innerHTML='<div class="empty"><h3>Projekt geloescht</h3></div>';
+    toast('Geloescht','success');
+  }catch(e){toast('Fehler: '+e.message,'error');}
+}
+function toast(msg,type){const t=document.getElementById('toast');t.textContent=msg;t.className='toast show '+(type||'');setTimeout(()=>t.className='toast',2500);}
+</script>
+</body>
+</html>
