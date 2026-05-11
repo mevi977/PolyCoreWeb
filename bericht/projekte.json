@@ -9,7 +9,7 @@
     "system": "ep",
     "passwort": "test",
     "status": "active",
-    "updated": "2026-05-11T21:29:22.617Z",
+    "updated": "2026-05-11T21:30:42.875Z",
     "etappen": [
       {
         "titel": "Neue Etappe",
@@ -77,6 +77,14 @@
     "passwort": "testt",
     "status": "active",
     "updated": "2026-05-11T21:30:20.951Z",
-    "etappen": []
+    "etappen": [
+      {
+        "titel": "Neue Etappe",
+        "datum": "2026-05-11",
+        "status": "pending",
+        "fotos": [],
+        "kommentare": []
+      }
+    ]
   }
 }
