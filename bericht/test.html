@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Projektbericht | POLYCORE GmbH</title>
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bx:#4a0e1a;--bx-l:#fdf5f6;
+  --ink:#0a0a0a;--muted:#666;--border:#e4e4e4;
+  --bg:#f8f7f5;--white:#fff;
+}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+/* ===== LOGIN ===== */
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+.login-box{background:var(--white);border-radius:16px;padding:3rem;width:100%;max-width:420px;box-shadow:0 8px 40px rgba(0,0,0,.08);text-align:center}
+.login-logo{width:160px;margin:0 auto 2rem}
+.login-logo img{width:100%}
+.login-title{font-size:1.3rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.login-sub{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+.login-input{width:100%;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;font-family:inherit;outline:none;transition:border-color .2s;margin-bottom:1rem}
+.login-input:focus{border-color:var(--bx)}
+.login-btn{width:100%;padding:.8rem;background:var(--bx);color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s}
+.login-btn:hover{background:#3a0a14}
+.login-error{color:#c0392b;font-size:.8rem;margin-top:.75rem;display:none}
+
+/* ===== MAIN ===== */
+.main{display:none;max-width:1000px;margin:0 auto;padding:2rem 1.5rem 5rem}
+
+/* Header */
+.rpt-header{background:var(--ink);border-radius:16px;padding:2.5rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.rpt-header::before{content:'';position:absolute;top:-50%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(74,14,26,.6) 0%,transparent 70%);pointer-events:none}
+.rpt-logo{width:120px;margin-bottom:1.5rem;opacity:.9}
+.rpt-eye{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.5rem}
+.rpt-title{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;letter-spacing:-.04em;color:#fff;margin-bottom:.75rem}
+.rpt-client{font-size:.9rem;color:rgba(255,255,255,.5)}
+.rpt-client strong{color:rgba(255,255,255,.85)}
+.rpt-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1.75rem;padding-top:1.75rem;border-top:1px solid rgba(255,255,255,.1)}
+.rpt-meta-item{display:flex;flex-direction:column;gap:.2rem}
+.rpt-meta-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.rpt-meta-val{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.8)}
+
+/* Status bar */
+.rpt-status{background:var(--white);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.status-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .9rem;border-radius:50px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.status-badge.active{background:#e8f5e9;color:#2e7d32}
+.status-badge.done{background:var(--bx-l);color:var(--bx)}
+.status-badge.paused{background:#fff3e0;color:#e65100}
+.rpt-progress-wrap{flex:1;min-width:200px}
+.rpt-progress-label{font-size:.7rem;font-weight:600;color:var(--muted);margin-bottom:.4rem;display:flex;justify-content:space-between}
+.rpt-progress-bar{height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.rpt-progress-fill{height:100%;background:linear-gradient(90deg,var(--bx),#8b1a2e);border-radius:3px;transition:width .5s ease}
+
+/* Summary cards */
+.rpt-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.rpt-card{background:var(--white);border-radius:12px;padding:1.25rem;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.rpt-card-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.rpt-card-val{font-size:1.75rem;font-weight:700;letter-spacing:-.04em;color:var(--ink)}
+.rpt-card-unit{font-size:.8rem;color:var(--muted);font-weight:500;margin-top:.1rem}
+
+/* Timeline */
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--border)}
+.tl-entry{position:relative;padding-left:60px;margin-bottom:2.5rem}
+.tl-dot{position:absolute;left:12px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--white);border:2px solid var(--border);z-index:1;transition:border-color .2s}
+.tl-entry.completed .tl-dot{background:var(--bx);border-color:var(--bx)}
+.tl-entry.active .tl-dot{background:#fff;border-color:var(--bx);box-shadow:0 0 0 4px rgba(74,14,26,.12)}
+.tl-date{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.tl-card{background:var(--white);border-radius:12px;padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid var(--border)}
+.tl-entry.active .tl-card{border-color:rgba(74,14,26,.2);box-shadow:0 4px 16px rgba(74,14,26,.08)}
+.tl-phase{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bx);margin-bottom:.4rem}
+.tl-title{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.5rem}
+.tl-desc{font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem}
+.tl-meta{display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:1.25rem;padding:1rem;background:var(--bg);border-radius:8px}
+.tl-meta-item{display:flex;align-items:center;gap:.4rem;font-size:.78rem}
+.tl-meta-item svg{color:var(--bx)}
+.tl-meta-label{color:var(--muted)}
+.tl-meta-val{font-weight:600}
+
+/* Fotos */
+.tl-fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.75rem;margin-top:1rem}
+.tl-foto{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:#f0f0f0}
+.tl-foto img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.tl-foto:hover img{transform:scale(1.04)}
+.tl-foto-caption{position:absolute;bottom:0;left:0;right:0;padding:.4rem .6rem;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff;font-size:.65rem;font-weight:600}
+
+/* 3D Viewer */
+.tl-3d{margin-top:1rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#0a0a0a;position:relative}
+.tl-3d-header{padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.tl-3d-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.tl-3d-canvas{width:100%;height:320px;display:block}
+.tl-3d-controls{padding:.5rem 1rem;font-size:.68rem;color:rgba(255,255,255,.3);font-family:'DM Mono',monospace}
+
+/* Comments */
+.tl-comments{margin-top:1.25rem;border-top:1px solid var(--border);padding-top:1rem}
+.tl-comment{display:flex;gap:.75rem;margin-bottom:.75rem}
+.tl-comment-avatar{width:28px;height:28px;border-radius:50%;background:var(--bx);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0}
+.tl-comment-body{flex:1}
+.tl-comment-meta{font-size:.68rem;color:var(--muted);margin-bottom:.2rem}
+.tl-comment-text{font-size:.83rem;line-height:1.6;background:var(--bg);padding:.6rem .85rem;border-radius:0 8px 8px 8px}
+
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center}
+.lightbox.show{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:8px;object-fit:contain}
+.lightbox-close{position:absolute;top:1.25rem;right:1.25rem;background:rgba(255,255,255,.1);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center}
+
+/* PDF btn */
+.pdf-btn{position:fixed;bottom:2rem;left:2rem;background:var(--ink);color:#fff;border:none;border-radius:50px;padding:.65rem 1.25rem;font-size:.78rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:.5rem;box-shadow:0 4px 16px rgba(0,0,0,.2);font-family:inherit;transition:background .15s;z-index:100}
+.pdf-btn:hover{background:var(--bx)}
+
+@media(max-width:600px){
+  .rpt-cards{grid-template-columns:repeat(2,1fr)}
+  .tl-entry{padding-left:44px}
+  .timeline::before{left:14px}
+  .tl-dot{left:6px}
+}
+@media print{
+  .pdf-btn,.login-wrap{display:none!important}
+  .main{display:block!important;padding:0}
+}
+</style>
+<script>window.PROJEKT_DATA={"titel":"test","slug":"test","kunde":"test","objekt":"test","startdatum":"2026-05-11","flaeche":"12","system":"ep","passwort":"test","status":"active","updated":"2026-05-11T21:30:42.875Z","etappen":[{"titel":"Neue Etappe","datum":"2026-05-11","status":"pending","fotos":[{"url":"https://www.polycore.ch/assets/img/balkonbern.png","caption":"potpis"}],"kommentare":[],"stunden":3,"mitarbeiter":"A","beschreibung":"Beschreibung","material":"Sikafloor 111"}]};</script></head>
+<body>
+
+<!-- Login -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-box">
+    <div class="login-logo">
+      <img src="/assets/img/PolyCoreLogo.png" alt="POLYCORE"/>
+    </div>
+    <div class="login-title">Projektbericht</div>
+    <div class="login-sub">Bitte geben Sie das Passwort ein,<br/>das Sie von POLYCORE erhalten haben.</div>
+    <input class="login-input" type="password" id="pwInput" placeholder="Passwort eingeben..." autocomplete="current-password"/>
+    <button class="login-btn" onclick="checkPW()">Öffnen</button>
+    <div class="login-error" id="loginErr">Falsches Passwort. Bitte versuchen Sie es erneut.</div>
+  </div>
+</div>
+
+<!-- Main content - filled by JS from JSON -->
+<div class="main" id="mainWrap"></div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <button class="lightbox-close" onclick="closeLB()">✕</button>
+  <img id="lbImg" src="" alt=""/>
+</div>
+
+<!-- PDF button -->
+<button class="pdf-btn" id="pdfBtn" style="display:none" onclick="window.print()">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+  PDF exportieren
+</button>
+
+<script>
+// Projekt data – wird vom Admin befüllt
+const PROJECT = window.PROJEKT_DATA || null;
+
+function checkPW() {
+  const pw = document.getElementById('pwInput').value;
+  if (!PROJECT) { alert('Keine Projektdaten gefunden.'); return; }
+  if (pw === PROJECT.passwort) {
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('pdfBtn').style.display = 'flex';
+    renderProject();
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+    document.getElementById('pwInput').value = '';
+  }
+}
+
+document.getElementById('pwInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkPW();
+});
+
+function renderProject() {
+  const p = PROJECT;
+  const wrap = document.getElementById('mainWrap');
+  wrap.style.display = 'block';
+
+  const totalH = p.etappen.reduce((s, e) => s + (e.stunden || 0), 0);
+  const doneCount = p.etappen.filter(e => e.status === 'completed').length;
+  const progress = Math.round((doneCount / p.etappen.length) * 100);
+
+  const statusMap = {active: 'In Ausführung', done: 'Abgeschlossen', paused: 'Pausiert'};
+
+  wrap.innerHTML = `
+    <div class="rpt-header">
+      <img src="/assets/img/1PolyCoreLogo.png" class="rpt-logo" alt="POLYCORE"/>
+      <div class="rpt-eye">Projektbericht · POLYCORE GmbH</div>
+      <div class="rpt-title">${p.titel}</div>
+      <div class="rpt-client">Auftraggeber: <strong>${p.kunde}</strong></div>
+      <div class="rpt-meta">
+        <div class="rpt-meta-item">
+          <span class="rpt-meta-label">Objekt</span>
+          <span class="rpt-meta-val">${p.objekt || '—'}</span>
+        </div>
+        <div class="rpt-meta-item">
+          <span class="rpt-meta-label">Startdatum</span>
+          <span class="rpt-meta-val">${p.startdatum || '—'}</span>
+        </div>
+        <div class="rpt-meta-item">
+          <span class="rpt-meta-label">Fläche</span>
+          <span class="rpt-meta-val">${p.flaeche || '—'}</span>
+        </div>
+        <div class="rpt-meta-item">
+          <span class="rpt-meta-label">System</span>
+          <span class="rpt-meta-val">${p.system || '—'}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rpt-status">
+      <span class="status-badge ${p.status}">${statusMap[p.status] || p.status}</span>
+      <div class="rpt-progress-wrap">
+        <div class="rpt-progress-label">
+          <span>Fortschritt</span>
+          <span>${doneCount}/${p.etappen.length} Etappen</span>
+        </div>
+        <div class="rpt-progress-bar">
+          <div class="rpt-progress-fill" style="width:${progress}%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rpt-cards">
+      <div class="rpt-card">
+        <div class="rpt-card-label">Gesamtstunden</div>
+        <div class="rpt-card-val">${totalH}</div>
+        <div class="rpt-card-unit">Arbeitsstunden</div>
+      </div>
+      <div class="rpt-card">
+        <div class="rpt-card-label">Etappen</div>
+        <div class="rpt-card-val">${p.etappen.length}</div>
+        <div class="rpt-card-unit">${doneCount} abgeschlossen</div>
+      </div>
+      <div class="rpt-card">
+        <div class="rpt-card-label">Fotos</div>
+        <div class="rpt-card-val">${p.etappen.reduce((s,e)=>s+(e.fotos||[]).length,0)}</div>
+        <div class="rpt-card-unit">Dokumentiert</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      ${p.etappen.map((e, i) => renderEtappe(e, i)).join('')}
+    </div>
+  `;
+}
+
+function renderEtappe(e, i) {
+  const fotos = (e.fotos || []).map((f, fi) => `
+    <div class="tl-foto" onclick="openLB('${f.url}')">
+      <img src="${f.url}" alt="${f.caption || ''}"/>
+      ${f.caption ? `<div class="tl-foto-caption">${f.caption}</div>` : ''}
+    </div>`).join('');
+
+  const comments = (e.kommentare || []).map(k => `
+    <div class="tl-comment">
+      <div class="tl-comment-avatar">PC</div>
+      <div class="tl-comment-body">
+        <div class="tl-comment-meta">${k.datum || ''}</div>
+        <div class="tl-comment-text">${k.text}</div>
+      </div>
+    </div>`).join('');
+
+  const obj3d = e.obj_url ? `
+    <div class="tl-3d">
+      <div class="tl-3d-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span class="tl-3d-label">3D-Scan · Polycam</span>
+      </div>
+      <iframe src="${e.obj_url.includes('poly.cam') ? e.obj_url.replace(/\/$/, '') + '/embed' : e.obj_url}" style="width:100%;height:420px;border:none;display:block" allowfullscreen loading="lazy"></iframe>
+      <div class="tl-3d-controls">3D-Ansicht · <a href="${e.obj_url}" target="_blank" style="color:rgba(255,255,255,.5)">Im Vollbild öffnen ↗</a></div>
+    </div>` : '';
+
+  return `
+    <div class="tl-entry ${e.status || ''}">
+      <div class="tl-dot"></div>
+      <div class="tl-date">${e.datum || ''}</div>
+      <div class="tl-card">
+        <div class="tl-phase">Etappe ${i + 1}</div>
+        <div class="tl-title">${e.titel}</div>
+        ${e.beschreibung ? `<div class="tl-desc">${e.beschreibung}</div>` : ''}
+        <div class="tl-meta">
+          ${e.stunden ? `<div class="tl-meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="tl-meta-label">Stunden:</span><span class="tl-meta-val">${e.stunden}h</span></div>` : ''}
+          ${e.mitarbeiter ? `<div class="tl-meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="tl-meta-label">Team:</span><span class="tl-meta-val">${e.mitarbeiter}</span></div>` : ''}
+          ${e.material ? `<div class="tl-meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="tl-meta-label">Material:</span><span class="tl-meta-val">${e.material}</span></div>` : ''}
+        </div>
+        ${fotos ? `<div class="tl-fotos">${fotos}</div>` : ''}
+        ${obj3d}
+        ${comments ? `<div class="tl-comments">${comments}</div>` : ''}
+      </div>
+    </div>`;
+}
+
+function openLB(src) {
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+function closeLB() {
+  document.getElementById('lightbox').classList.remove('show');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+</script>
+</body>
+</html>
