@@ -133,7 +133,7 @@ function showToast(msg, type) {
   var el = document.getElementById('toast-el');
   el.textContent = msg;
   el.className = 'toast show' + (type ? ' ' + type : '');
-  setTimeout(function() { el.className = 'toast'; }, 2500);
+  setTimeout(function() { el.className = "toast"; }, 5000);
 }
 
 // ======= GITHUB API =======
