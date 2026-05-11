@@ -79,8 +79,10 @@ textarea.fi,textarea.fi0{resize:vertical;min-height:80px}
     <img src="/assets/img/PolyCoreLogo.png" alt="POLYCORE"/>
     <h2>Projekt Admin</h2>
     <p>Baustellenberichte erstellen und verwalten</p>
-    <input class="fi" type="password" id="apw" placeholder="Admin-Passwort"/>
+    <input class="fi" type="password" id="apw" placeholder="Admin-Passwort (polycore2026)"/>
+    <input class="fi" type="password" id="atok" placeholder="GitHub Personal Access Token"/>
     <button class="btnp" onclick="login()">Einloggen</button>
+    <p style="font-size:.72rem;color:var(--muted);margin-top:.75rem;line-height:1.6">Token: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → <strong>repo</strong> Berechtigung</p>
   </div>
 </div>
 <div class="app" id="aw">
@@ -110,8 +112,8 @@ let tok=null,P={},cur=null;
 
 function login(){
   if(document.getElementById('apw').value!==APW){toast('Falsches Passwort','error');return;}
-  tok=prompt('GitHub Personal Access Token:');
-  if(!tok)return;
+  tok=document.getElementById('atok').value.trim();
+  if(!tok){toast('Bitte GitHub Token eingeben!','error');return;}
   document.getElementById('lw').style.display='none';
   document.getElementById('aw').style.display='block';
   load();
