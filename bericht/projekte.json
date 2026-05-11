@@ -11,5 +11,18 @@
     "status": "active",
     "updated": "2026-05-11T21:00:39.889Z",
     "etappen": []
+  },
+  "mrelag": {
+    "titel": "Einstrubelag RAL 7032",
+    "slug": "mrelag",
+    "kunde": "M REL AG",
+    "objekt": "Gantrischstrasse 1, 3052 Zollikofen",
+    "startdatum": "2026-05-04",
+    "flaeche": "150",
+    "system": "EP",
+    "passwort": "mrelag2026",
+    "status": "active",
+    "updated": "2026-05-11T21:02:03.402Z",
+    "etappen": []
   }
 }
