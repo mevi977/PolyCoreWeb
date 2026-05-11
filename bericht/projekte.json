@@ -1,0 +1,15 @@
+{
+  "test": {
+    "titel": "test",
+    "slug": "test",
+    "kunde": "test",
+    "objekt": "test",
+    "startdatum": "2026-05-11",
+    "flaeche": "12",
+    "system": "ep",
+    "passwort": "test",
+    "status": "active",
+    "updated": "2026-05-11T21:00:39.889Z",
+    "etappen": []
+  }
+}
