@@ -106,9 +106,14 @@ textarea.fi,textarea.fi0{resize:vertical;min-height:80px}
 </div>
 <div class="toast" id="toast"></div>
 
+
 <script>
+document.addEventListener("DOMContentLoaded",function(){
+
 const APW='polycore2026',REPO='mevi977/PolyCoreWeb',BR='main';
 let tok=null,P={},cur=null;
+
+function toast(msg,type){const t=document.getElementById('toast');t.textContent=msg;t.className='toast show '+(type||'');setTimeout(()=>t.className='toast',2500);}
 
 function login(){
   if(document.getElementById('apw').value!==APW){toast('Falsches Passwort','error');return;}
@@ -308,7 +313,8 @@ async function delPro(slug){
     toast('Geloescht','success');
   }catch(e){toast('Fehler: '+e.message,'error');}
 }
-function toast(msg,type){const t=document.getElementById('toast');t.textContent=msg;t.className='toast show '+(type||'');setTimeout(()=>t.className='toast',2500);}
+
+});
 </script>
 </body>
 </html>
