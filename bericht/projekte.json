@@ -76,8 +76,29 @@
     "system": "system",
     "passwort": "testt",
     "status": "active",
-    "updated": "2026-05-11T21:30:20.951Z",
+    "updated": "2026-05-11T21:32:00.384Z",
     "etappen": [
+      {
+        "titel": "Neue Etappe",
+        "datum": "2026-05-11",
+        "status": "pending",
+        "fotos": [
+          {
+            "url": "https://www.polycore.ch/assets/img/balkonbern.png",
+            "caption": "unterschrift"
+          }
+        ],
+        "kommentare": [
+          {
+            "datum": "11.5.2026",
+            "text": "komentar"
+          }
+        ],
+        "stunden": 32,
+        "mitarbeiter": "b",
+        "material": "SIKa",
+        "beschreibung": "Beschreibung"
+      },
       {
         "titel": "Neue Etappe",
         "datum": "2026-05-11",
