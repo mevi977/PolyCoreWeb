@@ -276,8 +276,8 @@ function renderEtappe(e, i) {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         <span class="tl-3d-label">3D-Scan · Polycam</span>
       </div>
-      <canvas class="tl-3d-canvas" id="canvas3d_${i}"></canvas>
-      <div class="tl-3d-controls">Maus: Drehen · Scroll: Zoom · Shift+Maus: Verschieben</div>
+      <iframe src="${e.obj_url.includes('poly.cam') ? e.obj_url.replace(/\/$/, '') + '/embed' : e.obj_url}" style="width:100%;height:420px;border:none;display:block" allowfullscreen loading="lazy"></iframe>
+      <div class="tl-3d-controls">3D-Ansicht · <a href="${e.obj_url}" target="_blank" style="color:rgba(255,255,255,.5)">Im Vollbild öffnen ↗</a></div>
     </div>` : '';
 
   return `
