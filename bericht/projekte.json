@@ -22,30 +22,17 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-11T21:20:00.135Z",
+    "updated": "2026-05-11T21:23:36.460Z",
     "etappen": [
       {
-        "titel": "Untergrundvorbereitung Abriss",
+        "titel": "Untergrundvorbereitung / Grundierung",
         "datum": "2026-05-04",
-        "status": "completed",
+        "status": "pending",
         "fotos": [],
         "kommentare": [],
         "material": "Sikafloor 151",
+        "stunden": 60,
         "obj_url": "https://poly.cam/capture/0D6DD9C5-CF93-470D-B5D8-B25C3226B98D"
-      },
-      {
-        "titel": "Untergrundvorbereitung Grundierung",
-        "datum": "2026-05-11",
-        "status": "pending",
-        "fotos": [
-          {
-            "url": "https://home.mycloud.com/action/share/1d2dba59-eae8-455c-9c9b-162c57b0f39e",
-            "caption": ""
-          }
-        ],
-        "kommentare": [],
-        "stunden": 9,
-        "material": "Sikafloor 151"
       }
     ]
   }
