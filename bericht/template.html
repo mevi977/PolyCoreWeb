@@ -267,17 +267,17 @@ function renderEtappe(e, i) {
       id = e.obj_url.split('poly.cam/capture/')[1].replace(/\/.*/, '').replace(/\?.*/, '');
     }
     if (id) {
-      var mp4 = 'https://poly.cam/api/capture/'+id+'/artifacts/polycam.mp4';
-      var thumb = 'https://poly.cam/api/capture/'+id+'/artifacts/thumbnail.jpg';
       polycamHtml = '<div class="polycam-wrap">' +
         '<div class="polycam-header">' +
           '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>' +
           '<span class="polycam-lbl">3D-Scan · Polycam</span>' +
           '<a href="'+e.obj_url+'" target="_blank" class="polycam-link">Vollbild ↗</a>' +
         '</div>' +
-        '<video class="polycam-video" controls autoplay muted loop playsinline poster="'+thumb+'">' +
-          '<source src="'+mp4+'" type="video/mp4"/>' +
-        '</video>' +
+        '<iframe src="https://poly.cam/capture/'+id+'/embed" '+
+          'style="width:100%;height:420px;border:none;display:block;" '+
+          'title="Polycam 3D Viewer" '+
+          'allow="xr-spatial-tracking; fullscreen" '+
+          'allowfullscreen loading="lazy"></iframe>' +
       '</div>';
     }
   }
