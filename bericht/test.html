@@ -198,20 +198,29 @@ if(!slug || slug === 'index') {
     
     return fetch(url, {headers: headers, cache: 'no-store'})
       .then(function(r){
-        if(!r.ok) throw new Error(r.status);
-        return r.json();
+        if(!r.ok) throw new Error('HTTP '+r.status);
+        return r.text();
       })
-      .then(function(data){
+      .then(function(text){
         var projects;
-        if(isRaw) {
-          projects = data;
-        } else {
-          // GitHub API vraca base64 encoded content
-          var content = data.content.replace(/\n/g,'');
-          projects = JSON.parse(atob(content));
+        try {
+          if(isRaw) {
+            projects = JSON.parse(text);
+          } else {
+            var data = JSON.parse(text);
+            var content = data.content.replace(/\n/g,'');
+            projects = JSON.parse(atob(content));
+          }
+        } catch(parseErr) {
+          throw new Error('Parse error: '+parseErr.message);
         }
+        console.log('Projekti ucitani:', Object.keys(projects), 'Trazim slug:', slug);
         P = projects[slug];
-        if(!P){show('screen-notfound');return;}
+        if(!P){
+          console.error('Slug nije pronasao:', slug, 'Dostupni:', Object.keys(projects));
+          show('screen-notfound');
+          return;
+        }
         show('screen-login');
         document.getElementById('pw-btn').onclick = checkPW;
         document.getElementById('pw').onkeydown = function(e){if(e.key==='Enter')checkPW();};
@@ -219,13 +228,14 @@ if(!slug || slug === 'index') {
       });
   }
 
-  // Pokusaj 1: GitHub API (uvijek svjez, base64 encoded)
-  loadData(apiUrl, false)
+  // Direktno raw URL s timestamp - ne treba auth, zaobilazi cache
+  loadData('https://raw.githubusercontent.com/mevi977/PolyCoreWeb/main/bericht/projekte.json?_='+ts, true)
     .catch(function(){
-      // Pokusaj 2: raw URL s timestamp (zaobilazi browser cache)
-      return loadData('https://raw.githubusercontent.com/mevi977/PolyCoreWeb/main/bericht/projekte.json?_='+ts, true);
+      // Fallback: GitHub API
+      return loadData(apiUrl, false);
     })
-    .catch(function(){
+    .catch(function(e){
+      console.error('Fetch error:', e);
       show('screen-notfound');
     });
 }
