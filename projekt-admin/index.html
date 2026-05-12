@@ -11,71 +11,86 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bx:#4a0e1a;--ink:#0a0a0a;--muted:#666;--border:#e4e4e4;--bg:#f8f7f5}
 body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
-#login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
-.lbox{background:#fff;border-radius:16px;padding:2.5rem;width:100%;max-width:400px;box-shadow:0 8px 40px rgba(0,0,0,.08);text-align:center}
+#login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;background:var(--ink)}
+.lbox{background:#fff;border-radius:20px;padding:2.5rem;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
 .lbox img{width:140px;margin-bottom:1.5rem}
 .lbox h2{font-size:1.2rem;font-weight:700;margin-bottom:.3rem}
-.lbox p{font-size:.83rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
-.fi{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-size:.88rem;font-family:inherit;outline:none;margin-bottom:.75rem;display:block}
+.lbox p{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
+.fi{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-size:.88rem;font-family:inherit;outline:none;margin-bottom:.75rem;display:block;transition:border-color .2s}
 .fi:focus{border-color:var(--bx)}
-.btn-lg{width:100%;padding:.8rem;background:var(--bx);color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;margin-top:.25rem}
-.btn-lg:hover{background:#3a0a14}
-.err{color:#c0392b;font-size:.8rem;margin-top:.5rem;display:none}
+.fi0{margin-bottom:0}
+select.fi,select.fi0{cursor:pointer}
+textarea.fi,textarea.fi0{resize:vertical;min-height:70px}
+.btnp{width:100%;padding:.8rem;background:var(--bx);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s}
+.btnp:hover{background:#3a0a14}
+.err-msg{color:#c0392b;font-size:.8rem;margin-top:.5rem;display:none}
 #app-screen{display:none}
-.sidebar{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--ink);padding:1.5rem;overflow-y:auto}
-.sidebar img{width:110px;margin-bottom:2rem;opacity:.9}
-.slbl{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem;padding-left:.5rem}
-.sbtn{display:flex;align-items:center;gap:.6rem;width:100%;padding:.65rem .75rem;border-radius:8px;border:none;background:none;color:rgba(255,255,255,.65);font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;text-align:left;margin-bottom:.2rem}
-.sbtn:hover{background:rgba(255,255,255,.08);color:#fff}
-.sdiv{height:1px;background:rgba(255,255,255,.08);margin:1rem 0}
-.pitem{display:flex;align-items:center;gap:.6rem;padding:.6rem .75rem;border-radius:8px;cursor:pointer;margin-bottom:.15rem}
-.pitem:hover{background:rgba(255,255,255,.06)}
-.pitem.act{background:rgba(74,14,26,.5)}
+.sb{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--ink);padding:1.5rem;overflow-y:auto;z-index:10}
+.sb-logo{width:110px;margin-bottom:2rem;opacity:.9;display:block}
+.sb-lbl{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem;padding-left:.5rem}
+.sb-btn{display:flex;align-items:center;gap:.6rem;width:100%;padding:.65rem .75rem;border-radius:8px;border:none;background:none;color:rgba(255,255,255,.6);font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;text-align:left;transition:background .15s,color .15s;margin-bottom:.2rem}
+.sb-btn:hover{background:rgba(255,255,255,.08);color:#fff}
+.sb-div{height:1px;background:rgba(255,255,255,.08);margin:1rem 0}
+.pi{display:flex;align-items:center;gap:.6rem;padding:.6rem .75rem;border-radius:8px;cursor:pointer;transition:background .15s;margin-bottom:.15rem}
+.pi:hover{background:rgba(255,255,255,.06)}
+.pi.act{background:rgba(74,14,26,.5)}
 .pdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.pdot.active{background:#4caf50}.pdot.done{background:rgba(255,255,255,.3)}.pdot.paused{background:#ff9800}
-.pname{font-size:.78rem;color:rgba(255,255,255,.7);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pitem.act .pname{color:#fff}
+.pdot.active{background:#4caf50}.pdot.done{background:rgba(255,255,255,.25)}.pdot.paused{background:#ff9800}
+.pname{font-size:.78rem;color:rgba(255,255,255,.65);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pi.act .pname{color:#fff}
 .main{margin-left:260px;padding:2rem;min-height:100vh}
 .mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;gap:1rem;flex-wrap:wrap}
 .mt{font-size:1.4rem;font-weight:700;letter-spacing:-.03em}
-.btn{padding:.6rem 1.2rem;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:.4rem}
+.btn{padding:.6rem 1.2rem;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:.4rem;transition:background .15s}
 .bd{background:var(--ink);color:#fff}.bd:hover{background:var(--bx)}
 .bb{background:var(--bx);color:#fff}.bb:hover{background:#3a0a14}
-.bo{border:1.5px solid var(--border);background:#fff;color:var(--ink)}
+.bo{border:1.5px solid var(--border);background:#fff;color:var(--ink)}.bo:hover{border-color:var(--ink)}
 .bdel{background:#fee;color:#c0392b;border:1.5px solid #fcc}
-.card{background:#fff;border-radius:12px;padding:1.5rem;border:1px solid var(--border);margin-bottom:1.25rem}
-.ct2{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
+.card{background:#fff;border-radius:14px;padding:1.5rem;border:1px solid var(--border);margin-bottom:1.25rem}
+.card-t{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
 .fg{margin-bottom:1rem}
-.fl{display:block;font-size:.75rem;font-weight:700;color:var(--muted);margin-bottom:.35rem}
+.fl{display:block;font-size:.73rem;font-weight:700;color:var(--muted);margin-bottom:.35rem}
 .fr2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
-.fi2{margin-bottom:0}
-select{cursor:pointer}
-textarea.fi,textarea.fi2{resize:vertical;min-height:80px}
-.ec{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:.75rem}
-.eh{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+.lbx{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+.lurl{font-size:.76rem;font-family:monospace;color:var(--bx);flex:1;word-break:break-all}
+/* Etappen */
+.ec{background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:.75rem}
+.eh{display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
 .en{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .etname{font-size:.9rem;font-weight:600;flex:1}
-.sp{font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:50px;text-transform:uppercase}
+.sp{font-size:.62rem;font-weight:700;padding:.2rem .65rem;border-radius:50px;text-transform:uppercase}
 .sp.completed{background:#e8f5e9;color:#2e7d32}
 .sp.active{background:#fff3e0;color:#e65100}
 .sp.pending{background:#f5f5f5;color:#666}
-.eb{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)}
+.eb{display:none;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)}
 .eb.open{display:block}
+/* Foto grid */
 .fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.5rem;margin-top:.5rem}
-.ft{position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#f0f0f0}
+.ft{position:relative;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#f0f0f0}
 .ft img{width:100%;height:100%;object-fit:cover}
-.fdel{position:absolute;top:.2rem;right:.2rem;background:rgba(0,0,0,.6);color:#fff;border:none;width:18px;height:18px;border-radius:50%;cursor:pointer;font-size:.6rem;display:flex;align-items:center;justify-content:center}
-.fadd{aspect-ratio:4/3;border-radius:6px;border:2px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:.3rem;background:#fff}
+.fdel{position:absolute;top:.25rem;right:.25rem;background:rgba(0,0,0,.65);color:#fff;border:none;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:.65rem;display:flex;align-items:center;justify-content:center}
+.fadd{aspect-ratio:4/3;border-radius:8px;border:2px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:.3rem;background:#fff;transition:border-color .2s;text-align:center;padding:.5rem}
 .fadd:hover{border-color:var(--bx)}
-.fadd span{font-size:.6rem;color:var(--muted)}
-.lbx{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
-.lurl{font-size:.75rem;font-family:monospace;color:var(--bx);flex:1;word-break:break-all}
-.toast{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;padding:.75rem 1.25rem;border-radius:8px;font-size:.82rem;font-weight:600;opacity:0;transform:translateY(10px);transition:all .3s;z-index:9999;pointer-events:none}
+.fadd input[type=file]{display:none}
+.fadd span{font-size:.62rem;color:var(--muted);line-height:1.4}
+/* Upload progress */
+.upload-progress{font-size:.75rem;color:var(--bx);margin-top:.35rem;display:none}
+/* Material table */
+.mat-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:.5rem;align-items:center;margin-bottom:.4rem}
+/* Aufmass table */
+.am-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:.5rem;align-items:center;margin-bottom:.4rem}
+/* Toast */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;padding:.75rem 1.25rem;border-radius:10px;font-size:.82rem;font-weight:600;opacity:0;transform:translateY(10px);transition:all .3s;z-index:9999;pointer-events:none;max-width:300px}
 .toast.show{opacity:1;transform:translateY(0)}
 .toast.ok{background:#2e7d32}
 .toast.err{background:#c0392b}
-.empty{text-align:center;padding:4rem;color:var(--muted)}
+.empty{text-align:center;padding:4rem 2rem;color:var(--muted)}
+.tabs{display:flex;gap:.25rem;border-bottom:2px solid var(--border);margin-bottom:1.5rem}
+.tab{padding:.5rem 1rem;font-size:.8rem;font-weight:600;cursor:pointer;border:none;background:none;font-family:inherit;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s}
+.tab.active{color:var(--bx);border-bottom-color:var(--bx)}
+.tab-pane{display:none}
+.tab-pane.active{display:block}
 </style>
 </head>
 <body>
@@ -88,554 +103,571 @@ textarea.fi,textarea.fi2{resize:vertical;min-height:80px}
     <p>Baustellenberichte erstellen und verwalten</p>
     <label class="fl" style="text-align:left">Admin-Passwort</label>
     <input class="fi" type="password" id="f-pw" placeholder="polycore2026"/>
-    <label class="fl" style="text-align:left;margin-top:.5rem">GitHub Personal Access Token</label>
+    <label class="fl" style="text-align:left;margin-top:.25rem">GitHub Personal Access Token</label>
     <input class="fi" type="password" id="f-tok" placeholder="ghp_xxxxxxxxxxxx"/>
-    <p style="font-size:.7rem;color:var(--muted);text-align:left;margin-bottom:1rem;line-height:1.5">GitHub &rarr; Settings &rarr; Developer settings &rarr; Personal access tokens (classic) &rarr; Scope: <strong>repo</strong></p>
-    <button class="btn-lg" id="login-btn">Einloggen</button>
-    <div class="err" id="login-err">Falsches Passwort oder Token fehlt.</div>
+    <p style="font-size:.7rem;color:var(--muted);text-align:left;margin-bottom:1rem;line-height:1.5">GitHub → Settings → Developer settings → Personal access tokens (classic) → Scope: <strong>repo</strong></p>
+    <button class="btnp" id="login-btn">Einloggen</button>
+    <div class="err-msg" id="login-err">Falsches Passwort oder Token fehlt.</div>
   </div>
 </div>
 
 <!-- APP -->
 <div id="app-screen">
-  <div class="sidebar">
-    <img src="/assets/img/1PolyCoreLogo.png" alt="POLYCORE"/>
-    <div class="slbl">Projekte</div>
+  <div class="sb">
+    <img src="/assets/img/1PolyCoreLogo.png" class="sb-logo" alt="POLYCORE"/>
+    <div class="sb-lbl">Projekte</div>
     <div id="proj-list"></div>
-    <div class="sdiv"></div>
-    <button class="sbtn" id="btn-new">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    <div class="sb-div"></div>
+    <button class="sb-btn" id="btn-new">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       Neues Projekt
     </button>
-    <button class="sbtn" id="btn-logout">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    <button class="sb-btn" id="btn-logout">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
       Abmelden
     </button>
   </div>
   <div class="main" id="main-content">
-    <div class="empty"><h3>Kein Projekt ausgewahlt</h3><p style="margin-top:.5rem">Links ein Projekt wahlen oder neues erstellen.</p></div>
+    <div class="empty"><h3 style="font-size:1rem;margin-bottom:.5rem">Kein Projekt ausgewählt</h3><p style="font-size:.83rem">Links ein Projekt wählen oder neues erstellen.</p></div>
   </div>
 </div>
 
 <div class="toast" id="toast-el"></div>
 
 <script>
-// ======= CONFIG =======
+// ===== CONFIG =====
 var ADMIN_PW = 'polycore2026';
 var REPO = 'mevi977/PolyCoreWeb';
 var BRANCH = 'main';
-var ghTok = '';
-var allProjects = {};
-var activSlug = '';
+// Cloudinary - gratis account (25GB)
+var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/polycore/image/upload';
+var CLOUDINARY_PRESET = 'polycore_unsigned';
 
-// ======= TOAST =======
-function showToast(msg, type) {
+var ghTok = '';
+var projects = {};
+var activeSlug = '';
+
+// ===== TOAST =====
+function toast(msg, type) {
   var el = document.getElementById('toast-el');
   el.textContent = msg;
   el.className = 'toast show' + (type ? ' ' + type : '');
-  setTimeout(function() { el.className = 'toast'; }, 5000);
+  clearTimeout(el._t);
+  el._t = setTimeout(function(){ el.className = 'toast'; }, 4000);
 }
 
-// ======= GITHUB API =======
-function ghFetch(path, method, body) {
-  var opts = {
-    method: method || 'GET',
-    headers: {
-      'Authorization': 'token ' + ghTok,
-      'Accept': 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json'
-    }
-  };
-  if (body) opts.body = JSON.stringify(body);
-  return fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, opts)
-    .then(function(r) {
-      if (!r.ok) return r.text().then(function(t) { throw new Error(t); });
-      return r.json();
-    });
-}
+// ===== AUTH =====
+document.getElementById('login-btn').addEventListener('click', doLogin);
+document.getElementById('f-pw').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+document.getElementById('f-tok').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+document.getElementById('btn-logout').addEventListener('click', function(){ location.reload(); });
+document.getElementById('btn-new').addEventListener('click', showNewProject);
 
-function decodeB64(str) {
-  var clean = str.replace(/\n/g, '');
-  var bytes = Uint8Array.from(atob(clean), function(c) { return c.charCodeAt(0); });
-  return new TextDecoder().decode(bytes);
-}
-
-function encodeContent(str) {
-  return btoa(unescape(encodeURIComponent(str)));
-}
-
-function ghPut(path, content, message, sha) {
-  var body = { message: message, content: encodeContent(content), branch: BRANCH };
-  if (sha) body.sha = sha;
-  return ghFetch(path, 'PUT', body);
-}
-
-// ======= LOGIN =======
-document.getElementById('login-btn').addEventListener('click', function() {
+function doLogin() {
   var pw = document.getElementById('f-pw').value;
   var tok = document.getElementById('f-tok').value.trim();
-  var errEl = document.getElementById('login-err');
-  
-  if (pw !== ADMIN_PW) {
-    errEl.style.display = 'block';
-    errEl.textContent = 'Falsches Passwort!';
-    return;
-  }
-  if (!tok) {
-    errEl.style.display = 'block';
-    errEl.textContent = 'Bitte GitHub Token eingeben!';
-    return;
-  }
-  
-  errEl.style.display = 'none';
+  var err = document.getElementById('login-err');
+  if (pw !== ADMIN_PW) { err.textContent='Falsches Passwort!'; err.style.display='block'; return; }
+  if (!tok) { err.textContent='Bitte GitHub Token eingeben!'; err.style.display='block'; return; }
+  err.style.display='none';
   ghTok = tok;
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app-screen').style.display = 'block';
   loadProjects();
-});
-
-document.getElementById('f-pw').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') document.getElementById('login-btn').click();
-});
-document.getElementById('f-tok').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') document.getElementById('login-btn').click();
-});
-
-document.getElementById('btn-logout').addEventListener('click', function() {
-  location.reload();
-});
-
-document.getElementById('btn-new').addEventListener('click', showNewProject);
-
-// ======= PROJECTS =======
-function loadProjects() {
-  ghFetch('bericht/projekte.json')
-    .then(function(f) {
-      allProjects = JSON.parse(decodeB64(f.content));
-      renderSidebar();
-    })
-    .catch(function() {
-      allProjects = {};
-      renderSidebar();
-    });
 }
 
-function saveProjects(callback) {
-  // Uvijek uzmi SHA direktno - ako fajl ne postoji sha = null (novi fajl)
-  function doSave(retries) {
-    retries = retries || 0;
+// ===== GITHUB =====
+function ghFetch(path) {
+  return fetch('https://api.github.com/repos/'+REPO+'/contents/'+path, {
+    headers: {'Authorization':'token '+ghTok,'Accept':'application/vnd.github.v3+json'}
+  }).then(function(r){ if(!r.ok) return r.text().then(function(t){throw new Error(t);}); return r.json(); });
+}
+function ghPut(path, content, msg, sha) {
+  var body = {message:msg, content:btoa(unescape(encodeURIComponent(content))), branch:BRANCH};
+  if (sha) body.sha = sha;
+  return fetch('https://api.github.com/repos/'+REPO+'/contents/'+path, {
+    method:'PUT', headers:{'Authorization':'token '+ghTok,'Content-Type':'application/json'},
+    body: JSON.stringify(body)
+  }).then(function(r){ if(!r.ok) return r.text().then(function(t){throw new Error(t);}); return r.json(); });
+}
+function decode(c){ return new TextDecoder().decode(Uint8Array.from(atob(c.replace(/\n/g,'')),function(x){return x.charCodeAt(0);})); }
+
+// ===== PROJECTS =====
+function loadProjects() {
+  ghFetch('bericht/projekte.json')
+    .then(function(f){ projects=JSON.parse(decode(f.content)); renderSidebar(); })
+    .catch(function(){ projects={}; renderSidebar(); });
+}
+
+function saveProjects(cb) {
+  function attempt(tries) {
     ghFetch('bericht/projekte.json')
-      .then(function(f) { return f.sha; })
-      .catch(function() { return null; })
-      .then(function(sha) {
-        var content = JSON.stringify(allProjects, null, 2);
-        return ghPut('bericht/projekte.json', content, 'Projekte aktualisiert', sha);
+      .then(function(f){ return f.sha; })
+      .catch(function(){ return null; })
+      .then(function(sha){
+        return ghPut('bericht/projekte.json', JSON.stringify(projects,null,2), 'Projekte aktualisiert', sha);
       })
-      .then(function() {
-        showToast('Gespeichert!', 'ok');
-        if (callback) callback();
-      })
-      .catch(function(e) {
-        var msg = e.message || '';
-        if ((msg.indexOf('409') !== -1 || msg.indexOf('422') !== -1) && retries < 3) {
-          // SHA conflict - cekaj malo pa retry
-          setTimeout(function() { doSave(retries + 1); }, 800 * (retries + 1));
+      .then(function(){ toast('Gespeichert!','ok'); if(cb) cb(); })
+      .catch(function(e){
+        if(tries>0 && e.message && (e.message.indexOf('409')!==-1||e.message.indexOf('422')!==-1)) {
+          setTimeout(function(){ attempt(tries-1); }, 1000);
         } else {
-          showToast('Speicher-Fehler: ' + msg.slice(0, 100), 'err');
-          console.error('saveProjects error:', msg);
+          toast('Fehler: '+e.message.slice(0,80),'err');
         }
       });
   }
-  doSave(0);
+  attempt(3);
 }
 
+function publishBericht(slug, cb) {
+  var p = projects[slug];
+  ghFetch('bericht/template.html')
+    .then(function(tf){
+      var html = decode(tf.content);
+      var tag = '<'+'script'+'>window.PROJEKT_DATA='+JSON.stringify(p)+';</'+'script'+'>';
+      html = html.replace('</head>', tag+'</head>');
+      return ghFetch('bericht/'+slug+'.html')
+        .then(function(f){ return f.sha; }).catch(function(){ return null; })
+        .then(function(sha){ return ghPut('bericht/'+slug+'.html', html, 'Bericht: '+p.titel, sha); });
+    })
+    .then(function(){
+      var url = 'https://www.polycore.ch/bericht/'+slug;
+      navigator.clipboard.writeText(url).catch(function(){});
+      toast('Veröffentlicht! Link kopiert ✓','ok');
+      if(cb) cb();
+    })
+    .catch(function(e){ toast('Publish-Fehler: '+e.message.slice(0,80),'err'); });
+}
+
+// ===== SIDEBAR =====
 function renderSidebar() {
   var el = document.getElementById('proj-list');
-  var slugs = Object.keys(allProjects).sort(function(a, b) {
-    return (allProjects[b].updated || '').localeCompare(allProjects[a].updated || '');
+  var slugs = Object.keys(projects).sort(function(a,b){
+    return (projects[b].updated||'').localeCompare(projects[a].updated||'');
   });
-  
   if (!slugs.length) {
     el.innerHTML = '<div style="font-size:.75rem;color:rgba(255,255,255,.3);padding:.5rem">Noch keine Projekte</div>';
     return;
   }
-  
-  el.innerHTML = slugs.map(function(s) {
-    var p = allProjects[s];
-    return '<div class="pitem' + (s === activSlug ? ' act' : '') + '" data-slug="' + s + '">' +
-      '<div class="pdot ' + (p.status || 'active') + '"></div>' +
-      '<span class="pname">' + p.titel + '</span>' +
-      '</div>';
+  el.innerHTML = slugs.map(function(s){
+    var p=projects[s];
+    return '<div class="pi'+(s===activeSlug?' act':'')+'" data-slug="'+s+'">'+
+      '<div class="pdot '+(p.status||'active')+'"></div>'+
+      '<span class="pname">'+p.titel+'</span></div>';
   }).join('');
-  
-  el.querySelectorAll('.pitem').forEach(function(el) {
-    el.addEventListener('click', function() {
-      openProject(this.dataset.slug);
-    });
+  el.querySelectorAll('.pi').forEach(function(el){
+    el.addEventListener('click', function(){ openProject(this.dataset.slug); });
   });
 }
 
 function openProject(slug) {
-  activSlug = slug;
+  activeSlug = slug;
   renderSidebar();
   renderEditor(slug);
 }
 
-// ======= NEW PROJECT =======
+// ===== NEW PROJECT =====
 function showNewProject() {
-  activSlug = '';
-  renderSidebar();
+  activeSlug=''; renderSidebar();
   document.getElementById('main-content').innerHTML =
-    '<div class="mh"><div class="mt">Neues Projekt</div></div>' +
-    '<div class="card">' +
-      '<div class="ct2">Projektdaten</div>' +
-      '<div class="fr2">' +
-        '<div class="fg"><label class="fl">Projekttitel *</label><input class="fi fi2" id="n-titel" placeholder="z.B. Epoxidharz Lagerhalle Bern"/></div>' +
-        '<div class="fg"><label class="fl">URL-Slug *</label><input class="fi fi2" id="n-slug" placeholder="z.B. mueller-ag-2026"/></div>' +
-      '</div>' +
-      '<div class="fr2" style="margin-top:1rem">' +
-        '<div class="fg"><label class="fl">Auftraggeber</label><input class="fi fi2" id="n-kunde" placeholder="Firma oder Name"/></div>' +
-        '<div class="fg"><label class="fl">Objekt / Adresse</label><input class="fi fi2" id="n-objekt" placeholder="Adresse"/></div>' +
-      '</div>' +
-      '<div class="fr3" style="margin-top:1rem">' +
-        '<div class="fg"><label class="fl">Startdatum</label><input class="fi fi2" type="date" id="n-datum"/></div>' +
-        '<div class="fg"><label class="fl">Flaeche</label><input class="fi fi2" id="n-flaeche" placeholder="z.B. 450 m2"/></div>' +
-        '<div class="fg"><label class="fl">System</label><input class="fi fi2" id="n-system" placeholder="z.B. Epoxidharz EP"/></div>' +
-      '</div>' +
-      '<div class="fr2" style="margin-top:1rem">' +
-        '<div class="fg"><label class="fl">Kunden-Passwort *</label><input class="fi fi2" id="n-pw" placeholder="z.B. mueller2026"/></div>' +
-        '<div class="fg"><label class="fl">Status</label>' +
-          '<select class="fi fi2" id="n-status">' +
-            '<option value="active">In Ausfuehrung</option>' +
-            '<option value="done">Abgeschlossen</option>' +
-            '<option value="paused">Pausiert</option>' +
-          '</select>' +
-        '</div>' +
-      '</div>' +
-      '<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">' +
-        '<button class="btn bb" id="btn-create">Projekt erstellen &rarr;</button>' +
-      '</div>' +
+    '<div class="mh"><div class="mt">Neues Projekt</div></div>'+
+    '<div class="card"><div class="card-t">Projektdaten</div>'+
+      '<div class="fr2"><div class="fg"><label class="fl">Projekttitel *</label><input class="fi fi0" id="n-titel" placeholder="z.B. Epoxidharz Lagerhalle Bern"/></div>'+
+      '<div class="fg"><label class="fl">URL-Slug *</label><input class="fi fi0" id="n-slug" placeholder="z.B. mueller-ag-2026"/></div></div>'+
+      '<div class="fr2" style="margin-top:1rem"><div class="fg"><label class="fl">Auftraggeber</label><input class="fi fi0" id="n-kunde" placeholder="Firma"/></div>'+
+      '<div class="fg"><label class="fl">Objekt / Adresse</label><input class="fi fi0" id="n-objekt" placeholder="Adresse"/></div></div>'+
+      '<div class="fr3" style="margin-top:1rem">'+
+        '<div class="fg"><label class="fl">Startdatum</label><input class="fi fi0" type="date" id="n-datum"/></div>'+
+        '<div class="fg"><label class="fl">Fläche</label><input class="fi fi0" id="n-flaeche" placeholder="z.B. 450 m²"/></div>'+
+        '<div class="fg"><label class="fl">System</label><input class="fi fi0" id="n-system" placeholder="z.B. Epoxidharz EP"/></div>'+
+      '</div>'+
+      '<div class="fr2" style="margin-top:1rem">'+
+        '<div class="fg"><label class="fl">Kunden-Passwort *</label><input class="fi fi0" id="n-pw" placeholder="z.B. mueller2026"/></div>'+
+        '<div class="fg"><label class="fl">Status</label><select class="fi fi0" id="n-status"><option value="active">In Ausführung</option><option value="done">Abgeschlossen</option><option value="paused">Pausiert</option></select></div>'+
+      '</div>'+
+      '<div style="display:flex;justify-content:flex-end;margin-top:1.5rem"><button class="btn bb" id="btn-create">Projekt erstellen →</button></div>'+
     '</div>';
-  
   document.getElementById('btn-create').addEventListener('click', createProject);
 }
 
 function createProject() {
-  var titel = document.getElementById('n-titel').value.trim();
-  var slug = document.getElementById('n-slug').value.trim().toLowerCase().replace(/\s+/g, '-');
-  var pw = document.getElementById('n-pw').value.trim();
-  
-  if (!titel || !slug || !pw) {
-    showToast('Bitte alle Pflichtfelder ausfullen!', 'err');
-    return;
-  }
-  
-  allProjects[slug] = {
-    titel: titel,
-    slug: slug,
-    kunde: document.getElementById('n-kunde').value,
-    objekt: document.getElementById('n-objekt').value,
-    startdatum: document.getElementById('n-datum').value,
-    flaeche: document.getElementById('n-flaeche').value,
-    system: document.getElementById('n-system').value,
-    passwort: pw,
-    status: document.getElementById('n-status').value,
-    updated: new Date().toISOString(),
-    etappen: []
+  var titel=document.getElementById('n-titel').value.trim();
+  var slug=document.getElementById('n-slug').value.trim().toLowerCase().replace(/\s+/g,'-');
+  var pw=document.getElementById('n-pw').value.trim();
+  if(!titel||!slug||!pw){toast('Bitte Pflichtfelder ausfüllen!','err');return;}
+  projects[slug]={titel:titel,slug:slug,
+    kunde:document.getElementById('n-kunde').value,
+    objekt:document.getElementById('n-objekt').value,
+    startdatum:document.getElementById('n-datum').value,
+    flaeche:document.getElementById('n-flaeche').value,
+    system:document.getElementById('n-system').value,
+    passwort:pw,status:document.getElementById('n-status').value,
+    updated:new Date().toISOString(),
+    etappen:[],materialien:[],aufmass:[]
   };
-  
-  console.log('Kreiranje projekta:', slug, allProjects[slug]);
-  saveProjects(function() {
-    showToast('Projekt erstellt!', 'ok');
-    activSlug = slug;
-    renderSidebar();
-    renderEditor(slug);
-  });
+  saveProjects(function(){ activeSlug=slug; renderSidebar(); renderEditor(slug); });
 }
 
-// ======= EDITOR =======
+// ===== EDITOR =====
+function readFields(slug) {
+  var p=projects[slug];
+  p.kunde=document.getElementById('e-kunde').value;
+  p.objekt=document.getElementById('e-objekt').value;
+  p.startdatum=document.getElementById('e-datum').value;
+  p.flaeche=document.getElementById('e-flaeche').value;
+  p.system=document.getElementById('e-system').value;
+  p.passwort=document.getElementById('e-pw').value;
+  p.status=document.getElementById('e-status').value;
+  p.updated=new Date().toISOString();
+}
+
 function renderEditor(slug) {
-  var p = allProjects[slug];
-  var url = 'https://www.polycore.ch/bericht/' + slug;
-  var mc = document.getElementById('main-content');
-  
-  mc.innerHTML =
-    '<div class="mh">' +
-      '<div class="mt">' + p.titel + '</div>' +
-      '<div style="display:flex;gap:.5rem;flex-wrap:wrap">' +
-        '<button class="btn bo" id="btn-pub">&#128279; Veroeffentlichen &amp; Link</button>' +
-        '<button class="btn bb" id="btn-save">Speichern</button>' +
-      '</div>' +
-    '</div>' +
-    '<div class="lbx">' +
-      '<span class="lurl">' + url + '</span>' +
-      '<span style="font-size:.72rem;color:var(--muted)">PW: <strong>' + p.passwort + '</strong></span>' +
-      '<button class="btn bo" style="padding:.35rem .75rem;font-size:.72rem" id="btn-copy">Kopieren</button>' +
-    '</div>' +
-    '<div class="card">' +
-      '<div class="ct2">Projektdaten</div>' +
-      '<div class="fr2">' +
-        '<div class="fg"><label class="fl">Auftraggeber</label><input class="fi fi2" id="e-kunde" value="' + (p.kunde||'') + '"/></div>' +
-        '<div class="fg"><label class="fl">Objekt</label><input class="fi fi2" id="e-objekt" value="' + (p.objekt||'') + '"/></div>' +
-      '</div>' +
-      '<div class="fr3" style="margin-top:1rem">' +
-        '<div class="fg"><label class="fl">Startdatum</label><input class="fi fi2" type="date" id="e-datum" value="' + (p.startdatum||'') + '"/></div>' +
-        '<div class="fg"><label class="fl">Flaeche</label><input class="fi fi2" id="e-flaeche" value="' + (p.flaeche||'') + '"/></div>' +
-        '<div class="fg"><label class="fl">System</label><input class="fi fi2" id="e-system" value="' + (p.system||'') + '"/></div>' +
-      '</div>' +
-      '<div class="fr2" style="margin-top:1rem">' +
-        '<div class="fg"><label class="fl">Kunden-Passwort</label><input class="fi fi2" id="e-pw" value="' + (p.passwort||'') + '"/></div>' +
-        '<div class="fg"><label class="fl">Status</label>' +
-          '<select class="fi fi2" id="e-status">' +
-            '<option value="active"' + (p.status==='active'?' selected':'') + '>In Ausfuehrung</option>' +
-            '<option value="done"' + (p.status==='done'?' selected':'') + '>Abgeschlossen</option>' +
-            '<option value="paused"' + (p.status==='paused'?' selected':'') + '>Pausiert</option>' +
-          '</select>' +
-        '</div>' +
-      '</div>' +
-    '</div>' +
-    '<div class="card">' +
-      '<div class="ct2">' +
-        '<span>Etappen (' + p.etappen.length + ')</span>' +
-        '<button class="btn bd" style="padding:.4rem .9rem;font-size:.75rem" id="btn-add-et">+ Etappe</button>' +
-      '</div>' +
-      '<div id="et-list">' +
-        p.etappen.map(function(e, i) { return renderEtappe(e, i, slug); }).join('') +
-        (!p.etappen.length ? '<p style="text-align:center;color:var(--muted);padding:1.5rem;font-size:.83rem">Noch keine Etappen.</p>' : '') +
-      '</div>' +
-    '</div>' +
-    '<div style="display:flex;justify-content:flex-end;margin-top:.5rem">' +
-      '<button class="btn bdel" id="btn-del-proj">Projekt loschen</button>' +
-    '</div>';
-  
-  document.getElementById('btn-save').addEventListener('click', function() { saveProject(slug); });
-  document.getElementById('btn-pub').addEventListener('click', function() { publishProject(slug); });
-  document.getElementById('btn-copy').addEventListener('click', function() {
-    navigator.clipboard.writeText(url).then(function() { showToast('Link kopiert!', 'ok'); });
-  });
-  document.getElementById('btn-add-et').addEventListener('click', function() { addEtappe(slug); });
-  document.getElementById('btn-del-proj').addEventListener('click', function() { deleteProject(slug); });
-}
+  var p=projects[slug];
+  var url='https://www.polycore.ch/bericht/'+slug;
+  var mc=document.getElementById('main-content');
 
-function readEditorFields(slug) {
-  var p = allProjects[slug];
-  p.kunde = document.getElementById('e-kunde').value;
-  p.objekt = document.getElementById('e-objekt').value;
-  p.startdatum = document.getElementById('e-datum').value;
-  p.flaeche = document.getElementById('e-flaeche').value;
-  p.system = document.getElementById('e-system').value;
-  p.passwort = document.getElementById('e-pw').value;
-  p.status = document.getElementById('e-status').value;
-  p.updated = new Date().toISOString();
-}
+  mc.innerHTML=
+    '<div class="mh">'+
+      '<div class="mt">'+p.titel+'</div>'+
+      '<div style="display:flex;gap:.5rem;flex-wrap:wrap">'+
+        '<button class="btn bo" id="btn-pub">↗ Veröffentlichen &amp; Link</button>'+
+        '<button class="btn bb" id="btn-save">Speichern</button>'+
+      '</div>'+
+    '</div>'+
+    '<div class="lbx">'+
+      '<span class="lurl">'+url+'</span>'+
+      '<span style="font-size:.72rem;color:var(--muted)">PW: <strong>'+p.passwort+'</strong></span>'+
+      '<button class="btn bo" style="padding:.35rem .75rem;font-size:.72rem" id="btn-copy">Link kopieren</button>'+
+    '</div>'+
+    // Tabs
+    '<div class="tabs">'+
+      '<button class="tab active" data-tab="projekt">Projekt</button>'+
+      '<button class="tab" data-tab="etappen">Etappen ('+p.etappen.length+')</button>'+
+      '<button class="tab" data-tab="extras">Regie &amp; Material</button>'+
+    '</div>'+
+    // Tab: Projekt
+    '<div class="tab-pane active" id="tab-projekt">'+
+      '<div class="card"><div class="card-t">Projektdaten</div>'+
+        '<div class="fr2"><div class="fg"><label class="fl">Auftraggeber</label><input class="fi fi0" id="e-kunde" value="'+(p.kunde||'')+'"/></div>'+
+        '<div class="fg"><label class="fl">Objekt</label><input class="fi fi0" id="e-objekt" value="'+(p.objekt||'')+'"/></div></div>'+
+        '<div class="fr3" style="margin-top:1rem">'+
+          '<div class="fg"><label class="fl">Startdatum</label><input class="fi fi0" type="date" id="e-datum" value="'+(p.startdatum||'')+'"/></div>'+
+          '<div class="fg"><label class="fl">Fläche</label><input class="fi fi0" id="e-flaeche" value="'+(p.flaeche||'')+'"/></div>'+
+          '<div class="fg"><label class="fl">System</label><input class="fi fi0" id="e-system" value="'+(p.system||'')+'"/></div>'+
+        '</div>'+
+        '<div class="fr2" style="margin-top:1rem">'+
+          '<div class="fg"><label class="fl">Kunden-Passwort</label><input class="fi fi0" id="e-pw" value="'+(p.passwort||'')+'"/></div>'+
+          '<div class="fg"><label class="fl">Status</label><select class="fi fi0" id="e-status">'+
+            '<option value="active"'+(p.status==='active'?' selected':'')+'>In Ausführung</option>'+
+            '<option value="done"'+(p.status==='done'?' selected':'')+'>Abgeschlossen</option>'+
+            '<option value="paused"'+(p.status==='paused'?' selected':'')+'>Pausiert</option>'+
+          '</select></div>'+
+        '</div>'+
+      '</div>'+
+      '<div style="display:flex;justify-content:flex-end;margin-top:.5rem"><button class="btn bdel" id="btn-del">Projekt löschen</button></div>'+
+    '</div>'+
+    // Tab: Etappen
+    '<div class="tab-pane" id="tab-etappen">'+
+      '<div style="display:flex;justify-content:flex-end;margin-bottom:1rem">'+
+        '<button class="btn bd" id="btn-add-et">+ Etappe hinzufügen</button>'+
+      '</div>'+
+      '<div id="et-list">'+renderEtappenList(slug)+'</div>'+
+    '</div>'+
+    // Tab: Extras
+    '<div class="tab-pane" id="tab-extras">'+renderExtras(slug)+'</div>';
 
-function saveProject(slug) {
-  readEditorFields(slug);
-  saveProjects(function() {
-    renderSidebar();
-  });
-}
+  // Events
+  document.getElementById('btn-save').addEventListener('click', function(){ readFields(slug); saveProjects(function(){ renderSidebar(); }); });
+  document.getElementById('btn-pub').addEventListener('click', function(){ readFields(slug); saveProjects(function(){ publishBericht(slug); }); });
+  document.getElementById('btn-copy').addEventListener('click', function(){ navigator.clipboard.writeText(url).then(function(){ toast('Link kopiert!','ok'); }); });
+  document.getElementById('btn-del').addEventListener('click', function(){ deleteProject(slug); });
+  document.getElementById('btn-add-et').addEventListener('click', function(){ addEtappe(slug); });
 
-function publishProject(slug) {
-  readEditorFields(slug);
-  var p = allProjects[slug];
-  
-  saveProjects(function() {
-    ghFetch('bericht/template.html')
-      .then(function(tf) {
-        var html = decodeB64(tf.content);
-        var dataTag = '<scr' + 'ipt>window.PROJEKT_DATA=' + JSON.stringify(p) + ';<' + '/scr' + 'ipt>';
-        html = html.replace('</head>', dataTag + '</head>');
-        return ghFetch('bericht/' + slug + '.html')
-          .then(function(f) { return f.sha; })
-          .catch(function() { return null; })
-          .then(function(sha) {
-            return ghPut('bericht/' + slug + '.html', html, 'Bericht: ' + p.titel, sha);
-          });
-      })
-      .then(function() {
-        var url = 'https://www.polycore.ch/bericht/' + slug;
-        return navigator.clipboard.writeText(url).then(function() {
-          showToast('Veroeffentlicht! Link kopiert', 'ok');
-        });
-      })
-      .catch(function(e) {
-        showToast('Fehler: ' + e.message, 'err');
-      });
-  });
-}
-
-function deleteProject(slug) {
-  if (!confirm('Projekt wirklich loschen?')) return;
-  
-  ghFetch('bericht/' + slug + '.html')
-    .then(function(f) {
-      return fetch('https://api.github.com/repos/' + REPO + '/contents/bericht/' + slug + '.html', {
-        method: 'DELETE',
-        headers: {'Authorization': 'token ' + ghTok, 'Content-Type': 'application/json'},
-        body: JSON.stringify({message: 'Geloscht', sha: f.sha, branch: BRANCH})
-      });
-    })
-    .catch(function() {})
-    .then(function() {
-      delete allProjects[slug];
-      return saveProjects(function() {
-        activSlug = '';
-        renderSidebar();
-        document.getElementById('main-content').innerHTML = '<div class="empty"><h3>Projekt geloscht</h3></div>';
-        showToast('Geloscht', 'ok');
-      });
+  // Tabs
+  mc.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      mc.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('active'); });
+      mc.querySelectorAll('.tab-pane').forEach(function(x){ x.classList.remove('active'); });
+      this.classList.add('active');
+      document.getElementById('tab-'+this.dataset.tab).classList.add('active');
     });
+  });
+
+  // Event delegation for dynamic elements
+  document.getElementById('et-list').addEventListener('click', function(e){
+    var t=e.target.closest('[data-action]');
+    if(!t) return;
+    var a=t.dataset.action,s=t.dataset.slug,i=parseInt(t.dataset.i),fi=parseInt(t.dataset.fi),ki=parseInt(t.dataset.ki);
+    if(a==='toggle') toggleEt(i);
+    else if(a==='delfoto') { projects[s].etappen[i].fotos.splice(fi,1); refreshEtList(s); }
+    else if(a==='delcmt') { projects[s].etappen[i].kommentare.splice(ki,1); refreshEtList(s); }
+    else if(a==='addcmt') { addComment(s,i); }
+    else if(a==='delet') { if(confirm('Etappe löschen?')){ projects[s].etappen.splice(i,1); refreshEtList(s); } }
+  });
+  document.getElementById('et-list').addEventListener('change', function(e){
+    var t=e.target.closest('[data-upet]');
+    if(!t) return;
+    var s=t.dataset.slug,i=parseInt(t.dataset.i),k=t.dataset.key;
+    projects[s].etappen[i][k] = t.type==='number' ? +t.value : t.value;
+  });
+  document.getElementById('et-list').addEventListener('change', function(e){
+    if(e.target.matches('.foto-file-input')) {
+      var t=e.target,s=t.dataset.slug,i=parseInt(t.dataset.i);
+      uploadPhotos(t.files,s,i);
+    }
+  });
 }
 
-// ======= ETAPPEN =======
-function renderEtappe(e, i, slug) {
-  var st = e.status || 'pending';
-  var stNames = {pending: 'Ausstehend', active: 'Aktiv', completed: 'Fertig'};
-  var stOpts = ['pending','active','completed'].map(function(s) {
-    var label = {pending:'Ausstehend',active:'In Bearbeitung',completed:'Abgeschlossen'}[s];
-    return '<option value="' + s + '"' + (st === s ? ' selected' : '') + '>' + label + '</option>';
+function refreshEtList(slug) {
+  document.getElementById('et-list').innerHTML = renderEtappenList(slug);
+}
+
+// ===== ETAPPEN =====
+function renderEtappenList(slug) {
+  var p=projects[slug];
+  if(!p.etappen.length) return '<p style="text-align:center;color:var(--muted);padding:2rem;font-size:.83rem">Noch keine Etappen.</p>';
+  return p.etappen.map(function(e,i){ return renderEtappe(e,i,slug); }).join('');
+}
+
+function renderEtappe(e,i,slug) {
+  var st=e.status||'pending';
+  var stlbl={pending:'Ausstehend',active:'Aktiv',completed:'Fertig'}[st];
+  var stOpts=['pending','active','completed'].map(function(s){
+    return '<option value="'+s+'"'+(st===s?' selected':'')+'>'+{pending:'Ausstehend',active:'In Bearbeitung',completed:'Abgeschlossen'}[s]+'</option>';
   }).join('');
-  
-  var fotosHtml = (e.fotos || []).map(function(f, fi) {
-    return '<div class="ft"><img src="' + f.url + '" alt=""/>' +
-      '<button class="fdel" data-slug="' + slug + '" data-i="' + i + '" data-fi="' + fi + '" data-action="delfoto">x</button></div>';
+
+  var fotos=(e.fotos||[]).map(function(f,fi){
+    return '<div class="ft"><img src="'+f.url+'" alt="" loading="lazy"/>'+
+      '<button class="fdel" data-action="delfoto" data-slug="'+slug+'" data-i="'+i+'" data-fi="'+fi+'">✕</button></div>';
   }).join('');
-  
-  var cmtsHtml = (e.kommentare || []).map(function(k, ki) {
-    return '<div style="display:flex;gap:.5rem;margin-bottom:.5rem">' +
-      '<div style="flex:1;font-size:.8rem;background:#fff;border:1px solid var(--border);border-radius:6px;padding:.5rem .75rem">' +
-        '<span style="font-size:.65rem;color:var(--muted);display:block">' + (k.datum||'') + '</span>' + k.text +
-      '</div>' +
-      '<button class="btn bdel" style="padding:.3rem .5rem;font-size:.7rem" data-slug="' + slug + '" data-i="' + i + '" data-ki="' + ki + '" data-action="delcmt">x</button>' +
+
+  var cmts=(e.kommentare||[]).map(function(k,ki){
+    return '<div style="display:flex;gap:.5rem;margin-bottom:.5rem">'+
+      '<div style="flex:1;font-size:.8rem;background:#fff;border:1px solid var(--border);border-radius:6px;padding:.5rem .75rem">'+
+        '<span style="font-size:.63rem;color:var(--muted);display:block">'+k.datum+'</span>'+k.text+
+      '</div>'+
+      '<button class="btn bdel" style="padding:.3rem .5rem;font-size:.7rem" data-action="delcmt" data-slug="'+slug+'" data-i="'+i+'" data-ki="'+ki+'">✕</button>'+
     '</div>';
   }).join('');
 
-  return '<div class="ec" id="ec-' + slug + '-' + i + '">' +
-    '<div class="eh" data-i="' + i + '" data-action="toggleet">' +
-      '<div class="en">' + (i+1) + '</div>' +
-      '<div class="etname">' + (e.titel || 'Etappe ' + (i+1)) + '</div>' +
-      '<span class="sp ' + st + '">' + stNames[st] + '</span>' +
-      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>' +
-    '</div>' +
-    '<div class="eb" id="eb-' + i + '">' +
-      '<div class="fr2">' +
-        '<div class="fg"><label class="fl">Titel</label><input class="fi fi2" value="' + (e.titel||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="titel" data-action="upet"/></div>' +
-        '<div class="fg"><label class="fl">Datum</label><input class="fi fi2" type="date" value="' + (e.datum||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="datum" data-action="upet"/></div>' +
-      '</div>' +
-      '<div class="fr3" style="margin-top:1rem">' +
-        '<div class="fg"><label class="fl">Stunden</label><input class="fi fi2" type="number" value="' + (e.stunden||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="stunden" data-action="upet-num"/></div>' +
-        '<div class="fg"><label class="fl">Team</label><input class="fi fi2" value="' + (e.mitarbeiter||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="mitarbeiter" data-action="upet"/></div>' +
-        '<div class="fg"><label class="fl">Status</label><select class="fi fi2" data-slug="' + slug + '" data-i="' + i + '" data-key="status" data-action="upet">' + stOpts + '</select></div>' +
-      '</div>' +
-      '<div class="fg" style="margin-top:1rem"><label class="fl">Material</label><input class="fi fi2" value="' + (e.material||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="material" data-action="upet" placeholder="z.B. Sikafloor 151"/></div>' +
-      '<div class="fg" style="margin-top:1rem"><label class="fl">Beschreibung</label><textarea class="fi fi2" data-slug="' + slug + '" data-i="' + i + '" data-key="beschreibung" data-action="upet">' + (e.beschreibung||'') + '</textarea></div>' +
-      '<div class="fg" style="margin-top:1rem"><label class="fl">3D-Scan / Polycam URL</label><input class="fi fi2" value="' + (e.obj_url||'') + '" data-slug="' + slug + '" data-i="' + i + '" data-key="obj_url" data-action="upet" placeholder="https://..."/></div>' +
-      '<div class="fg" style="margin-top:1rem"><label class="fl">Fotos</label>' +
-        '<div class="fgrid">' + fotosHtml +
-          '<div class="fadd" data-slug="' + slug + '" data-i="' + i + '" data-action="addfoto">' +
-            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="21 15 16 10 5 21"/></svg>' +
-            '<span>+ Foto URL</span>' +
-          '</div>' +
-        '</div>' +
-      '</div>' +
-      '<div class="fg" style="margin-top:.5rem"><label class="fl">Kommentare</label>' +
-        cmtsHtml +
-        '<div style="display:flex;gap:.5rem">' +
-          '<input class="fi fi2" style="flex:1" id="nk-' + i + '" placeholder="Kommentar..."/>' +
-          '<button class="btn bd" style="padding:.55rem 1rem" data-slug="' + slug + '" data-i="' + i + '" data-action="addcmt">+</button>' +
-        '</div>' +
-      '</div>' +
-      '<div style="display:flex;justify-content:flex-end;margin-top:.75rem">' +
-        '<button class="btn bdel" style="padding:.4rem .9rem;font-size:.75rem" data-slug="' + slug + '" data-i="' + i + '" data-action="delet">Etappe loschen</button>' +
-      '</div>' +
-    '</div>' +
+  return '<div class="ec">'+
+    '<div class="eh" data-action="toggle" data-i="'+i+'">'+
+      '<div class="en">'+(i+1)+'</div>'+
+      '<div class="etname">'+(e.titel||'Etappe '+(i+1))+'</div>'+
+      '<span class="sp '+st+'">'+stlbl+'</span>'+
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'+
+    '</div>'+
+    '<div class="eb" id="eb-'+i+'">'+
+      '<div class="fr2"><div class="fg"><label class="fl">Titel</label><input class="fi fi0" value="'+(e.titel||'')+'" data-upet data-slug="'+slug+'" data-i="'+i+'" data-key="titel"/></div>'+
+      '<div class="fg"><label class="fl">Datum</label><input class="fi fi0" type="date" value="'+(e.datum||'')+'" data-upet data-slug="'+slug+'" data-i="'+i+'" data-key="datum"/></div></div>'+
+      '<div class="fr3" style="margin-top:1rem">'+
+        '<div class="fg"><label class="fl">Stunden</label><input class="fi fi0" type="number" value="'+(e.stunden||'')+'" data-upet data-slug="'+slug+'" data-i="'+i+'" data-key="stunden"/></div>'+
+        '<div class="fg"><label class="fl">Team</label><input class="fi fi0" value="'+(e.mitarbeiter||'')+'" data-upet data-slug="'+slug+'" data-i="'+i+'" data-key="mitarbeiter"/></div>'+
+        '<div class="fg"><label class="fl">Status</label><select class="fi fi0" data-upet data-slug="'+slug+'" data-i="'+i+'" data-key="status">'+stOpts+'</select></div>'+
+      '</div>'+
+      '<div class="fg" style="margin-top:1rem"><label class="fl">Material / System</label><input class="fi fi0" value="'+(e.material||'')+'" data-upet data-slug="'+slug+'" data-i="'+i+'" data-key="material" placeholder="z.B. Sikafloor-151 + 3310"/></div>'+
+      '<div class="fg" style="margin-top:1rem"><label class="fl">Beschreibung</label><textarea class="fi fi0" data-upet data-slug="'+slug+'" data-i="'+i+'" data-key="beschreibung">'+(e.beschreibung||'')+'</textarea></div>'+
+      '<div class="fg" style="margin-top:1rem"><label class="fl">Polycam 3D-Scan URL</label><input class="fi fi0" value="'+(e.obj_url||'')+'" data-upet data-slug="'+slug+'" data-i="'+i+'" data-key="obj_url" placeholder="https://poly.cam/capture/..."/></div>'+
+      '<div class="fg" style="margin-top:1rem">'+
+        '<label class="fl">Fotos (Upload vom Handy oder PC)</label>'+
+        '<div class="fgrid" id="fg-'+i+'">'+fotos+
+          '<label class="fadd">'+
+            '<input type="file" class="foto-file-input" accept="image/*" multiple data-slug="'+slug+'" data-i="'+i+'"/>'+
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="21 15 16 10 5 21"/></svg>'+
+            '<span>Foto wählen<br/>oder aufnehmen</span>'+
+          '</label>'+
+        '</div>'+
+        '<div class="upload-progress" id="up-'+i+'">Wird hochgeladen...</div>'+
+      '</div>'+
+      '<div class="fg" style="margin-top:.5rem"><label class="fl">Kommentare / Notizen</label>'+
+        cmts+
+        '<div style="display:flex;gap:.5rem">'+
+          '<input class="fi fi0" style="flex:1" id="nk-'+i+'" placeholder="Kommentar eingeben..."/>'+
+          '<button class="btn bd" style="padding:.55rem 1rem" data-action="addcmt" data-slug="'+slug+'" data-i="'+i+'">+</button>'+
+        '</div>'+
+      '</div>'+
+      '<div style="display:flex;justify-content:flex-end;margin-top:1rem">'+
+        '<button class="btn bdel" style="padding:.4rem .9rem;font-size:.75rem" data-action="delet" data-slug="'+slug+'" data-i="'+i+'">Etappe löschen</button>'+
+      '</div>'+
+    '</div>'+
   '</div>';
 }
 
-function toggleEt(i) {
-  var el = document.getElementById('eb-' + i);
-  if (el) el.classList.toggle('open');
+function toggleEt(i){
+  var el=document.getElementById('eb-'+i);
+  if(el) el.classList.toggle('open');
 }
 
-function updateEt(slug, i, key, val) {
-  allProjects[slug].etappen[i][key] = val;
+function addEtappe(slug){
+  projects[slug].etappen.push({titel:'Neue Etappe',datum:new Date().toISOString().slice(0,10),status:'pending',fotos:[],kommentare:[]});
+  refreshEtList(slug);
+  document.querySelector('.tab[data-tab="etappen"]').textContent='Etappen ('+projects[slug].etappen.length+')';
 }
 
-// Event delegation za etappen akcije
-document.addEventListener('click', function(e) {
-  var target = e.target.closest('[data-action]');
-  if (!target) return;
-  var action = target.dataset.action;
-  var slug = target.dataset.slug;
-  var i = parseInt(target.dataset.i);
-  var fi = parseInt(target.dataset.fi);
-  var ki = parseInt(target.dataset.ki);
-  
-  if (action === 'toggleet') { toggleEt(parseInt(target.dataset.i)); }
-  else if (action === 'delfoto') { delFoto(slug, i, fi); }
-  else if (action === 'delcmt') { delKommentar(slug, i, ki); }
-  else if (action === 'addfoto') { addFoto(slug, i); }
-  else if (action === 'addcmt') { addKommentar(slug, i); }
-  else if (action === 'delet') { deleteEtappe(slug, i); }
+function addComment(slug,i){
+  var el=document.getElementById('nk-'+i);
+  if(!el||!el.value.trim()) return;
+  if(!projects[slug].etappen[i].kommentare) projects[slug].etappen[i].kommentare=[];
+  projects[slug].etappen[i].kommentare.push({datum:new Date().toLocaleDateString('de-CH'),text:el.value.trim()});
+  refreshEtList(slug);
+}
+
+// ===== CLOUDINARY UPLOAD =====
+function uploadPhotos(files, slug, i) {
+  if(!files||!files.length) return;
+  var prog=document.getElementById('up-'+i);
+  if(prog) prog.style.display='block';
+  var arr=Array.from(files);
+  var done=0;
+
+  arr.forEach(function(file){
+    var fd=new FormData();
+    fd.append('file',file);
+    fd.append('upload_preset',CLOUDINARY_PRESET);
+    fd.append('folder','polycore/bericht/'+slug);
+
+    fetch(CLOUDINARY_URL,{method:'POST',body:fd})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(!projects[slug].etappen[i].fotos) projects[slug].etappen[i].fotos=[];
+        projects[slug].etappen[i].fotos.push({url:d.secure_url,caption:''});
+        done++;
+        if(prog) prog.textContent='Hochgeladen: '+done+'/'+arr.length;
+        if(done===arr.length){
+          if(prog) prog.style.display='none';
+          refreshEtList(slug);
+          toast(done+' Foto(s) hochgeladen','ok');
+        }
+      })
+      .catch(function(e){
+        done++;
+        toast('Upload-Fehler: '+e.message,'err');
+        if(done===arr.length && prog) prog.style.display='none';
+      });
+  });
+}
+
+// ===== EXTRAS (Regie, Material, Aufmass) =====
+function renderExtras(slug) {
+  var p=projects[slug];
+  var mats=p.materialien||[];
+  var ams=p.aufmass||[];
+
+  var matRows=mats.map(function(m,mi){
+    return '<div class="mat-row">'+
+      '<input class="fi fi0" value="'+(m.name||'')+'" placeholder="Material" data-mat data-slug="'+slug+'" data-mi="'+mi+'" data-key="name"/>'+
+      '<input class="fi fi0" value="'+(m.menge||'')+'" placeholder="Menge" type="number" data-mat data-slug="'+slug+'" data-mi="'+mi+'" data-key="menge"/>'+
+      '<input class="fi fi0" value="'+(m.einheit||'')+'" placeholder="Einheit" data-mat data-slug="'+slug+'" data-mi="'+mi+'" data-key="einheit"/>'+
+      '<button class="btn bdel" style="padding:.4rem .6rem;font-size:.75rem" data-action="delmat" data-slug="'+slug+'" data-mi="'+mi+'">✕</button>'+
+    '</div>';
+  }).join('');
+
+  var amRows=ams.map(function(a,ai){
+    return '<div class="am-row">'+
+      '<input class="fi fi0" value="'+(a.bezeichnung||'')+'" placeholder="Bezeichnung" data-am data-slug="'+slug+'" data-ai="'+ai+'" data-key="bezeichnung"/>'+
+      '<input class="fi fi0" value="'+(a.wert||'')+'" placeholder="Wert" type="number" step="0.01" data-am data-slug="'+slug+'" data-ai="'+ai+'" data-key="wert"/>'+
+      '<input class="fi fi0" value="'+(a.einheit||'')+'" placeholder="Einheit" data-am data-slug="'+slug+'" data-ai="'+ai+'" data-key="einheit"/>'+
+      '<button class="btn bdel" style="padding:.4rem .6rem;font-size:.75rem" data-action="delam" data-slug="'+slug+'" data-ai="'+ai+'">✕</button>'+
+    '</div>';
+  }).join('');
+
+  var regieTage=p.regie_tage||[];
+  var regieRows=regieTage.map(function(r,ri){
+    return '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:.5rem;align-items:center;margin-bottom:.4rem">'+
+      '<input class="fi fi0" type="date" value="'+(r.datum||'')+'" data-regie data-slug="'+slug+'" data-ri="'+ri+'" data-key="datum"/>'+
+      '<input class="fi fi0" value="'+(r.beschreibung||'')+'" placeholder="Arbeit" data-regie data-slug="'+slug+'" data-ri="'+ri+'" data-key="beschreibung"/>'+
+      '<input class="fi fi0" value="'+(r.stunden||'')+'" placeholder="Stunden" type="number" step="0.5" data-regie data-slug="'+slug+'" data-ri="'+ri+'" data-key="stunden"/>'+
+      '<input class="fi fi0" value="'+(r.mitarbeiter||'')+'" placeholder="Name" data-regie data-slug="'+slug+'" data-ri="'+ri+'" data-key="mitarbeiter"/>'+
+      '<button class="btn bdel" style="padding:.4rem .6rem;font-size:.75rem" data-action="delregie" data-slug="'+slug+'" data-ri="'+ri+'">✕</button>'+
+    '</div>';
+  }).join('');
+
+  var html=
+    '<div class="card">'+
+      '<div class="card-t"><span>Materialien &amp; Mengen</span><button class="btn bd" style="padding:.4rem .9rem;font-size:.75rem" data-action="addmat" data-slug="'+slug+'">+ Material</button></div>'+
+      '<div class="mat-row" style="margin-bottom:.35rem"><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Material</span><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Menge</span><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Einheit</span><span></span></div>'+
+      '<div id="mat-list">'+matRows+'</div>'+
+      (!mats.length?'<p style="font-size:.8rem;color:var(--muted);padding:.5rem 0">Noch keine Materialien.</p>':'')+
+    '</div>'+
+    '<div class="card">'+
+      '<div class="card-t"><span>Aufmaß</span><button class="btn bd" style="padding:.4rem .9rem;font-size:.75rem" data-action="addam" data-slug="'+slug+'">+ Position</button></div>'+
+      '<div class="am-row" style="margin-bottom:.35rem"><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Bezeichnung</span><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Wert</span><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Einheit</span><span></span></div>'+
+      '<div id="am-list">'+amRows+'</div>'+
+      (!ams.length?'<p style="font-size:.8rem;color:var(--muted);padding:.5rem 0">Noch keine Maße eingetragen.</p>':'')+
+    '</div>'+
+    '<div class="card">'+
+      '<div class="card-t"><span>Regie-Tagesbericht</span><button class="btn bd" style="padding:.4rem .9rem;font-size:.75rem" data-action="addregie" data-slug="'+slug+'">+ Tag hinzufügen</button></div>'+
+      '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:.5rem;margin-bottom:.5rem"><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Datum</span><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Arbeit</span><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Std.</span><span style="font-size:.68rem;font-weight:700;color:var(--muted)">Name</span><span></span></div>'+
+      '<div id="regie-list">'+regieRows+'</div>'+
+      (!regieTage.length?'<p style="font-size:.8rem;color:var(--muted);padding:.5rem 0">Noch keine Regiestunden.</p>':'')+
+    '</div>';
+
+  return html;
+}
+
+// Extras event delegation - setup after render
+document.addEventListener('click', function(e){
+  var t=e.target.closest('[data-action]');
+  if(!t) return;
+  var a=t.dataset.action,s=t.dataset.slug;
+  var mi=parseInt(t.dataset.mi),ai=parseInt(t.dataset.ai),ri=parseInt(t.dataset.ri);
+
+  if(a==='addmat'){
+    if(!projects[s].materialien) projects[s].materialien=[];
+    projects[s].materialien.push({name:'',menge:'',einheit:'kg'});
+    document.getElementById('tab-extras').innerHTML=renderExtras(s);
+  } else if(a==='delmat'){
+    projects[s].materialien.splice(mi,1);
+    document.getElementById('tab-extras').innerHTML=renderExtras(s);
+  } else if(a==='addam'){
+    if(!projects[s].aufmass) projects[s].aufmass=[];
+    projects[s].aufmass.push({bezeichnung:'',wert:'',einheit:'m²'});
+    document.getElementById('tab-extras').innerHTML=renderExtras(s);
+  } else if(a==='delam'){
+    projects[s].aufmass.splice(ai,1);
+    document.getElementById('tab-extras').innerHTML=renderExtras(s);
+  } else if(a==='addregie'){
+    if(!projects[s].regie_tage) projects[s].regie_tage=[];
+    projects[s].regie_tage.push({datum:new Date().toISOString().slice(0,10),beschreibung:'',stunden:'',mitarbeiter:''});
+    document.getElementById('tab-extras').innerHTML=renderExtras(s);
+  } else if(a==='delregie'){
+    projects[s].regie_tage.splice(ri,1);
+    document.getElementById('tab-extras').innerHTML=renderExtras(s);
+  }
 });
 
-document.addEventListener('change', function(e) {
-  var target = e.target.closest('[data-action]');
-  if (!target) return;
-  var action = target.dataset.action;
-  var slug = target.dataset.slug;
-  var i = parseInt(target.dataset.i);
-  var key = target.dataset.key;
-  if (action === 'upet') { updateEt(slug, i, key, target.value); }
-  else if (action === 'upet-num') { updateEt(slug, i, key, +target.value); }
+document.addEventListener('change', function(e){
+  var t=e.target;
+  if(t.dataset.mat){
+    var s=t.dataset.slug,mi=parseInt(t.dataset.mi),k=t.dataset.key;
+    if(projects[s]&&projects[s].materialien[mi]) projects[s].materialien[mi][k]=t.value;
+  } else if(t.dataset.am){
+    var s=t.dataset.slug,ai=parseInt(t.dataset.ai),k=t.dataset.key;
+    if(projects[s]&&projects[s].aufmass[ai]) projects[s].aufmass[ai][k]=t.value;
+  } else if(t.dataset.regie){
+    var s=t.dataset.slug,ri=parseInt(t.dataset.ri),k=t.dataset.key;
+    if(!projects[s].regie_tage) projects[s].regie_tage=[];
+    if(projects[s].regie_tage[ri]) projects[s].regie_tage[ri][k]=t.value;
+  }
 });
 
-function addEtappe(slug) {
-  allProjects[slug].etappen.push({
-    titel: 'Neue Etappe',
-    datum: new Date().toISOString().slice(0,10),
-    status: 'pending',
-    fotos: [],
-    kommentare: []
-  });
-  renderEditor(slug);
-}
-
-function deleteEtappe(slug, i) {
-  if (!confirm('Etappe loschen?')) return;
-  allProjects[slug].etappen.splice(i, 1);
-  renderEditor(slug);
-}
-
-function addFoto(slug, i) {
-  var url = prompt('Foto URL eingeben:');
-  if (!url) return;
-  var cap = prompt('Bildunterschrift (optional):') || '';
-  if (!allProjects[slug].etappen[i].fotos) allProjects[slug].etappen[i].fotos = [];
-  allProjects[slug].etappen[i].fotos.push({url: url, caption: cap});
-  renderEditor(slug);
-}
-
-function delFoto(slug, i, fi) {
-  allProjects[slug].etappen[i].fotos.splice(fi, 1);
-  renderEditor(slug);
-}
-
-function addKommentar(slug, i) {
-  var txt = document.getElementById('nk-' + i).value.trim();
-  if (!txt) return;
-  if (!allProjects[slug].etappen[i].kommentare) allProjects[slug].etappen[i].kommentare = [];
-  allProjects[slug].etappen[i].kommentare.push({
-    datum: new Date().toLocaleDateString('de-CH'),
-    text: txt
-  });
-  renderEditor(slug);
-}
-
-function delKommentar(slug, i, ki) {
-  allProjects[slug].etappen[i].kommentare.splice(ki, 1);
-  renderEditor(slug);
+// ===== DELETE PROJECT =====
+function deleteProject(slug) {
+  if(!confirm('Projekt "'+projects[slug].titel+'" wirklich löschen?')) return;
+  ghFetch('bericht/'+slug+'.html')
+    .then(function(f){
+      return fetch('https://api.github.com/repos/'+REPO+'/contents/bericht/'+slug+'.html',{
+        method:'DELETE',headers:{'Authorization':'token '+ghTok,'Content-Type':'application/json'},
+        body:JSON.stringify({message:'Gelöscht',sha:f.sha,branch:BRANCH})
+      });
+    }).catch(function(){})
+    .then(function(){
+      delete projects[slug];
+      saveProjects(function(){
+        activeSlug=''; renderSidebar();
+        document.getElementById('main-content').innerHTML='<div class="empty"><h3>Projekt gelöscht</h3></div>';
+      });
+    });
 }
 </script>
 </body>
