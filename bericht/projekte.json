@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T21:04:01.202Z",
+    "updated": "2026-05-12T21:04:19.576Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -147,12 +147,12 @@
       },
       {
         "name": "Sika Glasfasergewebe Premium",
-        "menge": "",
-        "einheit": "kg"
+        "menge": "8",
+        "einheit": "m2"
       },
       {
         "name": "Sika Glasfasern",
-        "menge": "",
+        "menge": "2",
         "einheit": "kg"
       }
     ],
