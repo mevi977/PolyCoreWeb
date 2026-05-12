@@ -39,13 +39,21 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T21:30:49.314Z",
+    "updated": "2026-05-12T20:48:26.462Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
         "datum": "2026-05-04",
         "status": "completed",
         "fotos": [
+          {
+            "url": "https://i.ibb.co/yBc69hZz/mrelag-1778616295848.png",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Mx5qq0gh/mrelag-1778616469349.jpg",
+            "caption": ""
+          },
           {
             "url": "https://i.ibb.co/5hmkKgDB/mrelag-1778618882078.jpg",
             "caption": ""
@@ -139,11 +147,6 @@
         "name": "Sikafloor 151",
         "menge": "120",
         "einheit": "kg"
-      },
-      {
-        "name": "EP Mörtel",
-        "menge": "184",
-        "einheit": "kg"
       }
     ],
     "regie_tage": []
@@ -157,8 +160,8 @@
     "flaeche": "12",
     "system": "system",
     "passwort": "testt",
-    "status": "done",
-    "updated": "2026-05-12T21:30:10.902Z",
+    "status": "active",
+    "updated": "2026-05-11T21:45:11.338Z",
     "etappen": [
       {
         "titel": "Neue Etappe",
