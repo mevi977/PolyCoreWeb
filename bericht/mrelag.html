@@ -190,52 +190,47 @@ if(!slug || slug === 'index') {
   // Koristimo JSDelivr koji ima kratki cache (10 min) ali podrzava purge
   // i GitHub API s random parametrom da zaobidemo browser cache
   var ts = Date.now();
-  var apiUrl = 'https://api.github.com/repos/mevi977/PolyCoreWeb/contents/bericht/projekte.json?_=' + ts;
   
-  function loadData(url, isRaw) {
-    var headers = {'Cache-Control': 'no-cache, no-store', 'Pragma': 'no-cache'};
-    if(!isRaw) headers['Accept'] = 'application/vnd.github.v3+json';
-    
-    return fetch(url, {headers: headers, cache: 'no-store'})
-      .then(function(r){
-        if(!r.ok) throw new Error('HTTP '+r.status);
-        return r.text();
+  // Pokusaj citati token iz localStorage (admin panel ga tamo chuva)
+  var ghTok = localStorage.getItem('pc_gh_tok') || '';
+  
+  function fetchProjects() {
+    // Ako imamo token, koristi GitHub API koji ne cachira
+    if(ghTok) {
+      return fetch('https://api.github.com/repos/mevi977/PolyCoreWeb/contents/bericht/projekte.json', {
+        headers: {
+          'Authorization': 'token ' + ghTok,
+          'Accept': 'application/vnd.github.v3+json',
+          'Cache-Control': 'no-cache'
+        },
+        cache: 'no-store'
       })
-      .then(function(text){
-        var projects;
-        try {
-          if(isRaw) {
-            projects = JSON.parse(text);
-          } else {
-            var data = JSON.parse(text);
-            var content = data.content.replace(/\n/g,'');
-            projects = JSON.parse(atob(content));
-          }
-        } catch(parseErr) {
-          throw new Error('Parse error: '+parseErr.message);
-        }
-        console.log('Projekti ucitani:', Object.keys(projects), 'Trazim slug:', slug);
-        P = projects[slug];
-        if(!P){
-          console.error('Slug nije pronasao:', slug, 'Dostupni:', Object.keys(projects));
-          show('screen-notfound');
-          return;
-        }
-        show('screen-login');
-        document.getElementById('pw-btn').onclick = checkPW;
-        document.getElementById('pw').onkeydown = function(e){if(e.key==='Enter')checkPW();};
-        setTimeout(function(){document.getElementById('pw').focus();},100);
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var content = d.content.replace(/\n/g,'');
+        return JSON.parse(atob(content));
       });
+    }
+    
+    // Bez tokena - raw URL s timestamp (GitHub cachira ~5min ali to je ok za klijente)
+    return fetch('https://raw.githubusercontent.com/mevi977/PolyCoreWeb/main/bericht/projekte.json?_='+ts, {
+      cache: 'no-store'
+    })
+    .then(function(r){ return r.json(); });
   }
-
-  // Direktno raw URL s timestamp - ne treba auth, zaobilazi cache
-  loadData('https://raw.githubusercontent.com/mevi977/PolyCoreWeb/main/bericht/projekte.json?_='+ts, true)
-    .catch(function(){
-      // Fallback: GitHub API
-      return loadData(apiUrl, false);
+  
+  fetchProjects()
+    .then(function(projects){
+      console.log('Projekti:', Object.keys(projects), 'Slug:', slug);
+      P = projects[slug];
+      if(!P){ show('screen-notfound'); return; }
+      show('screen-login');
+      document.getElementById('pw-btn').onclick = checkPW;
+      document.getElementById('pw').onkeydown = function(e){if(e.key==='Enter')checkPW();};
+      setTimeout(function(){document.getElementById('pw').focus();},100);
     })
     .catch(function(e){
-      console.error('Fetch error:', e);
+      console.error('Greska:', e);
       show('screen-notfound');
     });
 }
