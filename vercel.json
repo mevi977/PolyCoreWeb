@@ -45,10 +45,10 @@
       "permanent": true
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/bericht/:slug",
-      "destination": "/bericht/index.html"
+      "src": "/bericht/(?!index)([^/]+)",
+      "dest": "/bericht/index.html"
     }
   ]
 }
