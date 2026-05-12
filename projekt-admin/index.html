@@ -105,7 +105,9 @@ textarea.fi,textarea.fi0{resize:vertical;min-height:70px}
     <input class="fi" type="password" id="f-pw" placeholder="polycore2026"/>
     <label class="fl" style="text-align:left;margin-top:.25rem">GitHub Personal Access Token</label>
     <input class="fi" type="password" id="f-tok" placeholder="ghp_xxxxxxxxxxxx"/>
-    <p style="font-size:.7rem;color:var(--muted);text-align:left;margin-bottom:1rem;line-height:1.5">GitHub → Settings → Developer settings → Personal access tokens (classic) → Scope: <strong>repo</strong></p>
+    <label style="display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted);margin-bottom:1rem;cursor:pointer;text-align:left">
+      <input type="checkbox" id="f-save" style="width:auto;margin:0"/> Token speichern (nur auf diesem Gerät)
+    </label>
     <button class="btnp" id="login-btn">Einloggen</button>
     <div class="err-msg" id="login-err">Falsches Passwort oder Token fehlt.</div>
   </div>
@@ -125,6 +127,10 @@ textarea.fi,textarea.fi0{resize:vertical;min-height:70px}
     <button class="sb-btn" id="btn-logout">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
       Abmelden
+    </button>
+    <button class="sb-btn" id="btn-forget-tok" style="font-size:.72rem;opacity:.5">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+      Token vergessen
     </button>
   </div>
   <div class="main" id="main-content">
@@ -159,7 +165,21 @@ document.getElementById('login-btn').addEventListener('click', doLogin);
 document.getElementById('f-pw').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
 document.getElementById('f-tok').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
 document.getElementById('btn-logout').addEventListener('click', function(){ location.reload(); });
+document.getElementById('btn-forget-tok').addEventListener('click', function(){
+  localStorage.removeItem('pc_gh_tok');
+  toast('Token gelöscht', 'ok');
+  setTimeout(function(){ location.reload(); }, 1000);
+});
 document.getElementById('btn-new').addEventListener('click', showNewProject);
+
+// Ucitaj token iz localStorage ako postoji
+(function() {
+  var saved = localStorage.getItem('pc_gh_tok');
+  if (saved) {
+    document.getElementById('f-tok').value = saved;
+    document.getElementById('f-save').checked = true;
+  }
+})();
 
 function doLogin() {
   var pw = document.getElementById('f-pw').value;
@@ -169,6 +189,12 @@ function doLogin() {
   if (!tok) { err.textContent='Bitte GitHub Token eingeben!'; err.style.display='block'; return; }
   err.style.display='none';
   ghTok = tok;
+  // Spremi token ako je checkbox oznacen
+  if (document.getElementById('f-save').checked) {
+    localStorage.setItem('pc_gh_tok', tok);
+  } else {
+    localStorage.removeItem('pc_gh_tok');
+  }
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app-screen').style.display = 'block';
   loadProjects();
