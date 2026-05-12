@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T20:17:58.745Z",
+    "updated": "2026-05-12T20:18:17.744Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -82,8 +82,8 @@
     ],
     "aufmass": [
       {
-        "bezeichnung": "",
-        "wert": "",
+        "bezeichnung": "Kratzspachtelung",
+        "wert": "150",
         "einheit": "m²"
       }
     ],
