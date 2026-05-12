@@ -193,8 +193,23 @@ function decode(c){ return new TextDecoder().decode(Uint8Array.from(atob(c.repla
 // ===== PROJECTS =====
 function loadProjects() {
   ghFetch('bericht/projekte.json')
-    .then(function(f){ projects=JSON.parse(decode(f.content)); renderSidebar(); })
-    .catch(function(){ projects={}; renderSidebar(); });
+    .then(function(f){
+      try {
+        var raw = decode(f.content);
+        projects = JSON.parse(raw);
+        console.log('Projekte geladen:', Object.keys(projects).length, Object.keys(projects));
+      } catch(e) {
+        console.error('Parse fehler:', e);
+        projects = {};
+      }
+      renderSidebar();
+    })
+    .catch(function(e){
+      console.error('Fetch fehler:', e.message);
+      projects={};
+      renderSidebar();
+      toast('Projekte konnten nicht geladen werden: '+e.message.slice(0,60),'err');
+    });
 }
 
 function saveProjects(cb) {
@@ -266,21 +281,24 @@ function publishBericht(slug, cb) {
 // ===== SIDEBAR =====
 function renderSidebar() {
   var el = document.getElementById('proj-list');
+  if (!el) return;
   var slugs = Object.keys(projects).sort(function(a,b){
     return (projects[b].updated||'').localeCompare(projects[a].updated||'');
   });
+  console.log('renderSidebar - slugs:', slugs);
   if (!slugs.length) {
-    el.innerHTML = '<div style="font-size:.75rem;color:rgba(255,255,255,.3);padding:.5rem">Noch keine Projekte</div>';
+    el.innerHTML = '<div style="font-size:.75rem;color:rgba(255,255,255,.3);padding:.5rem 0">Noch keine Projekte</div>';
     return;
   }
   el.innerHTML = slugs.map(function(s){
     var p=projects[s];
+    if(!p||!p.titel) return '';
     return '<div class="pi'+(s===activeSlug?' act':'')+'" data-slug="'+s+'">'+
       '<div class="pdot '+(p.status||'active')+'"></div>'+
       '<span class="pname">'+p.titel+'</span></div>';
   }).join('');
-  el.querySelectorAll('.pi').forEach(function(el){
-    el.addEventListener('click', function(){ openProject(this.dataset.slug); });
+  el.querySelectorAll('.pi').forEach(function(item){
+    item.addEventListener('click', function(){ openProject(this.dataset.slug); });
   });
 }
 
