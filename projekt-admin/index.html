@@ -309,14 +309,24 @@ function createProject() {
 // ===== EDITOR =====
 function readFields(slug) {
   var p=projects[slug];
-  p.kunde=document.getElementById('e-kunde').value;
-  p.objekt=document.getElementById('e-objekt').value;
-  p.startdatum=document.getElementById('e-datum').value;
-  p.flaeche=document.getElementById('e-flaeche').value;
-  p.system=document.getElementById('e-system').value;
-  p.passwort=document.getElementById('e-pw').value;
-  p.status=document.getElementById('e-status').value;
+  // Osnovna polja
+  var kEl=document.getElementById('e-kunde');
+  if(kEl) p.kunde=kEl.value;
+  var oEl=document.getElementById('e-objekt');
+  if(oEl) p.objekt=oEl.value;
+  var dEl=document.getElementById('e-datum');
+  if(dEl) p.startdatum=dEl.value;
+  var fEl=document.getElementById('e-flaeche');
+  if(fEl) p.flaeche=fEl.value;
+  var sEl=document.getElementById('e-system');
+  if(sEl) p.system=sEl.value;
+  var pEl=document.getElementById('e-pw');
+  if(pEl) p.passwort=pEl.value;
+  var stEl=document.getElementById('e-status');
+  if(stEl) p.status=stEl.value;
   p.updated=new Date().toISOString();
+  // Material, Aufmass i Regie se cuvaju direktno u projects[] kroz data-* change evente
+  // Ne treba citati iz DOM-a jer su vec u projektu
 }
 
 function renderEditor(slug) {
@@ -375,7 +385,11 @@ function renderEditor(slug) {
     '<div class="tab-pane" id="tab-extras">'+renderExtras(slug)+'</div>';
 
   // Events
-  document.getElementById('btn-save').addEventListener('click', function(){ readFields(slug); saveProjects(function(){ renderSidebar(); }); });
+  document.getElementById('btn-save').addEventListener('click', function(){
+    readFields(slug);
+    // Provjeri i spremi etappen promjene (status, itd.)
+    saveProjects(function(){ renderSidebar(); });
+  });
   document.getElementById('btn-pub').addEventListener('click', function(){ readFields(slug); saveProjects(function(){ publishBericht(slug); }); });
   document.getElementById('btn-copy').addEventListener('click', function(){ navigator.clipboard.writeText(url).then(function(){ toast('Link kopiert!','ok'); }); });
   document.getElementById('btn-del').addEventListener('click', function(){ deleteProject(slug); });
@@ -510,38 +524,62 @@ function addComment(slug,i){
   refreshEtList(slug);
 }
 
-// ===== GITHUB FOTO UPLOAD =====
+// ===== FOTO UPLOAD via imgbb.com (gratis, kein Account nötig) =====
+// imgbb.com - besplatni foto hosting
+// Key ce biti pitati pri prvom uploadu ako nije unesan
+var IMGBB_KEY = localStorage.getItem('imgbb_key') || '';
+
 function uploadPhotos(files, slug, i) {
   if(!files||!files.length) return;
+  // Provjeri imgbb key
+  if(!IMGBB_KEY) {
+    IMGBB_KEY = prompt('Bitte imgbb.com API Key eingeben:\n\n1. Gehe zu imgbb.com\n2. Kostenlos registrieren\n3. API Key kopieren');
+    if(!IMGBB_KEY) return;
+    localStorage.setItem('imgbb_key', IMGBB_KEY);
+  }
   var prog=document.getElementById('up-'+i);
   if(prog){prog.style.display='block';prog.textContent='Wird hochgeladen...';}
   var arr=Array.from(files);
-  var done=0;
+  var done=0, failed=0;
 
   arr.forEach(function(file){
     var reader=new FileReader();
     reader.onload=function(ev){
       var base64=ev.target.result.split(',')[1];
-      var ext=file.name.split('.').pop().toLowerCase()||'jpg';
-      var fname='bericht/fotos/'+slug+'-'+Date.now()+'-'+Math.random().toString(36).slice(2)+'.'+ext;
-      
-      ghPut(fname, base64, 'Foto upload: '+slug, null)
-        .then(function(res){
-          var url=res.content.download_url;
-          if(!projects[slug].etappen[i].fotos) projects[slug].etappen[i].fotos=[];
-          projects[slug].etappen[i].fotos.push({url:url,caption:''});
-          done++;
-          if(prog) prog.textContent='Hochgeladen: '+done+'/'+arr.length;
-          if(done===arr.length){
+      var fd=new FormData();
+      fd.append('key', IMGBB_KEY);
+      fd.append('image', base64);
+      fd.append('name', slug+'-'+Date.now());
+
+      fetch('https://api.imgbb.com/1/upload',{method:'POST',body:fd})
+        .then(function(r){return r.json();})
+        .then(function(d){
+          if(d.success){
+            if(!projects[slug].etappen[i].fotos) projects[slug].etappen[i].fotos=[];
+            projects[slug].etappen[i].fotos.push({url:d.data.url,caption:''});
+            done++;
+          } else {
+            failed++;
+            toast('Upload fehlgeschlagen','err');
+          }
+          if(done+failed===arr.length){
             if(prog) prog.style.display='none';
             refreshEtList(slug);
-            toast(done+' Foto(s) hochgeladen ✓','ok');
+            if(done>0) toast(done+' Foto(s) hochgeladen ✓','ok');
           }
         })
-        .catch(function(e){
-          done++;
-          toast('Upload-Fehler: '+e.message.slice(0,60),'err');
-          if(done===arr.length&&prog) prog.style.display='none';
+        .catch(function(){
+          // Fallback: pitaj za URL direktno
+          failed++;
+          if(done+failed===arr.length){
+            if(prog) prog.style.display='none';
+            var url=prompt('Upload fehlgeschlagen. Bitte Foto-URL manuell eingeben:');
+            if(url){
+              if(!projects[slug].etappen[i].fotos) projects[slug].etappen[i].fotos=[];
+              projects[slug].etappen[i].fotos.push({url:url,caption:''});
+              refreshEtList(slug);
+            }
+          }
         });
     };
     reader.readAsDataURL(file);
