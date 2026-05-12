@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T19:24:49.470Z",
+    "updated": "2026-05-12T19:27:17.671Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -80,6 +80,16 @@
       }
     ],
     "materialien": [
+      {
+        "name": "",
+        "menge": "",
+        "einheit": "kg"
+      },
+      {
+        "name": "",
+        "menge": "",
+        "einheit": "kg"
+      },
       {
         "name": "",
         "menge": "",
