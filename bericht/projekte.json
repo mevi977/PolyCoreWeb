@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T20:58:01.021Z",
+    "updated": "2026-05-12T20:58:44.776Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -160,7 +160,13 @@
       {
         "datum": "2026-05-08",
         "beschreibung": "Abtrag hohles Untergrundes",
-        "stunden": "5",
+        "stunden": "4",
+        "mitarbeiter": "Mevludin Icic"
+      },
+      {
+        "datum": "2026-05-08",
+        "beschreibung": "Risssanierung (Aufschneiden und Füllen)",
+        "stunden": "2",
         "mitarbeiter": "Mevludin Icic"
       }
     ]
