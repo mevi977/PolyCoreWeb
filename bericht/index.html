@@ -187,10 +187,18 @@ function updateLB(){
 if(!slug || slug === 'index') {
   show('screen-notfound');
 } else {
-  // Fetchuj projekte.json direktno s GitHub raw-a (uvijek svjez)
-  var jsonUrl = 'https://raw.githubusercontent.com/mevi977/PolyCoreWeb/main/bericht/projekte.json?t='+Date.now();
-  fetch(jsonUrl)
-    .then(function(r){return r.json();})
+  // GitHub API - uvijek svjezi podaci, bez cachea
+  var apiUrl = 'https://api.github.com/repos/mevi977/PolyCoreWeb/contents/bericht/projekte.json';
+  fetch(apiUrl, {
+    headers: {
+      'Accept': 'application/vnd.github.v3.raw',
+      'Cache-Control': 'no-cache'
+    }
+  })
+    .then(function(r){
+      if(!r.ok) throw new Error(r.status);
+      return r.json();
+    })
     .then(function(data){
       P = data[slug];
       if(!P){show('screen-notfound');return;}
@@ -199,7 +207,20 @@ if(!slug || slug === 'index') {
       document.getElementById('pw').onkeydown = function(e){if(e.key==='Enter')checkPW();};
       setTimeout(function(){document.getElementById('pw').focus();},100);
     })
-    .catch(function(){show('screen-notfound');});
+    .catch(function(){
+      // Fallback na raw s timestamp
+      fetch('https://raw.githubusercontent.com/mevi977/PolyCoreWeb/main/bericht/projekte.json?nocache='+Date.now())
+        .then(function(r){return r.json();})
+        .then(function(data){
+          P = data[slug];
+          if(!P){show('screen-notfound');return;}
+          show('screen-login');
+          document.getElementById('pw-btn').onclick = checkPW;
+          document.getElementById('pw').onkeydown = function(e){if(e.key==='Enter')checkPW();};
+          setTimeout(function(){document.getElementById('pw').focus();},100);
+        })
+        .catch(function(){show('screen-notfound');});
+    });
 }
 
 function show(id){
