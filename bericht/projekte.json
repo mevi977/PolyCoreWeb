@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T20:48:26.462Z",
+    "updated": "2026-05-12T21:09:38.038Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -146,6 +146,11 @@
       {
         "name": "Sikafloor 151",
         "menge": "120",
+        "einheit": "kg"
+      },
+      {
+        "name": "EP Mörtel",
+        "menge": "184",
         "einheit": "kg"
       }
     ],
