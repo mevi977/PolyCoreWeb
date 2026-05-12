@@ -139,9 +139,7 @@ textarea.fi,textarea.fi0{resize:vertical;min-height:70px}
 var ADMIN_PW = 'polycore2026';
 var REPO = 'mevi977/PolyCoreWeb';
 var BRANCH = 'main';
-// Cloudinary - gratis account (25GB)
-var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/polycore/image/upload';
-var CLOUDINARY_PRESET = 'polycore_unsigned';
+// Slike se uploadaju direktno na GitHub
 
 var ghTok = '';
 var projects = {};
@@ -512,38 +510,41 @@ function addComment(slug,i){
   refreshEtList(slug);
 }
 
-// ===== CLOUDINARY UPLOAD =====
+// ===== GITHUB FOTO UPLOAD =====
 function uploadPhotos(files, slug, i) {
   if(!files||!files.length) return;
   var prog=document.getElementById('up-'+i);
-  if(prog) prog.style.display='block';
+  if(prog){prog.style.display='block';prog.textContent='Wird hochgeladen...';}
   var arr=Array.from(files);
   var done=0;
 
   arr.forEach(function(file){
-    var fd=new FormData();
-    fd.append('file',file);
-    fd.append('upload_preset',CLOUDINARY_PRESET);
-    fd.append('folder','polycore/bericht/'+slug);
-
-    fetch(CLOUDINARY_URL,{method:'POST',body:fd})
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        if(!projects[slug].etappen[i].fotos) projects[slug].etappen[i].fotos=[];
-        projects[slug].etappen[i].fotos.push({url:d.secure_url,caption:''});
-        done++;
-        if(prog) prog.textContent='Hochgeladen: '+done+'/'+arr.length;
-        if(done===arr.length){
-          if(prog) prog.style.display='none';
-          refreshEtList(slug);
-          toast(done+' Foto(s) hochgeladen','ok');
-        }
-      })
-      .catch(function(e){
-        done++;
-        toast('Upload-Fehler: '+e.message,'err');
-        if(done===arr.length && prog) prog.style.display='none';
-      });
+    var reader=new FileReader();
+    reader.onload=function(ev){
+      var base64=ev.target.result.split(',')[1];
+      var ext=file.name.split('.').pop().toLowerCase()||'jpg';
+      var fname='bericht/fotos/'+slug+'-'+Date.now()+'-'+Math.random().toString(36).slice(2)+'.'+ext;
+      
+      ghPut(fname, base64, 'Foto upload: '+slug, null)
+        .then(function(res){
+          var url=res.content.download_url;
+          if(!projects[slug].etappen[i].fotos) projects[slug].etappen[i].fotos=[];
+          projects[slug].etappen[i].fotos.push({url:url,caption:''});
+          done++;
+          if(prog) prog.textContent='Hochgeladen: '+done+'/'+arr.length;
+          if(done===arr.length){
+            if(prog) prog.style.display='none';
+            refreshEtList(slug);
+            toast(done+' Foto(s) hochgeladen ✓','ok');
+          }
+        })
+        .catch(function(e){
+          done++;
+          toast('Upload-Fehler: '+e.message.slice(0,60),'err');
+          if(done===arr.length&&prog) prog.style.display='none';
+        });
+    };
+    reader.readAsDataURL(file);
   });
 }
 

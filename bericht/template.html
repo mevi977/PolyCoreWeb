@@ -273,11 +273,15 @@ function renderEtappe(e, i) {
           '<span class="polycam-lbl">3D-Scan · Polycam</span>' +
           '<a href="'+e.obj_url+'" target="_blank" class="polycam-link">Vollbild ↗</a>' +
         '</div>' +
-        '<iframe src="https://poly.cam/capture/'+id+'/embed" '+
-          'style="width:100%;height:420px;border:none;display:block;" '+
-          'title="Polycam 3D Viewer" '+
-          'allow="xr-spatial-tracking; fullscreen" '+
-          'allowfullscreen loading="lazy"></iframe>' +
+        '<a href="'+e.obj_url+'" target="_blank" rel="noopener" style="display:block;text-decoration:none;position:relative">'+
+            '<img src="https://poly.cam/api/capture/'+id+'/artifacts/thumbnail.jpg" style="width:100%;height:320px;object-fit:cover;display:block;" loading="lazy" alt="3D Scan"/>'+
+            '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35)">'+
+              '<div style="background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.3);border-radius:50px;padding:.65rem 1.5rem;display:flex;align-items:center;gap:.65rem;color:#fff;font-family:inherit;font-size:.85rem;font-weight:700">'+
+                '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>'+
+                '3D-Modell in Polycam öffnen'+
+              '</div>'+
+            '</div>'+
+          '</a>' +
       '</div>';
     }
   }
