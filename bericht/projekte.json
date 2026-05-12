@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T11:04:22.637Z",
+    "updated": "2026-05-12T11:06:35.761Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -67,6 +67,25 @@
         "kommentare": [],
         "stunden": 9,
         "material": "Sikafloor 151"
+      }
+    ],
+    "aufmass": [
+      {
+        "bezeichnung": "",
+        "wert": "",
+        "einheit": "m²"
+      }
+    ],
+    "materialien": [
+      {
+        "name": "",
+        "menge": "",
+        "einheit": "kg"
+      },
+      {
+        "name": "",
+        "menge": "",
+        "einheit": "kg"
       }
     ]
   },
