@@ -39,13 +39,16 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T11:08:39.873Z",
+    "updated": "2026-05-12T11:16:34.317Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
         "datum": "2026-05-04",
         "status": "completed",
         "fotos": [
+          {
+            "caption": ""
+          },
           {
             "caption": ""
           }
