@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T21:01:12.020Z",
+    "updated": "2026-05-12T21:04:01.202Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -141,17 +141,17 @@
         "einheit": "kg"
       },
       {
-        "name": "",
+        "name": "EP Mörtel",
+        "menge": "184",
+        "einheit": "kg"
+      },
+      {
+        "name": "Sika Glasfasergewebe Premium",
         "menge": "",
         "einheit": "kg"
       },
       {
-        "name": "",
-        "menge": "",
-        "einheit": "kg"
-      },
-      {
-        "name": "",
+        "name": "Sika Glasfasern",
         "menge": "",
         "einheit": "kg"
       }
