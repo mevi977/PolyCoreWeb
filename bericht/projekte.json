@@ -39,13 +39,21 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T21:04:19.576Z",
+    "updated": "2026-05-12T20:48:26.462Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
         "datum": "2026-05-04",
         "status": "completed",
         "fotos": [
+          {
+            "url": "https://i.ibb.co/yBc69hZz/mrelag-1778616295848.png",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Mx5qq0gh/mrelag-1778616469349.jpg",
+            "caption": ""
+          },
           {
             "url": "https://i.ibb.co/5hmkKgDB/mrelag-1778618882078.jpg",
             "caption": ""
@@ -139,49 +147,9 @@
         "name": "Sikafloor 151",
         "menge": "120",
         "einheit": "kg"
-      },
-      {
-        "name": "EP Mörtel",
-        "menge": "184",
-        "einheit": "kg"
-      },
-      {
-        "name": "Sika Glasfasergewebe Premium",
-        "menge": "8",
-        "einheit": "m2"
-      },
-      {
-        "name": "Sika Glasfasern",
-        "menge": "2",
-        "einheit": "kg"
       }
     ],
-    "regie_tage": [
-      {
-        "datum": "2026-05-08",
-        "beschreibung": "Abtrag und Aufmörtelung hohles Untergrundes",
-        "stunden": "5",
-        "mitarbeiter": "Mevludin Icic"
-      },
-      {
-        "datum": "2026-05-08",
-        "beschreibung": "Risssanierung (Aufschneiden und Füllen)",
-        "stunden": "2",
-        "mitarbeiter": "Mevludin Icic"
-      },
-      {
-        "datum": "2026-05-11",
-        "beschreibung": "Rissverstärkung mittels Glasfasergewebe",
-        "stunden": "1",
-        "mitarbeiter": "Mevludin Icic"
-      },
-      {
-        "datum": "2026-05-12",
-        "beschreibung": "Kratzspachtelung",
-        "stunden": "3",
-        "mitarbeiter": "Mevludin Icic"
-      }
-    ]
+    "regie_tage": []
   },
   "testt": {
     "titel": "test",
