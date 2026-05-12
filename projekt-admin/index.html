@@ -217,37 +217,50 @@ function saveProjects(cb) {
   attempt(3);
 }
 
-var _cachedTemplate = null; // Cache template da ne fetchamo svaki put
+var _tpl = null;
+var _berichtShas = {}; // SHA cache za bericht fajlove
 
 function publishBericht(slug, cb) {
+  readFields(slug);
   var p = projects[slug];
-  
-  function doPublish(templateHtml) {
-    var tag = '<'+'script'+'>window.PROJEKT_DATA='+JSON.stringify(p)+';</'+'script'+'>';
-    var html = templateHtml.replace('</head>', tag+'</head>');
-    ghFetch('bericht/'+slug+'.html')
-      .then(function(f){ return f.sha; }).catch(function(){ return null; })
-      .then(function(sha){ return ghPut('bericht/'+slug+'.html', html, 'Bericht: '+p.titel, sha); })
-      .then(function(){
-        var url = 'https://www.polycore.ch/bericht/'+slug;
-        navigator.clipboard.writeText(url).catch(function(){});
-        toast('Veröffentlicht! Link kopiert ✓','ok');
-        if(cb) cb();
-      })
-      .catch(function(e){ toast('Publish-Fehler: '+e.message.slice(0,80),'err'); });
-  }
+  toast('Wird gespeichert...', '');
 
-  if(_cachedTemplate) {
-    doPublish(_cachedTemplate);
-  } else {
-    toast('Template wird geladen...','');
-    ghFetch('bericht/template.html')
-      .then(function(tf){
-        _cachedTemplate = decode(tf.content);
-        doPublish(_cachedTemplate);
-      })
-      .catch(function(e){ toast('Template-Fehler: '+e.message.slice(0,60),'err'); });
-  }
+  // 1. Spremi projekte.json
+  saveProjects(function() {
+    // 2. Generiraj bericht HTML
+    function buildAndPush(tplHtml) {
+      var tag = '<'+'script'+'>window.PROJEKT_DATA='+JSON.stringify(p)+';</'+'script'+'>';
+      var html = tplHtml.replace('</head>', tag + '</head>');
+      var sha = _berichtShas[slug] || null;
+      ghPut('bericht/'+slug+'.html', html, 'Bericht: '+p.titel, sha)
+        .then(function(res) {
+          _berichtShas[slug] = res.content.sha;
+          var url = 'https://www.polycore.ch/bericht/'+slug;
+          navigator.clipboard.writeText(url).catch(function(){});
+          toast('Veröffentlicht! Link kopiert ✓', 'ok');
+          if(cb) cb();
+        })
+        .catch(function(e) {
+          // SHA conflict - fetch novi SHA i retry
+          if(e.message && e.message.indexOf('409') !== -1) {
+            ghFetch('bericht/'+slug+'.html')
+              .then(function(f){ _berichtShas[slug]=f.sha; return ghPut('bericht/'+slug+'.html',html,'Bericht: '+p.titel,f.sha); })
+              .then(function(res){ _berichtShas[slug]=res.content.sha; toast('Veröffentlicht! ✓','ok'); })
+              .catch(function(e2){ toast('Fehler: '+e2.message.slice(0,60),'err'); });
+          } else {
+            toast('Publish-Fehler: '+e.message.slice(0,60),'err');
+          }
+        });
+    }
+
+    if(_tpl) {
+      buildAndPush(_tpl);
+    } else {
+      ghFetch('bericht/template.html')
+        .then(function(tf){ _tpl=decode(tf.content); buildAndPush(_tpl); })
+        .catch(function(e){ toast('Template Fehler: '+e.message.slice(0,50),'err'); });
+    }
+  });
 }
 
 // ===== SIDEBAR =====
