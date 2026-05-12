@@ -39,13 +39,17 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-11T21:20:00.960Z",
+    "updated": "2026-05-12T11:04:22.637Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
         "datum": "2026-05-04",
         "status": "completed",
-        "fotos": [],
+        "fotos": [
+          {
+            "caption": ""
+          }
+        ],
         "kommentare": [],
         "material": "Sikafloor 151",
         "obj_url": "https://poly.cam/capture/0D6DD9C5-CF93-470D-B5D8-B25C3226B98D"
