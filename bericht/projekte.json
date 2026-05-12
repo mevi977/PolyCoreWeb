@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T19:27:17.671Z",
+    "updated": "2026-05-12T20:04:58.964Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -50,6 +50,10 @@
             "caption": ""
           },
           {
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/yBc69hZz/mrelag-1778616295848.png",
             "caption": ""
           }
         ],
