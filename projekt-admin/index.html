@@ -217,24 +217,37 @@ function saveProjects(cb) {
   attempt(3);
 }
 
+var _cachedTemplate = null; // Cache template da ne fetchamo svaki put
+
 function publishBericht(slug, cb) {
   var p = projects[slug];
-  ghFetch('bericht/template.html')
-    .then(function(tf){
-      var html = decode(tf.content);
-      var tag = '<'+'script'+'>window.PROJEKT_DATA='+JSON.stringify(p)+';</'+'script'+'>';
-      html = html.replace('</head>', tag+'</head>');
-      return ghFetch('bericht/'+slug+'.html')
-        .then(function(f){ return f.sha; }).catch(function(){ return null; })
-        .then(function(sha){ return ghPut('bericht/'+slug+'.html', html, 'Bericht: '+p.titel, sha); });
-    })
-    .then(function(){
-      var url = 'https://www.polycore.ch/bericht/'+slug;
-      navigator.clipboard.writeText(url).catch(function(){});
-      toast('Veröffentlicht! Link kopiert ✓','ok');
-      if(cb) cb();
-    })
-    .catch(function(e){ toast('Publish-Fehler: '+e.message.slice(0,80),'err'); });
+  
+  function doPublish(templateHtml) {
+    var tag = '<'+'script'+'>window.PROJEKT_DATA='+JSON.stringify(p)+';</'+'script'+'>';
+    var html = templateHtml.replace('</head>', tag+'</head>');
+    ghFetch('bericht/'+slug+'.html')
+      .then(function(f){ return f.sha; }).catch(function(){ return null; })
+      .then(function(sha){ return ghPut('bericht/'+slug+'.html', html, 'Bericht: '+p.titel, sha); })
+      .then(function(){
+        var url = 'https://www.polycore.ch/bericht/'+slug;
+        navigator.clipboard.writeText(url).catch(function(){});
+        toast('Veröffentlicht! Link kopiert ✓','ok');
+        if(cb) cb();
+      })
+      .catch(function(e){ toast('Publish-Fehler: '+e.message.slice(0,80),'err'); });
+  }
+
+  if(_cachedTemplate) {
+    doPublish(_cachedTemplate);
+  } else {
+    toast('Template wird geladen...','');
+    ghFetch('bericht/template.html')
+      .then(function(tf){
+        _cachedTemplate = decode(tf.content);
+        doPublish(_cachedTemplate);
+      })
+      .catch(function(e){ toast('Template-Fehler: '+e.message.slice(0,60),'err'); });
+  }
 }
 
 // ===== SIDEBAR =====
@@ -310,23 +323,40 @@ function createProject() {
 function readFields(slug) {
   var p=projects[slug];
   // Osnovna polja
-  var kEl=document.getElementById('e-kunde');
-  if(kEl) p.kunde=kEl.value;
-  var oEl=document.getElementById('e-objekt');
-  if(oEl) p.objekt=oEl.value;
-  var dEl=document.getElementById('e-datum');
-  if(dEl) p.startdatum=dEl.value;
-  var fEl=document.getElementById('e-flaeche');
-  if(fEl) p.flaeche=fEl.value;
-  var sEl=document.getElementById('e-system');
-  if(sEl) p.system=sEl.value;
-  var pEl=document.getElementById('e-pw');
-  if(pEl) p.passwort=pEl.value;
-  var stEl=document.getElementById('e-status');
-  if(stEl) p.status=stEl.value;
+  var kEl=document.getElementById('e-kunde'); if(kEl) p.kunde=kEl.value;
+  var oEl=document.getElementById('e-objekt'); if(oEl) p.objekt=oEl.value;
+  var dEl=document.getElementById('e-datum'); if(dEl) p.startdatum=dEl.value;
+  var fEl=document.getElementById('e-flaeche'); if(fEl) p.flaeche=fEl.value;
+  var sEl=document.getElementById('e-system'); if(sEl) p.system=sEl.value;
+  var pEl=document.getElementById('e-pw'); if(pEl) p.passwort=pEl.value;
+  var stEl=document.getElementById('e-status'); if(stEl) p.status=stEl.value;
   p.updated=new Date().toISOString();
-  // Material, Aufmass i Regie se cuvaju direktno u projects[] kroz data-* change evente
-  // Ne treba citati iz DOM-a jer su vec u projektu
+
+  // Cisti citanje Extras direktno iz DOM-a (siguran fallback)
+  // Material
+  var matInputs=document.querySelectorAll('[data-mat][data-slug="'+slug+'"]');
+  matInputs.forEach(function(el){
+    var mi=parseInt(el.dataset.mi),k=el.dataset.key;
+    if(!p.materialien) p.materialien=[];
+    if(!p.materialien[mi]) p.materialien[mi]={name:'',menge:'',einheit:''};
+    p.materialien[mi][k]=el.value;
+  });
+  // Aufmass
+  var amInputs=document.querySelectorAll('[data-am][data-slug="'+slug+'"]');
+  amInputs.forEach(function(el){
+    var ai=parseInt(el.dataset.ai),k=el.dataset.key;
+    if(!p.aufmass) p.aufmass=[];
+    if(!p.aufmass[ai]) p.aufmass[ai]={bezeichnung:'',wert:'',einheit:''};
+    p.aufmass[ai][k]=el.value;
+  });
+  // Regie
+  var regieInputs=document.querySelectorAll('[data-regie][data-slug="'+slug+'"]');
+  regieInputs.forEach(function(el){
+    var ri=parseInt(el.dataset.ri),k=el.dataset.key;
+    if(!p.regie_tage) p.regie_tage=[];
+    if(!p.regie_tage[ri]) p.regie_tage[ri]={datum:'',beschreibung:'',stunden:'',mitarbeiter:''};
+    p.regie_tage[ri][k]=el.value;
+  });
 }
 
 function renderEditor(slug) {
@@ -675,20 +705,25 @@ document.addEventListener('click', function(e){
   }
 });
 
-document.addEventListener('change', function(e){
+// Koristimo i 'input' i 'change' da hvatamo sve promjene
+function handleExtrasInput(e){
   var t=e.target;
   if(t.dataset.mat){
     var s=t.dataset.slug,mi=parseInt(t.dataset.mi),k=t.dataset.key;
-    if(projects[s]&&projects[s].materialien[mi]) projects[s].materialien[mi][k]=t.value;
+    if(projects[s]&&projects[s].materialien&&projects[s].materialien[mi]) 
+      projects[s].materialien[mi][k]=t.value;
   } else if(t.dataset.am){
     var s=t.dataset.slug,ai=parseInt(t.dataset.ai),k=t.dataset.key;
-    if(projects[s]&&projects[s].aufmass[ai]) projects[s].aufmass[ai][k]=t.value;
+    if(projects[s]&&projects[s].aufmass&&projects[s].aufmass[ai]) 
+      projects[s].aufmass[ai][k]=t.value;
   } else if(t.dataset.regie){
     var s=t.dataset.slug,ri=parseInt(t.dataset.ri),k=t.dataset.key;
     if(!projects[s].regie_tage) projects[s].regie_tage=[];
     if(projects[s].regie_tage[ri]) projects[s].regie_tage[ri][k]=t.value;
   }
-});
+}
+document.addEventListener('input', handleExtrasInput);
+document.addEventListener('change', handleExtrasInput);
 
 // ===== DELETE PROJECT =====
 function deleteProject(slug) {
