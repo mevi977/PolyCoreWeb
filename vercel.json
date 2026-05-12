@@ -44,11 +44,5 @@
       "destination": "/",
       "permanent": true
     }
-  ],
-  "routes": [
-    {
-      "src": "/bericht/(?!index)([^/]+)",
-      "dest": "/bericht/index.html"
-    }
   ]
 }

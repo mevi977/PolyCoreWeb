@@ -274,12 +274,35 @@ function saveProjects(cb) {
 
 function publishBericht(slug, cb) {
   readFields(slug);
-  // Samo spremi projekte.json - bericht stranica cita direktno!
+  toast('Wird gespeichert...', '');
+  
+  // 1. Spremi projekte.json
   saveProjects(function() {
-    var url = 'https://www.polycore.ch/bericht/'+slug;
-    navigator.clipboard.writeText(url).catch(function(){});
-    toast('Gespeichert! Link kopiert ✓', 'ok');
-    if(cb) cb();
+    // 2. Kreiraj/azuriraj slug.html (kopija index.html) ako ne postoji
+    ghFetch('bericht/index.html')
+      .then(function(f) {
+        var indexHtml = decode(f.content);
+        // Provjeri postoji li slug.html
+        return ghFetch('bericht/'+slug+'.html')
+          .then(function(sf) { return {html: indexHtml, sha: sf.sha}; })
+          .catch(function() { return {html: indexHtml, sha: null}; });
+      })
+      .then(function(d) {
+        return ghPut('bericht/'+slug+'.html', d.html, 'Bericht: '+slug, d.sha);
+      })
+      .then(function() {
+        var url = 'https://www.polycore.ch/bericht/'+slug;
+        navigator.clipboard.writeText(url).catch(function(){});
+        toast('Veröffentlicht! Link kopiert ✓', 'ok');
+        if(cb) cb();
+      })
+      .catch(function(e) {
+        // Ako ne uspije kreiranje html-a, link jos uvijek radi kroz index.html
+        var url = 'https://www.polycore.ch/bericht/'+slug;
+        navigator.clipboard.writeText(url).catch(function(){});
+        toast('Gespeichert! Link: bericht/'+slug, 'ok');
+        if(cb) cb();
+      });
   });
 }
 
