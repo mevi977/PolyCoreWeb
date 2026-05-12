@@ -212,7 +212,21 @@ function loadProjects() {
     });
 }
 
+function cleanProjects() {
+  // Ukloni prazne fotos, materijale i regie pri svakom save
+  Object.keys(projects).forEach(function(slug) {
+    var p = projects[slug];
+    p.etappen.forEach(function(e) {
+      e.fotos = (e.fotos||[]).filter(function(f){ return f.url && f.url.trim(); });
+    });
+    if(p.materialien) p.materialien = p.materialien.filter(function(m){ return m.name && m.name.trim() && m.menge; });
+    if(p.aufmass) p.aufmass = p.aufmass.filter(function(a){ return a.bezeichnung && a.bezeichnung.trim(); });
+    if(p.regie_tage) p.regie_tage = p.regie_tage.filter(function(r){ return r.beschreibung || r.stunden; });
+  });
+}
+
 function saveProjects(cb) {
+  cleanProjects();
   function attempt(tries) {
     ghFetch('bericht/projekte.json')
       .then(function(f){ return f.sha; })

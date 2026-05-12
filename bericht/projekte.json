@@ -39,13 +39,21 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-12T20:51:53.974Z",
+    "updated": "2026-05-12T20:48:26.462Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
         "datum": "2026-05-04",
         "status": "completed",
         "fotos": [
+          {
+            "url": "https://i.ibb.co/yBc69hZz/mrelag-1778616295848.png",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Mx5qq0gh/mrelag-1778616469349.jpg",
+            "caption": ""
+          },
           {
             "url": "https://i.ibb.co/5hmkKgDB/mrelag-1778618882078.jpg",
             "caption": ""
@@ -139,31 +147,9 @@
         "name": "Sikafloor 151",
         "menge": "120",
         "einheit": "kg"
-      },
-      {
-        "name": "",
-        "menge": "",
-        "einheit": "kg"
-      },
-      {
-        "name": "",
-        "menge": "",
-        "einheit": "kg"
-      },
-      {
-        "name": "",
-        "menge": "",
-        "einheit": "kg"
       }
     ],
-    "regie_tage": [
-      {
-        "datum": "2026-05-12",
-        "beschreibung": "",
-        "stunden": "",
-        "mitarbeiter": ""
-      }
-    ]
+    "regie_tage": []
   },
   "testt": {
     "titel": "test",
