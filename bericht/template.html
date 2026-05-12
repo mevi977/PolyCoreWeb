@@ -202,6 +202,24 @@ function openLB(idx){
   showLBSlide();
   document.getElementById('lightbox').classList.add('show');
 }
+
+// Lokalna galerija po etapi
+var _localGal = [];
+function openLBLocal(galId, idx) {
+  _localGal = (window._galerien && window._galerien[galId]) || [];
+  galIdx = idx;
+  showLBLocalSlide();
+  document.getElementById('lightbox').classList.add('show');
+}
+function showLBLocalSlide(){
+  var f = _localGal[galIdx];
+  if(!f) return;
+  document.getElementById('lb-img').src = f.url;
+  document.getElementById('lb-caption').textContent = f.caption || '';
+  document.getElementById('lb-counter').textContent = (galIdx+1) + ' / ' + _localGal.length;
+  document.getElementById('lb-prev').style.display = _localGal.length > 1 ? 'flex' : 'none';
+  document.getElementById('lb-next').style.display = _localGal.length > 1 ? 'flex' : 'none';
+}
 function showLBSlide(){
   var f=galerie[galIdx];
   if(!f) return;
@@ -212,10 +230,15 @@ function showLBSlide(){
   document.getElementById('lb-next').style.display=galerie.length>1?'flex':'none';
 }
 function navLB(dir){
-  galIdx=(galIdx+dir+galerie.length)%galerie.length;
-  showLBSlide();
+  if(_localGal.length > 0) {
+    galIdx = (galIdx + dir + _localGal.length) % _localGal.length;
+    showLBLocalSlide();
+  } else {
+    galIdx = (galIdx + dir + galerie.length) % galerie.length;
+    showLBSlide();
+  }
 }
-function closeLB(){ document.getElementById('lightbox').classList.remove('show'); }
+function closeLB(){ document.getElementById('lightbox').classList.remove('show'); _localGal = []; }
 
 function render() {
   var p = P;
