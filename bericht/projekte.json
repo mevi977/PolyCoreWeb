@@ -206,5 +206,20 @@
         "kommentare": []
       }
     ]
+  },
+  "mrelagbe1": {
+    "titel": "Lagerbeschichtug | Sika Einstreubelag RAL 7032",
+    "slug": "mrelagbe1",
+    "kunde": "M REL AG",
+    "objekt": "Lager / Gantrischstrasse 1 , Zollikofen",
+    "startdatum": "2026-05-04",
+    "flaeche": "150 m²",
+    "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
+    "passwort": "7#mZ$2vK!9pQ*5tB",
+    "status": "done",
+    "updated": "2026-05-25T17:11:40.566Z",
+    "etappen": [],
+    "materialien": [],
+    "aufmass": []
   }
 }
