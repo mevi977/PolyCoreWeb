@@ -103,7 +103,7 @@ body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--i
 @media(max-width:600px){.cards{grid-template-columns:1fr 1fr}.extras-grid{grid-template-columns:1fr}.tle{padding-left:40px}.tl::before{left:12px}.tld{left:4px}.lbox-p{left:.25rem}.lbox-n{right:.25rem}}
 @media print{.pdf-btn,.screen{display:none!important}.mw{display:block!important;padding:0}}
 </style>
-</head>
+<script>window.__PROJEKT__ = {"titel": "test", "slug": "testt", "kunde": "test", "objekt": "test", "startdatum": "2026-05-12", "flaeche": "12", "system": "system", "passwort": "testt", "status": "active", "updated": "2026-05-11T21:45:11.338Z", "etappen": [{"titel": "Neue Etappe", "datum": "2026-05-11", "status": "pending", "fotos": [{"url": "https://www.polycore.ch/assets/img/balkonbern.png", "caption": "unterschrift"}, {"url": "https://www.polycore.ch/assets/img/Epoxy-boden.png", "caption": "mevi"}], "kommentare": [{"datum": "11.5.2026", "text": "komentar"}], "stunden": 32, "mitarbeiter": "b", "material": "SIKa", "beschreibung": "Beschreibung"}, {"titel": "Neue Etappe", "datum": "2026-05-11", "status": "pending", "fotos": [], "kommentare": []}]};</script></head>
 <body>
 
 <div class="screen" id="screen-load" style="background:var(--ink)">
@@ -150,6 +150,7 @@ body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--i
   PDF
 </button>
 
+
 <script>
 var LB = {fotos:[], idx:0};
 var P = null;
@@ -189,50 +190,7 @@ if(!slug || slug === 'index') {
 } else {
   // Koristimo JSDelivr koji ima kratki cache (10 min) ali podrzava purge
   // i GitHub API s random parametrom da zaobidemo browser cache
-  var ts = Date.now();
-  
-  // Pokusaj citati token iz localStorage (admin panel ga tamo chuva)
-  var ghTok = localStorage.getItem('pc_gh_tok') || '';
-  
-  function fetchProjects() {
-    // Ako imamo token, koristi GitHub API koji ne cachira
-    if(ghTok) {
-      return fetch('https://api.github.com/repos/mevi977/PolyCoreWeb/contents/bericht/projekte.json', {
-        headers: {
-          'Authorization': 'token ' + ghTok,
-          'Accept': 'application/vnd.github.v3+json',
-          'Cache-Control': 'no-cache'
-        },
-        cache: 'no-store'
-      })
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        var content = d.content.replace(/\n/g,'');
-        return JSON.parse(atob(content));
-      });
-    }
-    
-    // Bez tokena - raw URL s timestamp (GitHub cachira ~5min ali to je ok za klijente)
-    return fetch('https://raw.githubusercontent.com/mevi977/PolyCoreWeb/main/bericht/projekte.json?_='+ts, {
-      cache: 'no-store'
-    })
-    .then(function(r){ return r.json(); });
-  }
-  
-  fetchProjects()
-    .then(function(projects){
-      console.log('Projekti:', Object.keys(projects), 'Slug:', slug);
-      P = projects[slug];
-      if(!P){ show('screen-notfound'); return; }
-      show('screen-login');
-      document.getElementById('pw-btn').onclick = checkPW;
-      document.getElementById('pw').onkeydown = function(e){if(e.key==='Enter')checkPW();};
-      setTimeout(function(){document.getElementById('pw').focus();},100);
-    })
-    .catch(function(e){
-      console.error('Greska:', e);
-      show('screen-notfound');
-    });
+  // init - vidi na kraju skripte
 }
 
 function show(id){
@@ -372,6 +330,19 @@ function renderEt(e,i){
       fotosHtml+pcamHtml+kmtHtml+
     '</div></div>';
 }
+
+// INIT - mora biti na kraju nakon svih definicija funkcija
+(function() {
+  if(window.__PROJEKT__) {
+    P = window.__PROJEKT__;
+    show('screen-login');
+    document.getElementById('pw-btn').onclick = checkPW;
+    document.getElementById('pw').onkeydown = function(e){if(e.key==='Enter')checkPW();};
+    setTimeout(function(){document.getElementById('pw').focus();},100);
+  } else {
+    show('screen-notfound');
+  }
+})();
 </script>
 </body>
 </html>
