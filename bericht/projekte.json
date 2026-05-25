@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-25T04:13:07.173Z",
+    "updated": "2026-05-25T12:52:37.456Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -146,6 +146,11 @@
       {
         "name": "Sikafloor 151",
         "menge": "120",
+        "einheit": "kg"
+      },
+      {
+        "name": "Glasfasern SIKA",
+        "menge": "2",
         "einheit": "kg"
       }
     ],
