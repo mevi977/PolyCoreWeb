@@ -217,7 +217,7 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-25T18:00:47.424Z",
+    "updated": "2026-05-25T18:04:21.709Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung | Abriss",
@@ -1219,6 +1219,119 @@
         ],
         "kommentare": [],
         "material": "Sikafloor®-264 Plus, Sika Quarzsand 0.03-0.3, Sika Quarzsand 0.3-0.9"
+      },
+      {
+        "titel": "Deckschicht / Versiegelung ",
+        "datum": "2026-05-15",
+        "status": "completed",
+        "fotos": [
+          {
+            "url": "https://i.ibb.co/sSB2Tks/mrelagbe1-1779732232876.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/jvXHgy9X/mrelagbe1-1779732032777.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/0V8Y9M1g/mrelagbe1-1779732232879.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/9kTvXRXj/mrelagbe1-1779732232906.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/fG9rvDmd/mrelagbe1-1779732232891.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/tPWtJn66/mrelagbe1-1779732232900.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/h1fCjGMy/mrelagbe1-1779732232911.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/gb22xJhG/mrelagbe1-1779732232896.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Lds2C4NH/mrelagbe1-1779732232913.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/WWrT7XNh/mrelagbe1-1779732232905.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Q3QYNRZM/mrelagbe1-1779732232917.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/BV8f0Smk/mrelagbe1-1779732232883.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/KcvpnYj8/mrelagbe1-1779732232895.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/nMSc8Y7h/mrelagbe1-1779732232898.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/XfvJRgbn/mrelagbe1-1779732232868.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/1Y3vTpYX/mrelagbe1-1779732232886.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Z61bLzdH/mrelagbe1-1779732232901.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/z1zk2Hb/mrelagbe1-1779732232899.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/qYyQrjBy/mrelagbe1-1779732232903.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/QjPX8Myt/mrelagbe1-1779732232874.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/tTvnyK6x/mrelagbe1-1779732232871.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/LXRMQLRb/mrelagbe1-1779732232907.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/g5vGcJ5/mrelagbe1-1779732232909.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/LdpdqpFq/mrelagbe1-1779732232877.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/hRCq39MT/mrelagbe1-1779732232893.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/F4r47S9X/mrelagbe1-1779732232884.jpg",
+            "caption": ""
+          }
+        ],
+        "kommentare": [],
+        "material": "Sikafloor 264 Plus Ral 7032"
       }
     ],
     "materialien": [],
