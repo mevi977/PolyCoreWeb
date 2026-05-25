@@ -217,7 +217,7 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-25T17:33:01.227Z",
+    "updated": "2026-05-25T17:44:45.208Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung | Abriss",
@@ -794,6 +794,100 @@
         "material": "Sikafloor®-151, Epoxidharzmörtel ",
         "obj_url": "https://poly.cam/capture/0D6DD9C5-CF93-470D-B5D8-B25C3226B98D",
         "beschreibung": "Aufschneiden der vorhandenen Risse mittels Winkelschleifer, Reinigung und Vergiessen mit Epoxidharz-Bindemittel. Entfernung der im Untergrund verlegten Elektroinstallation sowie Verschluss der entstandenen Hohlräume. Anschliessend Aufmörtelung der Fehlstellen und Unebenheiten mit Epoxidharzmörtel bis zur erforderlichen Höhe. Abrechnung nach tatsächlichem Aufwand (Regie)."
+      },
+      {
+        "titel": "Untergrundvorbereitung | Grundierung",
+        "datum": "2026-05-11",
+        "status": "completed",
+        "fotos": [
+          {
+            "url": "https://i.ibb.co/LXns7gHM/mrelagbe1-1779730951565.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/YT1ZjvJx/mrelagbe1-1779730951600.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/mr3q7bZ8/mrelagbe1-1779730951560.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/7dkyM3tD/mrelagbe1-1779730951601.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/99jPvXGH/mrelagbe1-1779730951569.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/WpznkD6h/mrelagbe1-1779730951589.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/pv8gBJWK/mrelagbe1-1779730951592.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/dsPFcp5c/mrelagbe1-1779730951586.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/PZ35CJHx/mrelagbe1-1779730951576.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/vC9f877L/mrelagbe1-1779730951621.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/HDScM3dJ/mrelagbe1-1779730951611.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/xtchmVHm/mrelagbe1-1779730951603.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/60N8J75c/mrelagbe1-1779730951597.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/ymZ00mpH/mrelagbe1-1779730951624.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/7J6VwNpc/mrelagbe1-1779730951606.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/N2tKCgCG/mrelagbe1-1779730951617.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/gZ8StP6z/mrelagbe1-1779730951619.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/zWQvdzDq/mrelagbe1-1779730951583.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/fG0GvbsB/mrelagbe1-1779730951609.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/4wLcbJ8p/mrelagbe1-1779730951594.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/wh8qHnDq/mrelagbe1-1779730951626.jpg",
+            "caption": ""
+          }
+        ],
+        "kommentare": [],
+        "material": "Sikafloor®-151, Sika Glasfaserbewehrung Fiber 6 Level, Sikagard® Spezialgewebe",
+        "beschreibung": "Grundierung des Untergrundes mit Sikafloor-151 gemäss Offerte. Aufgrund des vorgefundenen Untergrundzustandes wurden zusätzlich Glasfasern in die frische Grundierungsschicht eingearbeitet sowie an Fugen und Rissen Sikagard® Spezialgewebe nass in nass eingebettet. Diese Mehrleistungen wurden als Regiearbeit ausgeführt und werden separat verrechnet."
       }
     ],
     "materialien": [],
