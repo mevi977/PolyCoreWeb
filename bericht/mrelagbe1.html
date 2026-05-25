@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Projektbericht | POLYCORE GmbH</title>
+<link rel="icon" href="/assets/img/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bx:#4a0e1a;--ink:#0a0a0a;--muted:#666;--border:#e4e4e4;--bg:#f8f7f5}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+.lbox{background:#fff;border-radius:20px;padding:2.5rem;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.15);text-align:center}
+.lbox img{width:150px;margin-bottom:1.5rem}
+.lbox h2{font-size:1.15rem;font-weight:700;margin-bottom:.3rem}
+.lbox p{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
+.fi{width:100%;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-size:.9rem;font-family:inherit;outline:none;margin-bottom:.75rem;display:block;transition:border-color .2s}
+.fi:focus{border-color:var(--bx)}
+.btnp{width:100%;padding:.8rem;background:var(--bx);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s}
+.btnp:hover{background:#3a0a14}
+.lerr{color:#c0392b;font-size:.8rem;margin-top:.5rem;display:none}
+.spin{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--bx);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mw{display:none;max-width:900px;margin:0 auto;padding:2rem 1.5rem 6rem}
+.rh{background:var(--ink);border-radius:20px;padding:2.5rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.rh::before{content:'';position:absolute;top:-40%;right:-5%;width:350px;height:350px;background:radial-gradient(circle,rgba(74,14,26,.7) 0%,transparent 70%);pointer-events:none}
+.rh img{width:110px;margin-bottom:1.5rem;opacity:.9;display:block}
+.rh-eye{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.5rem}
+.rh-title{font-size:clamp(1.5rem,5vw,2.75rem);font-weight:700;letter-spacing:-.04em;color:#fff;margin-bottom:.5rem;line-height:1.1}
+.rh-client{font-size:.88rem;color:rgba(255,255,255,.45)}
+.rh-client strong{color:rgba(255,255,255,.8)}
+.rh-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08)}
+.rh-mi{display:flex;flex-direction:column;gap:.2rem}
+.rh-ml{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.rh-mv{font-size:.85rem;font-weight:600;color:rgba(255,255,255,.75)}
+.rs{background:#fff;border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border:1px solid var(--border)}
+.sbadge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .9rem;border-radius:50px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.sbadge.active{background:#e8f5e9;color:#2e7d32}
+.sbadge.done{background:#fdf5f6;color:var(--bx)}
+.sbadge.paused{background:#fff3e0;color:#e65100}
+.pw{flex:1;min-width:180px}
+.plbl{font-size:.68rem;font-weight:600;color:var(--muted);margin-bottom:.4rem;display:flex;justify-content:space-between}
+.pbar{height:5px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.pfill{height:100%;background:linear-gradient(90deg,var(--bx),#8b1a2e);border-radius:3px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.card{background:#fff;border-radius:14px;padding:1.25rem;border:1px solid var(--border)}
+.card-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.card-val{font-size:1.75rem;font-weight:700;letter-spacing:-.04em}
+.card-unit{font-size:.78rem;color:var(--muted);margin-top:.1rem}
+.extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.extra-box{background:#fff;border-radius:14px;padding:1.25rem;border:1px solid var(--border)}
+.extra-ttl{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.extra-row{display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid var(--border);font-size:.83rem}
+.extra-row:last-child{border:none}
+.extra-key{color:var(--muted)}
+.extra-val{font-weight:600}
+.tl{position:relative}
+.tl::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:var(--border)}
+.tle{position:relative;padding-left:54px;margin-bottom:2.5rem}
+.tld{position:absolute;left:10px;top:4px;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--border);z-index:1}
+.tle.completed .tld{background:var(--bx);border-color:var(--bx)}
+.tle.active .tld{border-color:var(--bx);box-shadow:0 0 0 4px rgba(74,14,26,.1)}
+.tl-dt{font-size:.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.tl-card{background:#fff;border-radius:14px;padding:1.5rem;border:1px solid var(--border)}
+.tle.active .tl-card{border-color:rgba(74,14,26,.2);box-shadow:0 4px 16px rgba(74,14,26,.06)}
+.tl-phase{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bx);margin-bottom:.35rem}
+.tl-name{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.5rem}
+.tl-desc{font-size:.86rem;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.tl-meta{display:flex;gap:1rem;flex-wrap:wrap;padding:.9rem 1rem;background:var(--bg);border-radius:10px;margin-bottom:1rem}
+.tl-mi{font-size:.78rem;display:flex;gap:.35rem}
+.tl-ml{color:var(--muted)}.tl-mv{font-weight:600}
+.foto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.6rem;margin-top:.75rem}
+.foto-item{border-radius:10px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:#f0f0f0;position:relative}
+.foto-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.foto-item:hover img{transform:scale(1.05)}
+.foto-cap{position:absolute;bottom:0;left:0;right:0;padding:.35rem .5rem;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-size:.62rem;font-weight:600}
+.pcam{margin-top:.75rem;border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,.08)}
+.pcam-hd{background:#0a0a0a;padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem}
+.pcam-lbl{font-size:.63rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.pcam-link{margin-left:auto;font-size:.63rem;color:rgba(255,255,255,.35);text-decoration:none}
+.pcam-link:hover{color:#fff}
+.pcam-thumb{width:100%;height:260px;object-fit:cover;display:block}
+.pcam-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.9rem;background:#111;color:rgba(255,255,255,.65);font-size:.82rem;font-weight:600;text-decoration:none}
+.pcam-btn:hover{background:#1a1a1a;color:#fff}
+.kmts{margin-top:1rem;border-top:1px solid var(--border);padding-top:.75rem}
+.kmt{display:flex;gap:.6rem;margin-bottom:.6rem}
+.kmt-av{width:26px;height:26px;border-radius:50%;background:var(--bx);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0}
+.kmt-meta{font-size:.63rem;color:var(--muted);margin-bottom:.15rem}
+.kmt-text{font-size:.82rem;line-height:1.6;background:var(--bg);padding:.5rem .75rem;border-radius:0 8px 8px 8px}
+.lbox-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;align-items:center;justify-content:center}
+.lbox-bg.open{display:flex}
+.lbox-x{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.1);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center}
+.lbox-p,.lbox-n{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:#fff;width:50px;height:50px;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center}
+.lbox-p:hover,.lbox-n:hover{background:rgba(255,255,255,.2)}
+.lbox-p{left:1rem}.lbox-n{right:1rem}
+.lbox-img{max-width:88vw;max-height:82vh;border-radius:8px;object-fit:contain}
+.lbox-cap{color:rgba(255,255,255,.6);font-size:.82rem;text-align:center;margin-top:.6rem}
+.lbox-cnt{color:rgba(255,255,255,.3);font-size:.7rem;text-align:center;margin-top:.2rem}
+.pdf-btn{position:fixed;bottom:2rem;left:2rem;background:var(--ink);color:#fff;border:none;border-radius:50px;padding:.65rem 1.25rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px rgba(0,0,0,.2);z-index:100;display:none;align-items:center;gap:.5rem}
+.pdf-btn:hover{background:var(--bx)}
+@media(max-width:600px){.cards{grid-template-columns:1fr 1fr}.extras-grid{grid-template-columns:1fr}.tle{padding-left:40px}.tl::before{left:12px}.tld{left:4px}.lbox-p{left:.25rem}.lbox-n{right:.25rem}}
+@media print{.pdf-btn,.screen{display:none!important}.mw{display:block!important;padding:0}}
+</style>
+<script>window.__PROJEKT__ = {"titel":"Lagerbeschichtug | Sika Einstreubelag RAL 7032","slug":"mrelagbe1","kunde":"M REL AG","objekt":"Lager / Gantrischstrasse 1 , Zollikofen","startdatum":"2026-05-04","flaeche":"150 m²","system":"Sika Sikafloor 264 Plus ( 264N) Einstreubelag","passwort":"7#mZ$2vK!9pQ*5tB","status":"done","updated":"2026-05-25T18:04:29.646Z","etappen":[{"titel":"Untergrundvorbereitung | Abriss","datum":"2026-05-04","status":"completed","fotos":[{"url":"https://i.ibb.co/Y4kJXh5z/mrelagbe1-1779729569312.jpg","caption":""},{"url":"https://i.ibb.co/8gH50TP0/mrelagbe1-1779729569357.jpg","caption":""},{"url":"https://i.ibb.co/9k2ZkBhB/mrelagbe1-1779729569422.jpg","caption":""},{"url":"https://i.ibb.co/3myjVXQ9/mrelagbe1-1779729569392.jpg","caption":""},{"url":"https://i.ibb.co/6Jf89pP3/mrelagbe1-1779729569310.jpg","caption":""},{"url":"https://i.ibb.co/C52MzV4R/mrelagbe1-1779729569384.jpg","caption":""},{"url":"https://i.ibb.co/vCQw0xJd/mrelagbe1-1779729569393.jpg","caption":""},{"url":"https://i.ibb.co/60HhSL65/mrelagbe1-1779729569266.jpg","caption":""},{"url":"https://i.ibb.co/gMz2PByz/mrelagbe1-1779729569353.jpg","caption":""},{"url":"https://i.ibb.co/rGdD7vXF/mrelagbe1-1779729569358.jpg","caption":""},{"url":"https://i.ibb.co/RpRfjHNq/mrelagbe1-1779729569370.jpg","caption":""},{"url":"https://i.ibb.co/YFcJf6Zx/mrelagbe1-1779729569390.jpg","caption":""},{"url":"https://i.ibb.co/Pv78SpZv/mrelagbe1-1779729569401.jpg","caption":""},{"url":"https://i.ibb.co/4g9jFwCs/mrelagbe1-1779729569397.jpg","caption":""},{"url":"https://i.ibb.co/VY8NcrgL/mrelagbe1-1779729569421.jpg","caption":""},{"url":"https://i.ibb.co/84Lt7vLG/mrelagbe1-1779729569405.jpg","caption":""},{"url":"https://i.ibb.co/LzxSXXP2/mrelagbe1-1779729569348.jpg","caption":""},{"url":"https://i.ibb.co/NdLrz2sK/mrelagbe1-1779729569308.jpg","caption":""},{"url":"https://i.ibb.co/bgKVqHBZ/mrelagbe1-1779729569341.jpg","caption":""},{"url":"https://i.ibb.co/Zp76JLXw/mrelagbe1-1779729569368.jpg","caption":""},{"url":"https://i.ibb.co/sJyTRQQz/mrelagbe1-1779729569362.jpg","caption":""},{"url":"https://i.ibb.co/7xcCFPKx/mrelagbe1-1779729569374.jpg","caption":""},{"url":"https://i.ibb.co/fY3sKtVS/mrelagbe1-1779729569417.jpg","caption":""},{"url":"https://i.ibb.co/0pFHXk0N/mrelagbe1-1779729569419.jpg","caption":""},{"url":"https://i.ibb.co/x8KJTj52/mrelagbe1-1779729569424.jpg","caption":""},{"url":"https://i.ibb.co/rfqRngvW/mrelagbe1-1779729569455.jpg","caption":""},{"url":"https://i.ibb.co/gZZ6nPhm/mrelagbe1-1779729569363.jpg","caption":""},{"url":"https://i.ibb.co/Mk1W0Cnd/mrelagbe1-1779729569399.jpg","caption":""},{"url":"https://i.ibb.co/675FZ9bV/mrelagbe1-1779729569435.jpg","caption":""},{"url":"https://i.ibb.co/YBN67zKH/mrelagbe1-1779729569429.jpg","caption":""},{"url":"https://i.ibb.co/Cs4HSXcB/mrelagbe1-1779729569291.jpg","caption":""},{"url":"https://i.ibb.co/7JNm3L73/mrelagbe1-1779729569388.jpg","caption":""},{"url":"https://i.ibb.co/hFt86263/mrelagbe1-1779729569322.jpg","caption":""},{"url":"https://i.ibb.co/VcC0bk6n/mrelagbe1-1779729569359.jpg","caption":""},{"url":"https://i.ibb.co/SwFRQzTx/mrelagbe1-1779729569445.jpg","caption":""},{"url":"https://i.ibb.co/4CMCM3S/mrelagbe1-1779729569281.jpg","caption":""},{"url":"https://i.ibb.co/Kjb3qrqs/mrelagbe1-1779729569306.jpg","caption":""},{"url":"https://i.ibb.co/gbN8LTLr/mrelagbe1-1779729569354.jpg","caption":""},{"url":"https://i.ibb.co/ZpjMwGyJ/mrelagbe1-1779729569438.jpg","caption":""},{"url":"https://i.ibb.co/RTfcPJ84/mrelagbe1-1779729569442.jpg","caption":""},{"url":"https://i.ibb.co/ZnN5GxH/mrelagbe1-1779729569313.jpg","caption":""},{"url":"https://i.ibb.co/JwnP3x8z/mrelagbe1-1779729569333.jpg","caption":""},{"url":"https://i.ibb.co/Q3GWC42L/mrelagbe1-1779729569372.jpg","caption":""},{"url":"https://i.ibb.co/rKFRgzHB/mrelagbe1-1779729569433.jpg","caption":""},{"url":"https://i.ibb.co/LDPVtvPx/mrelagbe1-1779729569440.jpg","caption":""},{"url":"https://i.ibb.co/6R9mgDNZ/mrelagbe1-1779729569460.jpg","caption":""},{"url":"https://i.ibb.co/dwSWm1rw/mrelagbe1-1779729569453.jpg","caption":""},{"url":"https://i.ibb.co/HT8PCMSC/mrelagbe1-1779729569376.jpg","caption":""},{"url":"https://i.ibb.co/HDJB09N1/mrelagbe1-1779729569325.jpg","caption":""},{"url":"https://i.ibb.co/4R134CcD/mrelagbe1-1779729569463.jpg","caption":""},{"url":"https://i.ibb.co/yFtzbJWV/mrelagbe1-1779729569409.jpg","caption":""},{"url":"https://i.ibb.co/prdY5rgN/mrelagbe1-1779729569407.jpg","caption":""},{"url":"https://i.ibb.co/ch18QLhp/mrelagbe1-1779729569336.jpg","caption":""},{"url":"https://i.ibb.co/nq4Vgyd7/mrelagbe1-1779729569450.jpg","caption":""},{"url":"https://i.ibb.co/Ps4Sb832/mrelagbe1-1779729569412.jpg","caption":""},{"url":"https://i.ibb.co/jkb97tS5/mrelagbe1-1779729569379.jpg","caption":""},{"url":"https://i.ibb.co/6cc3rbcz/mrelagbe1-1779729569431.jpg","caption":""},{"url":"https://i.ibb.co/0pjRjMwR/mrelagbe1-1779729569328.jpg","caption":""},{"url":"https://i.ibb.co/ZzvR0Nbp/mrelagbe1-1779729569302.jpg","caption":""},{"url":"https://i.ibb.co/qYxCNZzF/mrelagbe1-1779729569447.jpg","caption":""},{"url":"https://i.ibb.co/VkDb1yP/mrelagbe1-1779729569288.jpg","caption":""},{"url":"https://i.ibb.co/DHH3bXTk/mrelagbe1-1779729569350.jpg","caption":""},{"url":"https://i.ibb.co/VYNXtVKr/mrelagbe1-1779729569385.jpg","caption":""},{"url":"https://i.ibb.co/pBcdzvqF/mrelagbe1-1779729569414.jpg","caption":""},{"url":"https://i.ibb.co/rGpqWY1b/mrelagbe1-1779729569395.jpg","caption":""},{"url":"https://i.ibb.co/b5LcTSR3/mrelagbe1-1779729569403.jpg","caption":""},{"url":"https://i.ibb.co/Myj5V2tx/mrelagbe1-1779729569315.jpg","caption":""},{"url":"https://i.ibb.co/0pLxj0DM/mrelagbe1-1779729569426.jpg","caption":""},{"url":"https://i.ibb.co/jk3F8rYG/mrelagbe1-1779729569365.jpg","caption":""},{"url":"https://i.ibb.co/Z6fVBGMn/mrelagbe1-1779729569331.jpg","caption":""},{"url":"https://i.ibb.co/Q7S85x8s/mrelagbe1-1779729569294.jpg","caption":""},{"url":"https://i.ibb.co/bjttY3Pp/mrelagbe1-1779729569457.jpg","caption":""}],"kommentare":[]},{"titel":"Untergrundvorbereitung (Regie) | Risssanierung (Aufschneiden und Vergiessen mit Epoxidharz), Entfernung der Elektroinstallation und Aufmörtelung mit Epoxidharzmörtel","datum":"2026-05-08","status":"completed","fotos":[{"url":"https://i.ibb.co/yB6pD6L2/mrelagbe1-1779730371960.jpg","caption":""},{"url":"https://i.ibb.co/67vDCgDH/mrelagbe1-1779730371964.jpg","caption":""},{"url":"https://i.ibb.co/LhhQgxdP/mrelagbe1-1779730371983.jpg","caption":""},{"url":"https://i.ibb.co/0Rnm2ncc/mrelagbe1-1779730371992.jpg","caption":""},{"url":"https://i.ibb.co/JwR6BLQY/mrelagbe1-1779730372014.jpg","caption":""},{"url":"https://i.ibb.co/DP5nxXGk/mrelagbe1-1779730371957.jpg","caption":""},{"url":"https://i.ibb.co/wr8KBDtN/mrelagbe1-1779730372012.jpg","caption":""},{"url":"https://i.ibb.co/jvLmbgcP/mrelagbe1-1779730371990.jpg","caption":""},{"url":"https://i.ibb.co/PGGfmjWC/mrelagbe1-1779730372066.jpg","caption":""},{"url":"https://i.ibb.co/zW03FLQj/mrelagbe1-1779730371952.jpg","caption":""},{"url":"https://i.ibb.co/d0bPmt7D/mrelagbe1-1779730371981.jpg","caption":""},{"url":"https://i.ibb.co/Z1GhgvdY/mrelagbe1-1779730372003.jpg","caption":""},{"url":"https://i.ibb.co/q60sqxG/mrelagbe1-1779730372037.jpg","caption":""},{"url":"https://i.ibb.co/bMzbRYzz/mrelagbe1-1779730372082.jpg","caption":""},{"url":"https://i.ibb.co/4n5ZfwQ7/mrelagbe1-1779730371970.jpg","caption":""},{"url":"https://i.ibb.co/4nP4rtrj/mrelagbe1-1779730372032.jpg","caption":""},{"url":"https://i.ibb.co/9knLRV6T/mrelagbe1-1779730372068.jpg","caption":""},{"url":"https://i.ibb.co/XZG1BX0y/mrelagbe1-1779730372046.jpg","caption":""},{"url":"https://i.ibb.co/gZVrTSpF/mrelagbe1-1779730372034.jpg","caption":""},{"url":"https://i.ibb.co/tp4LLdhm/mrelagbe1-1779730372005.jpg","caption":""},{"url":"https://i.ibb.co/WvdGdmgm/mrelagbe1-1779730372057.jpg","caption":""},{"url":"https://i.ibb.co/g8BsWZB/mrelagbe1-1779730372030.jpg","caption":""},{"url":"https://i.ibb.co/bgV9kxc1/mrelagbe1-1779730371973.jpg","caption":""},{"url":"https://i.ibb.co/SXWMpTrP/mrelagbe1-1779730372000.jpg","caption":""},{"url":"https://i.ibb.co/q3W66WRk/mrelagbe1-1779730371962.jpg","caption":""},{"url":"https://i.ibb.co/Ld7MjmmR/mrelagbe1-1779730371949.jpg","caption":""},{"url":"https://i.ibb.co/chh91djk/mrelagbe1-1779730372073.jpg","caption":""},{"url":"https://i.ibb.co/CK6mC1Gj/mrelagbe1-1779730371954.jpg","caption":""},{"url":"https://i.ibb.co/5hFfYhzn/mrelagbe1-1779730372133.jpg","caption":""},{"url":"https://i.ibb.co/wtfsfQZ/mrelagbe1-1779730371976.jpg","caption":""},{"url":"https://i.ibb.co/JW9kkcPQ/mrelagbe1-1779730372054.jpg","caption":""},{"url":"https://i.ibb.co/gb3VPRfq/mrelagbe1-1779730371985.jpg","caption":""},{"url":"https://i.ibb.co/BHk3RJHw/mrelagbe1-1779730372139.jpg","caption":""},{"url":"https://i.ibb.co/bRW78HkX/mrelagbe1-1779730372060.jpg","caption":""},{"url":"https://i.ibb.co/V05j0Xvw/mrelagbe1-1779730372023.jpg","caption":""},{"url":"https://i.ibb.co/x82Sjy2z/mrelagbe1-1779730372039.jpg","caption":""},{"url":"https://i.ibb.co/gLKDd8rw/mrelagbe1-1779730372026.jpg","caption":""},{"url":"https://i.ibb.co/B5twj8bS/mrelagbe1-1779730372075.jpg","caption":""},{"url":"https://i.ibb.co/QjHkTDng/mrelagbe1-1779730372142.jpg","caption":""},{"url":"https://i.ibb.co/jPPK9yxT/mrelagbe1-1779730372119.jpg","caption":""},{"url":"https://i.ibb.co/8gRpz8Tj/mrelagbe1-1779730372145.jpg","caption":""},{"url":"https://i.ibb.co/JR37hRXw/mrelagbe1-1779730372088.jpg","caption":""},{"url":"https://i.ibb.co/9XHbz34/mrelagbe1-1779730372078.jpg","caption":""},{"url":"https://i.ibb.co/zT4wvdMr/mrelagbe1-1779730372016.jpg","caption":""},{"url":"https://i.ibb.co/wrwsx25L/mrelagbe1-1779730372085.jpg","caption":""},{"url":"https://i.ibb.co/Mxf4kVG1/mrelagbe1-1779730372112.jpg","caption":""},{"url":"https://i.ibb.co/8Lnb1gxh/mrelagbe1-1779730372109.jpg","caption":""},{"url":"https://i.ibb.co/1Y0txS4F/mrelagbe1-1779730372105.jpg","caption":""},{"url":"https://i.ibb.co/j9phZPzv/mrelagbe1-1779730372115.jpg","caption":""},{"url":"https://i.ibb.co/gMVmsjcK/mrelagbe1-1779730372160.jpg","caption":""},{"url":"https://i.ibb.co/Lz2wYwQ0/mrelagbe1-1779730372020.jpg","caption":""},{"url":"https://i.ibb.co/tMkrPcjX/mrelagbe1-1779730372123.jpg","caption":""},{"url":"https://i.ibb.co/S46C0nH0/mrelagbe1-1779730372063.jpg","caption":""},{"url":"https://i.ibb.co/gF4zyvgz/mrelagbe1-1779730372098.jpg","caption":""},{"url":"https://i.ibb.co/sJCdfhpb/mrelagbe1-1779730372090.jpg","caption":""},{"url":"https://i.ibb.co/v6H81R33/mrelagbe1-1779730372050.jpg","caption":""},{"url":"https://i.ibb.co/dJMpYPzF/mrelagbe1-1779730372042.jpg","caption":""},{"url":"https://i.ibb.co/FkCPfJQR/mrelagbe1-1779730372136.jpg","caption":""},{"url":"https://i.ibb.co/XxHJmgFv/mrelagbe1-1779730372102.jpg","caption":""},{"url":"https://i.ibb.co/V0H9G9CZ/mrelagbe1-1779730372130.jpg","caption":""},{"url":"https://i.ibb.co/5WFwJx8K/mrelagbe1-1779730371978.jpg","caption":""},{"url":"https://i.ibb.co/ynzRh8p0/mrelagbe1-1779730372149.jpg","caption":""},{"url":"https://i.ibb.co/qLSd7Qz6/mrelagbe1-1779730372126.jpg","caption":""},{"url":"https://i.ibb.co/qFCrK4vP/mrelagbe1-1779730372155.jpg","caption":""},{"url":"https://i.ibb.co/SDV62cH8/mrelagbe1-1779730371995.jpg","caption":""},{"url":"https://i.ibb.co/SXc61WmJ/mrelagbe1-1779730372094.jpg","caption":""},{"url":"https://i.ibb.co/jv3P4Mgd/mrelagbe1-1779730372071.jpg","caption":""}],"kommentare":[],"stunden":9,"material":"Sikafloor®-151, Epoxidharzmörtel ","obj_url":"https://poly.cam/capture/0D6DD9C5-CF93-470D-B5D8-B25C3226B98D","beschreibung":"Aufschneiden der vorhandenen Risse mittels Winkelschleifer, Reinigung und Vergiessen mit Epoxidharz-Bindemittel. Entfernung der im Untergrund verlegten Elektroinstallation sowie Verschluss der entstandenen Hohlräume. Anschliessend Aufmörtelung der Fehlstellen und Unebenheiten mit Epoxidharzmörtel bis zur erforderlichen Höhe. Abrechnung nach tatsächlichem Aufwand (Regie)."},{"titel":"Untergrundvorbereitung | Grundierung","datum":"2026-05-11","status":"completed","fotos":[{"url":"https://i.ibb.co/LXns7gHM/mrelagbe1-1779730951565.jpg","caption":""},{"url":"https://i.ibb.co/YT1ZjvJx/mrelagbe1-1779730951600.jpg","caption":""},{"url":"https://i.ibb.co/mr3q7bZ8/mrelagbe1-1779730951560.jpg","caption":""},{"url":"https://i.ibb.co/7dkyM3tD/mrelagbe1-1779730951601.jpg","caption":""},{"url":"https://i.ibb.co/99jPvXGH/mrelagbe1-1779730951569.jpg","caption":""},{"url":"https://i.ibb.co/WpznkD6h/mrelagbe1-1779730951589.jpg","caption":""},{"url":"https://i.ibb.co/pv8gBJWK/mrelagbe1-1779730951592.jpg","caption":""},{"url":"https://i.ibb.co/dsPFcp5c/mrelagbe1-1779730951586.jpg","caption":""},{"url":"https://i.ibb.co/PZ35CJHx/mrelagbe1-1779730951576.jpg","caption":""},{"url":"https://i.ibb.co/vC9f877L/mrelagbe1-1779730951621.jpg","caption":""},{"url":"https://i.ibb.co/HDScM3dJ/mrelagbe1-1779730951611.jpg","caption":""},{"url":"https://i.ibb.co/xtchmVHm/mrelagbe1-1779730951603.jpg","caption":""},{"url":"https://i.ibb.co/60N8J75c/mrelagbe1-1779730951597.jpg","caption":""},{"url":"https://i.ibb.co/ymZ00mpH/mrelagbe1-1779730951624.jpg","caption":""},{"url":"https://i.ibb.co/7J6VwNpc/mrelagbe1-1779730951606.jpg","caption":""},{"url":"https://i.ibb.co/N2tKCgCG/mrelagbe1-1779730951617.jpg","caption":""},{"url":"https://i.ibb.co/gZ8StP6z/mrelagbe1-1779730951619.jpg","caption":""},{"url":"https://i.ibb.co/zWQvdzDq/mrelagbe1-1779730951583.jpg","caption":""},{"url":"https://i.ibb.co/fG0GvbsB/mrelagbe1-1779730951609.jpg","caption":""},{"url":"https://i.ibb.co/4wLcbJ8p/mrelagbe1-1779730951594.jpg","caption":""},{"url":"https://i.ibb.co/wh8qHnDq/mrelagbe1-1779730951626.jpg","caption":""}],"kommentare":[],"material":"Sikafloor®-151, Sika Glasfaserbewehrung Fiber 6 Level, Sikagard® Spezialgewebe","beschreibung":"Grundierung des Untergrundes mit Sikafloor-151 gemäss Offerte. Aufgrund des vorgefundenen Untergrundzustandes wurden zusätzlich Glasfasern in die frische Grundierungsschicht eingearbeitet sowie an Fugen und Rissen Sikagard® Spezialgewebe nass in nass eingebettet. Diese Mehrleistungen wurden als Regiearbeit ausgeführt und werden separat verrechnet."},{"titel":"Untergrundvorbereitung | Kratzspachtelung ","datum":"2026-05-25","status":"completed","fotos":[{"url":"https://i.ibb.co/tVy77wL/mrelagbe1-1779731578987.jpg","caption":""},{"url":"https://i.ibb.co/D2nk1kQ/mrelagbe1-1779731578997.jpg","caption":""},{"url":"https://i.ibb.co/cXtCFdV7/mrelagbe1-1779731578999.jpg","caption":""},{"url":"https://i.ibb.co/Nnf9dqHP/mrelagbe1-1779731578995.jpg","caption":""},{"url":"https://i.ibb.co/8g3WL1Y8/mrelagbe1-1779731578952.jpg","caption":""},{"url":"https://i.ibb.co/VG0T3Lr/mrelagbe1-1779731578980.jpg","caption":""},{"url":"https://i.ibb.co/3yyfCBwq/mrelagbe1-1779731578926.jpg","caption":""},{"url":"https://i.ibb.co/39XYgk5v/mrelagbe1-1779731578982.jpg","caption":""},{"url":"https://i.ibb.co/WpNfWKCz/mrelagbe1-1779731578935.jpg","caption":""},{"url":"https://i.ibb.co/Z1VXkH6h/mrelagbe1-1779731578963.jpg","caption":""},{"url":"https://i.ibb.co/HDZYPzvD/mrelagbe1-1779731578932.jpg","caption":""},{"url":"https://i.ibb.co/N2dL7hsT/mrelagbe1-1779731578961.jpg","caption":""},{"url":"https://i.ibb.co/sv4k38Ff/mrelagbe1-1779731578977.jpg","caption":""},{"url":"https://i.ibb.co/JWWcyMcV/mrelagbe1-1779731578948.jpg","caption":""},{"url":"https://i.ibb.co/sc0LnN6/mrelagbe1-1779731578921.jpg","caption":""},{"url":"https://i.ibb.co/nNv5phTw/mrelagbe1-1779731578958.jpg","caption":""},{"url":"https://i.ibb.co/23zqCYNx/mrelagbe1-1779731578965.jpg","caption":""},{"url":"https://i.ibb.co/27pjnTmP/mrelagbe1-1779731578937.jpg","caption":""},{"url":"https://i.ibb.co/GQ4KZgxp/mrelagbe1-1779731579002.jpg","caption":""},{"url":"https://i.ibb.co/TBGQgj4v/mrelagbe1-1779731578985.jpg","caption":""},{"url":"https://i.ibb.co/Kj6sg3cr/mrelagbe1-1779731578988.jpg","caption":""},{"url":"https://i.ibb.co/wZBcnMfP/mrelagbe1-1779731579007.jpg","caption":""},{"url":"https://i.ibb.co/36yYxzk/mrelagbe1-1779731578991.jpg","caption":""},{"url":"https://i.ibb.co/84zLsTCf/mrelagbe1-1779731579013.jpg","caption":""},{"url":"https://i.ibb.co/pvSCTNyG/mrelagbe1-1779731578950.jpg","caption":""},{"url":"https://i.ibb.co/665bGQL/mrelagbe1-1779731579010.jpg","caption":""},{"url":"https://i.ibb.co/DPxC7N2g/mrelagbe1-1779731579000.jpg","caption":""},{"url":"https://i.ibb.co/mVwjDFNr/mrelagbe1-1779731578970.jpg","caption":""},{"url":"https://i.ibb.co/Wv3cpF1v/mrelagbe1-1779731578993.jpg","caption":""},{"url":"https://i.ibb.co/0R7Hp1TB/mrelagbe1-1779731579004.jpg","caption":""},{"url":"https://i.ibb.co/GQSPTXM5/mrelagbe1-1779731578974.jpg","caption":""},{"url":"https://i.ibb.co/bRHK6mYK/mrelagbe1-1779731578956.jpg","caption":""},{"url":"https://i.ibb.co/G3xW73sV/mrelagbe1-1779731578967.jpg","caption":""},{"url":"https://i.ibb.co/KpwpXrCD/mrelagbe1-1779731578954.jpg","caption":""},{"url":"https://i.ibb.co/yJftRvM/mrelagbe1-1779731578945.jpg","caption":""}],"kommentare":[],"beschreibung":"Aufgrund des stark saugenden Untergrundes sowie erheblicher Unebenheiten wurden zusätzliche Arbeiten erforderlich. Die ausgeprägten Unebenheiten wurden maschinell abgeschliffen. Anschliessend wurde eine zusätzliche Kratzspachtelung mit Sikafloor-151 als kombinierten Arbeitsgang (Grundierung und Porenschluss in einem) ausgeführt, da der Untergrund die erste Grundierung stark aufgesogen hatte und eine weitere Schicht als Vorbereitung für den nachfolgenden Einstreubelag erforderlich war. Diese Mehrleistungen wurden als Regiearbeit ausgeführt und werden separat verrechnet.","material":"Sikafloor®-151 , Quarzsand 0.03 - 0.3 mm, Quarzsand 0.3 - 0.9 mm, Sika® Stellmittel T"},{"titel":"Einstreubelag | Sikafloor®-264 Plus mit Quarzsand (inkl. Vorschleifen)","datum":"2026-05-13","status":"completed","fotos":[{"url":"https://i.ibb.co/N2kY0PRN/mrelagbe1-1779732032742.jpg","caption":""},{"url":"https://i.ibb.co/GvhmPXqT/mrelagbe1-1779732032750.jpg","caption":""},{"url":"https://i.ibb.co/tjyYd2L/mrelagbe1-1779732032761.jpg","caption":""},{"url":"https://i.ibb.co/8nmf7fqn/mrelagbe1-1779732032774.jpg","caption":""},{"url":"https://i.ibb.co/9mG05XDq/mrelagbe1-1779732032752.jpg","caption":""},{"url":"https://i.ibb.co/jvNdHNpm/mrelagbe1-1779732032775.jpg","caption":""},{"url":"https://i.ibb.co/606BTc2H/mrelagbe1-1779732032771.jpg","caption":""},{"url":"https://i.ibb.co/S7V6Sdnh/mrelagbe1-1779732032772.jpg","caption":""},{"url":"https://i.ibb.co/nNRLFwPV/mrelagbe1-1779732032754.jpg","caption":""},{"url":"https://i.ibb.co/B2J7St5v/mrelagbe1-1779732032751.jpg","caption":""},{"url":"https://i.ibb.co/TMcDKTz5/mrelagbe1-1779732032743.jpg","caption":""},{"url":"https://i.ibb.co/qYvZ6pcs/mrelagbe1-1779732032747.jpg","caption":""},{"url":"https://i.ibb.co/4Rtwg3vT/mrelagbe1-1779732032765.jpg","caption":""},{"url":"https://i.ibb.co/jvXHgy9X/mrelagbe1-1779732032777.jpg","caption":""},{"url":"https://i.ibb.co/G4Gt70hg/mrelagbe1-1779732032755.jpg","caption":""},{"url":"https://i.ibb.co/TxsW5pzc/mrelagbe1-1779732032748.jpg","caption":""},{"url":"https://i.ibb.co/Q7GYqfn6/mrelagbe1-1779732032785.jpg","caption":""},{"url":"https://i.ibb.co/W4bYZrvH/mrelagbe1-1779732032764.jpg","caption":""},{"url":"https://i.ibb.co/60q1y4Hy/mrelagbe1-1779732032801.jpg","caption":""},{"url":"https://i.ibb.co/Tq1w1CzC/mrelagbe1-1779732032762.jpg","caption":""},{"url":"https://i.ibb.co/ymgdQ8JF/mrelagbe1-1779732032729.jpg","caption":""},{"url":"https://i.ibb.co/tMTRjsB8/mrelagbe1-1779732032776.jpg","caption":""},{"url":"https://i.ibb.co/3YSZh1bF/mrelagbe1-1779732032759.jpg","caption":""},{"url":"https://i.ibb.co/VcG5FBNc/mrelagbe1-1779732032791.jpg","caption":""},{"url":"https://i.ibb.co/dsBYL9Xt/mrelagbe1-1779732032789.jpg","caption":""},{"url":"https://i.ibb.co/gZ2464gr/mrelagbe1-1779732032809.jpg","caption":""},{"url":"https://i.ibb.co/cS6mx76v/mrelagbe1-1779732032812.jpg","caption":""},{"url":"https://i.ibb.co/Z1W0YX7y/mrelagbe1-1779732032783.jpg","caption":""},{"url":"https://i.ibb.co/BvK9d8C/mrelagbe1-1779732032786.jpg","caption":""},{"url":"https://i.ibb.co/3m6LZZSH/mrelagbe1-1779732032731.jpg","caption":""},{"url":"https://i.ibb.co/605kmW5X/mrelagbe1-1779732032796.jpg","caption":""},{"url":"https://i.ibb.co/zV0HW06z/mrelagbe1-1779732032739.jpg","caption":""},{"url":"https://i.ibb.co/p60qCMyC/mrelagbe1-1779732032768.jpg","caption":""},{"url":"https://i.ibb.co/gZqKQCjM/mrelagbe1-1779732032734.jpg","caption":""},{"url":"https://i.ibb.co/HDpWmg8t/mrelagbe1-1779732032806.jpg","caption":""},{"url":"https://i.ibb.co/XrHF9kRV/mrelagbe1-1779732032780.jpg","caption":""},{"url":"https://i.ibb.co/B5FT0pH3/mrelagbe1-1779732032745.jpg","caption":""},{"url":"https://i.ibb.co/yczMYsx6/mrelagbe1-1779732032767.jpg","caption":""},{"url":"https://i.ibb.co/v6MBgHmg/mrelagbe1-1779732032793.jpg","caption":""},{"url":"https://i.ibb.co/1GXLk7bv/mrelagbe1-1779732032804.jpg","caption":""},{"url":"https://i.ibb.co/j9zzx2JH/mrelagbe1-1779732032799.jpg","caption":""},{"url":"https://i.ibb.co/PvLtjmn3/mrelagbe1-1779732032760.jpg","caption":""},{"url":"https://i.ibb.co/0RZWcrxv/mrelagbe1-1779732032779.jpg","caption":""}],"kommentare":[],"material":"Sikafloor®-264 Plus, Sika Quarzsand 0.03-0.3, Sika Quarzsand 0.3-0.9"},{"titel":"Deckschicht / Versiegelung ","datum":"2026-05-15","status":"completed","fotos":[{"url":"https://i.ibb.co/sSB2Tks/mrelagbe1-1779732232876.jpg","caption":""},{"url":"https://i.ibb.co/jvXHgy9X/mrelagbe1-1779732032777.jpg","caption":""},{"url":"https://i.ibb.co/0V8Y9M1g/mrelagbe1-1779732232879.jpg","caption":""},{"url":"https://i.ibb.co/9kTvXRXj/mrelagbe1-1779732232906.jpg","caption":""},{"url":"https://i.ibb.co/fG9rvDmd/mrelagbe1-1779732232891.jpg","caption":""},{"url":"https://i.ibb.co/tPWtJn66/mrelagbe1-1779732232900.jpg","caption":""},{"url":"https://i.ibb.co/h1fCjGMy/mrelagbe1-1779732232911.jpg","caption":""},{"url":"https://i.ibb.co/gb22xJhG/mrelagbe1-1779732232896.jpg","caption":""},{"url":"https://i.ibb.co/Lds2C4NH/mrelagbe1-1779732232913.jpg","caption":""},{"url":"https://i.ibb.co/WWrT7XNh/mrelagbe1-1779732232905.jpg","caption":""},{"url":"https://i.ibb.co/Q3QYNRZM/mrelagbe1-1779732232917.jpg","caption":""},{"url":"https://i.ibb.co/BV8f0Smk/mrelagbe1-1779732232883.jpg","caption":""},{"url":"https://i.ibb.co/KcvpnYj8/mrelagbe1-1779732232895.jpg","caption":""},{"url":"https://i.ibb.co/nMSc8Y7h/mrelagbe1-1779732232898.jpg","caption":""},{"url":"https://i.ibb.co/XfvJRgbn/mrelagbe1-1779732232868.jpg","caption":""},{"url":"https://i.ibb.co/1Y3vTpYX/mrelagbe1-1779732232886.jpg","caption":""},{"url":"https://i.ibb.co/Z61bLzdH/mrelagbe1-1779732232901.jpg","caption":""},{"url":"https://i.ibb.co/z1zk2Hb/mrelagbe1-1779732232899.jpg","caption":""},{"url":"https://i.ibb.co/qYyQrjBy/mrelagbe1-1779732232903.jpg","caption":""},{"url":"https://i.ibb.co/QjPX8Myt/mrelagbe1-1779732232874.jpg","caption":""},{"url":"https://i.ibb.co/tTvnyK6x/mrelagbe1-1779732232871.jpg","caption":""},{"url":"https://i.ibb.co/LXRMQLRb/mrelagbe1-1779732232907.jpg","caption":""},{"url":"https://i.ibb.co/g5vGcJ5/mrelagbe1-1779732232909.jpg","caption":""},{"url":"https://i.ibb.co/LdpdqpFq/mrelagbe1-1779732232877.jpg","caption":""},{"url":"https://i.ibb.co/hRCq39MT/mrelagbe1-1779732232893.jpg","caption":""},{"url":"https://i.ibb.co/F4r47S9X/mrelagbe1-1779732232884.jpg","caption":""}],"kommentare":[],"material":"Sikafloor 264 Plus Ral 7032"}],"materialien":[],"aufmass":[]};</script></head>
+<body>
+
+<div class="screen" id="screen-load" style="background:var(--ink)">
+  <div class="lbox">
+    <div class="spin"></div>
+    <p style="color:var(--muted);font-size:.85rem">Wird geladen...</p>
+  </div>
+</div>
+
+<div class="screen" id="screen-notfound" style="display:none">
+  <div class="lbox">
+    <img src="/assets/img/PolyCoreLogo.png" alt="POLYCORE"/>
+    <h2>Projekt nicht gefunden</h2>
+    <p>Der angeforderte Projektbericht existiert nicht oder der Link ist ungültig.</p>
+  </div>
+</div>
+
+<div class="screen" id="screen-login" style="display:none">
+  <div class="lbox">
+    <img src="/assets/img/PolyCoreLogo.png" alt="POLYCORE"/>
+    <h2>Projektbericht</h2>
+    <p>Bitte geben Sie das Passwort ein, das Sie von POLYCORE GmbH erhalten haben.</p>
+    <input class="fi" type="password" id="pw" placeholder="Passwort eingeben..."/>
+    <button class="btnp" id="pw-btn">Bericht öffnen</button>
+    <div class="lerr" id="pw-err">Falsches Passwort. Bitte erneut versuchen.</div>
+  </div>
+</div>
+
+<div class="mw" id="mw"></div>
+
+<div class="lbox-bg" id="lbg">
+  <button class="lbox-x" id="lbx">✕</button>
+  <button class="lbox-p" id="lbp">&#8249;</button>
+  <div style="display:flex;flex-direction:column;align-items:center">
+    <img class="lbox-img" id="lbi" src="" alt=""/>
+    <div class="lbox-cap" id="lbc"></div>
+    <div class="lbox-cnt" id="lbct"></div>
+  </div>
+  <button class="lbox-n" id="lbn">&#8250;</button>
+</div>
+
+<button class="pdf-btn" id="pdf-btn" onclick="window.print()">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+  PDF
+</button>
+
+
+<script>
+var LB = {fotos:[], idx:0};
+var P = null;
+
+// Citaj slug iz URL-a: /bericht/mrelag ili ?p=mrelag
+var slug = '';
+var path = window.location.pathname;
+var match = path.match(/\/bericht\/([^\/\?#]+)/);
+if(match) slug = match[1];
+if(!slug) slug = new URLSearchParams(window.location.search).get('p') || '';
+
+// Lightbox
+document.getElementById('lbx').onclick = closeLB;
+document.getElementById('lbp').onclick = function(){navLB(-1);};
+document.getElementById('lbn').onclick = function(){navLB(1);};
+document.getElementById('lbg').onclick = function(e){if(e.target===this)closeLB();};
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeLB();
+  else if(e.key==='ArrowLeft')navLB(-1);
+  else if(e.key==='ArrowRight')navLB(1);
+});
+function openLB(fotos,idx){LB={fotos:fotos,idx:idx};updateLB();document.getElementById('lbg').classList.add('open');document.body.style.overflow='hidden';}
+function closeLB(){document.getElementById('lbg').classList.remove('open');document.body.style.overflow='';}
+function navLB(d){LB.idx=(LB.idx+d+LB.fotos.length)%LB.fotos.length;updateLB();}
+function updateLB(){
+  var f=LB.fotos[LB.idx];
+  document.getElementById('lbi').src=f.url;
+  document.getElementById('lbc').textContent=f.caption||'';
+  document.getElementById('lbct').textContent=(LB.idx+1)+' / '+LB.fotos.length;
+  document.getElementById('lbp').style.display=LB.fotos.length>1?'flex':'none';
+  document.getElementById('lbn').style.display=LB.fotos.length>1?'flex':'none';
+}
+
+// Ucitaj podatke
+if(!slug || slug === 'index') {
+  show('screen-notfound');
+} else {
+  // Koristimo JSDelivr koji ima kratki cache (10 min) ali podrzava purge
+  // i GitHub API s random parametrom da zaobidemo browser cache
+  // init - vidi na kraju skripte
+}
+
+function show(id){
+  ['screen-load','screen-notfound','screen-login'].forEach(function(s){
+    document.getElementById(s).style.display='none';
+  });
+  var el=document.getElementById(id);
+  if(el) el.style.display='flex';
+}
+
+function checkPW(){
+  if(document.getElementById('pw').value===P.passwort){
+    show('screen-load');
+    document.getElementById('screen-load').style.display='none';
+    document.getElementById('pdf-btn').style.display='flex';
+    render();
+  } else {
+    document.getElementById('pw-err').style.display='block';
+    document.getElementById('pw').value='';
+    document.getElementById('pw').focus();
+  }
+}
+
+function render(){
+  var p=P;
+  var totalH=p.etappen.reduce(function(s,e){return s+(+e.stunden||0);},0);
+  var doneN=p.etappen.filter(function(e){return e.status==='completed';}).length;
+  var prog=p.etappen.length?Math.round(doneN/p.etappen.length*100):0;
+  var totalF=p.etappen.reduce(function(s,e){return s+((e.fotos||[]).filter(function(f){return f.url;}).length);},0);
+  var stMap={active:'In Ausführung',done:'Abgeschlossen',paused:'Pausiert'};
+
+  var matHtml='';
+  if(p.materialien&&p.materialien.filter(function(m){return m.name;}).length){
+    matHtml='<div class="extra-box"><div class="extra-ttl">Materialien &amp; Mengen</div>'+
+      p.materialien.filter(function(m){return m.name;}).map(function(m){
+        return '<div class="extra-row"><span class="extra-key">'+m.name+'</span><span class="extra-val">'+m.menge+' '+m.einheit+'</span></div>';
+      }).join('')+'</div>';
+  }
+  var amHtml='';
+  if(p.aufmass&&p.aufmass.filter(function(a){return a.bezeichnung;}).length){
+    amHtml='<div class="extra-box"><div class="extra-ttl">Aufmaß</div>'+
+      p.aufmass.filter(function(a){return a.bezeichnung;}).map(function(a){
+        return '<div class="extra-row"><span class="extra-key">'+a.bezeichnung+'</span><span class="extra-val">'+a.wert+' '+a.einheit+'</span></div>';
+      }).join('')+'</div>';
+  }
+  var regieHtml='';
+  if(p.regie_tage&&p.regie_tage.filter(function(r){return r.beschreibung||r.stunden;}).length){
+    var rt=p.regie_tage.filter(function(r){return r.beschreibung||r.stunden;});
+    var regT=rt.reduce(function(s,r){return s+(+r.stunden||0);},0);
+    regieHtml='<div class="extra-box" style="grid-column:1/-1"><div class="extra-ttl">Regie-Tagesbericht ('+regT+'h gesamt)</div>'+
+      rt.map(function(r){
+        return '<div class="extra-row"><span class="extra-key">'+r.datum+(r.beschreibung?' · '+r.beschreibung:'')+(r.mitarbeiter?' · '+r.mitarbeiter:'')+'</span><span class="extra-val">'+(r.stunden||0)+'h</span></div>';
+      }).join('')+'</div>';
+  }
+  var extrasHtml=(matHtml||amHtml||regieHtml)?'<div class="extras-grid">'+matHtml+amHtml+regieHtml+'</div>':'';
+
+  var html=
+    '<div class="rh">'+
+      '<img src="/assets/img/1PolyCoreLogo.png" alt="POLYCORE"/>'+
+      '<div class="rh-eye">Projektbericht · POLYCORE GmbH</div>'+
+      '<div class="rh-title">'+(p.titel||'')+'</div>'+
+      '<div class="rh-client">Auftraggeber: <strong>'+(p.kunde||'—')+'</strong></div>'+
+      '<div class="rh-meta">'+
+        mkM('Objekt',p.objekt)+mkM('Startdatum',p.startdatum)+mkM('Fläche',p.flaeche)+mkM('System',p.system)+
+      '</div>'+
+    '</div>'+
+    '<div class="rs">'+
+      '<span class="sbadge '+(p.status||'active')+'">'+(stMap[p.status]||'—')+'</span>'+
+      '<div class="pw"><div class="plbl"><span>Fortschritt</span><span>'+doneN+'/'+p.etappen.length+' Arbeitsschritte</span></div>'+
+      '<div class="pbar"><div class="pfill" style="width:'+prog+'%"></div></div></div>'+
+    '</div>'+
+    '<div class="cards">'+
+      mkC('Arbeitsstunden',totalH,'Stunden gesamt')+
+      mkC('Arbeitsschritte',p.etappen.length,doneN+' abgeschlossen')+
+      mkC('Fotos',totalF,'Dokumentiert')+
+    '</div>'+
+    extrasHtml+
+    '<div class="tl">'+p.etappen.map(renderEt).join('')+'</div>';
+
+  document.getElementById('mw').innerHTML=html;
+  document.getElementById('mw').style.display='block';
+}
+
+function mkM(l,v){return '<div class="rh-mi"><span class="rh-ml">'+l+'</span><span class="rh-mv">'+(v||'—')+'</span></div>';}
+function mkC(l,v,u){return '<div class="card"><div class="card-lbl">'+l+'</div><div class="card-val">'+v+'</div><div class="card-unit">'+u+'</div></div>';}
+
+function renderEt(e,i){
+  var fotos=(e.fotos||[]).filter(function(f){return f.url;});
+  var stL={pending:'Ausstehend',active:'In Bearbeitung',completed:'Abgeschlossen'};
+
+  var fotosHtml='';
+  if(fotos.length){
+    var fs=JSON.stringify(fotos);
+    fotosHtml='<div class="foto-grid">'+
+      fotos.map(function(f,fi){
+        return '<div class="foto-item" onclick=\'openLB('+fs+','+fi+')\'>'+
+          '<img src="'+f.url+'" alt="" loading="lazy"/>'+
+          (f.caption?'<div class="foto-cap">'+f.caption+'</div>':'')+
+        '</div>';
+      }).join('')+'</div>';
+  }
+
+  var pcamHtml='';
+  if(e.obj_url&&e.obj_url.indexOf('poly.cam/capture/')!==-1){
+    var id=e.obj_url.split('poly.cam/capture/')[1].replace(/[/?#].*/,'');
+    var thumb='https://poly.cam/api/capture/'+id+'/artifacts/thumbnail.jpg';
+    pcamHtml='<div class="pcam">'+
+      '<div class="pcam-hd"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>'+
+      '<span class="pcam-lbl">3D-Scan · Polycam</span>'+
+      '<a href="'+e.obj_url+'" target="_blank" class="pcam-link">Vollbild ↗</a></div>'+
+      '<img class="pcam-thumb" src="'+thumb+'" alt="3D Scan" loading="lazy"/>'+
+      '<a href="'+e.obj_url+'" target="_blank" class="pcam-btn">'+
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>'+
+        'Interaktives 3D-Modell öffnen</a></div>';
+  }
+
+  var kmtHtml='';
+  if(e.kommentare&&e.kommentare.length){
+    kmtHtml='<div class="kmts">'+e.kommentare.map(function(k){
+      return '<div class="kmt"><div class="kmt-av">PC</div>'+
+        '<div><div class="kmt-meta">'+(k.datum||'')+'</div><div class="kmt-text">'+k.text+'</div></div></div>';
+    }).join('')+'</div>';
+  }
+
+  return '<div class="tle '+(e.status||'')+'">'+
+    '<div class="tld"></div>'+
+    '<div class="tl-dt">'+(e.datum||'')+'</div>'+
+    '<div class="tl-card">'+
+      '<div class="tl-phase">Arbeitsschritt '+(i+1)+' · '+(stL[e.status]||'')+'</div>'+
+      '<div class="tl-name">'+(e.titel||'')+'</div>'+
+      (e.beschreibung?'<div class="tl-desc">'+e.beschreibung+'</div>':'')+
+      '<div class="tl-meta">'+
+        (e.stunden?'<div class="tl-mi"><span class="tl-ml">Stunden:</span><span class="tl-mv">'+e.stunden+'h</span></div>':'')+
+        (e.mitarbeiter?'<div class="tl-mi"><span class="tl-ml">Team:</span><span class="tl-mv">'+e.mitarbeiter+'</span></div>':'')+
+        (e.material?'<div class="tl-mi"><span class="tl-ml">Material:</span><span class="tl-mv">'+e.material+'</span></div>':'')+
+      '</div>'+
+      fotosHtml+pcamHtml+kmtHtml+
+    '</div></div>';
+}
+
+// INIT - mora biti na kraju nakon svih definicija funkcija
+(function() {
+  if(window.__PROJEKT__) {
+    P = window.__PROJEKT__;
+    show('screen-login');
+    document.getElementById('pw-btn').onclick = checkPW;
+    document.getElementById('pw').onkeydown = function(e){if(e.key==='Enter')checkPW();};
+    setTimeout(function(){document.getElementById('pw').focus();},100);
+  } else {
+    show('screen-notfound');
+  }
+})();
+</script>
+</body>
+</html>
