@@ -39,7 +39,7 @@
     "system": "EP",
     "passwort": "mrelag2026",
     "status": "active",
-    "updated": "2026-05-25T12:52:37.456Z",
+    "updated": "2026-05-25T12:53:10.378Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung Abriss",
@@ -140,6 +140,11 @@
         "bezeichnung": "Risssanierung",
         "wert": "7",
         "einheit": "m"
+      },
+      {
+        "bezeichnung": "Fugenüberbrückung mit Glasfasernvlies",
+        "wert": "10",
+        "einheit": "m²"
       }
     ],
     "materialien": [
