@@ -54,7 +54,7 @@ textarea.fi,textarea.fi0{resize:vertical;min-height:70px}
 .fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
 .lbx{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
 .lurl{font-size:.76rem;font-family:monospace;color:var(--bx);flex:1;word-break:break-all}
-/* Etappen */
+/* Arbeitsschritte */
 .ec{background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:.75rem}
 .eh{display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
 .en{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -453,7 +453,7 @@ function renderEditor(slug) {
     // Tabs
     '<div class="tabs">'+
       '<button class="tab active" data-tab="projekt">Projekt</button>'+
-      '<button class="tab" data-tab="etappen">Etappen ('+p.etappen.length+')</button>'+
+      '<button class="tab" data-tab="etappen">Arbeitsschritte ('+p.etappen.length+')</button>'+
       '<button class="tab" data-tab="extras">Regie &amp; Material</button>'+
     '</div>'+
     // Tab: Projekt
@@ -477,12 +477,12 @@ function renderEditor(slug) {
       '</div>'+
       '<div style="display:flex;justify-content:flex-end;margin-top:.5rem"><button class="btn bdel" id="btn-del">Projekt löschen</button></div>'+
     '</div>'+
-    // Tab: Etappen
+    // Tab: Arbeitsschritte
     '<div class="tab-pane" id="tab-etappen">'+
       '<div style="display:flex;justify-content:flex-end;margin-bottom:1rem">'+
-        '<button class="btn bd" id="btn-add-et">+ Etappe hinzufügen</button>'+
+        '<button class="btn bd" id="btn-add-et">+ Arbeitsschritt hinzufügen</button>'+
       '</div>'+
-      '<div id="et-list">'+renderEtappenList(slug)+'</div>'+
+      '<div id="et-list">'+renderArbeitsschritteList(slug)+'</div>'+
     '</div>'+
     // Tab: Extras
     '<div class="tab-pane" id="tab-extras">'+renderExtras(slug)+'</div>';
@@ -517,7 +517,7 @@ function renderEditor(slug) {
     else if(a==='delfoto') { projects[s].etappen[i].fotos.splice(fi,1); refreshEtList(s); }
     else if(a==='delcmt') { projects[s].etappen[i].kommentare.splice(ki,1); refreshEtList(s); }
     else if(a==='addcmt') { addComment(s,i); }
-    else if(a==='delet') { if(confirm('Etappe löschen?')){ projects[s].etappen.splice(i,1); refreshEtList(s); } }
+    else if(a==='delet') { if(confirm('Arbeitsschritt löschen?')){ projects[s].etappen.splice(i,1); refreshEtList(s); } }
   });
   document.getElementById('et-list').addEventListener('change', function(e){
     var t=e.target.closest('[data-upet]');
@@ -534,13 +534,13 @@ function renderEditor(slug) {
 }
 
 function refreshEtList(slug) {
-  document.getElementById('et-list').innerHTML = renderEtappenList(slug);
+  document.getElementById('et-list').innerHTML = renderArbeitsschritteList(slug);
 }
 
 // ===== ETAPPEN =====
-function renderEtappenList(slug) {
+function renderArbeitsschritteList(slug) {
   var p=projects[slug];
-  if(!p.etappen.length) return '<p style="text-align:center;color:var(--muted);padding:2rem;font-size:.83rem">Noch keine Etappen.</p>';
+  if(!p.etappen.length) return '<p style="text-align:center;color:var(--muted);padding:2rem;font-size:.83rem">Noch keine Arbeitsschritte.</p>';
   return p.etappen.map(function(e,i){ return renderEtappe(e,i,slug); }).join('');
 }
 
@@ -568,7 +568,7 @@ function renderEtappe(e,i,slug) {
   return '<div class="ec">'+
     '<div class="eh" data-action="toggle" data-i="'+i+'">'+
       '<div class="en">'+(i+1)+'</div>'+
-      '<div class="etname">'+(e.titel||'Etappe '+(i+1))+'</div>'+
+      '<div class="etname">'+(e.titel||'Arbeitsschritt '+(i+1))+'</div>'+
       '<span class="sp '+st+'">'+stlbl+'</span>'+
       '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'+
     '</div>'+
@@ -602,7 +602,7 @@ function renderEtappe(e,i,slug) {
         '</div>'+
       '</div>'+
       '<div style="display:flex;justify-content:flex-end;margin-top:1rem">'+
-        '<button class="btn bdel" style="padding:.4rem .9rem;font-size:.75rem" data-action="delet" data-slug="'+slug+'" data-i="'+i+'">Etappe löschen</button>'+
+        '<button class="btn bdel" style="padding:.4rem .9rem;font-size:.75rem" data-action="delet" data-slug="'+slug+'" data-i="'+i+'">Arbeitsschritt löschen</button>'+
       '</div>'+
     '</div>'+
   '</div>';
@@ -616,7 +616,7 @@ function toggleEt(i){
 function addEtappe(slug){
   projects[slug].etappen.push({titel:'Neue Etappe',datum:new Date().toISOString().slice(0,10),status:'pending',fotos:[],kommentare:[]});
   refreshEtList(slug);
-  document.querySelector('.tab[data-tab="etappen"]').textContent='Etappen ('+projects[slug].etappen.length+')';
+  document.querySelector('.tab[data-tab="etappen"]').textContent='Arbeitsschritte ('+projects[slug].etappen.length+')';
 }
 
 function addComment(slug,i){

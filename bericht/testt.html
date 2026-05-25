@@ -259,12 +259,12 @@ function render(){
     '</div>'+
     '<div class="rs">'+
       '<span class="sbadge '+(p.status||'active')+'">'+(stMap[p.status]||'—')+'</span>'+
-      '<div class="pw"><div class="plbl"><span>Fortschritt</span><span>'+doneN+'/'+p.etappen.length+' Etappen</span></div>'+
+      '<div class="pw"><div class="plbl"><span>Fortschritt</span><span>'+doneN+'/'+p.etappen.length+' Arbeitsschritte</span></div>'+
       '<div class="pbar"><div class="pfill" style="width:'+prog+'%"></div></div></div>'+
     '</div>'+
     '<div class="cards">'+
       mkC('Arbeitsstunden',totalH,'Stunden gesamt')+
-      mkC('Etappen',p.etappen.length,doneN+' abgeschlossen')+
+      mkC('Arbeitsschritte',p.etappen.length,doneN+' abgeschlossen')+
       mkC('Fotos',totalF,'Dokumentiert')+
     '</div>'+
     extrasHtml+
@@ -319,7 +319,7 @@ function renderEt(e,i){
     '<div class="tld"></div>'+
     '<div class="tl-dt">'+(e.datum||'')+'</div>'+
     '<div class="tl-card">'+
-      '<div class="tl-phase">Etappe '+(i+1)+' · '+(stL[e.status]||'')+'</div>'+
+      '<div class="tl-phase">Arbeitsschritt '+(i+1)+' · '+(stL[e.status]||'')+'</div>'+
       '<div class="tl-name">'+(e.titel||'')+'</div>'+
       (e.beschreibung?'<div class="tl-desc">'+e.beschreibung+'</div>':'')+
       '<div class="tl-meta">'+
