@@ -217,8 +217,305 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-25T17:11:40.566Z",
-    "etappen": [],
+    "updated": "2026-05-25T17:20:56.805Z",
+    "etappen": [
+      {
+        "titel": "Untergrundvorbereitung | Abriss",
+        "datum": "2026-05-04",
+        "status": "completed",
+        "fotos": [
+          {
+            "url": "https://i.ibb.co/Y4kJXh5z/mrelagbe1-1779729569312.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/8gH50TP0/mrelagbe1-1779729569357.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/9k2ZkBhB/mrelagbe1-1779729569422.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/3myjVXQ9/mrelagbe1-1779729569392.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/6Jf89pP3/mrelagbe1-1779729569310.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/C52MzV4R/mrelagbe1-1779729569384.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/vCQw0xJd/mrelagbe1-1779729569393.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/60HhSL65/mrelagbe1-1779729569266.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/gMz2PByz/mrelagbe1-1779729569353.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/rGdD7vXF/mrelagbe1-1779729569358.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/RpRfjHNq/mrelagbe1-1779729569370.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/YFcJf6Zx/mrelagbe1-1779729569390.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Pv78SpZv/mrelagbe1-1779729569401.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/4g9jFwCs/mrelagbe1-1779729569397.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/VY8NcrgL/mrelagbe1-1779729569421.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/84Lt7vLG/mrelagbe1-1779729569405.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/LzxSXXP2/mrelagbe1-1779729569348.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/NdLrz2sK/mrelagbe1-1779729569308.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/bgKVqHBZ/mrelagbe1-1779729569341.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Zp76JLXw/mrelagbe1-1779729569368.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/sJyTRQQz/mrelagbe1-1779729569362.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/7xcCFPKx/mrelagbe1-1779729569374.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/fY3sKtVS/mrelagbe1-1779729569417.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/0pFHXk0N/mrelagbe1-1779729569419.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/x8KJTj52/mrelagbe1-1779729569424.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/rfqRngvW/mrelagbe1-1779729569455.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/gZZ6nPhm/mrelagbe1-1779729569363.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Mk1W0Cnd/mrelagbe1-1779729569399.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/675FZ9bV/mrelagbe1-1779729569435.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/YBN67zKH/mrelagbe1-1779729569429.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Cs4HSXcB/mrelagbe1-1779729569291.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/7JNm3L73/mrelagbe1-1779729569388.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/hFt86263/mrelagbe1-1779729569322.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/VcC0bk6n/mrelagbe1-1779729569359.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/SwFRQzTx/mrelagbe1-1779729569445.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/4CMCM3S/mrelagbe1-1779729569281.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Kjb3qrqs/mrelagbe1-1779729569306.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/gbN8LTLr/mrelagbe1-1779729569354.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/ZpjMwGyJ/mrelagbe1-1779729569438.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/RTfcPJ84/mrelagbe1-1779729569442.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/ZnN5GxH/mrelagbe1-1779729569313.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/JwnP3x8z/mrelagbe1-1779729569333.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Q3GWC42L/mrelagbe1-1779729569372.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/rKFRgzHB/mrelagbe1-1779729569433.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/LDPVtvPx/mrelagbe1-1779729569440.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/6R9mgDNZ/mrelagbe1-1779729569460.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/dwSWm1rw/mrelagbe1-1779729569453.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/HT8PCMSC/mrelagbe1-1779729569376.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/HDJB09N1/mrelagbe1-1779729569325.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/4R134CcD/mrelagbe1-1779729569463.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/yFtzbJWV/mrelagbe1-1779729569409.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/prdY5rgN/mrelagbe1-1779729569407.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/ch18QLhp/mrelagbe1-1779729569336.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/nq4Vgyd7/mrelagbe1-1779729569450.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Ps4Sb832/mrelagbe1-1779729569412.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/jkb97tS5/mrelagbe1-1779729569379.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/6cc3rbcz/mrelagbe1-1779729569431.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/0pjRjMwR/mrelagbe1-1779729569328.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/ZzvR0Nbp/mrelagbe1-1779729569302.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/qYxCNZzF/mrelagbe1-1779729569447.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/VkDb1yP/mrelagbe1-1779729569288.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/DHH3bXTk/mrelagbe1-1779729569350.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/VYNXtVKr/mrelagbe1-1779729569385.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/pBcdzvqF/mrelagbe1-1779729569414.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/rGpqWY1b/mrelagbe1-1779729569395.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/b5LcTSR3/mrelagbe1-1779729569403.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Myj5V2tx/mrelagbe1-1779729569315.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/0pLxj0DM/mrelagbe1-1779729569426.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/jk3F8rYG/mrelagbe1-1779729569365.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Z6fVBGMn/mrelagbe1-1779729569331.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/Q7S85x8s/mrelagbe1-1779729569294.jpg",
+            "caption": ""
+          },
+          {
+            "url": "https://i.ibb.co/bjttY3Pp/mrelagbe1-1779729569457.jpg",
+            "caption": ""
+          }
+        ],
+        "kommentare": []
+      }
+    ],
     "materialien": [],
     "aufmass": []
   }
