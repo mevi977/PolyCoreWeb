@@ -217,7 +217,7 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-25T18:05:43.362Z",
+    "updated": "2026-05-26T06:00:42.943Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung | Abriss",
@@ -885,7 +885,12 @@
             "caption": ""
           }
         ],
-        "kommentare": [],
+        "kommentare": [
+          {
+            "datum": "26.5.2026",
+            "text": "Untergrundprüfung | Feuchtigkeitsmessung (CM-Messung) Messung des Feuchtigkeitsgehaltes im Untergrund mittels CM-Gerät an mehreren repräsentativen Messpunkten. Die gemessenen Werte lagen zwischen 0,7 % und 2,0 % CM, womit die zulässigen Grenzwerte gemäss Herstellervorgaben eingehalten sind. Ergebnis dokumentiert."
+          }
+        ],
         "material": "Sikafloor®-151, Sika Glasfaserbewehrung Fiber 6 Level, Sikagard® Spezialgewebe",
         "beschreibung": "Grundierung des Untergrundes mit Sikafloor-151 gemäss Offerte. Aufgrund des vorgefundenen Untergrundzustandes wurden zusätzlich Glasfasern in die frische Grundierungsschicht eingearbeitet sowie an Fugen und Rissen Sikagard® Spezialgewebe nass in nass eingebettet. Diese Mehrleistungen wurden als Regiearbeit ausgeführt und werden separat verrechnet."
       },
@@ -1330,7 +1335,28 @@
         "material": "Sikafloor 264 Plus Ral 7032"
       }
     ],
-    "materialien": [],
+    "materialien": [
+      {
+        "name": "Sika Sikafloor® 151",
+        "menge": "10",
+        "einheit": "kg"
+      },
+      {
+        "name": "Epoxidmörtel",
+        "menge": "184",
+        "einheit": "kg"
+      },
+      {
+        "name": "Sika fiber 6",
+        "menge": "4",
+        "einheit": "kg"
+      },
+      {
+        "name": "Sikagard Spezialgewebe",
+        "menge": "8",
+        "einheit": "m2"
+      }
+    ],
     "aufmass": []
   }
 }
