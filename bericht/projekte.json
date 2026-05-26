@@ -217,7 +217,7 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-26T06:00:42.943Z",
+    "updated": "2026-05-26T06:05:05.555Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung | Abriss",
@@ -1357,6 +1357,14 @@
         "einheit": "m2"
       }
     ],
-    "aufmass": []
+    "aufmass": [],
+    "regie_tage": [
+      {
+        "datum": "2026-05-08",
+        "beschreibung": "Entfernung der vorhandenen Elektroinstallation aus dem Untergrund. Vorhandene Risse wurden mittels Winkelschleifer aufgeschnitten, gereinigt und anschliessend mit Epoxidharz-Bindemittel vergossen. Hohlstellen wurden aufgebrochen und zusammen mit den vorhandenen Löchern und Ausbrüchen mit Epoxidharzmörtel fachgerecht verfüllt und bündig abgezogen.",
+        "stunden": "9",
+        "mitarbeiter": "Mevludin Icic"
+      }
+    ]
   }
 }
