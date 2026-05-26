@@ -217,7 +217,7 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-26T06:14:52.586Z",
+    "updated": "2026-05-26T06:19:18.392Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung | Abriss",
@@ -1372,6 +1372,11 @@
         "bezeichnung": "Hohlstellen ",
         "wert": "21",
         "einheit": "m"
+      },
+      {
+        "bezeichnung": "Kratzspachtelung ",
+        "wert": "150",
+        "einheit": "m²"
       }
     ],
     "regie_tage": [
