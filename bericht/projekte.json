@@ -217,7 +217,7 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-26T06:13:42.674Z",
+    "updated": "2026-05-26T06:14:47.727Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung | Abriss",
@@ -1366,6 +1366,11 @@
       {
         "bezeichnung": "Fugen",
         "wert": "22",
+        "einheit": "m"
+      },
+      {
+        "bezeichnung": "Hohlstellen ",
+        "wert": "21",
         "einheit": "m"
       }
     ],
