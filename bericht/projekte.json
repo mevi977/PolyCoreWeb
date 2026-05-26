@@ -217,7 +217,7 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-26T06:05:05.555Z",
+    "updated": "2026-05-26T06:06:42.909Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung | Abriss",
@@ -1363,6 +1363,12 @@
         "datum": "2026-05-08",
         "beschreibung": "Entfernung der vorhandenen Elektroinstallation aus dem Untergrund. Vorhandene Risse wurden mittels Winkelschleifer aufgeschnitten, gereinigt und anschliessend mit Epoxidharz-Bindemittel vergossen. Hohlstellen wurden aufgebrochen und zusammen mit den vorhandenen Löchern und Ausbrüchen mit Epoxidharzmörtel fachgerecht verfüllt und bündig abgezogen.",
         "stunden": "9",
+        "mitarbeiter": "Mevludin Icic"
+      },
+      {
+        "datum": "2026-05-11",
+        "beschreibung": "Vollflächige Einarbeitung von Glasfasern (Kurzschnittfasern) in die frische Grundierungsschicht zur Rissüberbrückung und Verstärkung des Untergrundes. An Fugen und Anschlussbereichen wurde zusätzlich Sikagard® Spezialgewebe nass in nass eingebettet zur gezielten Verstärkung der gefährdeten Bereiche.",
+        "stunden": "1",
         "mitarbeiter": "Mevludin Icic"
       }
     ]
