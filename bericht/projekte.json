@@ -217,7 +217,7 @@
     "system": "Sika Sikafloor 264 Plus ( 264N) Einstreubelag",
     "passwort": "7#mZ$2vK!9pQ*5tB",
     "status": "done",
-    "updated": "2026-05-26T06:06:42.909Z",
+    "updated": "2026-05-26T06:07:09.021Z",
     "etappen": [
       {
         "titel": "Untergrundvorbereitung | Abriss",
@@ -1369,6 +1369,12 @@
         "datum": "2026-05-11",
         "beschreibung": "Vollflächige Einarbeitung von Glasfasern (Kurzschnittfasern) in die frische Grundierungsschicht zur Rissüberbrückung und Verstärkung des Untergrundes. An Fugen und Anschlussbereichen wurde zusätzlich Sikagard® Spezialgewebe nass in nass eingebettet zur gezielten Verstärkung der gefährdeten Bereiche.",
         "stunden": "1",
+        "mitarbeiter": "Mevludin Icic"
+      },
+      {
+        "datum": "2026-05-26",
+        "beschreibung": "Aufgrund des stark saugenden Untergrundes sowie erheblicher Unebenheiten wurden zusätzliche Arbeiten erforderlich. Die ausgeprägten Unebenheiten wurden maschinell abgeschliffen. Anschliessend wurde eine zusätzliche Kratzspachtelung mit Sikafloor-151 als kombinierten Arbeitsgang (Grundierung und Porenschluss in einem) ausgeführt, da der Untergrund die erste Grundierung stark aufgesogen hatte und eine weitere Schicht als Vorbereitung für den nachfolgenden Einstreubelag erforderlich war. Diese Mehrleistungen wurden als Regiearbeit ausgeführt und werden separat verrechnet.",
+        "stunden": "1.5",
         "mitarbeiter": "Mevludin Icic"
       }
     ]
