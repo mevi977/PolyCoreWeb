@@ -24,79 +24,121 @@
 <link rel="stylesheet" href="../css/page.css"/>
 
 <style>
-/* ===== DARK MODE OVERRIDE za cijelu stranicu ===== */
-body { background: #0d0608; color: rgba(255,255,255,.75); }
+/* === KOMPROMIS: Topla tamna pozadina, ne crna === */
+:root {
+  --dk: #171210;        /* osnovna pozadina */
+  --dk2: #1e1714;       /* alt sekcije */
+  --dk3: #251c18;       /* kartice, hover */
+  --bx: #c0485a;        /* bordeaux akcent */
+  --bx2: rgba(192,72,90,.12); /* bordeaux hover fill */
+  --t1: rgba(255,255,255,.88); /* primarni tekst */
+  --t2: rgba(255,255,255,.62); /* sekundarni */
+  --t3: rgba(255,255,255,.38); /* muted */
+  --b1: rgba(255,255,255,.1);  /* border */
+  --b2: rgba(255,255,255,.06); /* subtle border */
+}
 
-/* Sve sekcije tamne */
-.section, .section-sm { background: #0d0608; }
-.section.light-bg, .section-sm.light-bg { background: #110a0c; }
+body { background: var(--dk); color: var(--t1); }
 
-/* Benefit cells */
-.benefit-cell { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 1.5rem 1rem; }
-.benefit-title { color: #fff; }
-.benefit-lbl { color: rgba(255,255,255,.4); }
-.benefit-icon svg { stroke: #c0485a; }
+/* Sekcije */
+.section, .section-sm { background: var(--dk); }
+.section.light-bg, .section-sm.light-bg { background: var(--dk2); }
 
-/* Content body */
-.content-body h2, .content-body h3 { color: #fff; }
-.content-body p { color: rgba(255,255,255,.6); }
+/* Benefits */
+.benefit-cell {
+  background: var(--dk2);
+  border: 1px solid var(--b1);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  transition: border-color .25s;
+}
+.benefit-cell:hover { border-color: rgba(192,72,90,.3); }
+.benefit-title { color: var(--t1); }
+.benefit-lbl { color: var(--t3); }
+.benefit-icon svg { stroke: var(--bx); }
+
+/* Content */
+.content-body h2, .content-body h3 { color: var(--t1); }
+.content-body p { color: var(--t2); line-height: 1.8; }
+.content-body h3 { margin-top: 1.75rem; }
 
 /* Sidebar */
-.sidebar-cta { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
-.sidebar-cta h3 { color: #fff; }
-.sidebar-cta p { color: rgba(255,255,255,.5); }
+.sidebar-cta { background: var(--dk3); border: 1px solid var(--b1); }
+.sidebar-cta h3 { color: var(--t1); }
+.sidebar-cta p { color: var(--t2); }
 
 /* App cards */
-.app-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; transition: all .25s; }
-.app-card:hover { background: rgba(192,72,90,.08); border-color: rgba(192,72,90,.2); transform: translateY(-3px); }
-.app-card h4 { color: #fff; }
-.app-card p { color: rgba(255,255,255,.45); }
-.app-card svg { stroke: rgba(192,72,90,.7); }
+.app-card {
+  background: var(--dk2);
+  border: 1px solid var(--b1);
+  border-radius: 12px;
+  transition: all .25s;
+}
+.app-card:hover {
+  background: var(--dk3);
+  border-color: rgba(192,72,90,.35);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.app-card h4 { color: var(--t1); }
+.app-card p { color: var(--t2); }
+.app-card svg { stroke: var(--bx); opacity: .8; }
 
-/* Eyebrow */
-.eyebrow { color: rgba(192,72,90,.8); }
-
-/* H1, H2 reveals */
-.h1, .h2, h2 { color: #fff; }
+/* Eyebrow, headings */
+.eyebrow { color: var(--bx); }
+.h1, .h2, h2 { color: var(--t1); }
 
 /* FAQ */
-.faq-item { border-bottom: 1px solid rgba(255,255,255,.07); }
-.faq-q { color: rgba(255,255,255,.85); }
-.faq-q::marker, .faq-item summary::marker { color: rgba(192,72,90,.6); }
-.faq-a p { color: rgba(255,255,255,.5); }
+.faq-item { border-bottom: 1px solid var(--b1); }
+.faq-q { color: var(--t1); font-weight: 500; }
 details[open] .faq-q { color: #fff; }
+.faq-a p { color: var(--t2); }
 
-/* CTA Banner */
-.cta-banner { background: linear-gradient(135deg, #1a0810 0%, #220d14 50%, #1a0810 100%); border: 1px solid rgba(192,72,90,.2); }
+/* CTA banner */
+.cta-banner {
+  background: linear-gradient(135deg, #221511 0%, #2e1c14 50%, #221511 100%);
+  border: 1px solid rgba(192,72,90,.25);
+  box-shadow: 0 0 60px rgba(192,72,90,.08) inset;
+}
 .cta-banner h2 { color: #fff; }
-.cta-banner p { color: rgba(255,255,255,.55); }
+.cta-banner p { color: var(--t2); }
 
 /* Related cards */
-.related-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; transition: all .25s; }
-.related-card:hover { background: rgba(192,72,90,.08); border-color: rgba(192,72,90,.2); transform: translateY(-3px); }
-.related-card h4 { color: #fff; }
-.related-card p { color: rgba(255,255,255,.45); }
-.related-icon svg { stroke: rgba(192,72,90,.6); }
+.related-card {
+  background: var(--dk2);
+  border: 1px solid var(--b1);
+  border-radius: 12px;
+  transition: all .25s;
+}
+.related-card:hover {
+  background: var(--dk3);
+  border-color: rgba(192,72,90,.3);
+  transform: translateY(-3px);
+}
+.related-card h4 { color: var(--t1); }
+.related-card p { color: var(--t2); }
+.related-icon svg { stroke: var(--bx); opacity: .7; }
 
-/* Section headers */
-.section > .container > div > .h1 { color: #fff; }
-
-/* ===== HERO ===== */
+/* === HERO === */
 .page-hero {
   position: relative;
   min-height: 580px;
-  background: #0d0608;
+  background: var(--dk);
   overflow: hidden;
   display: flex;
   align-items: center;
 }
 .page-hero-bg { position: absolute; inset: 0; overflow: hidden; }
-.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .3; filter: saturate(.5); }
+.page-hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 40%;
+  opacity: .28; filter: saturate(.5) brightness(.9);
+}
 .page-hero-overlay {
   position: absolute; inset: 0;
   background:
-    linear-gradient(to right, rgba(8,3,5,.98) 40%, rgba(8,3,5,.75) 70%, rgba(8,3,5,.45) 100%),
-    linear-gradient(to bottom, rgba(8,3,5,.4) 0%, transparent 25%, transparent 75%, rgba(8,3,5,.7) 100%);
+    linear-gradient(to right, rgba(15,8,6,.98) 38%, rgba(15,8,6,.72) 65%, rgba(15,8,6,.35) 100%),
+    linear-gradient(to bottom, transparent 0%, transparent 75%, rgba(15,8,6,.8) 100%);
 }
 .page-hero-grid {
   position: absolute; inset: 0;
@@ -106,11 +148,14 @@ details[open] .faq-q { color: #fff; }
   background-size: 80px 80px;
 }
 .page-hero-glow {
-  position: absolute; width: 500px; height: 500px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(74,14,26,.28) 0%, transparent 70%);
-  top: -100px; right: 0; pointer-events: none;
+  position: absolute; width: 480px; height: 480px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,14,26,.25) 0%, transparent 70%);
+  top: -80px; right: 5%; pointer-events: none;
 }
-.page-hero-hline { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(192,72,90,.18), transparent); }
+.page-hero-hline {
+  position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(192,72,90,.18), transparent);
+}
 .page-hero-hline-t { top: 90px; }
 .page-hero-hline-b { bottom: 90px; }
 
@@ -127,93 +172,92 @@ details[open] .faq-q { color: #fff; }
 .phi-bread {
   display: flex; align-items: center; gap: .6rem;
   font-size: .63rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase;
-  color: rgba(255,255,255,.3); margin-bottom: 2.25rem;
-  animation: phFadeUp .5s .05s both;
+  color: rgba(255,255,255,.32); margin-bottom: 2.25rem;
+  animation: phUp .5s .05s both;
 }
-.phi-bread a { color: rgba(255,255,255,.3); text-decoration: none; transition: color .2s; }
-.phi-bread a:hover { color: rgba(255,255,255,.6); }
-.phi-bread-sep { color: rgba(255,255,255,.15); }
-.phi-bread-cur { color: rgba(192,72,90,.8); }
+.phi-bread a { color: rgba(255,255,255,.32); text-decoration: none; transition: color .2s; }
+.phi-bread a:hover { color: rgba(255,255,255,.65); }
+.phi-bread-sep { color: rgba(255,255,255,.14); }
+.phi-bread-cur { color: rgba(192,72,90,.85); }
 
 .phi-tag {
   display: inline-flex; align-items: center; gap: .6rem;
   font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase;
-  color: rgba(192,72,90,.9); margin-bottom: 1.25rem;
-  animation: phFadeUp .5s .1s both;
+  color: rgba(192,72,90,.95); margin-bottom: 1.25rem;
+  animation: phUp .5s .1s both;
 }
 .phi-tag-line { width: 28px; height: 1px; background: rgba(192,72,90,.5); flex-shrink: 0; }
 
 .phi-h1 {
   font-size: clamp(2.2rem, 4.5vw, 3.75rem);
   font-weight: 300; letter-spacing: -.055em; line-height: 1.0;
-  margin-bottom: 1.5rem; animation: phFadeUp .5s .15s both;
+  margin-bottom: 1.5rem; animation: phUp .5s .15s both;
 }
-.phi-h1-muted { color: rgba(255,255,255,.45); display: block; }
+.phi-h1-muted { color: rgba(255,255,255,.48); display: block; }
 .phi-h1-accent {
   display: block; font-weight: 700;
   background: linear-gradient(135deg, #c0485a 0%, #e07888 50%, #c0485a 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  animation: phFadeUp .5s .15s both, phShimmer 4s 1s ease-in-out infinite;
+  animation: phUp .5s .15s both, phShim 4s 1s ease-in-out infinite;
 }
 .phi-h1-white { display: block; color: #fff; font-weight: 700; }
 
 .phi-lead {
-  font-size: .9rem; font-weight: 300; color: rgba(255,255,255,.62);
+  font-size: .9rem; font-weight: 300; color: rgba(255,255,255,.65);
   line-height: 1.9; max-width: 440px; margin-bottom: 2rem;
-  letter-spacing: .01em; animation: phFadeUp .5s .2s both;
+  letter-spacing: .01em; animation: phUp .5s .2s both;
 }
 
 .phi-badges {
   display: flex; flex-wrap: wrap; gap: .35rem;
-  margin-bottom: 2.25rem; animation: phFadeUp .5s .25s both;
+  margin-bottom: 2.25rem; animation: phUp .5s .25s both;
 }
 .phi-badge {
   font-size: .6rem; font-weight: 500; letter-spacing: .06em;
-  color: rgba(255,255,255,.4); border: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.42); border: 1px solid rgba(255,255,255,.1);
   padding: .28rem .8rem; border-radius: 50px; transition: all .25s; cursor: default;
 }
-.phi-badge:hover { color: rgba(192,72,90,.9); border-color: rgba(192,72,90,.3); background: rgba(192,72,90,.07); }
+.phi-badge:hover { color: rgba(192,72,90,.95); border-color: rgba(192,72,90,.35); background: rgba(192,72,90,.08); }
 
-.phi-btns { display: flex; align-items: center; gap: 1.5rem; animation: phFadeUp .5s .3s both; }
+.phi-btns { display: flex; align-items: center; gap: 1.5rem; animation: phUp .5s .3s both; }
 .phi-btn-p {
   display: inline-flex; align-items: center; gap: .5rem;
   font-size: .8rem; font-weight: 500; letter-spacing: .03em;
-  color: #fff; background: rgba(192,72,90,.9); border: none; border-radius: 6px;
+  color: #fff; background: rgba(192,72,90,.95); border: none; border-radius: 6px;
   padding: .65rem 1.4rem; cursor: pointer; font-family: inherit; text-decoration: none; transition: all .2s;
 }
 .phi-btn-p:hover { background: #c0485a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(192,72,90,.3); }
 .phi-btn-g {
   display: inline-flex; align-items: center; gap: .4rem;
   font-size: .78rem; font-weight: 400; letter-spacing: .03em;
-  color: rgba(255,255,255,.45); text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.12); padding-bottom: 1px; transition: all .2s;
+  color: rgba(255,255,255,.48); text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.14); padding-bottom: 1px; transition: all .2s;
 }
-.phi-btn-g:hover { color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.35); }
+.phi-btn-g:hover { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.38); }
 
 .phi-right {
   display: flex; flex-direction: column;
-  border-left: 1px solid rgba(255,255,255,.07); padding-left: 2.5rem;
-  animation: phFadeLeft .6s .4s both;
+  border-left: 1px solid rgba(255,255,255,.08); padding-left: 2.5rem;
+  animation: phLeft .6s .4s both;
 }
-.phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.06); cursor: default; transition: all .2s; }
+.phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.07); cursor: default; transition: all .2s; }
 .phi-stat:last-of-type { border-bottom: none; }
 .phi-stat:hover .phi-stat-v { color: #fff; }
-.phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.38); }
-.phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: rgba(255,255,255,.55); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
-.phi-stat-v sup { font-size: .85rem; font-weight: 400; letter-spacing: 0; color: rgba(192,72,90,.8); vertical-align: super; }
-.phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.22); transition: color .2s; }
-
-.phi-sys { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.06); }
-.phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.18); margin-bottom: .9rem; }
+.phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.42); }
+.phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: rgba(255,255,255,.58); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
+.phi-stat-v sup { font-size: .85rem; font-weight: 400; letter-spacing: 0; color: rgba(192,72,90,.85); vertical-align: super; }
+.phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); transition: color .2s; }
+.phi-sys { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.07); }
+.phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.2); margin-bottom: .9rem; }
 .phi-sys-item { display: flex; justify-content: space-between; align-items: baseline; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: .7rem; }
 .phi-sys-item:last-child { border: none; }
-.phi-sys-k { color: rgba(255,255,255,.28); font-weight: 300; }
-.phi-sys-v { color: rgba(255,255,255,.6); font-weight: 500; letter-spacing: .02em; }
+.phi-sys-k { color: rgba(255,255,255,.32); font-weight: 300; }
+.phi-sys-v { color: rgba(255,255,255,.65); font-weight: 500; letter-spacing: .02em; }
 
-@keyframes phFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes phFadeLeft { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes phShimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+@keyframes phUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes phLeft { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes phShim { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
 @media (max-width: 768px) {
   .page-hero-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
@@ -349,14 +393,13 @@ details[open] .faq-q { color: #fff; }
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="../assets/img/industriebodenbelag.jpg" alt="Industrieböden Einstreubelag POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
+    <img src="../assets/img/Epoxy-boden.png" alt="Industrieböden Einstreubelag POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
   </div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-grid"></div>
   <div class="page-hero-glow"></div>
   <div class="page-hero-hline page-hero-hline-t"></div>
   <div class="page-hero-hline page-hero-hline-b"></div>
-
   <div class="page-hero-inner">
     <div class="phi-left">
       <nav class="phi-bread">
@@ -421,7 +464,7 @@ details[open] .faq-q { color: #fff; }
         <p>Ein Einstreubelag für Industriehallen ist eine zweikomponentige Epoxidharz-Beschichtung, in die während der Verarbeitung Quarzsand oder Korund eingestreut wird. Das Ergebnis ist eine extrem rutschfeste, strapazierfähige und fugenlose Oberfläche – ideal für Bereiche mit hoher mechanischer und chemischer Belastung.</p>
         <p>POLYCORE GmbH führt Industriebodenarbeiten in Bern und der gesamten Region durch. Wir analysieren jeden Untergrund sorgfältig, bereiten ihn professionell vor und wählen das optimale System für Ihre spezifische Nutzung.</p>
         <h3>Ausführung</h3>
-        <p>Wir bereiten den Untergrund sorgfältig vor – Schleifen, Risssanierung, Reprofilierung – und tragen anschliessend die Beschichtung auf. Die Einstreuung (Quarzsand oder Korund) wird in die noch frische Beschichtung eingebracht, um die gewünschte Rutschhemmung zu erzielen. Der genaue Aufbau wird nach Objektbesichtigung und Nutzungsanforderung festgelegt.</p>
+        <p>Wir bereiten den Untergrund sorgfältig vor – Schleifen, Risssanierung, Reprofilierung – und tragen anschliessend die Beschichtung auf. Die Einstreuung (Quarzsand oder Korund) wird in die noch frische Beschichtung eingebracht, um die gewünschte Rutschhemmung zu erzielen.</p>
         <h3>Bodenmarkierungen und Sicherheitszonen</h3>
         <p>Fahrwegmarkierungen, Lager- und Sicherheitszonen lassen sich direkt in die Beschichtung integrieren – in allen RAL-Farben nach Ihren Wünschen.</p>
       </article>
@@ -430,12 +473,12 @@ details[open] .faq-q { color: #fff; }
         <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein massgeschneidertes Angebot – unverbindlich und kostenlos.</p>
         <a href="/kontakt.html" class="btn btn-light">Jetzt anfragen</a>
         <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)">
-          <div style="font-size:.7rem;opacity:.5;margin-bottom:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Eingesetztes System</div>
-          <div style="font-size:.8rem;display:flex;flex-direction:column;gap:.4rem">
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.4)">Grundierung</span><strong style="color:rgba(255,255,255,.8)">Sikafloor-151</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.4)">Beschichtung</span><strong style="color:rgba(255,255,255,.8)">Epoxidharz 2-K</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.4)">Einstreuung</span><strong style="color:rgba(255,255,255,.8)">Quarzsand/Korund</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0"><span style="color:rgba(255,255,255,.4)">Schichtdicke</span><strong style="color:rgba(255,255,255,.8)">2–4 mm</strong></div>
+          <div style="font-size:.7rem;color:rgba(255,255,255,.35);margin-bottom:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Eingesetztes System</div>
+          <div style="font-size:.8rem;display:flex;flex-direction:column;gap:.35rem">
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Grundierung</span><strong style="color:rgba(255,255,255,.82)">Sikafloor-151</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Beschichtung</span><strong style="color:rgba(255,255,255,.82)">Epoxidharz 2-K</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Einstreuung</span><strong style="color:rgba(255,255,255,.82)">Quarzsand/Korund</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0"><span style="color:rgba(255,255,255,.42)">Schichtdicke</span><strong style="color:rgba(255,255,255,.82)">2–4 mm</strong></div>
           </div>
         </div>
       </aside>
