@@ -24,7 +24,64 @@
 <link rel="stylesheet" href="../css/page.css"/>
 
 <style>
-/* ===== NOVI HERO ===== */
+/* ===== DARK MODE OVERRIDE za cijelu stranicu ===== */
+body { background: #0d0608; color: rgba(255,255,255,.75); }
+
+/* Sve sekcije tamne */
+.section, .section-sm { background: #0d0608; }
+.section.light-bg, .section-sm.light-bg { background: #110a0c; }
+
+/* Benefit cells */
+.benefit-cell { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 1.5rem 1rem; }
+.benefit-title { color: #fff; }
+.benefit-lbl { color: rgba(255,255,255,.4); }
+.benefit-icon svg { stroke: #c0485a; }
+
+/* Content body */
+.content-body h2, .content-body h3 { color: #fff; }
+.content-body p { color: rgba(255,255,255,.6); }
+
+/* Sidebar */
+.sidebar-cta { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+.sidebar-cta h3 { color: #fff; }
+.sidebar-cta p { color: rgba(255,255,255,.5); }
+
+/* App cards */
+.app-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; transition: all .25s; }
+.app-card:hover { background: rgba(192,72,90,.08); border-color: rgba(192,72,90,.2); transform: translateY(-3px); }
+.app-card h4 { color: #fff; }
+.app-card p { color: rgba(255,255,255,.45); }
+.app-card svg { stroke: rgba(192,72,90,.7); }
+
+/* Eyebrow */
+.eyebrow { color: rgba(192,72,90,.8); }
+
+/* H1, H2 reveals */
+.h1, .h2, h2 { color: #fff; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid rgba(255,255,255,.07); }
+.faq-q { color: rgba(255,255,255,.85); }
+.faq-q::marker, .faq-item summary::marker { color: rgba(192,72,90,.6); }
+.faq-a p { color: rgba(255,255,255,.5); }
+details[open] .faq-q { color: #fff; }
+
+/* CTA Banner */
+.cta-banner { background: linear-gradient(135deg, #1a0810 0%, #220d14 50%, #1a0810 100%); border: 1px solid rgba(192,72,90,.2); }
+.cta-banner h2 { color: #fff; }
+.cta-banner p { color: rgba(255,255,255,.55); }
+
+/* Related cards */
+.related-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; transition: all .25s; }
+.related-card:hover { background: rgba(192,72,90,.08); border-color: rgba(192,72,90,.2); transform: translateY(-3px); }
+.related-card h4 { color: #fff; }
+.related-card p { color: rgba(255,255,255,.45); }
+.related-icon svg { stroke: rgba(192,72,90,.6); }
+
+/* Section headers */
+.section > .container > div > .h1 { color: #fff; }
+
+/* ===== HERO ===== */
 .page-hero {
   position: relative;
   min-height: 580px;
@@ -33,293 +90,133 @@
   display: flex;
   align-items: center;
 }
-.page-hero-bg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.page-hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
-  opacity: .35;
-  filter: saturate(.6);
-}
+.page-hero-bg { position: absolute; inset: 0; overflow: hidden; }
+.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .3; filter: saturate(.5); }
 .page-hero-overlay {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background:
-    linear-gradient(to right, rgba(8,3,5,.97) 40%, rgba(8,3,5,.7) 70%, rgba(8,3,5,.4) 100%),
-    linear-gradient(to bottom, rgba(8,3,5,.3) 0%, transparent 30%, transparent 70%, rgba(8,3,5,.6) 100%);
+    linear-gradient(to right, rgba(8,3,5,.98) 40%, rgba(8,3,5,.75) 70%, rgba(8,3,5,.45) 100%),
+    linear-gradient(to bottom, rgba(8,3,5,.4) 0%, transparent 25%, transparent 75%, rgba(8,3,5,.7) 100%);
 }
 .page-hero-grid {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(74,14,26,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(74,14,26,.08) 1px, transparent 1px);
+    linear-gradient(rgba(74,14,26,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,14,26,.07) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 .page-hero-glow {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(74,14,26,.3) 0%, transparent 70%);
-  top: -100px;
-  right: 0;
-  pointer-events: none;
+  position: absolute; width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,14,26,.28) 0%, transparent 70%);
+  top: -100px; right: 0; pointer-events: none;
 }
-.page-hero-hline {
-  position: absolute;
-  left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(192,72,90,.2), transparent);
-}
+.page-hero-hline { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(192,72,90,.18), transparent); }
 .page-hero-hline-t { top: 90px; }
 .page-hero-hline-b { bottom: 90px; }
 
 .page-hero-inner {
-  position: relative;
-  z-index: 5;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  position: relative; z-index: 5;
+  width: 100%; max-width: 1200px; margin: 0 auto;
   padding: 4rem 2.5rem;
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 3rem;
+  display: grid; grid-template-columns: 1fr 280px; gap: 3rem;
   align-items: center;
 }
 
-/* Left */
 .phi-left { display: flex; flex-direction: column; }
 
 .phi-bread {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  font-size: .63rem;
-  font-weight: 400;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.22);
-  margin-bottom: 2.25rem;
+  display: flex; align-items: center; gap: .6rem;
+  font-size: .63rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); margin-bottom: 2.25rem;
   animation: phFadeUp .5s .05s both;
 }
-.phi-bread a { color: rgba(255,255,255,.22); text-decoration: none; transition: color .2s; }
-.phi-bread a:hover { color: rgba(255,255,255,.5); }
-.phi-bread-sep { color: rgba(255,255,255,.1); }
-.phi-bread-cur { color: rgba(192,72,90,.7); }
+.phi-bread a { color: rgba(255,255,255,.3); text-decoration: none; transition: color .2s; }
+.phi-bread a:hover { color: rgba(255,255,255,.6); }
+.phi-bread-sep { color: rgba(255,255,255,.15); }
+.phi-bread-cur { color: rgba(192,72,90,.8); }
 
 .phi-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  font-size: .6rem;
-  font-weight: 500;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: rgba(192,72,90,.85);
-  margin-bottom: 1.25rem;
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(192,72,90,.9); margin-bottom: 1.25rem;
   animation: phFadeUp .5s .1s both;
 }
-.phi-tag-line {
-  width: 28px;
-  height: 1px;
-  background: rgba(192,72,90,.45);
-  flex-shrink: 0;
-}
+.phi-tag-line { width: 28px; height: 1px; background: rgba(192,72,90,.5); flex-shrink: 0; }
 
 .phi-h1 {
   font-size: clamp(2.2rem, 4.5vw, 3.75rem);
-  font-weight: 300;
-  letter-spacing: -.055em;
-  line-height: 1.0;
-  margin-bottom: 1.5rem;
-  animation: phFadeUp .5s .15s both;
+  font-weight: 300; letter-spacing: -.055em; line-height: 1.0;
+  margin-bottom: 1.5rem; animation: phFadeUp .5s .15s both;
 }
-.phi-h1-muted { color: rgba(255,255,255,.22); display: block; }
+.phi-h1-muted { color: rgba(255,255,255,.45); display: block; }
 .phi-h1-accent {
-  display: block;
-  font-weight: 700;
+  display: block; font-weight: 700;
   background: linear-gradient(135deg, #c0485a 0%, #e07888 50%, #c0485a 100%);
   background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   animation: phFadeUp .5s .15s both, phShimmer 4s 1s ease-in-out infinite;
 }
 .phi-h1-white { display: block; color: #fff; font-weight: 700; }
 
 .phi-lead {
-  font-size: .88rem;
-  font-weight: 300;
-  color: rgba(255,255,255,.38);
-  line-height: 1.9;
-  max-width: 440px;
-  margin-bottom: 2rem;
-  letter-spacing: .01em;
-  animation: phFadeUp .5s .2s both;
+  font-size: .9rem; font-weight: 300; color: rgba(255,255,255,.62);
+  line-height: 1.9; max-width: 440px; margin-bottom: 2rem;
+  letter-spacing: .01em; animation: phFadeUp .5s .2s both;
 }
 
 .phi-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .35rem;
-  margin-bottom: 2.25rem;
-  animation: phFadeUp .5s .25s both;
+  display: flex; flex-wrap: wrap; gap: .35rem;
+  margin-bottom: 2.25rem; animation: phFadeUp .5s .25s both;
 }
 .phi-badge {
-  font-size: .6rem;
-  font-weight: 500;
-  letter-spacing: .06em;
-  color: rgba(255,255,255,.3);
-  border: 1px solid rgba(255,255,255,.07);
-  padding: .28rem .8rem;
-  border-radius: 50px;
-  transition: all .25s;
-  cursor: default;
+  font-size: .6rem; font-weight: 500; letter-spacing: .06em;
+  color: rgba(255,255,255,.4); border: 1px solid rgba(255,255,255,.1);
+  padding: .28rem .8rem; border-radius: 50px; transition: all .25s; cursor: default;
 }
-.phi-badge:hover {
-  color: rgba(192,72,90,.9);
-  border-color: rgba(192,72,90,.25);
-  background: rgba(192,72,90,.06);
-}
+.phi-badge:hover { color: rgba(192,72,90,.9); border-color: rgba(192,72,90,.3); background: rgba(192,72,90,.07); }
 
-.phi-btns {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  animation: phFadeUp .5s .3s both;
-}
+.phi-btns { display: flex; align-items: center; gap: 1.5rem; animation: phFadeUp .5s .3s both; }
 .phi-btn-p {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: .8rem;
-  font-weight: 500;
-  letter-spacing: .03em;
-  color: #fff;
-  background: rgba(192,72,90,.9);
-  border: none;
-  border-radius: 6px;
-  padding: .65rem 1.4rem;
-  cursor: pointer;
-  font-family: inherit;
-  text-decoration: none;
-  transition: all .2s;
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .8rem; font-weight: 500; letter-spacing: .03em;
+  color: #fff; background: rgba(192,72,90,.9); border: none; border-radius: 6px;
+  padding: .65rem 1.4rem; cursor: pointer; font-family: inherit; text-decoration: none; transition: all .2s;
 }
-.phi-btn-p:hover {
-  background: #c0485a;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(192,72,90,.3);
-}
+.phi-btn-p:hover { background: #c0485a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(192,72,90,.3); }
 .phi-btn-g {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  font-size: .78rem;
-  font-weight: 400;
-  letter-spacing: .03em;
-  color: rgba(255,255,255,.32);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  padding-bottom: 1px;
-  transition: all .2s;
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .78rem; font-weight: 400; letter-spacing: .03em;
+  color: rgba(255,255,255,.45); text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.12); padding-bottom: 1px; transition: all .2s;
 }
-.phi-btn-g:hover {
-  color: rgba(255,255,255,.65);
-  border-color: rgba(255,255,255,.3);
-}
+.phi-btn-g:hover { color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.35); }
 
-/* Right - stats */
 .phi-right {
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid rgba(255,255,255,.06);
-  padding-left: 2.5rem;
+  display: flex; flex-direction: column;
+  border-left: 1px solid rgba(255,255,255,.07); padding-left: 2.5rem;
   animation: phFadeLeft .6s .4s both;
-  gap: 0;
 }
-.phi-stat {
-  padding: 1.25rem 0;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-  cursor: default;
-  transition: all .2s;
-}
+.phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.06); cursor: default; transition: all .2s; }
 .phi-stat:last-of-type { border-bottom: none; }
 .phi-stat:hover .phi-stat-v { color: #fff; }
-.phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.32); }
-.phi-stat-v {
-  font-size: 1.9rem;
-  font-weight: 300;
-  letter-spacing: -.06em;
-  color: rgba(255,255,255,.45);
-  line-height: 1;
-  margin-bottom: .3rem;
-  transition: color .2s;
-}
-.phi-stat-v sup {
-  font-size: .85rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  color: rgba(192,72,90,.75);
-  vertical-align: super;
-}
-.phi-stat-l {
-  font-size: .58rem;
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.18);
-  transition: color .2s;
-}
+.phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.38); }
+.phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: rgba(255,255,255,.55); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
+.phi-stat-v sup { font-size: .85rem; font-weight: 400; letter-spacing: 0; color: rgba(192,72,90,.8); vertical-align: super; }
+.phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.22); transition: color .2s; }
 
-.phi-sys {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,.05);
-}
-.phi-sys-lbl {
-  font-size: .55rem;
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.15);
-  margin-bottom: .9rem;
-}
-.phi-sys-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: .35rem 0;
-  border-bottom: 1px solid rgba(255,255,255,.04);
-  font-size: .7rem;
-}
+.phi-sys { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.06); }
+.phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.18); margin-bottom: .9rem; }
+.phi-sys-item { display: flex; justify-content: space-between; align-items: baseline; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: .7rem; }
 .phi-sys-item:last-child { border: none; }
-.phi-sys-k { color: rgba(255,255,255,.22); font-weight: 300; }
-.phi-sys-v { color: rgba(255,255,255,.5); font-weight: 500; letter-spacing: .02em; }
+.phi-sys-k { color: rgba(255,255,255,.28); font-weight: 300; }
+.phi-sys-v { color: rgba(255,255,255,.6); font-weight: 500; letter-spacing: .02em; }
 
-@keyframes phFadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes phFadeLeft {
-  from { opacity: 0; transform: translateX(18px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes phShimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+@keyframes phFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes phFadeLeft { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes phShimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
 @media (max-width: 768px) {
-  .page-hero-inner {
-    grid-template-columns: 1fr;
-    padding: 3rem 1.5rem;
-  }
+  .page-hero-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
   .phi-right { display: none; }
   .phi-h1 { font-size: 2.4rem; }
 }
@@ -462,30 +359,18 @@
 
   <div class="page-hero-inner">
     <div class="phi-left">
-
       <nav class="phi-bread">
-        <a href="/">Start</a>
-        <span class="phi-bread-sep">›</span>
-        <a href="/leistungen/">Leistungen</a>
-        <span class="phi-bread-sep">›</span>
+        <a href="/">Start</a><span class="phi-bread-sep">›</span>
+        <a href="/leistungen/">Leistungen</a><span class="phi-bread-sep">›</span>
         <span class="phi-bread-cur">Industrieböden</span>
       </nav>
-
-      <div class="phi-tag">
-        <div class="phi-tag-line"></div>
-        Einstreubelag & Industriebeschichtung
-      </div>
-
+      <div class="phi-tag"><div class="phi-tag-line"></div>Einstreubelag & Industriebeschichtung</div>
       <h1 class="phi-h1">
         <span class="phi-h1-muted">Böden für</span>
         <span class="phi-h1-accent">höchste</span>
         <span class="phi-h1-white">Belastung.</span>
       </h1>
-
-      <p class="phi-lead">
-        Hochbelastbare Einstreubeläge für Lagerhallen, Produktionsstätten und Gewerbe – präzise ausgeführt von POLYCORE GmbH in Bern.
-      </p>
-
+      <p class="phi-lead">Hochbelastbare Einstreubeläge für Lagerhallen, Produktionsstätten und Gewerbe – präzise ausgeführt von POLYCORE GmbH in Bern.</p>
       <div class="phi-badges">
         <span class="phi-badge">Rutschfest</span>
         <span class="phi-badge">Schwerlastgeeignet</span>
@@ -494,51 +379,22 @@
         <span class="phi-badge">Alle RAL-Farben</span>
         <span class="phi-badge">Region Bern</span>
       </div>
-
       <div class="phi-btns">
-        <a href="../kontakt.html" class="phi-btn-p">
-          Offerte anfragen
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-        <a href="tel:+41765397974" class="phi-btn-g">
-          076 539 79 74
-          <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
+        <a href="../kontakt.html" class="phi-btn-p">Offerte anfragen <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="tel:+41765397974" class="phi-btn-g">076 539 79 74 <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
-
     </div>
-
     <div class="phi-right">
-      <div class="phi-stat">
-        <div class="phi-stat-v">10–20<sup>J</sup></div>
-        <div class="phi-stat-l">Haltbarkeit</div>
-      </div>
-      <div class="phi-stat">
-        <div class="phi-stat-v">24<sup>h</sup></div>
-        <div class="phi-stat-l">Begehbar</div>
-      </div>
-      <div class="phi-stat">
-        <div class="phi-stat-v">2–4<sup>mm</sup></div>
-        <div class="phi-stat-l">Schichtdicke</div>
-      </div>
-
+      <div class="phi-stat"><div class="phi-stat-v">10–20<sup>J</sup></div><div class="phi-stat-l">Haltbarkeit</div></div>
+      <div class="phi-stat"><div class="phi-stat-v">24<sup>h</sup></div><div class="phi-stat-l">Begehbar</div></div>
+      <div class="phi-stat"><div class="phi-stat-v">2–4<sup>mm</sup></div><div class="phi-stat-l">Schichtdicke</div></div>
       <div class="phi-sys">
         <div class="phi-sys-lbl">Eingesetztes System</div>
-        <div class="phi-sys-item">
-          <span class="phi-sys-k">Grundierung</span>
-          <span class="phi-sys-v">Sikafloor-151</span>
-        </div>
-        <div class="phi-sys-item">
-          <span class="phi-sys-k">Beschichtung</span>
-          <span class="phi-sys-v">Epoxidharz 2-K</span>
-        </div>
-        <div class="phi-sys-item">
-          <span class="phi-sys-k">Einstreuung</span>
-          <span class="phi-sys-v">Quarzsand / Korund</span>
-        </div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Grundierung</span><span class="phi-sys-v">Sikafloor-151</span></div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Beschichtung</span><span class="phi-sys-v">Epoxidharz 2-K</span></div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Einstreuung</span><span class="phi-sys-v">Quarzsand / Korund</span></div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -546,36 +402,12 @@
 <section class="section-sm">
   <div class="container">
     <div class="benefits-grid">
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Qualität</div>
-        <div class="benefit-lbl">Schweizer Verarbeitung</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="benefit-title">Schwerlast</div>
-        <div class="benefit-lbl">Gabelstapler-geeignet</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <div class="benefit-title">Schnell</div>
-        <div class="benefit-lbl">24h begehbar</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <div class="benefit-title">Einstreuung</div>
-        <div class="benefit-lbl">Quarzsand / Korund</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-        <div class="benefit-title">Regional</div>
-        <div class="benefit-lbl">Bern, Biel, Thun</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <div class="benefit-title">Festpreis</div>
-        <div class="benefit-lbl">Transparentes Angebot</div>
-      </div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="benefit-title">Qualität</div><div class="benefit-lbl">Schweizer Verarbeitung</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="benefit-title">Schwerlast</div><div class="benefit-lbl">Gabelstapler-geeignet</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="benefit-title">Schnell</div><div class="benefit-lbl">24h begehbar</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="benefit-title">Einstreuung</div><div class="benefit-lbl">Quarzsand / Korund</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="benefit-title">Regional</div><div class="benefit-lbl">Bern, Biel, Thun</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="benefit-title">Festpreis</div><div class="benefit-lbl">Transparentes Angebot</div></div>
     </div>
   </div>
 </section>
@@ -597,13 +429,13 @@
         <h3>Kostenlose Beratung</h3>
         <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein massgeschneidertes Angebot – unverbindlich und kostenlos.</p>
         <a href="/kontakt.html" class="btn btn-light">Jetzt anfragen</a>
-        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.15)">
-          <div style="font-size:.75rem;opacity:.6;margin-bottom:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase">Eingesetztes System</div>
-          <div style="font-size:.82rem;display:flex;flex-direction:column;gap:.4rem">
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.1)"><span style="opacity:.7">Grundierung</span><strong>Sikafloor-151</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.1)"><span style="opacity:.7">Beschichtung</span><strong>Epoxidharz 2-K</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.1)"><span style="opacity:.7">Einstreuung</span><strong>Quarzsand/Korund</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0"><span style="opacity:.7">Schichtdicke</span><strong>2–4 mm</strong></div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)">
+          <div style="font-size:.7rem;opacity:.5;margin-bottom:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Eingesetztes System</div>
+          <div style="font-size:.8rem;display:flex;flex-direction:column;gap:.4rem">
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.4)">Grundierung</span><strong style="color:rgba(255,255,255,.8)">Sikafloor-151</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.4)">Beschichtung</span><strong style="color:rgba(255,255,255,.8)">Epoxidharz 2-K</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.4)">Einstreuung</span><strong style="color:rgba(255,255,255,.8)">Quarzsand/Korund</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0"><span style="color:rgba(255,255,255,.4)">Schichtdicke</span><strong style="color:rgba(255,255,255,.8)">2–4 mm</strong></div>
           </div>
         </div>
       </aside>
@@ -619,36 +451,12 @@
       <h2 class="h1 reveal">Wo wir Industrieböden einsetzen</h2>
     </div>
     <div class="app-grid">
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <h4>Lagerhallen</h4>
-        <p>Hochbelastbare Böden für Logistik und Lagerung</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        <h4>Produktionsstätten</h4>
-        <p>Strapazierfähige Böden für Fertigungsbetriebe</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 010 1.4l-8 8a1 1 0 01-.4.2l-4 1a1 1 0 01-1.2-1.2l1-4a1 1 0 01.2-.4l8-8a1 1 0 011.4 0l3 3z"/></svg>
-        <h4>Werkstätten</h4>
-        <p>Öl- und chemikalienresistente Beschichtungen</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m-4 12H9m10-7v6m-3-3h6"/></svg>
-        <h4>Logistikzentren</h4>
-        <p>Nahtlose Böden für reibungslosen Warenfluss</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-        <h4>Lebensmittelindustrie</h4>
-        <p>Hygienische, fugenlose Böden nach HACCP</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>
-        <h4>Gewerbeküchen</h4>
-        <p>Rutschfeste, leicht zu reinigende Böden</p>
-      </div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><h4>Lagerhallen</h4><p>Hochbelastbare Böden für Logistik und Lagerung</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><h4>Produktionsstätten</h4><p>Strapazierfähige Böden für Fertigungsbetriebe</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 010 1.4l-8 8a1 1 0 01-.4.2l-4 1a1 1 0 01-1.2-1.2l1-4a1 1 0 01.2-.4l8-8a1 1 0 011.4 0l3 3z"/></svg><h4>Werkstätten</h4><p>Öl- und chemikalienresistente Beschichtungen</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m-4 12H9m10-7v6m-3-3h6"/></svg><h4>Logistikzentren</h4><p>Nahtlose Böden für reibungslosen Warenfluss</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><h4>Lebensmittelindustrie</h4><p>Hygienische, fugenlose Böden nach HACCP</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg><h4>Gewerbeküchen</h4><p>Rutschfeste, leicht zu reinigende Böden</p></div>
     </div>
   </div>
 </section>
@@ -690,21 +498,9 @@
       <h2 class="h1 reveal">Das könnte Sie auch interessieren</h2>
     </div>
     <div class="related-grid">
-      <a href="../leistungen/epoxidharz-boden.html" class="related-card">
-        <div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/></svg></div>
-        <h4>Epoxidharz-Boden</h4>
-        <p>Fugenlose EP-Beschichtung für alle Bereiche</p>
-      </a>
-      <a href="../leistungen/polyurethan-boden.html" class="related-card">
-        <div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></div>
-        <h4>Polyurethan-Boden</h4>
-        <p>Elastische PU-Beschichtung für erhöhte Anforderungen</p>
-      </a>
-      <a href="../leistungen/garagenbeschichtung.html" class="related-card">
-        <div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/></svg></div>
-        <h4>Garagenbeschichtung</h4>
-        <p>Epoxy Einstreubelag für Garagen</p>
-      </a>
+      <a href="../leistungen/epoxidharz-boden.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/></svg></div><h4>Epoxidharz-Boden</h4><p>Fugenlose EP-Beschichtung für alle Bereiche</p></a>
+      <a href="../leistungen/polyurethan-boden.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></div><h4>Polyurethan-Boden</h4><p>Elastische PU-Beschichtung für erhöhte Anforderungen</p></a>
+      <a href="../leistungen/garagenbeschichtung.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/></svg></div><h4>Garagenbeschichtung</h4><p>Epoxy Einstreubelag für Garagen</p></a>
     </div>
   </div>
 </section>
