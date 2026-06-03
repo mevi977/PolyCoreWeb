@@ -13,10 +13,8 @@
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="de_CH"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Garagenbeschichtung Epoxidharz | POLYCORE GmbH Bern"/>
-<meta name="twitter:description" content="Professionelle Garagenbeschichtungen mit Epoxidharz – rutschfest, pflegeleicht und langlebig. POLYCORE GmbH in der Region Bern, Biel, Thun."/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie lange hält eine Garagenbeschichtung?", "acceptedAnswer": {"@type": "Answer", "text": "Eine professionell ausgeführte Epoxidharz-Beschichtung hält bei normaler Nutzung 10–15 Jahre. Wichtig ist ein trockener Untergrund und korrekte Vorbehandlung."}}, {"@type": "Question", "name": "Muss der Boden vorher geschliffen werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja – wir schleifen oder fräsen den Betonboden, beheben Risse und tragen eine Grundierung auf. Das ist entscheidend für die langfristige Haftung."}}, {"@type": "Question", "name": "Wann kann ich die Garage wieder nutzen?", "acceptedAnswer": {"@type": "Answer", "text": "Nach 24 Stunden ist der Boden begehbar, nach 72 Stunden befahrbar. Wir empfehlen, 7 Tage zu warten, bevor schwere Fahrzeuge dauerhaft abgestellt werden."}}, {"@type": "Question", "name": "Welche Farben sind möglich?", "acceptedAnswer": {"@type": "Answer", "text": "Alle RAL-Farbtöne sowie Farbchips-Optik sind möglich. Besonders beliebt: RAL 7016 (Anthrazit), RAL 7032 (Kieselgrau) und RAL 7035 (Lichtgrau)."}}, {"@type": "Question", "name": "Was kostet eine Garagenbeschichtung?", "acceptedAnswer": {"@type": "Answer", "text": "Der Preis hängt von Fläche und Untergrundszustand ab. Nach einer kostenlosen Besichtigung erhalten Sie ein transparentes Festpreisangebot."}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "POLYCORE GmbH", "url": "https://www.polycore.ch", "telephone": "+41765397974", "address": {"@type": "PostalAddress", "streetAddress": "Etzmattrain 36", "addressLocality": "Urtenen-Schönbühl", "postalCode": "3322", "addressCountry": "CH"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wie lange hält eine Garagenbeschichtung?","acceptedAnswer":{"@type":"Answer","text":"Eine professionell ausgeführte Epoxidharz-Beschichtung hält bei normaler Nutzung 10–15 Jahre."}},{"@type":"Question","name":"Muss der Boden vorher geschliffen werden?","acceptedAnswer":{"@type":"Answer","text":"Ja – wir schleifen den Betonboden, beheben Risse und tragen eine Grundierung auf. Das ist entscheidend für die langfristige Haftung."}},{"@type":"Question","name":"Wann kann ich die Garage wieder nutzen?","acceptedAnswer":{"@type":"Answer","text":"Nach 24 Stunden ist der Boden begehbar, nach 72 Stunden befahrbar."}},{"@type":"Question","name":"Welche Farben sind möglich?","acceptedAnswer":{"@type":"Answer","text":"Alle RAL-Farbtöne sind möglich. Besonders beliebt: RAL 7016 Anthrazit, RAL 7032 Kieselgrau, RAL 7035 Lichtgrau."}},{"@type":"Question","name":"Was kostet eine Garagenbeschichtung?","acceptedAnswer":{"@type":"Answer","text":"Der Preis hängt von Fläche und Untergrundszustand ab. Nach kostenloser Besichtigung erhalten Sie ein Festpreisangebot."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"POLYCORE GmbH","url":"https://www.polycore.ch","telephone":"+41765397974","address":{"@type":"PostalAddress","streetAddress":"Etzmattrain 36","addressLocality":"Urtenen-Schönbühl","postalCode":"3322","addressCountry":"CH"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -24,6 +22,129 @@
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
 <link rel="stylesheet" href="../css/page.css"/>
+
+<style>
+/* === KOMPROMIS: Topla tamna pozadina === */
+:root {
+  --dk: #171210;
+  --dk2: #1e1714;
+  --dk3: #251c18;
+  --bx: #c0485a;
+  --t1: rgba(255,255,255,.88);
+  --t2: rgba(255,255,255,.62);
+  --t3: rgba(255,255,255,.38);
+  --b1: rgba(255,255,255,.1);
+  --b2: rgba(255,255,255,.06);
+}
+
+body { background: var(--dk); color: var(--t1); }
+.section, .section-sm { background: var(--dk); }
+.section.light-bg, .section-sm.light-bg { background: var(--dk2); }
+
+.benefit-cell { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; padding: 1.5rem 1rem; transition: border-color .25s; }
+.benefit-cell:hover { border-color: rgba(192,72,90,.3); }
+.benefit-title { color: var(--t1); }
+.benefit-lbl { color: var(--t3); }
+.benefit-icon svg { stroke: var(--bx); }
+
+.content-body h2, .content-body h3 { color: var(--t1); }
+.content-body p { color: var(--t2); line-height: 1.8; }
+.content-body h3 { margin-top: 1.75rem; }
+
+.sidebar-cta { background: var(--dk3); border: 1px solid var(--b1); }
+.sidebar-cta h3 { color: var(--t1); }
+.sidebar-cta p { color: var(--t2); }
+
+.app-card { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; transition: all .25s; }
+.app-card:hover { background: var(--dk3); border-color: rgba(192,72,90,.35); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.app-card h4 { color: var(--t1); }
+.app-card p { color: var(--t2); }
+.app-card svg { stroke: var(--bx); opacity: .8; }
+
+.eyebrow { color: var(--bx); }
+.h1, .h2, h2 { color: var(--t1); }
+
+.faq-item { border-bottom: 1px solid var(--b1); }
+.faq-q { color: var(--t1); font-weight: 500; }
+details[open] .faq-q { color: #fff; }
+.faq-a p { color: var(--t2); }
+
+.cta-banner { background: linear-gradient(135deg, #221511 0%, #2e1c14 50%, #221511 100%); border: 1px solid rgba(192,72,90,.25); box-shadow: 0 0 60px rgba(192,72,90,.08) inset; }
+.cta-banner h2 { color: #fff; }
+.cta-banner p { color: var(--t2); }
+
+.related-card { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; transition: all .25s; }
+.related-card:hover { background: var(--dk3); border-color: rgba(192,72,90,.3); transform: translateY(-3px); }
+.related-card h4 { color: var(--t1); }
+.related-card p { color: var(--t2); }
+.related-icon svg { stroke: var(--bx); opacity: .7; }
+
+/* === HERO === */
+.page-hero { position: relative; min-height: 580px; background: var(--dk); overflow: hidden; display: flex; align-items: center; }
+.page-hero-bg { position: absolute; inset: 0; overflow: hidden; }
+.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .28; filter: saturate(.5) brightness(.9); }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,8,6,.98) 38%, rgba(15,8,6,.72) 65%, rgba(15,8,6,.35) 100%), linear-gradient(to bottom, transparent 0%, transparent 75%, rgba(15,8,6,.8) 100%); }
+.page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(74,14,26,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(74,14,26,.07) 1px, transparent 1px); background-size: 80px 80px; }
+.page-hero-glow { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(74,14,26,.25) 0%, transparent 70%); top: -80px; right: 5%; pointer-events: none; }
+.page-hero-hline { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(192,72,90,.18), transparent); }
+.page-hero-hline-t { top: 90px; }
+.page-hero-hline-b { bottom: 90px; }
+
+.page-hero-inner { position: relative; z-index: 5; width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 2.5rem; display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: center; }
+
+.phi-left { display: flex; flex-direction: column; }
+
+.phi-bread { display: flex; align-items: center; gap: .6rem; font-size: .63rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.32); margin-bottom: 2.25rem; animation: phUp .5s .05s both; }
+.phi-bread a { color: rgba(255,255,255,.32); text-decoration: none; transition: color .2s; }
+.phi-bread a:hover { color: rgba(255,255,255,.65); }
+.phi-bread-sep { color: rgba(255,255,255,.14); }
+.phi-bread-cur { color: rgba(192,72,90,.85); }
+
+.phi-tag { display: inline-flex; align-items: center; gap: .6rem; font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(192,72,90,.95); margin-bottom: 1.25rem; animation: phUp .5s .1s both; }
+.phi-tag-line { width: 28px; height: 1px; background: rgba(192,72,90,.5); flex-shrink: 0; }
+
+.phi-h1 { font-size: clamp(2.2rem, 4.5vw, 3.75rem); font-weight: 300; letter-spacing: -.055em; line-height: 1.0; margin-bottom: 1.5rem; animation: phUp .5s .15s both; }
+.phi-h1-muted { color: rgba(255,255,255,.48); display: block; }
+.phi-h1-accent { display: block; font-weight: 700; background: linear-gradient(135deg, #c0485a 0%, #e07888 50%, #c0485a 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: phUp .5s .15s both, phShim 4s 1s ease-in-out infinite; }
+.phi-h1-white { display: block; color: #fff; font-weight: 700; }
+
+.phi-lead { font-size: .9rem; font-weight: 300; color: rgba(255,255,255,.65); line-height: 1.9; max-width: 440px; margin-bottom: 2rem; letter-spacing: .01em; animation: phUp .5s .2s both; }
+
+.phi-badges { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 2.25rem; animation: phUp .5s .25s both; }
+.phi-badge { font-size: .6rem; font-weight: 500; letter-spacing: .06em; color: rgba(255,255,255,.42); border: 1px solid rgba(255,255,255,.1); padding: .28rem .8rem; border-radius: 50px; transition: all .25s; cursor: default; }
+.phi-badge:hover { color: rgba(192,72,90,.95); border-color: rgba(192,72,90,.35); background: rgba(192,72,90,.08); }
+
+.phi-btns { display: flex; align-items: center; gap: 1.5rem; animation: phUp .5s .3s both; }
+.phi-btn-p { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 500; letter-spacing: .03em; color: #fff; background: rgba(192,72,90,.95); border: none; border-radius: 6px; padding: .65rem 1.4rem; cursor: pointer; font-family: inherit; text-decoration: none; transition: all .2s; }
+.phi-btn-p:hover { background: #c0485a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(192,72,90,.3); }
+.phi-btn-g { display: inline-flex; align-items: center; gap: .4rem; font-size: .78rem; font-weight: 400; letter-spacing: .03em; color: rgba(255,255,255,.48); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.14); padding-bottom: 1px; transition: all .2s; }
+.phi-btn-g:hover { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.38); }
+
+.phi-right { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,.08); padding-left: 2.5rem; animation: phLeft .6s .4s both; }
+.phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.07); cursor: default; transition: all .2s; }
+.phi-stat:last-of-type { border-bottom: none; }
+.phi-stat:hover .phi-stat-v { color: #fff; }
+.phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.42); }
+.phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: rgba(255,255,255,.58); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
+.phi-stat-v sup { font-size: .85rem; font-weight: 400; letter-spacing: 0; color: rgba(192,72,90,.85); vertical-align: super; }
+.phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); transition: color .2s; }
+.phi-sys { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.07); }
+.phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.2); margin-bottom: .9rem; }
+.phi-sys-item { display: flex; justify-content: space-between; align-items: baseline; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: .7rem; }
+.phi-sys-item:last-child { border: none; }
+.phi-sys-k { color: rgba(255,255,255,.32); font-weight: 300; }
+.phi-sys-v { color: rgba(255,255,255,.65); font-weight: 500; letter-spacing: .02em; }
+
+@keyframes phUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes phLeft { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes phShim { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+@media (max-width: 768px) {
+  .page-hero-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+  .phi-right { display: none; }
+  .phi-h1 { font-size: 2.4rem; }
+}
+</style>
 </head>
 <body>
 <nav class="nav">
@@ -148,24 +269,54 @@
   </div>
 </div>
 
+
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="../assets/img/garagenbeschichtung.jpg" alt="Garagenbeschichtung mit Epoxidharz von POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
+    <img src="../assets/img/Epoxy-boden.png" alt="Garagenbeschichtung Epoxidharz POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
   </div>
-  <div class="page-hero-content container">
-    <nav class="breadcrumb">
-      <a href="/">Start</a><span>›</span>
-      <a href="/leistungen/">Leistungen</a><span>›</span>
-      <span style="color:rgba(255,255,255,.7)">Garagenbeschichtung</span>
-    </nav>
-    <h1 class="h1">Garagenbeschichtung mit Epoxidharz</h1>
-    <p class="lead">Schöner, sicherer und pflegeleichter Garagenboden – Epoxidharz-Einstreubelag für Private und Gewerbe in der Region Bern.</p>
-    <div class="hero-badges">
-      <span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8.5 2 5.5"/></svg>Rutschfest auch bei Nässe</span>
-      <span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8.5 2 5.5"/></svg>Ölflecken-resistent</span>
-      <span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8.5 2 5.5"/></svg>Alle RAL-Farben</span>
-      <span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8.5 2 5.5"/></svg>72h befahrbar</span>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-hline page-hero-hline-t"></div>
+  <div class="page-hero-hline page-hero-hline-b"></div>
+  <div class="page-hero-inner">
+    <div class="phi-left">
+      <nav class="phi-bread">
+        <a href="/">Start</a><span class="phi-bread-sep">›</span>
+        <a href="/leistungen/">Leistungen</a><span class="phi-bread-sep">›</span>
+        <span class="phi-bread-cur">Garagenbeschichtung</span>
+      </nav>
+      <div class="phi-tag"><div class="phi-tag-line"></div>Epoxidharz-Einstreubelag für Garagen</div>
+      <h1 class="phi-h1">
+        <span class="phi-h1-muted">Garagen­boden,</span>
+        <span class="phi-h1-accent">neu gedacht.</span>
+        <span class="phi-h1-white">Für immer.</span>
+      </h1>
+      <p class="phi-lead">Rutschfester, pflegeleichter Epoxidharz-Einstreubelag für Privatgaragen, Tiefgaragen und Gewerbebetriebe – professionell ausgeführt von POLYCORE GmbH in Bern.</p>
+      <div class="phi-badges">
+        <span class="phi-badge">Rutschfest bei Nässe</span>
+        <span class="phi-badge">Ölflecken-resistent</span>
+        <span class="phi-badge">Alle RAL-Farben</span>
+        <span class="phi-badge">72h befahrbar</span>
+        <span class="phi-badge">10–15 Jahre</span>
+        <span class="phi-badge">Region Bern</span>
+      </div>
+      <div class="phi-btns">
+        <a href="../kontakt.html" class="phi-btn-p">Offerte anfragen <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="tel:+41765397974" class="phi-btn-g">076 539 79 74 <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+    <div class="phi-right">
+      <div class="phi-stat"><div class="phi-stat-v">10–15<sup>J</sup></div><div class="phi-stat-l">Haltbarkeit</div></div>
+      <div class="phi-stat"><div class="phi-stat-v">72<sup>h</sup></div><div class="phi-stat-l">Befahrbar</div></div>
+      <div class="phi-stat"><div class="phi-stat-v">24<sup>h</sup></div><div class="phi-stat-l">Begehbar</div></div>
+      <div class="phi-sys">
+        <div class="phi-sys-lbl">Eingesetztes System</div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Grundierung</span><span class="phi-sys-v">Sikafloor-151</span></div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Beschichtung</span><span class="phi-sys-v">Epoxidharz 2-K</span></div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Einstreuung</span><span class="phi-sys-v">Farbchips / Quarzsand</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -174,36 +325,12 @@
 <section class="section-sm">
   <div class="container">
     <div class="benefits-grid">
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Qualität</div>
-        <div class="benefit-lbl">Schweizer Verarbeitung</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="benefit-title">Schutz</div>
-        <div class="benefit-lbl">Öl, Salz, Feuchtigkeit</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <div class="benefit-title">Schnell</div>
-        <div class="benefit-lbl">72h befahrbar</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="10.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/></svg></div>
-        <div class="benefit-title">Farbchips</div>
-        <div class="benefit-lbl">Oder alle RAL-Töne</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-        <div class="benefit-title">Regional</div>
-        <div class="benefit-lbl">Bern, Biel, Thun</div>
-      </div>
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <div class="benefit-title">Festpreis</div>
-        <div class="benefit-lbl">Transparentes Angebot</div>
-      </div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="benefit-title">Qualität</div><div class="benefit-lbl">Schweizer Verarbeitung</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="benefit-title">Schutz</div><div class="benefit-lbl">Öl, Salz, Feuchtigkeit</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="benefit-title">Schnell</div><div class="benefit-lbl">72h befahrbar</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="10.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/></svg></div><div class="benefit-title">Farbchips</div><div class="benefit-lbl">Oder alle RAL-Töne</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="benefit-title">Regional</div><div class="benefit-lbl">Bern, Biel, Thun</div></div>
+      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="benefit-title">Festpreis</div><div class="benefit-lbl">Transparentes Angebot</div></div>
     </div>
   </div>
 </section>
@@ -214,31 +341,25 @@
     <div class="content-layout">
       <article class="content-body">
         <h2>Warum eine Garagenbeschichtung?</h2>
-<p>Unbehandelte Garajenböden aus Beton nehmen Öl, Streusalz und Feuchtigkeit auf – das führt zu Flecken, Abplatzungen und langfristiger Schädigung. Eine professionelle Epoxidharz-Beschichtung schützt den Beton dauerhaft, ist leicht zu reinigen und wertet Ihre Garage optisch erheblich auf.</p>
-<p>POLYCORE GmbH führt Garagenbeschichtungen in der Region Bern, Biel, Thun, Burgdorf und Solothurn durch – für Private, Stockwerkeigentümer und Gewerbebetriebe.</p>
-<h3>Ablauf einer Garagenbeschichtung</h3>
-<ol style="margin:1rem 0 1rem 1.5rem;display:flex;flex-direction:column;gap:.5rem">
-  <li><strong>Untergrundprüfung</strong> – Feuchtigkeitsmessung, Zustandsbeurteilung</li>
-  <li><strong>Schleifen / Fräsen</strong> – Öffnung der Betonporen, Risssanierung</li>
-  <li><strong>Grundierung</strong> – Sikafloor-151 EP für maximale Haftung</li>
-  <li><strong>Beschichtung</strong> – Epoxidharz 2-K in Ihrer Wunschfarbe</li>
-  <li><strong>Einstreuung</strong> – Farbchips oder Quarzsand für Rutschhemmung</li>
-</ol>
-<h3>Farbwahl</h3>
-<p>Ob klassische Grautöne (RAL 7016, RAL 7032), modernes Anthrazit oder individuelle RAL-Farben – wir beraten Sie mit unserer <a href="/farbpalette" style="color:var(--bx)">RAL-Farbpalette</a> und bringen Muster für die Entscheidung mit.</p>
+        <p>Unbehandelte Garajenböden aus Beton nehmen Öl, Streusalz und Feuchtigkeit auf – das führt zu Flecken, Abplatzungen und langfristiger Schädigung. Eine professionelle Epoxidharz-Beschichtung schützt den Beton dauerhaft, ist leicht zu reinigen und wertet Ihre Garage optisch erheblich auf.</p>
+        <p>POLYCORE GmbH führt Garagenbeschichtungen in der Region Bern, Biel, Thun, Burgdorf und Solothurn durch – für Private, Stockwerkeigentümer und Gewerbebetriebe.</p>
+        <h3>Ausführung</h3>
+        <p>Wir prüfen den Untergrund auf Feuchtigkeit, schleifen oder fräsen den Betonboden, beheben Risse und tragen eine Grundierung auf. Anschliessend wird die Epoxidharz-Beschichtung in Ihrer Wunschfarbe aufgebracht und mit Farbchips oder Quarzsand eingestreut.</p>
+        <h3>Farbwahl</h3>
+        <p>Ob Grautöne (RAL 7016, RAL 7032), Anthrazit oder individuelle RAL-Farben – wir beraten Sie mit unserer <a href="/farbpalette" style="color:#c0485a;text-decoration:none;border-bottom:1px solid rgba(192,72,90,.35)">RAL-Farbpalette</a> und bringen Muster für die Entscheidung mit.</p>
       </article>
       <aside class="sidebar-cta">
         <h3>Kostenlose Beratung</h3>
-        <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein massgeschneidertes Angebot – unverbindlich und kostenlos.</p>
+        <p>Wir analysieren Ihre Garage vor Ort und erstellen ein Festpreisangebot – unverbindlich und kostenlos.</p>
         <a href="/kontakt.html" class="btn btn-light">Jetzt anfragen</a>
-        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.15)">
-          <div style="font-size:.75rem;opacity:.6;margin-bottom:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase">Eingesetztes System</div>
-          <div style="font-size:.82rem;display:flex;flex-direction:column;gap:.4rem">
-          <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.1)"><span style="opacity:.7">Grundierung</span><strong>Sikafloor-151</strong></div>
-          <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.1)"><span style="opacity:.7">Beschichtung</span><strong>Epoxidharz 2-K</strong></div>
-          <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.1)"><span style="opacity:.7">Einstreuung</span><strong>Farbchips / Quarzsand</strong></div>
-          <div style="display:flex;justify-content:space-between;padding:.3rem 0"><span style="opacity:.7">Farbe</span><strong>Alle RAL-Töne</strong></div>
-        </div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)">
+          <div style="font-size:.7rem;color:rgba(255,255,255,.35);margin-bottom:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Eingesetztes System</div>
+          <div style="font-size:.8rem;display:flex;flex-direction:column;gap:.35rem">
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Grundierung</span><strong style="color:rgba(255,255,255,.82)">Sikafloor-151</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Beschichtung</span><strong style="color:rgba(255,255,255,.82)">Epoxidharz 2-K</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Einstreuung</span><strong style="color:rgba(255,255,255,.82)">Farbchips/Quarzsand</strong></div>
+            <div style="display:flex;justify-content:space-between;padding:.3rem 0"><span style="color:rgba(255,255,255,.42)">Farbe</span><strong style="color:rgba(255,255,255,.82)">Alle RAL-Töne</strong></div>
+          </div>
         </div>
       </aside>
     </div>
@@ -253,36 +374,12 @@
       <h2 class="h1 reveal">Wo wir Garagenbeschichtungen ausführen</h2>
     </div>
     <div class="app-grid">
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <h4>Privatgaragen</h4>
-        <p>Schöner und pflegeleichter Boden für Einfamilienhäuser</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-        <h4>Tiefgaragen</h4>
-        <p>Strapazierfähige Systeme für Mehrfamilienhäuser</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 3v18"/></svg>
-        <h4>Carports</h4>
-        <p>Witterungsbeständige Außenbeschichtungen</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/><path d="M1 21h22"/></svg>
-        <h4>Autohandel</h4>
-        <p>Repräsentative Böden für Showrooms</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        <h4>Einstellhallen</h4>
-        <p>Langlebige Böden für Fahrzeugeinstellhallen</p>
-      </div>
-      <div class="app-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 010 1.4l-8 8a1 1 0 01-.4.2l-4 1a1 1 0 01-1.2-1.2l1-4a1 1 0 01.2-.4l8-8a1 1 0 011.4 0l3 3z"/></svg>
-        <h4>Sanierung</h4>
-        <p>Erneuerung bestehender Garajenböden</p>
-      </div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><h4>Privatgaragen</h4><p>Schöner und pflegeleichter Boden für Einfamilienhäuser</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><h4>Tiefgaragen</h4><p>Strapazierfähige Systeme für Mehrfamilienhäuser</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 3v18"/></svg><h4>Carports</h4><p>Witterungsbeständige Außenbeschichtungen</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/><path d="M1 21h22"/></svg><h4>Autohandel & Showroom</h4><p>Repräsentative Böden für professionelle Auftritte</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg><h4>Einstellhallen</h4><p>Langlebige Böden für Fahrzeugeinstellhallen</p></div>
+      <div class="app-card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 010 1.4l-8 8a1 1 0 01-.4.2l-4 1a1 1 0 01-1.2-1.2l1-4a1 1 0 01.2-.4l8-8a1 1 0 011.4 0l3 3z"/></svg><h4>Sanierung</h4><p>Erneuerung bestehender Garajenböden</p></div>
     </div>
   </div>
 </section>
@@ -293,7 +390,11 @@
     <span class="eyebrow">Häufige Fragen</span>
     <h2 class="h1 reveal" style="margin-bottom:2.5rem">FAQ</h2>
     <div class="faq-accordion">
-      <details class="faq-item"><summary class="faq-q">Wie lange hält eine Garagenbeschichtung?</summary><div class="faq-a"><p>Eine professionell ausgeführte Epoxidharz-Beschichtung hält bei normaler Nutzung 10–15 Jahre. Wichtig ist ein trockener Untergrund und korrekte Vorbehandlung.</p></div></details><details class="faq-item"><summary class="faq-q">Muss der Boden vorher geschliffen werden?</summary><div class="faq-a"><p>Ja – wir schleifen oder fräsen den Betonboden, beheben Risse und tragen eine Grundierung auf. Das ist entscheidend für die langfristige Haftung.</p></div></details><details class="faq-item"><summary class="faq-q">Wann kann ich die Garage wieder nutzen?</summary><div class="faq-a"><p>Nach 24 Stunden ist der Boden begehbar, nach 72 Stunden befahrbar. Wir empfehlen, 7 Tage zu warten, bevor schwere Fahrzeuge dauerhaft abgestellt werden.</p></div></details><details class="faq-item"><summary class="faq-q">Welche Farben sind möglich?</summary><div class="faq-a"><p>Alle RAL-Farbtöne sowie Farbchips-Optik sind möglich. Besonders beliebt: RAL 7016 (Anthrazit), RAL 7032 (Kieselgrau) und RAL 7035 (Lichtgrau).</p></div></details><details class="faq-item"><summary class="faq-q">Was kostet eine Garagenbeschichtung?</summary><div class="faq-a"><p>Der Preis hängt von Fläche und Untergrundszustand ab. Nach einer kostenlosen Besichtigung erhalten Sie ein transparentes Festpreisangebot.</p></div></details>
+      <details class="faq-item"><summary class="faq-q">Wie lange hält eine Garagenbeschichtung?</summary><div class="faq-a"><p>Eine professionell ausgeführte Epoxidharz-Beschichtung hält bei normaler Nutzung 10–15 Jahre. Wichtig sind ein trockener Untergrund und korrekte Vorbehandlung.</p></div></details>
+      <details class="faq-item"><summary class="faq-q">Muss der Boden vorher geschliffen werden?</summary><div class="faq-a"><p>Ja – wir schleifen oder fräsen den Betonboden, beheben Risse und tragen eine Grundierung auf. Das ist entscheidend für die langfristige Haftung.</p></div></details>
+      <details class="faq-item"><summary class="faq-q">Wann kann ich die Garage wieder nutzen?</summary><div class="faq-a"><p>Nach 24 Stunden ist der Boden begehbar, nach 72 Stunden befahrbar. Wir empfehlen, 7 Tage zu warten bevor schwere Fahrzeuge dauerhaft abgestellt werden.</p></div></details>
+      <details class="faq-item"><summary class="faq-q">Welche Farben sind möglich?</summary><div class="faq-a"><p>Alle RAL-Farbtöne sowie Farbchips-Optik sind möglich. Besonders beliebt: RAL 7016 Anthrazit, RAL 7032 Kieselgrau und RAL 7035 Lichtgrau.</p></div></details>
+      <details class="faq-item"><summary class="faq-q">Was kostet eine Garagenbeschichtung?</summary><div class="faq-a"><p>Der Preis hängt von Fläche und Untergrundszustand ab. Nach einer kostenlosen Besichtigung erhalten Sie ein transparentes Festpreisangebot.</p></div></details>
     </div>
   </div>
 </section>
@@ -320,21 +421,9 @@
       <h2 class="h1 reveal">Das könnte Sie auch interessieren</h2>
     </div>
     <div class="related-grid">
-      <a href="../leistungen/epoxidharz-boden.html" class="related-card">
-        <div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/></svg></div>
-        <h4>Epoxidharz-Boden</h4>
-        <p>Fugenlose EP-Beschichtung für alle Bereiche</p>
-      </a>
-      <a href="../leistungen/industrieboden.html" class="related-card">
-        <div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-        <h4>Industrieböden</h4>
-        <p>Einstreubeläge für Lager und Produktion</p>
-      </a>
-      <a href="../leistungen/steinteppich.html" class="related-card">
-        <div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg></div>
-        <h4>Steinteppich</h4>
-        <p>Natürlicher Kieselbelag für Innen und Außen</p>
-      </a>
+      <a href="../leistungen/epoxidharz-boden.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/></svg></div><h4>Epoxidharz-Boden</h4><p>Fugenlose EP-Beschichtung für alle Bereiche</p></a>
+      <a href="../leistungen/industrieboden.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><h4>Industrieböden</h4><p>Einstreubeläge für Lager und Produktion</p></a>
+      <a href="../leistungen/steinteppich.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg></div><h4>Steinteppich</h4><p>Natürlicher Kieselbelag für Innen und Außen</p></a>
     </div>
   </div>
 </section>
@@ -373,6 +462,9 @@
     </div>
   </div>
 </footer>
+
+<script src="../js/main.js"></script>
+</body>
 
 <script src="../js/main.js"></script>
 </body>
