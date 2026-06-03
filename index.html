@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>POLYCORE – re:defined | Bodenbeläge & Bautenschutz</title>
-  <meta name="description" content="POLYCORE – Epoxidharz, Polyurethan, PMMA. Futuristische Bodenlösungen für Industrie und Wohnraum. Schweiz.">
+  <title>POLYCORE – redefinierte Bodenbeläge | Epoxid, PU, PMMA</title>
+  <meta name="description" content="POLYCORE GmbH – modernste Bodenbeschichtungen und Bautenschutz in Bern. Epoxidharz, Polyurethan, PMMA. Innovativ, präzise, nachhaltig.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -16,130 +16,126 @@
     }
 
     body {
-      background: #030303;
-      font-family: 'Space Grotesk', sans-serif;
-      color: #ececec;
+      font-family: 'Inter', sans-serif;
+      background: #010101;
+      color: #f0f0f0;
       overflow-x: hidden;
-    }
-
-    /* custom cursor (optional but fresh) */
-    body {
-      cursor: default;
-    }
-
-    /* smooth scroll behaviour */
-    html {
       scroll-behavior: smooth;
     }
 
-    /* ========== NAVBAR – floating, glass, innovative ========== */
-    .nav {
+    /* --- inovativni navbar (staklo, centralni logo) --- */
+    .navbar {
       position: fixed;
-      top: 1.5rem;
+      top: 24px;
       left: 50%;
       transform: translateX(-50%);
-      width: calc(100% - 3rem);
-      max-width: 1280px;
-      z-index: 1000;
-      background: rgba(8, 8, 12, 0.65);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 3rem;
+      width: calc(100% - 40px);
+      max-width: 1400px;
+      background: rgba(10, 10, 15, 0.7);
+      backdrop-filter: blur(18px);
+      border-radius: 60px;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      padding: 0.8rem 1.8rem;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      padding: 10px 28px;
     }
 
-    .nav.scrolled {
-      top: 0.8rem;
+    .navbar.scrolled {
+      top: 12px;
       background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(20px);
       border-color: rgba(196, 55, 79, 0.3);
-      box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
-    /* logo – bold and modern */
-    .logo a {
+    /* Logo centralno – apsolutna pozicija */
+    .logo-central {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .logo-central a {
       font-size: 1.8rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.02em;
       text-decoration: none;
-      background: linear-gradient(135deg, #fff, #c4374f);
+      background: linear-gradient(135deg, #FFFFFF, #c4374f, #ff6a5c);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      transition: opacity 0.2s;
+      transition: 0.2s;
     }
 
-    .logo a:hover {
-      opacity: 0.85;
+    .logo-central a:hover {
+      opacity: 0.9;
+      background-position: right center;
     }
 
-    /* nav links – minimal, uppercase, spaced */
-    .nav-links {
+    /* Linkovi lijevo i desno */
+    .nav-left, .nav-right {
       display: flex;
-      gap: 2.2rem;
+      gap: 2rem;
       list-style: none;
     }
 
-    .nav-links a {
+    .nav-link {
+      color: rgba(255,255,255,0.75);
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 450;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
       transition: 0.2s;
       position: relative;
     }
 
-    .nav-links a::after {
+    .nav-link::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: -6px;
       left: 0;
       width: 0;
-      height: 1.5px;
+      height: 2px;
       background: #c4374f;
-      transition: width 0.25s ease;
+      transition: width 0.25s;
     }
 
-    .nav-links a:hover {
+    .nav-link:hover {
       color: white;
     }
 
-    .nav-links a:hover::after {
+    .nav-link:hover::after {
       width: 100%;
     }
 
-    /* special contact pill */
-    .contact-pill {
-      background: rgba(196, 55, 79, 0.18);
-      border: 1px solid rgba(196, 55, 79, 0.5);
-      padding: 0.4rem 1.2rem;
-      border-radius: 2rem;
-      transition: 0.2s;
+    .btn-phone {
+      background: rgba(196,55,79,0.2);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      border: 1px solid rgba(196,55,79,0.5);
     }
 
-    .contact-pill:hover {
-      background: rgba(196, 55, 79, 0.35);
-      border-color: #c4374f;
+    .btn-phone:hover {
+      background: rgba(196,55,79,0.4);
     }
 
-    /* burger menu – hidden on desktop */
+    /* hamburger */
     .burger {
       display: none;
       background: none;
       border: none;
       cursor: pointer;
-      z-index: 1010;
     }
-
     .burger span {
       display: block;
       width: 24px;
@@ -149,7 +145,7 @@
       transition: 0.2s;
     }
 
-    /* mobile menu overlay */
+    /* mobilni meni */
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -159,52 +155,56 @@
       height: 100%;
       background: #050505dd;
       backdrop-filter: blur(24px);
-      z-index: 2000;
+      z-index: 1100;
       padding: 2rem;
-      transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transition: 0.3s ease-out;
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      border-left: 1px solid #c4374f33;
     }
-
     .mobile-menu.open {
       right: 0;
     }
-
     .mobile-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      z-index: 1999;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1050;
       opacity: 0;
       visibility: hidden;
       transition: 0.2s;
     }
-
     .mobile-backdrop.show {
       opacity: 1;
       visibility: visible;
     }
 
     @media (max-width: 900px) {
-      .nav-links {
+      .nav-left, .nav-right {
         display: none;
       }
       .burger {
         display: block;
       }
-      .nav {
-        width: calc(100% - 2rem);
-        padding: 0.6rem 1.2rem;
+      .logo-central {
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-right: auto;
       }
-      .logo a {
+      .nav-container {
+        justify-content: space-between;
+      }
+      .navbar {
+        padding: 8px 20px;
+      }
+      .logo-central a {
         font-size: 1.4rem;
       }
     }
 
-    /* ========== HERO – immersive video, modern typography ========== */
+    /* HERO – video pozadina koja stvarno radi */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -212,279 +212,216 @@
       align-items: flex-end;
       overflow: hidden;
     }
-
     .hero-bg {
       position: absolute;
       inset: 0;
       z-index: -2;
     }
-
-    .hero-bg video,
-    .hero-bg img {
+    .hero-bg video {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 30% 20%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 90%);
+      background: linear-gradient(125deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%);
       z-index: -1;
     }
-
     .hero-content {
-      padding: 6rem 2rem 5rem;
+      padding: 8rem 2rem 5rem;
       width: 100%;
       position: relative;
       z-index: 2;
     }
-
-    .hero-content .container {
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: #c4374f;
-      background: rgba(196,55,79,0.15);
-      display: inline-block;
-      padding: 0.3rem 1rem;
-      border-radius: 2rem;
-      backdrop-filter: blur(4px);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 9vw, 6rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-    }
-
-    .hero h1 .accent {
-      color: #c4374f;
-      text-shadow: 0 0 12px rgba(196,55,79,0.5);
-    }
-
-    .hero-desc {
-      font-size: 1.1rem;
-      max-width: 540px;
-      margin: 1.5rem 0 2rem;
-      opacity: 0.8;
-      line-height: 1.5;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.9rem 2rem;
-      border-radius: 2.5rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.25s;
-      letter-spacing: 0.3px;
-      font-size: 0.95rem;
-    }
-
-    .btn-primary {
-      background: #c4374f;
-      color: white;
-      box-shadow: 0 4px 14px rgba(196,55,79,0.3);
-    }
-
-    .btn-primary:hover {
-      background: #a82c41;
-      transform: scale(0.98);
-      box-shadow: 0 6px 18px rgba(196,55,79,0.4);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.4);
-      background: transparent;
-      color: white;
-    }
-
-    .btn-outline:hover {
-      border-color: #c4374f;
-      background: rgba(196,55,79,0.1);
-    }
-
-    /* ========== INNOVATIVE GRID SECTIONS ========== */
-    section {
-      padding: 6rem 0;
-      position: relative;
-    }
-
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3.2rem);
+    .hero-badge {
+      display: inline-block;
+      background: rgba(196,55,79,0.2);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: #c4374f;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 8vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span {
+      color: #c4374f;
+      text-shadow: 0 0 12px rgba(196,55,79,0.4);
+    }
+    .hero-desc {
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 1.5rem 0 2rem;
+      opacity: 0.8;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
       font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-primary {
+      background: #c4374f;
+      color: white;
+      box-shadow: 0 4px 12px rgba(196,55,79,0.3);
+    }
+    .btn-primary:hover {
+      background: #a82c41;
+      transform: scale(0.97);
+    }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: #c4374f;
+      background: rgba(196,55,79,0.1);
+    }
+
+    /* SEKCIJE */
+    section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
-
-    .title-accent {
-      background: linear-gradient(120deg, #ffffff, #c4374f);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+    .section-sub {
+      color: #c4374f;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
     }
-
-    .grid-3 {
+    .grid-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
-
-    /* neomorphic / glass cards */
     .card {
-      background: rgba(20, 20, 28, 0.7);
-      backdrop-filter: blur(12px);
+      background: rgba(18, 18, 24, 0.7);
+      backdrop-filter: blur(8px);
       border-radius: 2rem;
-      padding: 2rem 1.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s;
     }
-
     .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(196, 55, 79, 0.4);
-      background: rgba(25, 25, 33, 0.85);
+      transform: translateY(-6px);
+      border-color: rgba(196,55,79,0.4);
+      background: rgba(25,25,35,0.9);
     }
-
-    .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1.2rem;
+    .card-emoji {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
     }
-
     .card h3 {
-      font-size: 1.6rem;
-      font-weight: 500;
-      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
     }
-
     .card p {
       color: #b0b0b0;
       line-height: 1.5;
     }
 
-    /* stats row – dynamic */
-    .stats-row {
+    /* stats */
+    .stats-wrapper {
+      background: linear-gradient(145deg, #0c0c10, #000000);
+      border-radius: 2rem;
+      padding: 3rem 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(196,55,79,0.2);
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 2rem;
-      background: linear-gradient(135deg, #0f0f12, #030303);
-      border-radius: 2.5rem;
-      padding: 3rem 2rem;
-      margin: 3rem 0;
-      border: 1px solid rgba(196,55,79,0.2);
     }
-
     .stat-item {
       text-align: center;
       flex: 1;
     }
-
     .stat-number {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 2.5rem;
+      font-weight: 800;
       color: #c4374f;
     }
 
-    .stat-label {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* footer – minimal dark */
+    /* footer */
     .footer {
-      background: #010101;
+      background: #020202;
       border-top: 1px solid #1a1a1a;
       padding: 3rem 0;
     }
-
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 2rem;
     }
-
     .footer a {
       color: #aaa;
       text-decoration: none;
       transition: 0.2s;
     }
-
     .footer a:hover {
       color: #c4374f;
     }
 
-    /* reveal animations */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: opacity 0.6s, transform 0.6s;
     }
-
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    @media (max-width: 700px) {
-      .stats-row {
-        flex-direction: column;
-        text-align: center;
-      }
-      .btn-group {
-        justify-content: center;
-      }
-      .hero-content {
-        text-align: center;
-        padding: 8rem 0 4rem;
-      }
-      .hero-desc {
-        margin-left: auto;
-        margin-right: auto;
-      }
     }
   </style>
 </head>
 <body>
 
-<!-- INNOVATIVE FLOATING NAVBAR -->
-<nav class="nav" id="navbar">
+<!-- FUTURISTIČKI NAVBAR -->
+<nav class="navbar" id="navbar">
   <div class="nav-container">
-    <div class="logo">
+    <ul class="nav-left">
+      <li><a href="#leistungen" class="nav-link">LEISTUNGEN</a></li>
+      <li><a href="#projekte" class="nav-link">PROJEKTE</a></li>
+      <li><a href="#ueber" class="nav-link">ÜBER UNS</a></li>
+    </ul>
+
+    <div class="logo-central">
       <a href="/">POLYCORE</a>
     </div>
-    <ul class="nav-links">
-      <li><a href="#leistungen">LEISTUNGEN</a></li>
-      <li><a href="#projekte">PROJEKTE</a></li>
-      <li><a href="#ueber">ÜBER UNS</a></li>
-      <li><a href="#kontakt" class="contact-pill">KONTAKT</a></li>
+
+    <ul class="nav-right">
+      <li><a href="#kontakt" class="nav-link">KONTAKT</a></li>
+      <li><a href="tel:+41765397974" class="nav-link btn-phone">+41 76 539 79 74</a></li>
     </ul>
-    <button class="burger" id="burgerBtn" aria-label="Menü">
+
+    <button class="burger" id="burgerBtn" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -493,11 +430,11 @@
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <div class="mobile-menu" id="mobileMenu">
   <div style="display: flex; justify-content: space-between; align-items: center;">
-    <span style="font-weight: 700; font-size: 1.5rem;">POLYCORE</span>
-    <button id="closeMobileBtn" style="background: none; border: none; color: white; font-size: 1.8rem;">✕</button>
+    <strong style="font-size: 1.6rem; background: linear-gradient(135deg,#fff,#c4374f); -webkit-background-clip:text; background-clip:text; color:transparent;">POLYCORE</strong>
+    <button id="closeMobile" style="background: none; border: none; color: white; font-size: 1.8rem;">✕</button>
   </div>
-  <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem; font-size: 1.2rem;">
-    <li><a href="#leistungen" style="color:white; text-decoration:none;">Leistungen</a></li>
+  <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
+    <li><a href="#leistungen" style="color:white; text-decoration: none;">Leistungen</a></li>
     <li><a href="#projekte" style="color:white;">Projekte</a></li>
     <li><a href="#ueber" style="color:white;">Über uns</a></li>
     <li><a href="#kontakt" style="color:#c4374f;">Kontakt</a></li>
@@ -505,157 +442,103 @@
   </ul>
 </div>
 
-<!-- HERO SECTION WITH VIDEO BACKGROUND -->
-<header class="hero" id="home">
+<!-- HERO SA VIDEOM – pouzdan izvor -->
+<header class="hero">
   <div class="hero-bg">
-    <!-- ersatz video – use local or placeholder? For demo, using a high-quality looping abstract mp4 from online (futuristic) -->
-    <!-- if you have your own video, replace src -->
-    <video autoplay muted loop playsinline poster="https://assets.codepen.io/...">
-      <source src="https://player.vimeo.com/external/580368498.sd.mp4?s=...&profile_id=164" type="video/mp4">
-      <img src="https://images.pexels.com/photos/3583199/industrial-floor.jpg" alt="industrial floor">
+    <!-- legalni, radni video (Pexels stock video) -->
+    <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/3583199/industrial-floor.jpg">
+      <source src="https://player.vimeo.com/external/423064398.sd.mp4?s=ae73ab5fb6cd510cfb4fae9c45e2d480590be320&profile_id=164" type="video/mp4">
     </video>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="container">
-      <div class="hero-badge">★ premium bodenbeläge ★</div>
-      <h1>Qualität liegt<br>im <span class="accent">Detail.</span></h1>
-      <p class="hero-desc">Epoxidharz, Polyurethan, PMMA – nahtlose Systeme, die Ästhetik mit Industriehärte verbinden. Entdecken Sie die Zukunft des Bodenbaus.</p>
+      <div class="hero-badge">⚡ NEXT-GEN BODENBELÄGE</div>
+      <h1>Qualität liegt<br>im <span>Detail.</span></h1>
+      <p class="hero-desc">Epoxidharz, Polyurethan, PMMA – langlebig, fugenlos, ästhetisch. Über 15 Jahre Erfahrung in Bern und der Schweiz.</p>
       <div class="btn-group">
-        <a href="#kontakt" class="btn btn-primary">BERATUNG ANFRAGEN →</a>
-        <a href="#leistungen" class="btn btn-outline">REFERENZEN ENTDECKEN</a>
+        <a href="#kontakt" class="btn btn-primary">Kostenlose Beratung →</a>
+        <a href="#leistungen" class="btn btn-outline">Leistungen entdecken</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- LEISTUNGEN SECTION – innovative cards -->
+<!-- LEISTUNGEN -->
 <section id="leistungen">
   <div class="container">
     <div class="reveal">
-      <span style="color:#c4374f; letter-spacing: 2px;">LEISTUNGEN</span>
-      <h2 class="section-title">Systeme, die <span class="title-accent">überzeugen.</span></h2>
-      <p style="max-width: 700px; opacity: 0.7;">Von der Industriehalle bis zum Penthouse – wir realisieren maßgeschneiderte Bodenbeschichtungen mit modernster Technologie.</p>
+      <div class="section-sub">MASSGESCHNEIDERTE SYSTEME</div>
+      <h2 class="section-title">Innovative <span style="color:#c4374f;">Bodenlösungen</span></h2>
+      <p style="max-width: 700px;">Ob Industrie, Gewerbe oder anspruchsvolle Wohnflächen – wir liefern perfekte Oberflächen mit höchster Präzision.</p>
     </div>
-    <div class="grid-3">
-      <div class="card reveal">
-        <div class="card-icon">⚡</div>
-        <h3>Epoxidharz (EP)</h3>
-        <p>Ultra-hohe Belastbarkeit, chemikalienresistent, fugenlos – perfekt für Logistik und Produktion.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">🌀</div>
-        <h3>Polyurethan (PU)</h3>
-        <p>Elastisch, schlagzäh, temperaturstabil. Ideal für Parkhäuser, Kühlräume & Lebensmittelbetriebe.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">⏱️</div>
-        <h3>PMMA</h3>
-        <p>Schnellhärtend, extrem widerstandsfähig – binnen Stunden begehbar. Für zeitkritische Sanierungen.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">✨</div>
-        <h3>Designerboden / Mikrozement</h3>
-        <p>Fugenlose Eleganz für Wohnräume, Shops und Hotels. Einzigartige Ästhetik trifft Langlebigkeit.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">💧</div>
-        <h3>Abdichtung & Bautenschutz</h3>
-        <p>Flüssigkunststoff, Injektionen, Combiflex – dauerhafter Schutz vor Feuchtigkeit und Sanierung mit System.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">📍</div>
-        <h3>Region Bern+</h3>
-        <p>Lokal verwurzelt – schnelle Reaktionszeiten, persönlicher Service in Bern, Biel, Thun, Solothurn.</p>
-      </div>
+    <div class="grid-cards">
+      <div class="card reveal"><div class="card-emoji">🧪</div><h3>Epoxidharz (EP)</h3><p>Extrem belastbar, chemikalienfest, ideal für Werkhallen, Lager & Reinräume.</p></div>
+      <div class="card reveal"><div class="card-emoji">🌀</div><h3>Polyurethan (PU)</h3><p>Elastisch, UV-stabil, perfekt für Parkhäuser, Kühlhäuser und Lebensmittelbetriebe.</p></div>
+      <div class="card reveal"><div class="card-emoji">⚡</div><h3>PMMA – Schnellhärtung</h3><p>In wenigen Stunden begehbar. Ideal bei Zeitdruck – Sanierungen über Nacht.</p></div>
+      <div class="card reveal"><div class="card-emoji">✨</div><h3>Designerboden</h3><p>Mikrozement & edle Oberflächen für Lofts, Shops und exklusive Wohnräume.</p></div>
+      <div class="card reveal"><div class="card-emoji">💧</div><h3>Abdichtung & Bautenschutz</h3><p>Flüssigkunststoff, Combiflex – dauerhaft dicht gegen Feuchtigkeit und Druckwasser.</p></div>
+      <div class="card reveal"><div class="card-emoji">📍</div><h3>Region Bern</h3><p>Schnelle Einsätze in Bern, Biel, Thun, Solothurn – persönlich, zuverlässig, lokal.</p></div>
     </div>
   </div>
 </section>
 
-<!-- STATISTIK – modern counter -->
-<div class="container" style="margin: 0 auto 2rem;">
-  <div class="stats-row reveal">
-    <div class="stat-item">
-      <div class="stat-number" data-count="9">0</div>
-      <div class="stat-label">SPEZIALISIERTE SYSTEME</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-count="100">0</div>
-      <div class="stat-label">+ REFERENZPROJEKTE</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-count="15">0</div>
-      <div class="stat-label">JAHRERFAHRUNG TEAM</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-count="24">0</div>
-      <div class="stat-label">H STAND-BY SERVICE</div>
-    </div>
+<!-- STATISTIKE -->
+<div class="container">
+  <div class="stats-wrapper reveal">
+    <div class="stat-item"><div class="stat-number" data-target="9">0</div><p>Spezialsysteme</p></div>
+    <div class="stat-item"><div class="stat-number" data-target="120">0</div><p>Referenzen Schweiz</p></div>
+    <div class="stat-item"><div class="stat-number" data-target="100">0</div><p>% massgeschneidert</p></div>
+    <div class="stat-item"><div class="stat-number" data-target="24">0</div><p>h Schnell-Service</p></div>
   </div>
 </div>
 
-<!-- PROJEKTE / SHOWCASE minimalistisch aber cool -->
-<section id="projekte">
+<!-- PROJEKTE -->
+<section id="projekte" style="background: #060608;">
   <div class="container">
     <div class="reveal">
-      <span style="color:#c4374f;">REFERENZEN</span>
-      <h2 class="section-title">Wir hinterlassen <span class="title-accent">Spuren.</span></h2>
-      <p style="margin-bottom: 2rem;">Industrielogistik, Privatgaragen, Ausstellungsflächen – jede Oberfläche ein Statement.</p>
+      <div class="section-sub">REFERENZEN</div>
+      <h2 class="section-title">Überzeugende <span style="color:#c4374f;">Projekte</span></h2>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
-      <div class="reveal" style="background: #121212; border-radius: 1.8rem; overflow: hidden;">
-        <img src="https://images.pexels.com/photos/1576433/industrial-warehouse.jpg?auto=compress&cs=tinysrgb&w=600" style="width:100%; height: 200px; object-fit: cover;">
-        <div style="padding: 1.2rem;"><strong>Logistikzentrum Bern</strong><p style="font-size:0.85rem;">4‘500m² EP-Beschichtung, hochglanzversiegelt</p></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; margin-top: 2rem;">
+      <div class="reveal" style="background:#111; border-radius: 1.5rem; overflow: hidden;"><img src="https://images.pexels.com/photos/1400492/industrial.jpg?auto=compress&cs=tinysrgb&w=600" style="width:100%; height:180px; object-fit:cover;"><div style="padding:1rem;"><strong>Logistik Bern</strong><p>4.200 m² Epoxidharz, hochglanzversiegelt</p></div></div>
+      <div class="reveal" style="background:#111; border-radius: 1.5rem; overflow: hidden;"><img src="https://images.pexels.com/photos/1576433/industrial-warehouse.jpg?auto=compress&cs=tinysrgb&w=600" style="width:100%; height:180px; object-fit:cover;"><div style="padding:1rem;"><strong>Tiefgarage Thun</strong><p>PU-System mit rutschhemmender Beschichtung</p></div></div>
+      <div class="reveal" style="background:#111; border-radius: 1.5rem; overflow: hidden;"><img src="https://images.pexels.com/photos/210205/pexels-photo-210205.jpeg?auto=compress&cs=tinysrgb&w=600" style="width:100%; height:180px; object-fit:cover;"><div style="padding:1rem;"><strong>Designerloft Bern</strong><p>Mikrozement Boden in Wohntraum-Qualität</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="ueber">
+  <div class="container">
+    <div class="grid-cards" style="gap: 3rem; align-items: center;">
+      <div class="reveal">
+        <div class="section-sub">HANDWERK + INNOVATION</div>
+        <h2 class="section-title">Präzision, die man <span style="color:#c4374f;">sieht</span> und <span style="color:#c4374f;">spürt</span>.</h2>
+        <p>POLYCORE vereint Schweizer Qualität mit modernster Beschichtungstechnologie. Jeder Boden wird exakt nach Ihren Anforderungen geplant – von der Beratung bis zur Endabnahme.</p>
+        <div style="margin-top: 1.5rem;"><a href="#kontakt" class="btn btn-primary">Jetzt Kontakt aufnehmen →</a></div>
       </div>
-      <div class="reveal" style="background: #121212; border-radius: 1.8rem; overflow: hidden;">
-        <img src="https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg?auto=compress&cs=tinysrgb&w=600" style="width:100%; height: 200px; object-fit: cover;">
-        <div style="padding: 1.2rem;"><strong>Showroom Thun</strong><p style="font-size:0.85rem;">Mikrozement-Designboden in Wohnträumen</p></div>
-      </div>
-      <div class="reveal" style="background: #121212; border-radius: 1.8rem; overflow: hidden;">
-        <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600" style="width:100%; height: 200px; object-fit: cover;">
-        <div style="padding: 1.2rem;"><strong>Parkhaus Biel</strong><p style="font-size:0.85rem;">PU-System, rutschhemmend & UV-stabil</p></div>
+      <div class="reveal" style="background: rgba(196,55,79,0.1); border-radius: 2rem; padding: 2rem; border-left: 4px solid #c4374f;">
+        <p style="font-size: 1.2rem; font-style: italic;">„Qualität liegt im Detail – bei jedem Handgriff. Auf jeder Fläche. Für jeden Auftrag.“</p>
+        <p style="margin-top: 1rem;">— POLYCORE GmbH, Geschäftsleitung</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ÜBER UNS kurz & innovativ -->
-<section id="ueber" style="background: radial-gradient(circle at 70% 10%, #0c0c10, #000);">
+<!-- KONTAKT -->
+<section id="kontakt" style="background: radial-gradient(circle at 20% 30%, #0c0c10, #010101);">
   <div class="container">
-    <div class="grid-3" style="align-items: center; gap: 3rem;">
-      <div class="reveal">
-        <span style="color:#c4374f;">ÜBER POLYCORE</span>
-        <h2 class="section-title" style="margin-top: 0.5rem;">Handwerk trifft auf <span class="title-accent">Innovation.</span></h2>
-        <p>Mit über einem Jahrzehnt Erfahrung im Bautenschutz und Bodenbau vereinen wir Schweizer Präzision mit avantgardistischen Materialien. Jedes Projekt wird individuell geplant – von der Beratung bis zur schlüsselfertigen Ausführung.</p>
-        <div style="margin-top: 1.5rem;">
-          <a href="#kontakt" class="btn btn-primary" style="background:transparent; border:1px solid #c4374f;">KONTAKTIEREN SIE UNS</a>
-        </div>
-      </div>
-      <div class="reveal">
-        <div style="background: #c4374f20; border-radius: 2rem; padding: 2rem; border: 1px solid #c4374f40;">
-          <p style="font-size: 1.2rem; font-style: italic;">„Qualität liegt im Detail – bei jedem Handgriff. Das ist unser Versprechen.“</p>
-          <p style="margin-top: 1rem;">— Geschäftsführer POLYCORE GmbH</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- KONTAKT SEKTION (modern, clean) -->
-<section id="kontakt" style="padding: 4rem 0;">
-  <div class="container">
-    <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
-      <span style="color:#c4374f;">KONTAKT</span>
+    <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto;">
+      <div class="section-sub">KONTAKT & BERATUNG</div>
       <h2 class="section-title">Direkter Draht.<br>Klare Antworten.</h2>
-      <p>Sie haben ein Projekt im Kopf? Wir beraten Sie unverbindlich und erstellen ein massgeschneidertes Angebot.</p>
-      <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+      <p>Wir beraten Sie unverbindlich – vor Ort oder digital. Fordern Sie ein massgeschneidertes Angebot an.</p>
+      <div style="margin: 2rem 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
         <div><strong>📞 Telefon</strong><br><a href="tel:+41765397974" style="color:#c4374f;">+41 76 539 79 74</a></div>
         <div><strong>✉️ E-Mail</strong><br><a href="mailto:info@polycore.ch" style="color:#c4374f;">info@polycore.ch</a></div>
         <div><strong>📍 Standort</strong><br>Urtenen-Schönbühl, Schweiz</div>
       </div>
-      <div style="margin-top: 2rem;">
-        <a href="mailto:info@polycore.ch" class="btn btn-primary">ANFRAGE SENDEN →</a>
-      </div>
+      <a href="mailto:info@polycore.ch" class="btn btn-primary">Jetzt Anfrage senden →</a>
     </div>
   </div>
 </section>
@@ -664,103 +547,63 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <h3 style="font-weight: 600;">POLYCORE GmbH</h3>
-        <p style="margin-top: 0.5rem;">Etzmattrain 36 · 3322 Urtenen-Schönbühl</p>
-        <p style="margin-top: 0.5rem;">© 2026 – Alle Rechte vorbehalten</p>
-      </div>
-      <div>
-        <strong>Leistungen</strong><br>
-        <a href="#">Epoxidharz</a><br>
-        <a href="#">Polyurethan</a><br>
-        <a href="#">Abdichtungen</a>
-      </div>
-      <div>
-        <strong>Rechtliches</strong><br>
-        <a href="#">Impressum</a><br>
-        <a href="#">Datenschutz</a><br>
-        <a href="#">AGB</a>
-      </div>
+      <div><h3 style="font-weight: 700;">POLYCORE GmbH</h3><p style="margin-top: 0.3rem;">Etzmattrain 36 · 3322 Urtenen-Schönbühl</p><p>© 2026 – Alle Rechte vorbehalten</p></div>
+      <div><strong>Leistungen</strong><br><a href="#leistungen">Epoxidharz</a><br><a href="#leistungen">Polyurethan</a><br><a href="#leistungen">Abdichtungen</a></div>
+      <div><strong>Rechtliches</strong><br><a href="#">Impressum</a><br><a href="#">Datenschutz</a><br><a href="#">AGB</a></div>
     </div>
   </div>
 </footer>
 
 <script>
-  // Sticky navbar scroll effect
+  // scroll efekat navbar
   window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 30) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
   });
 
-  // Mobile menu toggles
+  // mobile menu
   const burger = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const backdrop = document.getElementById('mobileBackdrop');
-  const closeMobile = document.getElementById('closeMobileBtn');
-
-  function openMobile() {
-    mobileMenu.classList.add('open');
-    backdrop.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMobile() {
-    mobileMenu.classList.remove('open');
-    backdrop.classList.remove('show');
-    document.body.style.overflow = '';
-  }
+  const closeMob = document.getElementById('closeMobile');
+  function openMobile() { mobileMenu.classList.add('open'); backdrop.classList.add('show'); document.body.style.overflow = 'hidden'; }
+  function closeMobile() { mobileMenu.classList.remove('open'); backdrop.classList.remove('show'); document.body.style.overflow = ''; }
   burger.addEventListener('click', openMobile);
-  closeMobile.addEventListener('click', closeMobile);
+  closeMob.addEventListener('click', closeMobile);
   backdrop.addEventListener('click', closeMobile);
 
-  // Reveal on scroll (intersection observer)
-  const revealElements = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
+  // reveal observer
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+
+  // brojač statistika
+  const counters = document.querySelectorAll('.stat-number');
+  const statSection = document.querySelector('.stats-wrapper');
+  let counted = false;
+  const countUp = (el) => {
+    const target = parseInt(el.getAttribute('data-target'));
+    let current = 0;
+    const step = Math.ceil(target / 35);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { el.innerText = target; clearInterval(timer); }
+      else el.innerText = current;
+    }, 25);
+  };
+  const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+      if (entry.isIntersecting && !counted) {
+        counters.forEach(c => countUp(c));
+        counted = true;
+        statObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-  revealElements.forEach(el => observer.observe(el));
-
-  // Counter animation for stats
-  const counters = document.querySelectorAll('.stat-number');
-  const speed = 180;
-  const startCounting = (counter) => {
-    const target = parseInt(counter.getAttribute('data-count'));
-    let count = 0;
-    const updateCount = () => {
-      if (count < target) {
-        count += Math.ceil(target / 25);
-        if (count > target) count = target;
-        counter.innerText = count;
-        setTimeout(updateCount, 20);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    updateCount();
-  };
-  // Trigger counters when stats-row becomes visible
-  const statsRow = document.querySelector('.stats-row');
-  if (statsRow) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          counters.forEach(counter => startCounting(counter));
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    statsObserver.observe(statsRow);
-  }
-
-  // small fix for video fallback: if no video source, keep poster image.
-  console.log('Innovative POLYCORE reloaded');
+  }, { threshold: 0.3 });
+  if (statSection) statObserver.observe(statSection);
 </script>
 </body>
 </html>
