@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>PMMA-Boden Bern | POLYCORE GmbH – Schnellhärtende Beschichtung</title>
-<meta name="description" content="PMMA-Bodenbeschichtungen in Bern – in wenigen Stunden begehbar. Ideal für Sanierungen unter Zeitdruck. POLYCORE GmbH – Ihr PMMA-Spezialist."/>
+<title>PMMA-Boden | POLYCORE GmbH Bern</title>
+<meta name="description" content="Schnellhärtende PMMA-Beschichtungen – in Stunden begehbar. POLYCORE GmbH in der Region Bern."/>
 <meta name="keywords" content="PMMA Boden Bern, Polymethylmethacrylat Beschichtung, schnellhärtende Bodenbeschichtung Bern, PMMA Schweiz"/>
 <link rel="canonical" href="https://www.polycore.ch/leistungen/pmma-boden"/>
 <meta property="og:title" content="PMMA-Boden Bern | POLYCORE GmbH – Schnellhärtende Beschichtung"/>
@@ -27,6 +27,128 @@
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
 <link rel="stylesheet" href="../css/page.css"/>
+<style>
+/* === KOMPROMIS: Topla tamna pozadina === */
+:root {
+  --dk: #171210;
+  --dk2: #1e1714;
+  --dk3: #251c18;
+  --bx: #c0485a;
+  --t1: rgba(255,255,255,.88);
+  --t2: rgba(255,255,255,.62);
+  --t3: rgba(255,255,255,.38);
+  --b1: rgba(255,255,255,.1);
+  --b2: rgba(255,255,255,.06);
+}
+
+body { background: var(--dk); color: var(--t1); }
+.section, .section-sm { background: var(--dk); }
+.section.light-bg, .section-sm.light-bg { background: var(--dk2); }
+
+.benefit-cell { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; padding: 1.5rem 1rem; transition: border-color .25s; }
+.benefit-cell:hover { border-color: rgba(192,72,90,.3); }
+.benefit-title { color: var(--t1); }
+.benefit-lbl { color: var(--t3); }
+.benefit-icon svg { stroke: var(--bx); }
+
+.content-body h2, .content-body h3 { color: var(--t1); }
+.content-body p { color: var(--t2); line-height: 1.8; }
+.content-body h3 { margin-top: 1.75rem; }
+
+.sidebar-cta { background: var(--dk3); border: 1px solid var(--b1); }
+.sidebar-cta h3 { color: var(--t1); }
+.sidebar-cta p { color: var(--t2); }
+
+.app-card { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; transition: all .25s; }
+.app-card:hover { background: var(--dk3); border-color: rgba(192,72,90,.35); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.app-card h4 { color: var(--t1); }
+.app-card p { color: var(--t2); }
+.app-card svg { stroke: var(--bx); opacity: .8; }
+
+.eyebrow { color: var(--bx); }
+.h1, .h2, h2 { color: var(--t1); }
+
+.faq-item { border-bottom: 1px solid var(--b1); }
+.faq-q { color: var(--t1); font-weight: 500; }
+details[open] .faq-q { color: #fff; }
+.faq-a p { color: var(--t2); }
+
+.cta-banner { background: linear-gradient(135deg, #221511 0%, #2e1c14 50%, #221511 100%); border: 1px solid rgba(192,72,90,.25); box-shadow: 0 0 60px rgba(192,72,90,.08) inset; }
+.cta-banner h2 { color: #fff; }
+.cta-banner p { color: var(--t2); }
+
+.related-card { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; transition: all .25s; }
+.related-card:hover { background: var(--dk3); border-color: rgba(192,72,90,.3); transform: translateY(-3px); }
+.related-card h4 { color: var(--t1); }
+.related-card p { color: var(--t2); }
+.related-icon svg { stroke: var(--bx); opacity: .7; }
+
+/* === HERO === */
+.page-hero { position: relative; min-height: 580px; background: var(--dk); overflow: hidden; display: flex; align-items: center; }
+.page-hero-bg { position: absolute; inset: 0; overflow: hidden; }
+.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .45; filter: saturate(.7) brightness(.85); }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,8,6,.92) 35%, rgba(15,8,6,.65) 60%, rgba(15,8,6,.25) 100%), linear-gradient(to bottom, transparent 0%, transparent 75%, rgba(15,8,6,.8) 100%); }
+.page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(74,14,26,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(74,14,26,.07) 1px, transparent 1px); background-size: 80px 80px; }
+.page-hero-glow { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(74,14,26,.25) 0%, transparent 70%); top: -80px; right: 5%; pointer-events: none; }
+.page-hero-hline { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(192,72,90,.18), transparent); }
+.page-hero-hline-t { top: 90px; }
+.page-hero-hline-b { bottom: 90px; }
+
+.page-hero-inner { position: relative; z-index: 5; width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 2.5rem; display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: center; }
+
+.phi-left { display: flex; flex-direction: column; }
+
+.phi-bread { display: flex; align-items: center; gap: .6rem; font-size: .63rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.32); margin-bottom: 2.25rem; animation: phUp .5s .05s both; }
+.phi-bread a { color: rgba(255,255,255,.32); text-decoration: none; transition: color .2s; }
+.phi-bread a:hover { color: rgba(255,255,255,.65); }
+.phi-bread-sep { color: rgba(255,255,255,.14); }
+.phi-bread-cur { color: rgba(192,72,90,.85); }
+
+.phi-tag { display: inline-flex; align-items: center; gap: .6rem; font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(192,72,90,.95); margin-bottom: 1.25rem; animation: phUp .5s .1s both; }
+.phi-tag-line { width: 28px; height: 1px; background: rgba(192,72,90,.5); flex-shrink: 0; }
+
+.phi-h1 { font-size: clamp(2.2rem, 4.5vw, 3.75rem); font-weight: 300; letter-spacing: -.055em; line-height: 1.0; margin-bottom: 1.5rem; animation: phUp .5s .15s both; }
+.phi-h1-muted { color: rgba(255,255,255,.48); display: block; }
+.phi-h1-accent { display: block; font-weight: 700; background: linear-gradient(135deg, #c0485a 0%, #e07888 50%, #c0485a 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: phUp .5s .15s both, phShim 4s 1s ease-in-out infinite; }
+.phi-h1-white { display: block; color: #fff; font-weight: 700; }
+
+.phi-lead { font-size: .9rem; font-weight: 300; color: rgba(255,255,255,.65); line-height: 1.9; max-width: 440px; margin-bottom: 2rem; letter-spacing: .01em; animation: phUp .5s .2s both; }
+
+.phi-badges { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 2.25rem; animation: phUp .5s .25s both; }
+.phi-badge { font-size: .6rem; font-weight: 500; letter-spacing: .06em; color: rgba(255,255,255,.42); border: 1px solid rgba(255,255,255,.1); padding: .28rem .8rem; border-radius: 50px; transition: all .25s; cursor: default; }
+.phi-badge:hover { color: rgba(192,72,90,.95); border-color: rgba(192,72,90,.35); background: rgba(192,72,90,.08); }
+
+.phi-btns { display: flex; align-items: center; gap: 1.5rem; animation: phUp .5s .3s both; }
+.phi-btn-p { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 500; letter-spacing: .03em; color: #fff; background: rgba(192,72,90,.95); border: none; border-radius: 6px; padding: .65rem 1.4rem; cursor: pointer; font-family: inherit; text-decoration: none; transition: all .2s; }
+.phi-btn-p:hover { background: #c0485a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(192,72,90,.3); }
+.phi-btn-g { display: inline-flex; align-items: center; gap: .4rem; font-size: .78rem; font-weight: 400; letter-spacing: .03em; color: rgba(255,255,255,.48); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.14); padding-bottom: 1px; transition: all .2s; }
+.phi-btn-g:hover { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.38); }
+
+.phi-right { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,.08); padding-left: 2.5rem; animation: phLeft .6s .4s both; }
+.phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.07); cursor: default; transition: all .2s; }
+.phi-stat:last-of-type { border-bottom: none; }
+.phi-stat:hover .phi-stat-v { color: #fff; }
+.phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.42); }
+.phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: rgba(255,255,255,.58); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
+.phi-stat-v sup { font-size: .85rem; font-weight: 400; letter-spacing: 0; color: rgba(192,72,90,.85); vertical-align: super; }
+.phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); transition: color .2s; }
+.phi-sys { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.07); }
+.phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.2); margin-bottom: .9rem; }
+.phi-sys-item { display: flex; justify-content: space-between; align-items: baseline; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: .7rem; }
+.phi-sys-item:last-child { border: none; }
+.phi-sys-k { color: rgba(255,255,255,.32); font-weight: 300; }
+.phi-sys-v { color: rgba(255,255,255,.65); font-weight: 500; letter-spacing: .02em; }
+
+@keyframes phUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes phLeft { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes phShim { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+@media (max-width: 768px) {
+  .page-hero-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+  .phi-right { display: none; }
+  .phi-h1 { font-size: 2.4rem; }
+}
+</style>
 </head>
 <body>
 
@@ -156,30 +278,39 @@
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="../assets/img/Bodenbelaege_pmma.JPG" alt="PMMA-Bodenbeschichtung schnellhärtend von POLYCORE GmbH" loading="eager" fetchpriority="high" width="1920" height="800"/>
+    <img src="../assets/img/Bodenbelaege_pmma.JPG" alt="PMMA POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
   </div>
-  <div class="page-hero-content container">
-    <nav class="breadcrumb">
-      <a href="/">Start</a><span>›</span>
-      <a href="/leistungen/">Leistungen</a><span>›</span>
-      <span style="color:rgba(255,255,255,.7)">PMMA-Boden</span>
-    </nav>
-    <h1 class="h1">PMMA-Boden</h1>
-    <p class="lead">Das schnellste Bodensystem: In wenigen Stunden ausgehärtet und voll belastbar. Ideal für Sanierungen ohne lange Betriebsunterbrechung in Bern und der Schweiz.</p>
-    <div class="hero-badges">
-      <span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l2.5 2.5L10 3"/></svg> In 1–2h begehbar</span>
-<span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l2.5 2.5L10 3"/></svg> –30 °C verarbeitbar</span>
-<span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l2.5 2.5L10 3"/></svg> UV-stabil</span>
-<span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l2.5 2.5L10 3"/></svg> Fugenlos</span>
-<span class="badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6l2.5 2.5L10 3"/></svg> Für Aussenbereich</span>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-hline page-hero-hline-t"></div>
+  <div class="page-hero-hline page-hero-hline-b"></div>
+  <div class="page-hero-inner">
+    <div class="phi-left">
+      <nav class="phi-bread">
+        <a href="/">Start</a><span class="phi-bread-sep">&#8250;</span>
+        <a href="/leistungen/">Leistungen</a><span class="phi-bread-sep">&#8250;</span>
+        <span class="phi-bread-cur">PMMA</span>
+      </nav>
+      <div class="phi-tag"><div class="phi-tag-line"></div>PMMA-Beschichtung · Schnellhärtend</div>
+      <h1 class="phi-h1">
+        <span class="phi-h1-muted">Beschichtet.</span>
+        <span class="phi-h1-accent">In Stunden</span>
+        <span class="phi-h1-white">begehbar.</span>
+      </h1>
+      <p class="phi-lead">PMMA härtet bereits bei niedrigen Temperaturen aus und ist innerhalb weniger Stunden begehbar – minimale Ausfallzeit für Ihren Betrieb.</p>
+      <div class="phi-badges"><span class="phi-badge">Schnellhärtend</span><span class="phi-badge">Auch bei Kälte</span><span class="phi-badge">Fugenlos</span><span class="phi-badge">Wasserdicht</span><span class="phi-badge">Region Bern</span></div>
+      <div class="phi-btns">
+        <a href="../kontakt.html" class="phi-btn-p">Offerte anfragen <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="tel:+41765397974" class="phi-btn-g">076 539 79 74 <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
     </div>
-    <div class="btn-row" style="margin-top:2rem">
-      <a href="/kontakt.html" class="btn btn-light">Offerte anfragen</a>
-      <a href="/kontakt.html" class="btn btn-ghost-light">Beratungsgespräch</a>
+    <div class="phi-right">
+      <div class="phi-stat"><div class="phi-stat-v">2–3h</div><div class="phi-stat-l">Begehbar</div></div><div class="phi-stat"><div class="phi-stat-v">-20°C</div><div class="phi-stat-l">Verarbeitbar</div></div><div class="phi-stat"><div class="phi-stat-v">2–4mm</div><div class="phi-stat-l">Schichtdicke</div></div>
+      <div class="phi-sys"><div class="phi-sys-lbl">System</div><div class="phi-sys-item"><span class="phi-sys-k">System</span><span class="phi-sys-v">PMMA 2-K</span></div><div class="phi-sys-item"><span class="phi-sys-k">Aushärtezeit</span><span class="phi-sys-v">2–3 Stunden</span></div><div class="phi-sys-item"><span class="phi-sys-k">Eigenschaft</span><span class="phi-sys-v">Schnellhärtend</span></div></div>
     </div>
   </div>
 </section>
-
 
 <!-- BENEFITS -->
 <section class="section-sm">
