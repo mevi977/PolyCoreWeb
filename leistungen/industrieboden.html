@@ -30,32 +30,32 @@
   --t1: rgba(255,255,255,.88); --t2: rgba(255,255,255,.62);
   --t3: rgba(255,255,255,.38); --b1: rgba(255,255,255,.1);
 }
-body { background: var(--dk); color: var(--t1); }
-.section, .section-sm { background: var(--dk) !important; }
-.section.light-bg, .section-sm.light-bg { background: var(--dk2) !important; }
-.benefit-cell { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; padding: 1.5rem 1rem; transition: border-color .25s; }
-.benefit-cell:hover { border-color: rgba(192,72,90,.3); }
-.benefit-title { color: var(--t1) !important; } .benefit-lbl { color: var(--t3) !important; }
-.benefit-icon svg { stroke: var(--bx); }
-.content-body h2, .content-body h3 { color: var(--t1) !important; }
-.content-body p { color: var(--t2) !important; line-height: 1.8; }
+body { background: #f8f7f5; color: #1a1a1a; }
+.section, .section-sm { background: #f8f7f5; }
+.section.light-bg, .section-sm.light-bg { background: #fff; }
+.benefit-cell { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.benefit-cell:hover { border-color: rgba(192,72,90,.3); box-shadow: 0 4px 16px rgba(192,72,90,.08); transform: translateY(-2px); }
+.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #666 !important; }
+.benefit-icon svg { stroke: #c0485a; }
+.content-body h2, .content-body h3 { color: #1a1a1a !important; }
+.content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
-.sidebar-cta { background: var(--dk3); border: 1px solid var(--b1); }
-.sidebar-cta h3 { color: var(--t1); } .sidebar-cta p { color: var(--t2); }
-.app-card { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; transition: all .25s; }
-.app-card:hover { background: var(--dk3); border-color: rgba(192,72,90,.35); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
-.app-card h4 { color: var(--t1) !important; } .app-card p { color: var(--t2) !important; }
-.app-card svg { stroke: var(--bx) !important; opacity: .85; }
-.eyebrow { color: var(--bx) !important; } .h1, .h2, h2 { color: var(--t1); }
-.faq-item { border-bottom: 1px solid var(--b1); }
-.faq-q { color: var(--t1); font-weight: 500; } details[open] .faq-q { color: #fff; }
-.faq-a p { color: var(--t2) !important; }
-.cta-banner { background: linear-gradient(135deg, #221511 0%, #2e1c14 50%, #221511 100%); border: 1px solid rgba(192,72,90,.25); }
-.cta-banner h2 { color: #fff; } .cta-banner p { color: var(--t2) !important; }
-.related-card { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; transition: all .25s; }
-.related-card:hover { background: var(--dk3); border-color: rgba(192,72,90,.3); transform: translateY(-3px); }
-.related-card h4 { color: var(--t1) !important; } .related-card p { color: var(--t2) !important; }
-.related-icon svg { stroke: var(--bx) !important; opacity: .7; }
+.sidebar-cta { background: #2c1810; border: none; }
+.sidebar-cta h3 { color: #fff; } .sidebar-cta p { color: rgba(255,255,255,.65); }
+.app-card { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.app-card:hover { border-color: rgba(192,72,90,.3); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(192,72,90,.08); }
+.app-card h4 { color: #1a1a1a !important; } .app-card p { color: #666 !important; }
+.app-card svg { stroke: #c0485a !important; opacity: .85; }
+.eyebrow { color: #c0485a !important; } .h1, .h2, h2 { color: #1a1a1a; }
+.faq-item { border-bottom: 1px solid rgba(0,0,0,.09); }
+.faq-q { color: #1a1a1a; font-weight: 500; } details[open] .faq-q { color: #1a1a1a; }
+.faq-a p { color: #666 !important; }
+.cta-banner { background: linear-gradient(135deg, #2c1810 0%, #4a0e1a 50%, #2c1810 100%); border: none; }
+.cta-banner h2 { color: #fff; } .cta-banner p { color: rgba(255,255,255,.7) !important; }
+.related-card { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.related-card:hover { border-color: rgba(192,72,90,.3); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(192,72,90,.08); }
+.related-card h4 { color: #1a1a1a !important; } .related-card p { color: #666 !important; }
+.related-icon svg { stroke: #c0485a !important; opacity: .8; }
 
 /* === HERO === */
 .page-hero { position: relative; min-height: 520px; background: var(--dk); overflow: hidden; display: flex; align-items: center; }
@@ -308,6 +308,9 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
     </div>
   </div>
 </section>
+
+<!-- HERO-TO-LIGHT TRANSITION -->
+<div style="height:4px;background:linear-gradient(to right,#2c1810,#c0485a,#2c1810)"></div>
 
 <!-- BENEFITS -->
 <section class="section-sm">
