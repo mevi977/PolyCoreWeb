@@ -76,28 +76,33 @@ body.loaded .nav:not(.scrolled)::after{
 .nav-c{position:relative;}
 
 
-/* Inner row – sve u jednoj liniji */
+/* Inner row – logo u centru, linkovi lijevo, gumbi desno */
 .nav-c{
-  display:flex;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
   align-items:center;
-  justify-content:space-between;
   padding:0 1.5rem;
   height:76px;
   gap:1rem;
 }
 
-/* Logo */
-.nav-logo{display:flex;align-items:center;flex-shrink:0;padding:8px 0}
+/* Logo – centar */
+.nav-logo{
+  display:flex;align-items:center;justify-content:center;
+  grid-column:2;
+  padding:8px 0;
+  flex-shrink:0;
+}
 .nav-logo img{height:54px;width:auto;display:block;transition:height .25s ease}
-.nav-logo:hover img{height:68px}
+.nav-logo:hover img{height:60px}
 
-/* Links – sredina */
+/* Links – lijevo */
 .nav-links{
   display:flex;
   align-items:center;
   gap:.15rem;
-  flex:1;
-  justify-content:center;
+  grid-column:1;
+  justify-content:flex-start;
 }
 .nav-a{
   color:rgba(255,255,255,.82);
@@ -120,7 +125,7 @@ body.loaded .nav:not(.scrolled)::after{
 .nav-drop.is-open .nav-caret{transform:rotate(180deg)}
 
 /* CTA – desno */
-.nav-cta{flex-shrink:0}
+.nav-cta{flex-shrink:0;display:flex;justify-content:flex-end;align-items:center;gap:.5rem}
 
 /* Burger */
 
@@ -537,4 +542,28 @@ body.loaded .nav:not(.scrolled)::after{
   }
   .mob-expand-list{grid-template-columns:1fr}
   .mob-expand-section{grid-column:1}
+}
+
+/* Mobilni navbar – logo lijevo, burger desno */
+@media(max-width:768px){
+  .nav-c{
+    grid-template-columns:auto 1fr auto;
+  }
+  .nav-logo{
+    grid-column:1;
+    justify-content:flex-start;
+  }
+  .nav-links{
+    display:none;
+  }
+  .nav-cta{
+    grid-column:3;
+  }
+}
+@media(max-width:640px){
+  .nav-c{
+    grid-template-columns:auto 1fr auto;
+    padding:0 1rem;
+    height:68px;
+  }
 }
