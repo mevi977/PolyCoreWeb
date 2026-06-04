@@ -10,37 +10,13 @@
   background:transparent;
   backdrop-filter:blur(0px);
   -webkit-backdrop-filter:blur(0px);
-  border:1px solid rgba(255,255,255,0);
+  border:1px solid transparent;
   box-shadow:none;
   outline:none;
   border-radius:12px;
   transition:background .4s ease, backdrop-filter .4s ease, border-color .4s ease, box-shadow .4s ease;
 }
-/* Navbar postaje solidan pri scrollu */
-.nav.scrolled{
-  background:rgba(10,10,12,.92) !important;
-  backdrop-filter:blur(20px) !important;
-  -webkit-backdrop-filter:blur(20px) !important;
-  border:1px solid rgba(255,255,255,.12) !important;
-  box-shadow:0 0 0 1px rgba(74,14,26,.3), 0 8px 32px rgba(0,0,0,.4) !important;
-}
-/* Tanki bordeaux border na dnu kad je transparentan */
-.nav:not(.scrolled)::after{
-  content:'';
-  position:absolute;
-  bottom:0;
-  left:15%;
-  right:15%;
-  height:1px;
-  background:linear-gradient(to right, transparent, rgba(192,72,90,.4), transparent);
-  pointer-events:none;
-  opacity:0;
-  transition:opacity .6s ease;
-}
-body.loaded .nav:not(.scrolled)::after{
-  opacity:1;
-}
-/* Animated bordeaux shimmer - samo kad je navbar solidan */
+/* Animated bordeaux shimmer */
 .nav::before{
   content:'';
   position:absolute;
@@ -63,10 +39,7 @@ body.loaded .nav:not(.scrolled)::after{
   opacity:0;
   transition:opacity .4s ease;
 }
-/* Shimmer vidljiv samo kad je navbar scrollan (solidan) */
-.nav.scrolled::before{
-  opacity:1;
-}
+.nav.scrolled::before{ opacity:1; }
 @keyframes navShimmer{
   0%   {background-position:200% 0}
   50%  {background-position:-50% 0}
@@ -74,31 +47,36 @@ body.loaded .nav:not(.scrolled)::after{
 }
 /* Sve unutar nav mora biti iznad ::before */
 .nav-c{position:relative;}
+.nav.scrolled{
+  background:rgba(10,10,12,.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 0 1px rgba(74,14,26,.3), 0 8px 32px rgba(0,0,0,.4);
+}
 
-
-/* Inner row – split: lijevi linkovi | logo centar | desni gumbi */
+/* Inner row – sve u jednoj liniji */
 .nav-c{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
+  display:flex;
   align-items:center;
+  justify-content:space-between;
   padding:0 1.5rem;
   height:76px;
+  gap:1rem;
 }
 
-/* Logo – sredina grid */
-.nav-logo{
-  display:flex;align-items:center;justify-content:center;
-  padding:8px 1rem;
-}
-.nav-logo img{height:50px;width:auto;display:block;transition:height .25s ease}
-.nav-logo:hover img{height:56px}
+/* Logo */
+.nav-logo{display:flex;align-items:center;flex-shrink:0;padding:8px 0}
+.nav-logo img{height:54px;width:auto;display:block;transition:height .25s ease}
+.nav-logo:hover img{height:68px}
 
-/* Links – lijevo, poravnate desno da budu bliže logu */
+/* Links – sredina */
 .nav-links{
   display:flex;
   align-items:center;
   gap:.15rem;
-  justify-content:flex-end;
+  flex:1;
+  justify-content:center;
 }
 .nav-a{
   color:rgba(255,255,255,.82);
@@ -121,26 +99,7 @@ body.loaded .nav:not(.scrolled)::after{
 .nav-drop.is-open .nav-caret{transform:rotate(180deg)}
 
 /* CTA – desno */
-.nav-cta{
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  gap:.15rem;
-}
-/* Kontakt gumb – poseban stil */
-.nav-cta-btn{
-  background:rgba(192,72,90,.15);
-  border:1px solid rgba(192,72,90,.3);
-  border-radius:8px;
-  padding:.35rem .9rem !important;
-  color:rgba(255,255,255,.9) !important;
-  margin-left:.5rem;
-}
-.nav-cta-btn:hover{
-  background:rgba(192,72,90,.3) !important;
-  border-color:rgba(192,72,90,.6) !important;
-  color:#fff !important;
-}
+.nav-cta{flex-shrink:0}
 
 /* Burger */
 
@@ -557,17 +516,4 @@ body.loaded .nav:not(.scrolled)::after{
   }
   .mob-expand-list{grid-template-columns:1fr}
   .mob-expand-section{grid-column:1}
-}
-
-/* Mobilni – logo lijevo, burger desno */
-@media(max-width:768px){
-  .nav-c{
-    grid-template-columns:auto 1fr auto;
-  }
-  .nav-logo{
-    justify-content:flex-start;
-    padding:8px 0;
-  }
-  .nav-links{ display:none; }
-  .nav-cta{ justify-content:flex-end; }
 }
