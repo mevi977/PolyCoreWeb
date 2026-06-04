@@ -136,7 +136,72 @@ body.loaded .phi-right { opacity: 1; transform: translateX(0); }
 body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 @keyframes phShim { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
-@media (max-width: 768px) { .page-hero-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; } .phi-right { display: none; } .phi-h1 { font-size: 2.4rem; } }
+@media (max-width: 768px) {
+  /* Hero */
+  .page-hero { min-height: auto; }
+  .page-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 5.5rem 1.25rem 2.5rem;
+    gap: 0;
+  }
+  .phi-right { display: none; }
+  .phi-h1 { font-size: 2rem; letter-spacing: -.04em; margin-bottom: 1rem; }
+  .phi-h1-muted { font-size: 1.6rem; }
+  .phi-lead { font-size: .85rem; margin-bottom: 1.5rem; max-width: 100%; }
+  .phi-bread { margin-bottom: 1.5rem; font-size: .6rem; }
+  .phi-tag { font-size: .58rem; margin-bottom: 1rem; }
+  .phi-badges { gap: .3rem; margin-bottom: 1.75rem; }
+  .phi-badge { font-size: .58rem; padding: .22rem .65rem; }
+  .phi-btns { flex-direction: column; align-items: flex-start; gap: .75rem; }
+  .phi-btn-p { font-size: .82rem; padding: .7rem 1.25rem; width: 100%; justify-content: center; }
+  .phi-btn-g { font-size: .78rem; }
+}
+
+@media (max-width: 480px) {
+  .phi-h1 { font-size: 1.75rem; }
+  .phi-h1-muted { font-size: 1.4rem; }
+}
+
+@media (max-width: 768px) {
+  /* Benefits grid - 2 kolone na mobitelu */
+  .benefits-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
+  .benefit-cell { padding: 1.1rem .85rem; }
+  .benefit-title { font-size: .85rem; }
+  .benefit-lbl { font-size: .72rem; }
+  .benefit-icon { width: 32px; height: 32px; margin-bottom: .5rem; }
+  .benefit-icon svg { width: 14px; height: 14px; }
+
+  /* Content layout - jedna kolona */
+  .content-layout { grid-template-columns: 1fr !important; }
+  .sidebar-cta { margin-top: 1.5rem; }
+
+  /* App grid - 2 kolone */
+  .app-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
+  .app-card { padding: 1rem .85rem !important; }
+  .app-card h4 { font-size: .85rem !important; }
+  .app-card p { font-size: .75rem !important; }
+  .app-card svg { width: 20px !important; height: 20px !important; }
+
+  /* FAQ */
+  .faq-accordion { gap: 0; }
+  .faq-q { font-size: .88rem; padding: .9rem 0; }
+  .faq-a p { font-size: .83rem !important; }
+
+  /* CTA banner */
+  .cta-banner { padding: 2rem 1.25rem !important; }
+  .cta-banner h2 { font-size: 1.4rem !important; }
+  .cta-banner p { font-size: .85rem !important; }
+  .btn-row { flex-direction: column; gap: .75rem; }
+  .btn-row .btn { width: 100%; justify-content: center; text-align: center; }
+
+  /* Related cards */
+  .related-grid { gap: .4rem !important; }
+  .related-card { padding: .75rem 1rem !important; }
+
+  /* Section spacing */
+  .section { padding: 2.5rem 0 !important; }
+  .section-sm { padding: 2rem 0 !important; }
+}
 </style>
 </head>
 <body>
