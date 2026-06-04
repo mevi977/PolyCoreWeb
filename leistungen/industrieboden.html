@@ -173,7 +173,7 @@ details[open] .faq-q { color: #fff; }
   display: flex; align-items: center; gap: .6rem;
   font-size: .63rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase;
   color: rgba(255,255,255,.32); margin-bottom: 2.25rem;
-  animation: slideRight .7s .9s both;
+  opacity:0; transform:translateX(-50px); transition: opacity .6s ease, transform .6s ease;
 }
 .phi-bread a { color: rgba(255,255,255,.32); text-decoration: none; transition: color .2s; }
 .phi-bread a:hover { color: rgba(255,255,255,.65); }
@@ -184,7 +184,7 @@ details[open] .faq-q { color: #fff; }
   display: inline-flex; align-items: center; gap: .6rem;
   font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase;
   color: rgba(192,72,90,.95); margin-bottom: 1.25rem;
-  animation: slideRight .7s 1.0s both;
+  opacity:0; transform:translateX(-50px); transition: opacity .6s .12s ease, transform .6s .12s ease;
 }
 .phi-tag-line { width: 28px; height: 1px; background: rgba(192,72,90,.5); flex-shrink: 0; }
 
@@ -206,12 +206,12 @@ details[open] .faq-q { color: #fff; }
 .phi-lead {
   font-size: .9rem; font-weight: 300; color: rgba(255,255,255,.65);
   line-height: 1.9; max-width: 440px; margin-bottom: 2rem;
-  letter-spacing: .01em; animation: slideRight .7s 1.2s both;
+  letter-spacing: .01em; opacity:0; transform:translateX(-50px); transition: opacity .6s .35s ease, transform .6s .35s ease;
 }
 
 .phi-badges {
   display: flex; flex-wrap: wrap; gap: .35rem;
-  margin-bottom: 2.25rem; animation: slideRight .7s 1.3s both;
+  margin-bottom: 2.25rem; opacity:0; transform:translateX(-50px); transition: opacity .6s .5s ease, transform .6s .5s ease;
 }
 .phi-badge {
   font-size: .6rem; font-weight: 500; letter-spacing: .06em;
@@ -220,7 +220,7 @@ details[open] .faq-q { color: #fff; }
 }
 .phi-badge:hover { color: rgba(192,72,90,.95); border-color: rgba(192,72,90,.35); background: rgba(192,72,90,.08); }
 
-.phi-btns { display: flex; align-items: center; gap: 1.5rem; animation: slideRight .7s 1.4s both; }
+.phi-btns { display: flex; align-items: center; gap: 1.5rem; opacity:0; transform:translateX(-50px); transition: opacity .6s .65s ease, transform .6s .65s ease; }
 .phi-btn-p {
   display: inline-flex; align-items: center; gap: .5rem;
   font-size: .8rem; font-weight: 500; letter-spacing: .03em;
@@ -239,7 +239,7 @@ details[open] .faq-q { color: #fff; }
 .phi-right {
   display: flex; flex-direction: column;
   border-left: 1px solid rgba(255,255,255,.08); padding-left: 2.5rem;
-  animation: slideLeft .7s 1.3s both;
+  opacity:0; transform:translateX(50px); transition: opacity .6s .5s ease, transform .6s .5s ease;
 }
 .phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.07); cursor: default; transition: all .2s; }
 .phi-stat:last-of-type { border-bottom: none; }
@@ -268,6 +268,16 @@ details[open] .faq-q { color: #fff; }
   .phi-right { display: none; }
   .phi-h1 { font-size: 2.4rem; }
 }
+
+/* ===== LOADED STATE - aktivira se JS-om ===== */
+body.loaded .page-hero-overlay { opacity: 1; }
+body.loaded .phi-bread,
+body.loaded .phi-tag,
+body.loaded .phi-h1,
+body.loaded .phi-lead,
+body.loaded .phi-badges,
+body.loaded .phi-btns { opacity: 1; transform: translateX(0); }
+body.loaded .phi-right { opacity: 1; transform: translateX(0); }
 </style>
 </head>
 <body>
@@ -588,11 +598,83 @@ details[open] .faq-q { color: #fff; }
 </footer>
 
 <script src="../js/main.js"></script>
+<script>
+// Slika se ucita -> overlay i tekst se animiraju
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    // Malo delay da slika bude vidljiva
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 300);
+  }
+  if (img) {
+    if (img.complete) {
+      activate();
+    } else {
+      img.addEventListener('load', activate);
+      img.addEventListener('error', activate); // fallback
+      // Sigurnosni timeout - 1.5s max
+      setTimeout(activate, 1500);
+    }
+  } else {
+    activate();
+  }
+})();
+</script>
 </body>
 
 <script src="../js/main.js"></script>
+<script>
+// Slika se ucita -> overlay i tekst se animiraju
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    // Malo delay da slika bude vidljiva
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 300);
+  }
+  if (img) {
+    if (img.complete) {
+      activate();
+    } else {
+      img.addEventListener('load', activate);
+      img.addEventListener('error', activate); // fallback
+      // Sigurnosni timeout - 1.5s max
+      setTimeout(activate, 1500);
+    }
+  } else {
+    activate();
+  }
+})();
+</script>
 </body>
 
 <script src="../js/main.js"></script>
+<script>
+// Slika se ucita -> overlay i tekst se animiraju
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    // Malo delay da slika bude vidljiva
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 300);
+  }
+  if (img) {
+    if (img.complete) {
+      activate();
+    } else {
+      img.addEventListener('load', activate);
+      img.addEventListener('error', activate); // fallback
+      // Sigurnosni timeout - 1.5s max
+      setTimeout(activate, 1500);
+    }
+  } else {
+    activate();
+  }
+})();
+</script>
 </body>
 </html>
