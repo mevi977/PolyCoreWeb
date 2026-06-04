@@ -2,27 +2,21 @@
 <html lang="de-CH">
 <head>
 <meta charset="UTF-8"/>
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Injektionen & Feuchtigkeitssanierung | POLYCORE GmbH Bern</title>
-<meta name="description" content="Dauerhafte Feuchtigkeitssicherung durch Injektionstechnik für Keller und Mauerwerk. POLYCORE GmbH Bern."/>
-<meta name="keywords" content="Keller abdichten Bern, Kellerboden abdichten Bern, Kellerwand abdichten Bern, feuchter Keller Bern, Keller abdichten von innen, Abdichtung Keller Bern, Kellersanierung Bern, nasser Keller Lösung Bern"/>
+<title>Injektionen Feuchtigkeitsschutz | POLYCORE GmbH Bern</title>
+<meta name="description" content="Injektionstechnik gegen feuchte Wände und Keller – ohne grossen Aufwand. POLYCORE GmbH Bern."/>
 <link rel="canonical" href="https://www.polycore.ch/leistungen/injektionen"/>
-<meta property="og:title" content="Injektionen Bern | Kellersanierung & Feuchtigkeitssperre – POLYCORE"/>
-<meta property="og:description" content="Injektionstechnik für Kellersanierungen und Feuchtigkeitsabdichtungen in Bern. Ohne Abriss, dauerhaft dicht. POLYCORE GmbH – Ihr Spezialist in der Region."/>
+<meta property="og:title" content="Injektionen Feuchtigkeitsschutz | POLYCORE GmbH Bern"/>
+<meta property="og:description" content="Injektionstechnik gegen feuchte Wände und Keller – ohne grossen Aufwand. POLYCORE GmbH Bern."/>
 <meta property="og:url" content="https://www.polycore.ch/leistungen/injektionen"/>
-<script type="application/ld+json">{
-  "@context":"https://schema.org",
-  "@type":"Service",
-  "name":"Injektionen & Feuchtigkeitssanierung",
-  "provider":{"@type":"LocalBusiness","name":"POLYCORE GmbH","url":"https://www.polycore.ch"},
-  "description":"Injektionstechnik für Kellersanierungen und Feuchtigkeitsabdichtungen in Bern. Ohne Abriss, dauerhaft dicht. POLYCORE GmbH – Ihr Spezialist in der Region.",
-  "areaServed":"Urtenen-Schönbühl, Schweiz",
-  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"17:00"}]
-}</script>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="de_CH"/>
+<meta name="twitter:card" content="summary"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"POLYCORE GmbH","url":"https://www.polycore.ch","telephone":"+41765397974","address":{"@type":"PostalAddress","streetAddress":"Etzmattrain 36","addressLocality":"Urtenen-Schönbühl","postalCode":"3322","addressCountry":"CH"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../css/design-system.css"/>
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
@@ -30,129 +24,185 @@
 <style>
 /* === KOMPROMIS: Topla tamna pozadina === */
 :root {
-  --dk: #171210;
-  --dk2: #1e1714;
-  --dk3: #251c18;
-  --bx: #c0485a;
-  --t1: rgba(255,255,255,.88);
-  --t2: rgba(255,255,255,.62);
-  --t3: rgba(255,255,255,.38);
-  --b1: rgba(255,255,255,.1);
-  --b2: rgba(255,255,255,.06);
+  --dk: #171210; --dk2: #1e1714; --dk3: #251c18; --bx: #c0485a;
+  --t1: rgba(255,255,255,.88); --t2: rgba(255,255,255,.62);
+  --t3: rgba(255,255,255,.38); --b1: rgba(255,255,255,.1);
 }
-
-body { background: var(--dk); color: var(--t1); }
-.section, .section-sm { background: var(--dk); }
-.section.light-bg, .section-sm.light-bg { background: var(--dk2); }
-
-.benefit-cell { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; padding: 1.5rem 1rem; transition: border-color .25s; }
-.benefit-cell:hover { border-color: rgba(192,72,90,.3); }
-.benefit-title { color: var(--t1); }
-.benefit-lbl { color: var(--t3); }
-.benefit-icon svg { stroke: var(--bx); }
-
-.content-body h2, .content-body h3 { color: var(--t1); }
-.content-body p { color: var(--t2); line-height: 1.8; }
+body { background: #f8f7f5; color: #1a1a1a; }
+.section, .section-sm { background: #f8f7f5; }
+.section.light-bg, .section-sm.light-bg { background: #fff; }
+.benefit-cell { background: #fff !important; border: 1px solid rgba(0,0,0,.08) !important; border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.benefit-cell:hover { border-color: rgba(192,72,90,.3) !important; box-shadow: 0 4px 16px rgba(192,72,90,.08); transform: translateY(-2px); }
+.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #888 !important; }
+.benefit-icon { width: 38px; height: 38px; background: rgba(192,72,90,.07); border: 1px solid rgba(192,72,90,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .75rem; }
+.benefit-icon svg { width: 17px; height: 17px; stroke: #c0485a; }
+.content-body h2, .content-body h3 { color: #1a1a1a !important; }
+.content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
-
-.sidebar-cta { background: var(--dk3); border: 1px solid var(--b1); }
-.sidebar-cta h3 { color: var(--t1); }
-.sidebar-cta p { color: var(--t2); }
-
-.app-card { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; transition: all .25s; }
-.app-card:hover { background: var(--dk3); border-color: rgba(192,72,90,.35); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
-.app-card h4 { color: var(--t1); }
-.app-card p { color: var(--t2); }
-.app-card svg { stroke: var(--bx); opacity: .8; }
-
-.eyebrow { color: var(--bx); }
-.h1, .h2, h2 { color: var(--t1); }
-
-.faq-item { border-bottom: 1px solid var(--b1); }
-.faq-q { color: var(--t1); font-weight: 500; }
-details[open] .faq-q { color: #fff; }
-.faq-a p { color: var(--t2); }
-
-.cta-banner { background: linear-gradient(135deg, #221511 0%, #2e1c14 50%, #221511 100%); border: 1px solid rgba(192,72,90,.25); box-shadow: 0 0 60px rgba(192,72,90,.08) inset; }
-.cta-banner h2 { color: #fff; }
-.cta-banner p { color: var(--t2); }
-
-.related-card { background: var(--dk2); border: 1px solid var(--b1); border-radius: 12px; transition: all .25s; }
-.related-card:hover { background: var(--dk3); border-color: rgba(192,72,90,.3); transform: translateY(-3px); }
-.related-card h4 { color: var(--t1); }
-.related-card p { color: var(--t2); }
-.related-icon svg { stroke: var(--bx); opacity: .7; }
+.sidebar-cta { background: #2c1810; border: none; }
+.sidebar-cta h3 { color: #fff; } .sidebar-cta p { color: rgba(255,255,255,.65); }
+.app-card { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.app-card:hover { border-color: rgba(192,72,90,.3); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(192,72,90,.08); }
+.app-card h4 { color: #1a1a1a !important; } .app-card p { color: #666 !important; }
+.app-card svg { stroke: #c0485a !important; opacity: .85; }
+.eyebrow { color: #c0485a !important; } .h1, .h2, h2 { color: #1a1a1a; }
+.faq-item { border-bottom: 1px solid rgba(0,0,0,.09); }
+.faq-q { color: #1a1a1a; font-weight: 500; } details[open] .faq-q { color: #1a1a1a; }
+.faq-a p { color: #666 !important; }
+.cta-banner { background: linear-gradient(135deg, #2c1810 0%, #4a0e1a 50%, #2c1810 100%); border: none; }
+.cta-banner h2 { color: #fff; } .cta-banner p { color: rgba(255,255,255,.7) !important; }
+.related-card { 
+  display: flex; align-items: center; gap: 1rem;
+  background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 10px;
+  padding: .85rem 1.1rem;
+  transition: all .2s; 
+  text-decoration: none; color: inherit;
+}
+.related-card:hover { border-color: rgba(192,72,90,.3); transform: translateX(4px); background: rgba(192,72,90,.03); }
 
 /* === HERO === */
-.page-hero { position: relative; min-height: 580px; background: var(--dk); overflow: hidden; display: flex; align-items: center; }
+.page-hero { position: relative; min-height: 520px; background: var(--dk); overflow: hidden; display: flex; align-items: center; }
 .page-hero-bg { position: absolute; inset: 0; overflow: hidden; }
 .page-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .45; filter: saturate(.7) brightness(.85); }
-.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,8,6,.92) 35%, rgba(15,8,6,.65) 60%, rgba(15,8,6,.25) 100%), linear-gradient(to bottom, transparent 0%, transparent 75%, rgba(15,8,6,.8) 100%); }
-.page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(74,14,26,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(74,14,26,.07) 1px, transparent 1px); background-size: 80px 80px; }
-.page-hero-glow { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(74,14,26,.25) 0%, transparent 70%); top: -80px; right: 5%; pointer-events: none; }
-.page-hero-hline { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(192,72,90,.18), transparent); }
-.page-hero-hline-t { top: 90px; }
-.page-hero-hline-b { bottom: 90px; }
 
-.page-hero-inner { position: relative; z-index: 5; width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 2.5rem; display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: center; }
+/* Overlay - pocinje nevidljiv, pojavljuje se JS-om */
+.page-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(15,8,6,.92) 35%, rgba(15,8,6,.65) 60%, rgba(15,8,6,.25) 100%),
+              linear-gradient(to bottom, transparent 0%, transparent 75%, rgba(15,8,6,.8) 100%);
+  opacity: 0;
+  transition: opacity 1.0s ease;
+}
+.page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(74,14,26,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(74,14,26,.07) 1px, transparent 1px); background-size: 80px 80px; opacity: 0; transition: opacity 1.0s .2s ease; }
+.page-hero-glow { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(74,14,26,.25) 0%, transparent 70%); top: -80px; right: 5%; pointer-events: none; opacity: 0; transition: opacity 1.2s .3s ease; }
+.page-hero-hline { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(192,72,90,.18), transparent); opacity: 0; transition: opacity 1.0s .4s ease; }
+.page-hero-hline-t { top: 90px; } .page-hero-hline-b { bottom: 90px; }
 
+.page-hero-inner { position: relative; z-index: 5; width: 100%; max-width: 1200px; margin: 0 auto; padding: 5.5rem 2.5rem 3rem; display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: center; }
+
+/* Svi tekst elementi - nevidljivi, klizaju s lijeva */
 .phi-left { display: flex; flex-direction: column; }
-
-.phi-bread { display: flex; align-items: center; gap: .6rem; font-size: .63rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.32); margin-bottom: 2.25rem; animation: phUp .5s .05s both; }
+.phi-bread { display: flex; align-items: center; gap: .6rem; font-size: .63rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.32); margin-bottom: 2.25rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s ease, transform .6s ease; }
 .phi-bread a { color: rgba(255,255,255,.32); text-decoration: none; transition: color .2s; }
 .phi-bread a:hover { color: rgba(255,255,255,.65); }
 .phi-bread-sep { color: rgba(255,255,255,.14); }
 .phi-bread-cur { color: rgba(192,72,90,.85); }
-
-.phi-tag { display: inline-flex; align-items: center; gap: .6rem; font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(192,72,90,.95); margin-bottom: 1.25rem; animation: phUp .5s .1s both; }
+.phi-tag { display: inline-flex; align-items: center; gap: .6rem; font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(192,72,90,.95); margin-bottom: 1.25rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .1s ease, transform .6s .1s ease; }
 .phi-tag-line { width: 28px; height: 1px; background: rgba(192,72,90,.5); flex-shrink: 0; }
-
-.phi-h1 { font-size: clamp(2.2rem, 4.5vw, 3.75rem); font-weight: 300; letter-spacing: -.055em; line-height: 1.0; margin-bottom: 1.5rem; animation: phUp .5s .15s both; }
+.phi-h1 { font-size: clamp(2.2rem, 4.5vw, 3.75rem); font-weight: 300; letter-spacing: -.055em; line-height: 1.0; margin-bottom: 1.5rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .22s ease, transform .6s .22s ease; }
 .phi-h1-muted { color: rgba(255,255,255,.48); display: block; }
-.phi-h1-accent { display: block; font-weight: 700; background: linear-gradient(135deg, #c0485a 0%, #e07888 50%, #c0485a 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: phUp .5s .15s both, phShim 4s 1s ease-in-out infinite; }
+.phi-h1-accent { display: block; font-weight: 700; background: linear-gradient(135deg, #c0485a 0%, #e07888 50%, #c0485a 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .phi-h1-white { display: block; color: #fff; font-weight: 700; }
-
-.phi-lead { font-size: .9rem; font-weight: 300; color: rgba(255,255,255,.65); line-height: 1.9; max-width: 440px; margin-bottom: 2rem; letter-spacing: .01em; animation: phUp .5s .2s both; }
-
-.phi-badges { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 2.25rem; animation: phUp .5s .25s both; }
+.phi-lead { font-size: .9rem; font-weight: 300; color: rgba(255,255,255,.65); line-height: 1.9; max-width: 440px; margin-bottom: 2rem; letter-spacing: .01em; opacity: 0; transform: translateX(-40px); transition: opacity .6s .35s ease, transform .6s .35s ease; }
+.phi-badges { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 2.25rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .5s ease, transform .6s .5s ease; }
 .phi-badge { font-size: .6rem; font-weight: 500; letter-spacing: .06em; color: rgba(255,255,255,.42); border: 1px solid rgba(255,255,255,.1); padding: .28rem .8rem; border-radius: 50px; transition: all .25s; cursor: default; }
 .phi-badge:hover { color: rgba(192,72,90,.95); border-color: rgba(192,72,90,.35); background: rgba(192,72,90,.08); }
-
-.phi-btns { display: flex; align-items: center; gap: 1.5rem; animation: phUp .5s .3s both; }
+.phi-btns { display: flex; align-items: center; gap: 1.5rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .65s ease, transform .6s .65s ease; }
 .phi-btn-p { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 500; letter-spacing: .03em; color: #fff; background: rgba(192,72,90,.95); border: none; border-radius: 6px; padding: .65rem 1.4rem; cursor: pointer; font-family: inherit; text-decoration: none; transition: all .2s; }
 .phi-btn-p:hover { background: #c0485a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(192,72,90,.3); }
 .phi-btn-g { display: inline-flex; align-items: center; gap: .4rem; font-size: .78rem; font-weight: 400; letter-spacing: .03em; color: rgba(255,255,255,.48); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.14); padding-bottom: 1px; transition: all .2s; }
 .phi-btn-g:hover { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.38); }
 
-.phi-right { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,.08); padding-left: 2.5rem; animation: phLeft .6s .4s both; }
+/* Desna kolona - klizi s desna */
+.phi-right { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,.08); padding-left: 2.5rem; opacity: 0; transform: translateX(40px); transition: opacity .6s .5s ease, transform .6s .5s ease; }
 .phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.07); cursor: default; transition: all .2s; }
 .phi-stat:last-of-type { border-bottom: none; }
-.phi-stat:hover .phi-stat-v { color: #fff; }
-.phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.42); }
+.phi-stat:hover .phi-stat-v { color: #fff; } .phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.42); }
 .phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: rgba(255,255,255,.58); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
-.phi-stat-v sup { font-size: .85rem; font-weight: 400; letter-spacing: 0; color: rgba(192,72,90,.85); vertical-align: super; }
+.phi-stat-v sup { font-size: .85rem; font-weight: 400; color: rgba(192,72,90,.85); vertical-align: super; }
 .phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); transition: color .2s; }
 .phi-sys { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.07); }
 .phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.2); margin-bottom: .9rem; }
-.phi-sys-item { display: flex; justify-content: space-between; align-items: baseline; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: .7rem; }
+.phi-sys-item { display: flex; justify-content: space-between; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: .7rem; }
 .phi-sys-item:last-child { border: none; }
-.phi-sys-k { color: rgba(255,255,255,.32); font-weight: 300; }
-.phi-sys-v { color: rgba(255,255,255,.65); font-weight: 500; letter-spacing: .02em; }
+.phi-sys-k { color: rgba(255,255,255,.32); font-weight: 300; } .phi-sys-v { color: rgba(255,255,255,.65); font-weight: 500; }
 
-@keyframes phUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes phLeft { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
+/* LOADED - JS doda ovu klasu na body */
+body.loaded .page-hero-overlay { opacity: 1; }
+body.loaded .page-hero-grid { opacity: 1; }
+body.loaded .page-hero-glow { opacity: 1; }
+body.loaded .page-hero-hline { opacity: 1; }
+body.loaded .phi-bread,
+body.loaded .phi-tag,
+body.loaded .phi-h1,
+body.loaded .phi-lead,
+body.loaded .phi-badges,
+body.loaded .phi-btns { opacity: 1; transform: translateX(0); }
+body.loaded .phi-right { opacity: 1; transform: translateX(0); }
+
+/* shimmer na accent tekstu */
+body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 @keyframes phShim { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
 @media (max-width: 768px) {
-  .page-hero-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+  /* Hero */
+  .page-hero { min-height: auto; }
+  .page-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 5.5rem 1.25rem 2.5rem;
+    gap: 0;
+  }
   .phi-right { display: none; }
-  .phi-h1 { font-size: 2.4rem; }
+  .phi-h1 { font-size: 2rem; letter-spacing: -.04em; margin-bottom: 1rem; }
+  .phi-h1-muted { font-size: 1.6rem; }
+  .phi-lead { font-size: .85rem; margin-bottom: 1.5rem; max-width: 100%; }
+  .phi-bread { margin-bottom: 1.5rem; font-size: .6rem; }
+  .phi-tag { font-size: .58rem; margin-bottom: 1rem; }
+  .phi-badges { gap: .3rem; margin-bottom: 1.75rem; }
+  .phi-badge { font-size: .58rem; padding: .22rem .65rem; }
+  .phi-btns { flex-direction: column; align-items: flex-start; gap: .75rem; }
+  .phi-btn-p { font-size: .82rem; padding: .7rem 1.25rem; width: 100%; justify-content: center; }
+  .phi-btn-g { font-size: .78rem; }
+}
+
+@media (max-width: 480px) {
+  .phi-h1 { font-size: 1.75rem; }
+  .phi-h1-muted { font-size: 1.4rem; }
+}
+
+@media (max-width: 768px) {
+  /* Benefits grid - 2 kolone na mobitelu */
+  .benefits-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
+  .benefit-cell { padding: 1.1rem .85rem; }
+  .benefit-title { font-size: .85rem; }
+  .benefit-lbl { font-size: .72rem; }
+  .benefit-icon { width: 32px; height: 32px; margin-bottom: .5rem; }
+  .benefit-icon svg { width: 14px; height: 14px; }
+
+  /* Content layout - jedna kolona */
+  .content-layout { grid-template-columns: 1fr !important; }
+  .sidebar-cta { margin-top: 1.5rem; }
+
+  /* App grid - 2 kolone */
+  .app-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
+  .app-card { padding: 1rem .85rem !important; }
+  .app-card h4 { font-size: .85rem !important; }
+  .app-card p { font-size: .75rem !important; }
+  .app-card svg { width: 20px !important; height: 20px !important; }
+
+  /* FAQ */
+  .faq-accordion { gap: 0; }
+  .faq-q { font-size: .88rem; padding: .9rem 0; }
+  .faq-a p { font-size: .83rem !important; }
+
+  /* CTA banner */
+  .cta-banner { padding: 2rem 1.25rem !important; }
+  .cta-banner h2 { font-size: 1.4rem !important; }
+  .cta-banner p { font-size: .85rem !important; }
+  .btn-row { flex-direction: column; gap: .75rem; }
+  .btn-row .btn { width: 100%; justify-content: center; text-align: center; }
+
+  /* Related cards */
+  .related-grid { gap: .4rem !important; }
+  .related-card { padding: .75rem 1rem !important; }
+
+  /* Section spacing */
+  .section { padding: 2.5rem 0 !important; }
+  .section-sm { padding: 2rem 0 !important; }
 }
 </style>
 </head>
 <body>
-
-
 <nav class="nav">
   <div class="nav-c">
     <a href="/" class="nav-logo"><img src="../assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="../assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
@@ -275,10 +325,13 @@ details[open] .faq-q { color: #fff; }
   </div>
 </div>
 
+
+<!-- PAGE HERO -->
+
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="../assets/img/Injektion.jpg" alt="Injektionen POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
+    <img src="../assets/img/Epoxy-boden.png" alt="Injektionen Feuchtigkeitsschutz POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
   </div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-grid"></div>
@@ -288,29 +341,46 @@ details[open] .faq-q { color: #fff; }
   <div class="page-hero-inner">
     <div class="phi-left">
       <nav class="phi-bread">
-        <a href="/">Start</a><span class="phi-bread-sep">&#8250;</span>
-        <a href="/leistungen/">Leistungen</a><span class="phi-bread-sep">&#8250;</span>
+        <a href="/">Start</a><span class="phi-bread-sep">›</span>
+        <a href="/leistungen/">Leistungen</a><span class="phi-bread-sep">›</span>
         <span class="phi-bread-cur">Injektionen</span>
       </nav>
-      <div class="phi-tag"><div class="phi-tag-line"></div>Injektionstechnik · Feuchtigkeitssanierung</div>
+      <div class="phi-tag"><div class="phi-tag-line"></div>Feuchtigkeitssicherung & Bautenschutz</div>
       <h1 class="phi-h1">
-        <span class="phi-h1-muted">Feuchtigkeit</span>
-        <span class="phi-h1-accent">dauerhaft</span>
-        <span class="phi-h1-white">gestoppt.</span>
+        <span class="phi-h1-muted">Feuchte Wände.</span>
+        <span class="phi-h1-accent">Dauerhaft</span>
+        <span class="phi-h1-white">trocken.</span>
       </h1>
-      <p class="phi-lead">Mit modernster Injektionstechnik sichern wir Keller, Fundamente und Mauerwerk dauerhaft gegen Feuchtigkeit – ohne aufwändige Erdarbeiten.</p>
-      <div class="phi-badges"><span class="phi-badge">Drucklos</span><span class="phi-badge">Dauerhaft</span><span class="phi-badge">Keller & Fundament</span><span class="phi-badge">Ohne Erdarbeiten</span><span class="phi-badge">Region Bern</span></div>
+      <p class="phi-lead">Gezielte Injektionstechnik gegen feuchte Wände und Keller – ohne grossen Aufwand, mit langfristiger Wirkung. Für Altbauten und Neubauten in der Region Bern.</p>
+      <div class="phi-badges">
+        <span class="phi-badge">Feuchtigkeitsschutz</span>
+      <span class="phi-badge">Keller</span>
+      <span class="phi-badge">Altbauten</span>
+      <span class="phi-badge">Ohne Aufgraben</span>
+      <span class="phi-badge">Langzeitwirkung</span>
+      <span class="phi-badge">Region Bern</span>
+      </div>
       <div class="phi-btns">
         <a href="../kontakt.html" class="phi-btn-p">Offerte anfragen <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a href="tel:+41765397974" class="phi-btn-g">076 539 79 74 <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
     </div>
     <div class="phi-right">
-      <div class="phi-stat"><div class="phi-stat-v">Drucklos</div><div class="phi-stat-l">Injektion</div></div><div class="phi-stat"><div class="phi-stat-v">Dauer</div><div class="phi-stat-l">Wirkung</div></div><div class="phi-stat"><div class="phi-stat-v">Keller</div><div class="phi-stat-l">& Mauer</div></div>
-      <div class="phi-sys"><div class="phi-sys-lbl">System</div><div class="phi-sys-item"><span class="phi-sys-k">Methode</span><span class="phi-sys-v">Injektionstechnik</span></div><div class="phi-sys-item"><span class="phi-sys-k">Einsatz</span><span class="phi-sys-v">Mauerwerk</span></div><div class="phi-sys-item"><span class="phi-sys-k">Wirkung</span><span class="phi-sys-v">Dauerhaft</span></div></div>
+      <div class="phi-stat"><div class="phi-stat-v">1<sup>Tag</sup></div><div class="phi-stat-l">Ausführung</div></div>
+      <div class="phi-stat"><div class="phi-stat-v">20+<sup>J</sup></div><div class="phi-stat-l">Haltbarkeit</div></div>
+      <div class="phi-stat"><div class="phi-stat-v">100<sup>%</sup></div><div class="phi-stat-l">Trocken</div></div>
+
+      <div class="phi-sys">
+        <div class="phi-sys-lbl">Eingesetztes System</div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Methode</span><span class="phi-sys-v">Druckinjektion</span></div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Material</span><span class="phi-sys-v">PU / Silikat</span></div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Tiefe</span><span class="phi-sys-v">Bis 50 cm</span></div>
+
+      </div>
     </div>
   </div>
 </section>
+
 
 <!-- BENEFITS -->
 <section class="section-sm">
@@ -558,6 +628,8 @@ details[open] .faq-q { color: #fff; }
 
 
 
+
+
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
@@ -588,12 +660,95 @@ details[open] .faq-q { color: #fff; }
         <a href="#" class="social-a" aria-label="Instagram"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C5.83 0 5.56.01 4.7.05A5.87 5.87 0 002.76.42 3.91 3.91 0 00.42 2.76 5.87 5.87 0 00.05 4.7C.01 5.56 0 5.83 0 8s.01 2.45.05 3.3a5.87 5.87 0 00.37 1.94 3.91 3.91 0 002.34 2.34 5.87 5.87 0 001.94.37C5.55 15.99 5.83 16 8 16s2.45-.01 3.3-.05a5.87 5.87 0 001.94-.37 4.09 4.09 0 002.34-2.34A5.87 5.87 0 0015.95 11.3C15.99 10.45 16 10.17 16 8s-.01-2.45-.05-3.3a5.87 5.87 0 00-.37-1.94 3.91 3.91 0 00-2.34-2.34A5.87 5.87 0 0011.3.05C10.45.01 10.17 0 8 0zm0 1.44c2.14 0 2.39.01 3.23.05.78.04 1.2.16 1.49.28a2.64 2.64 0 011.52 1.52c.12.29.24.71.28 1.49.04.84.05 1.1.05 3.23s-.01 2.39-.05 3.23c-.04.78-.16 1.2-.28 1.49a2.64 2.64 0 01-1.52 1.52c-.29.12-.71.24-1.49.28-.84.04-1.09.05-3.23.05s-2.39-.01-3.23-.05c-.78-.04-1.2-.16-1.49-.28a2.64 2.64 0 01-1.52-1.52c-.12-.29-.24-.71-.28-1.49C1.45 10.39 1.44 10.14 1.44 8s.01-2.39.05-3.23c.04-.78.16-1.2.28-1.49A2.64 2.64 0 013.29 1.76c.29-.12.71-.24 1.49-.28C5.61 1.45 5.87 1.44 8 1.44zm0 2.45a4.11 4.11 0 100 8.22A4.11 4.11 0 008 3.89zm0 6.78A2.67 2.67 0 1110.67 8 2.67 2.67 0 018 10.67zm5.23-6.94a.96.96 0 100 1.92.96.96 0 000-1.92z"/></svg></a>
         <a href="#" class="social-a" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.3 0H.7C.3 0 0 .3 0 .7v14.7c0 .3.3.6.7.6h14.7c.4 0 .7-.3.7-.6V.7C16 .3 15.7 0 15.3 0zM4.7 13.6H2.4V6h2.4v7.6zm-1.1-8.6C2.8 5 2.2 4.3 2.2 3.6c0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4C4.9 4.3 4.3 5 3.6 5zm10 8.6h-2.4V9.9c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8H6.2V6h2.3v1h.1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4.2z"/></svg></a>
       </div>
-      <p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge & Bautenschutz · Urtenen-Schönbühl, Schweiz</p>
+      <p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge &amp; Bautenschutz · Urtenen-Schönbühl, Schweiz</p>
     </div>
   </div>
 </footer>
 
+<script src="../js/main.js"></script>
+<script>
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+  if (img && img.complete) {
+    activate();
+  } else if (img) {
+    img.addEventListener('load', activate);
+    img.addEventListener('error', activate);
+    setTimeout(activate, 2000);
+  } else {
+    activate();
+  }
+})();
+</script>
+</body>
 
 <script src="../js/main.js"></script>
+<script>
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+  if (img && img.complete) {
+    activate();
+  } else if (img) {
+    img.addEventListener('load', activate);
+    img.addEventListener('error', activate);
+    setTimeout(activate, 2000);
+  } else {
+    activate();
+  }
+})();
+</script>
+</body>
+
+<script src="../js/main.js"></script>
+<script>
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+  if (img && img.complete) {
+    activate();
+  } else if (img) {
+    img.addEventListener('load', activate);
+    img.addEventListener('error', activate);
+    setTimeout(activate, 2000);
+  } else {
+    activate();
+  }
+})();
+</script>
+</body>
+
+<script>
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+  if (img && img.complete) {
+    activate();
+  } else if (img) {
+    img.addEventListener('load', activate);
+    img.addEventListener('error', activate);
+    setTimeout(activate, 2000);
+  } else {
+    activate();
+  }
+})();
+</script>
 </body>
 </html>
