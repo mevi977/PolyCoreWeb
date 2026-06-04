@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* Nav scroll */
+  /* Nav scroll - transparentan na vrhu, solidan pri scrollu */
   const nav = document.querySelector('.nav');
-  window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', scrollY > 20), {passive:true});
+  function updateNav() {
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', updateNav, {passive:true});
+  updateNav(); // inicijalno stanje
 
   /* Mobile menu – drawer iz navbara */
   const mob = document.getElementById('mobMenu');
