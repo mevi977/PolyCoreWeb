@@ -33,10 +33,11 @@
 body { background: #f8f7f5; color: #1a1a1a; }
 .section, .section-sm { background: #f8f7f5; }
 .section.light-bg, .section-sm.light-bg { background: #fff; }
-.benefit-cell { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
-.benefit-cell:hover { border-color: rgba(192,72,90,.3); box-shadow: 0 4px 16px rgba(192,72,90,.08); transform: translateY(-2px); }
-.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #666 !important; }
-.benefit-icon svg { stroke: #c0485a; }
+.benefit-cell { background: #fff !important; border: 1px solid rgba(0,0,0,.08) !important; border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.benefit-cell:hover { border-color: rgba(192,72,90,.3) !important; box-shadow: 0 4px 16px rgba(192,72,90,.08); transform: translateY(-2px); }
+.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #888 !important; }
+.benefit-icon { width: 38px; height: 38px; background: rgba(192,72,90,.07); border: 1px solid rgba(192,72,90,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .75rem; }
+.benefit-icon svg { width: 17px; height: 17px; stroke: #c0485a; }
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
@@ -54,22 +55,12 @@ body { background: #f8f7f5; color: #1a1a1a; }
 .cta-banner h2 { color: #fff; } .cta-banner p { color: rgba(255,255,255,.7) !important; }
 .related-card { 
   display: flex; align-items: center; gap: 1rem;
-  background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px;
-  padding: 1rem 1.25rem !important;
-  transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 10px;
+  padding: .85rem 1.1rem;
+  transition: all .2s; 
   text-decoration: none; color: inherit;
 }
-.related-card:hover { border-color: rgba(192,72,90,.3); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,72,90,.08); }
-.related-icon {
-  width: 38px; height: 38px; flex-shrink: 0;
-  background: rgba(192,72,90,.08);
-  border: 1px solid rgba(192,72,90,.15);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-}
-.related-icon svg { width: 16px; height: 16px; stroke: #c0485a !important; opacity: 1; }
-.related-card h4 { color: #1a1a1a !important; font-size: .88rem; margin: 0 0 .15rem; }
-.related-card p { color: #888 !important; font-size: .75rem; margin: 0; line-height: 1.4; }
+.related-card:hover { border-color: rgba(192,72,90,.3); transform: translateX(4px); background: rgba(192,72,90,.03); }
 
 /* === HERO === */
 .page-hero { position: relative; min-height: 520px; background: var(--dk); overflow: hidden; display: flex; align-items: center; }
@@ -425,10 +416,28 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <span class="eyebrow">Weitere Leistungen</span>
       <h2 class="h1 reveal">Das könnte Sie auch interessieren</h2>
     </div>
-    <div class="related-grid" style="display:flex;flex-direction:column;gap:.6rem">
-      <a href="../leistungen/epoxidharz-boden.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/></svg></div><h4>Epoxidharz-Boden</h4><p>Fugenlose EP-Beschichtung für alle Bereiche</p></a>
-      <a href="../leistungen/polyurethan-boden.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></div><h4>Polyurethan-Boden</h4><p>Elastische PU-Beschichtung für erhöhte Anforderungen</p></a>
-      <a href="../leistungen/garagenbeschichtung.html" class="related-card"><div class="related-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/></svg></div><h4>Garagenbeschichtung</h4><p>Epoxy Einstreubelag für Garagen</p></a>
+    <div class="related-grid" style="display:flex;flex-direction:column;gap:.5rem">
+      <a href="../leistungen/epoxidharz-boden.html" class="related-card">
+        <div style="display:flex;flex-direction:column;gap:.1rem">
+          <span style="font-size:.85rem;font-weight:600;color:#1a1a1a">Epoxidharz-Boden</span>
+          <span style="font-size:.75rem;color:#888">Fugenlose EP-Beschichtung für alle Bereiche</span>
+        </div>
+        <svg style="margin-left:auto;flex-shrink:0;stroke:#c0485a;opacity:.7" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a href="../leistungen/polyurethan-boden.html" class="related-card">
+        <div style="display:flex;flex-direction:column;gap:.1rem">
+          <span style="font-size:.85rem;font-weight:600;color:#1a1a1a">Polyurethan-Boden</span>
+          <span style="font-size:.75rem;color:#888">Elastische PU-Beschichtung für erhöhte Anforderungen</span>
+        </div>
+        <svg style="margin-left:auto;flex-shrink:0;stroke:#c0485a;opacity:.7" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a href="../leistungen/garagenbeschichtung.html" class="related-card">
+        <div style="display:flex;flex-direction:column;gap:.1rem">
+          <span style="font-size:.85rem;font-weight:600;color:#1a1a1a">Garagenbeschichtung</span>
+          <span style="font-size:.75rem;color:#888">Epoxy Einstreubelag für Garagen</span>
+        </div>
+        <svg style="margin-left:auto;flex-shrink:0;stroke:#c0485a;opacity:.7" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
     </div>
   </div>
 </section>
