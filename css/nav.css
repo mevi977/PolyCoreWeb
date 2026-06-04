@@ -24,7 +24,23 @@
   border:1px solid rgba(255,255,255,.12) !important;
   box-shadow:0 0 0 1px rgba(74,14,26,.3), 0 8px 32px rgba(0,0,0,.4) !important;
 }
-/* Animated bordeaux shimmer */
+/* Tanki bordeaux border na dnu kad je transparentan */
+.nav:not(.scrolled)::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:15%;
+  right:15%;
+  height:1px;
+  background:linear-gradient(to right, transparent, rgba(192,72,90,.4), transparent);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .6s ease;
+}
+body.loaded .nav:not(.scrolled)::after{
+  opacity:1;
+}
+/* Animated bordeaux shimmer - samo kad je navbar solidan */
 .nav::before{
   content:'';
   position:absolute;
@@ -44,6 +60,12 @@
   animation:navShimmer 10s ease-in-out infinite;
   pointer-events:none !important;
   border-radius:12px;
+  opacity:0;
+  transition:opacity .4s ease;
+}
+/* Shimmer vidljiv samo kad je navbar scrollan (solidan) */
+.nav.scrolled::before{
+  opacity:1;
 }
 @keyframes navShimmer{
   0%   {background-position:200% 0}
