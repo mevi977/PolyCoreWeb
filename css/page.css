@@ -237,3 +237,27 @@
   .page-hero-content{padding:0 0 5rem}
   .page-hero h1{font-size:3.2rem}
 }
+
+/* ===== HERO EFFECTS ===== */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.page-hero-bg,
+.hero-bg {
+  transition: transform .7s ease;
+  will-change: transform;
+  overflow: hidden;
+}
+.page-hero-bg img,
+.hero-bg img,
+.hero-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Osiguraj da je hero-bg overflow hidden za parallax */
+.page-hero { overflow: hidden; }
