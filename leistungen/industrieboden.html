@@ -106,18 +106,18 @@ body { background: #f8f7f5; color: #1a1a1a; }
 .phi-btn-g:hover { color: rgba(30,10,5,.85); border-color: rgba(30,10,5,.4); }
 
 /* Desna kolona - klizi s desna */
-.phi-right { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,.15); padding-left: 2.5rem; opacity: 0; transform: translateX(40px); transition: opacity .6s .5s ease, transform .6s .5s ease; background: rgba(10,4,2,.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 12px; padding: 1.5rem 1.5rem 1.5rem 2rem; }
+.phi-right { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,.15); padding-left: 2.5rem; opacity: 0; transform: translateX(40px); transition: opacity .6s .5s ease, transform .6s .5s ease; -webkit- padding-left: 2.5rem; }
 .phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.12); cursor: default; transition: all .2s; }
 .phi-stat:last-of-type { border-bottom: none; }
 .phi-stat:hover .phi-stat-v { color: #fff; } .phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.65); }
-.phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: rgba(255,252,248,.92); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
+.phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.5); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
 .phi-stat-v sup { font-size: .85rem; font-weight: 400; color: rgba(220,110,130,.95); vertical-align: super; }
-.phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,252,248,.55); transition: color .2s; }
+.phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); text-shadow: 0 1px 6px rgba(0,0,0,.5); transition: color .2s; }
 .phi-sys { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.12); }
-.phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: .9rem; }
+.phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.65); text-shadow: 0 1px 6px rgba(0,0,0,.5); margin-bottom: .9rem; }
 .phi-sys-item { display: flex; justify-content: space-between; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.08); font-size: .7rem; }
 .phi-sys-item:last-child { border: none; }
-.phi-sys-k { color: rgba(255,255,255,.55); font-weight: 300; } .phi-sys-v { color: rgba(255,255,255,.88); font-weight: 500; }
+.phi-sys-k { color: rgba(255,255,255,.7); font-weight: 300; text-shadow: 0 1px 6px rgba(0,0,0,.5); } .phi-sys-v { color: #fff; font-weight: 500; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
 
 /* LOADED - JS doda ovu klasu na body */
 body.loaded .page-hero-overlay { opacity: 1; }
@@ -144,7 +144,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
     padding: 7.5rem 1.25rem 3rem;
     gap: 0;
   }
-  .phi-right { display: none; }
+  
   .phi-h1 { font-size: 2rem; letter-spacing: -.04em; margin-bottom: 1rem; }
   .phi-h1-muted { font-size: 1.6rem; }
   .phi-lead { font-size: .85rem; margin-bottom: 1.5rem; max-width: 100%; }
