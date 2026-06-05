@@ -483,9 +483,14 @@
 @media(max-width:1024px){
   .nav-links,.nav-cta{display:none}
   /* Navbar viši na mobilnom */
-  .nav-c{height:68px}
-  /* Logo veći */
-  .nav-logo img{height:54px}
+  .nav-c{height:68px;justify-content:center;position:relative}
+  /* Logo centriran na mobitelu */
+  .nav-logo{position:absolute;left:50%;transform:translateX(-50%)}
+  .nav-logo img{height:50px}
+  /* Burger ostaje desno */
+  .nav-burger{position:absolute;right:1rem}
+  /* Phone ikona lijevo */
+  .nav-phone{position:absolute;left:1rem;margin:0}
   /* Telefon ikona – gurni desno s margin-left:auto, razmak od burgera */
   .nav-phone{
     display:flex;align-items:center;
@@ -516,4 +521,29 @@
   }
   .mob-expand-list{grid-template-columns:1fr}
   .mob-expand-section{grid-column:1}
+}
+
+/* ===== HERO LIGHT – tamni navbar linkovi ===== */
+.hero-light .nav:not(.scrolled) .nav-a,
+.hero-light .nav:not(.scrolled) .nav-drop-toggle {
+  color: rgba(20,8,5,.75) !important;
+}
+.hero-light .nav:not(.scrolled) .nav-a:hover,
+.hero-light .nav:not(.scrolled) .nav-drop-toggle:hover {
+  color: rgba(20,8,5,1) !important;
+}
+.hero-light .nav:not(.scrolled) .nav-caret {
+  stroke: rgba(20,8,5,.75) !important;
+}
+/* Logo - tamna verzija na world hero */
+.hero-light .nav:not(.scrolled) .logo-light { display: none !important; }
+.hero-light .nav:not(.scrolled) .logo-dark  { display: block !important; }
+/* Burger hamburger linije - tamne */
+.hero-light .nav:not(.scrolled) .nav-burger span {
+  background: rgba(20,8,5,.75) !important;
+}
+/* Tanka linija na dnu nav-a - bordeaux ostaje */
+.hero-light .nav:not(.scrolled)::after {
+  background: linear-gradient(to right, transparent, rgba(192,72,90,.5), transparent) !important;
+  opacity: 1 !important;
 }
