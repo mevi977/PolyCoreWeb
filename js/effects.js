@@ -97,35 +97,32 @@
   }
 
   function initScramble(hero) {
-    // Nadjimo tekstualne elemente u hero sekciji
     const h1 = hero.querySelector('.phi-h1, .h-hero, h1');
     if (!h1) return;
 
-    const spans = h1.querySelectorAll('span');
+    // Samo phi-h1 span elementi koji su LEAF čvorovi (bez nested HTML)
+    // h-hero na index.html ima <em> tag pa preskačemo
+    const spans = h1.querySelectorAll('.phi-h1-muted, .phi-h1-accent, .phi-h1-white');
+    if (!spans.length) return; // Nema phi spans = index.html stil, preskoči
+
     const originals = [];
+    spans.forEach(s => {
+      // Samo ako nema child elemenata (čisti tekst)
+      if (s.children.length === 0) {
+        originals.push({el: s, text: s.textContent.trim()});
+      }
+    });
 
-    if (spans.length >= 2) {
-      spans.forEach(s => originals.push({el: s, text: s.textContent}));
-    } else {
-      originals.push({el: h1, text: h1.textContent});
-    }
+    if (!originals.length) return;
 
-    // Sačekaj body.loaded pa pokreni scramble
     function run() {
       originals.forEach((o, i) => scrambleEl(o.el, o.text, i * 350));
     }
 
     if (document.body.classList.contains('loaded')) {
-      setTimeout(run, 200);
+      setTimeout(run, 300);
     } else {
-      document.body.addEventListener('transitionend', function onLoad() {
-        if (document.body.classList.contains('loaded')) {
-          setTimeout(run, 200);
-          document.body.removeEventListener('transitionend', onLoad);
-        }
-      });
-      // Fallback
-      setTimeout(run, 1500);
+      setTimeout(run, 1600);
     }
   }
 
