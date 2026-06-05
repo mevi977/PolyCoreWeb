@@ -261,3 +261,17 @@
 }
 /* Osiguraj da je hero-bg overflow hidden za parallax */
 .page-hero { overflow: hidden; }
+
+/* Breadcrumb uvijek ispod navbara */
+.phi-bread {
+  padding-top: 0;
+}
+/* page-hero-inner - minimalni padding-top za navbar clearance */
+.page-hero-inner {
+  padding-top: max(7.5rem, calc(1.25rem + 76px + 2rem)) !important;
+}
+@media (max-width: 768px) {
+  .page-hero-inner {
+    padding-top: max(7rem, calc(1.25rem + 68px + 1.5rem)) !important;
+  }
+}
