@@ -160,19 +160,19 @@ body.fog-on .hero-overlay{opacity:1}
 .hero-services {
   position: absolute; z-index: 4;
   right: 2.5rem; top: 50%; transform: translateY(-50%);
-  display: flex; flex-direction: column; gap: .6rem;
-  width: 220px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem;
+  width: 360px;
 }
 .hs-card {
-  display: flex; align-items: center; gap: .7rem;
-  padding: .65rem .9rem;
-  background: rgba(20,8,5,.4);
-  border: 1px solid rgba(255,252,248,.12);
+  display: flex; align-items: center; gap: .6rem;
+  padding: .55rem .85rem;
+  background: rgba(192,72,90,.22);
+  border: 1px solid rgba(255,252,248,.18);
   border-radius: 50px;
   text-decoration: none;
-  color: rgba(255,252,248,.9);
-  text-shadow: 0 1px 6px rgba(0,0,0,.4);
-  font-size: .74rem; font-weight: 500; letter-spacing: -.01em;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0,0,0,.45);
+  font-size: .7rem; font-weight: 500; letter-spacing: -.01em;
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   opacity: 0; transform: translateX(50px);
   transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1), background .25s ease, border-color .25s ease;
@@ -186,17 +186,16 @@ body.fog-on .hs-card { opacity: 1; transform: translateX(0); }
 body.fog-on .hs-card:hover { transform: translateX(-4px); }
 .hs-ico {
   display: flex; align-items: center; justify-content: center;
-  width: 28px; height: 28px; flex-shrink: 0;
-  background: rgba(255,252,248,.08);
-  border: 1px solid rgba(255,252,248,.12);
+  width: 24px; height: 24px; flex-shrink: 0;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,252,248,.2);
   border-radius: 50%;
 }
-.hs-ico svg { width: 13px; height: 13px; stroke: rgba(220,110,130,.95); transition: stroke .25s; }
-.hs-card:hover .hs-ico { background: rgba(255,255,255,.2); }
-.hs-card:hover .hs-ico svg { stroke: #fff; }
-.hs-txt { white-space: nowrap; }
+.hs-ico svg { width: 12px; height: 12px; stroke: #fff; transition: stroke .25s; }
+.hs-card:hover { background: rgba(192,72,90,.55); border-color: rgba(255,255,255,.4); transform: translateX(-4px); }
+.hs-txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   .hero-services { display: none; }
 }
 
@@ -218,28 +217,27 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
   .hsm-pill {
     flex: 0 0 auto;
     display: flex; align-items: center; gap: .5rem;
-    font-size: .7rem; font-weight: 500; letter-spacing: -.01em; white-space: nowrap;
-    color: rgba(255,252,248,.9);
-    background: rgba(20,8,5,.4);
-    border: 1px solid rgba(255,252,248,.12);
+    font-size: .72rem; font-weight: 600; letter-spacing: -.01em; white-space: nowrap;
+    color: #fff;
+    background: rgba(192,72,90,.85);
+    border: 1px solid rgba(255,255,255,.35);
     border-radius: 50px;
-    padding: .5rem 1rem .5rem .5rem;
+    padding: .55rem 1.1rem .55rem .55rem;
     text-decoration: none;
-    text-shadow: 0 1px 6px rgba(0,0,0,.4);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    opacity: 0; transform: translateY(20px);
-    transition: opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1), background .25s, border-color .25s;
+    box-shadow: 0 6px 18px rgba(192,72,90,.4);
+    opacity: 0; transform: translateY(16px) scale(.95);
+    animation: hsmIn .5s cubic-bezier(.16,1,.3,1) forwards;
   }
-  body.fog-on .hsm-pill { opacity: 1; transform: translateY(0); }
-  .hsm-pill:active { background: rgba(192,72,90,.35); border-color: rgba(192,72,90,.5); }
+  @keyframes hsmIn { to { opacity: 1; transform: translateY(0) scale(1); } }
+  .hsm-pill:active { background: rgba(160,40,55,1); }
   .hsm-ico {
     display: flex; align-items: center; justify-content: center;
     width: 24px; height: 24px; flex-shrink: 0;
-    background: rgba(255,252,248,.08);
-    border: 1px solid rgba(255,252,248,.12);
+    background: rgba(255,255,255,.22);
+    border: 1px solid rgba(255,255,255,.3);
     border-radius: 50%;
   }
-  .hsm-ico svg { width: 11px; height: 11px; stroke: rgba(220,110,130,.95); }
+  .hsm-ico svg { width: 11px; height: 11px; stroke: #fff; }
 }
 @media (max-width: 768px) {
   .hsm-pill { font-size: .66rem; padding: .42rem .9rem .42rem .42rem; }
@@ -287,9 +285,10 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
   100% { transform: translate(6%, -6%) scale(.9); }
 }
 @media (max-width: 768px) {
-  .hero-aurora-1 { width: 380px; height: 380px; }
-  .hero-aurora-2 { width: 420px; height: 420px; }
-  .hero-aurora-3 { width: 320px; height: 320px; }
+  .hero-aurora { mix-blend-mode: normal; filter: blur(60px); }
+  .hero-aurora-1 { width: 420px; height: 420px; opacity: .85; }
+  .hero-aurora-2 { width: 460px; height: 460px; opacity: .85; }
+  .hero-aurora-3 { width: 360px; height: 360px; opacity: .8; }
 }
 </style>
 </head>
@@ -449,26 +448,31 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
     </div>
   </div>
   <div class="hero-services">
-      <a href="leistungen/epoxidharz-boden.html" class="hs-card" style="transition-delay:0.00s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></span><span class="hs-txt">Epoxidharz</span></a>
-      <a href="leistungen/polyurethan-boden.html" class="hs-card" style="transition-delay:0.12s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></span><span class="hs-txt">Polyurethan</span></a>
-      <a href="leistungen/pmma-boden.html" class="hs-card" style="transition-delay:0.24s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></span><span class="hs-txt">PMMA</span></a>
-      <a href="leistungen/designerboden.html" class="hs-card" style="transition-delay:0.36s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span class="hs-txt">Designerboden</span></a>
-      <a href="leistungen/steinteppich.html" class="hs-card" style="transition-delay:0.48s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></span><span class="hs-txt">Steinteppich</span></a>
-      <a href="leistungen/garagenbeschichtung.html" class="hs-card" style="transition-delay:0.60s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><span class="hs-txt">Garagenbeschichtung</span></a>
+      <a href="leistungen/epoxidharz-boden.html" class="hs-card" style="animation-delay:0.00s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></span><span class="hs-txt">Epoxidharz</span></a>
+      <a href="leistungen/polyurethan-boden.html" class="hs-card" style="animation-delay:0.06s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></span><span class="hs-txt">Polyurethan</span></a>
+      <a href="leistungen/pmma-boden.html" class="hs-card" style="animation-delay:0.12s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></span><span class="hs-txt">PMMA</span></a>
+      <a href="leistungen/designerboden.html" class="hs-card" style="animation-delay:0.18s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span class="hs-txt">Designerboden</span></a>
+      <a href="leistungen/steinteppich.html" class="hs-card" style="animation-delay:0.24s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></span><span class="hs-txt">Steinteppich</span></a>
+      <a href="leistungen/industrieboden.html" class="hs-card" style="animation-delay:0.30s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="hs-txt">Industrieböden</span></a>
+      <a href="leistungen/garagenbeschichtung.html" class="hs-card" style="animation-delay:0.36s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><span class="hs-txt">Garagenbeschichtung</span></a>
+      <a href="leistungen/abdichtung.html" class="hs-card" style="animation-delay:0.42s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></span><span class="hs-txt">Flüssigkunststoff</span></a>
+      <a href="leistungen/injektionen.html" class="hs-card" style="animation-delay:0.48s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4M7 20h4"/></svg></span><span class="hs-txt">Injektionen</span></a>
+      <a href="leistungen/combiflex.html" class="hs-card" style="animation-delay:0.54s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/></svg></span><span class="hs-txt">Combiflex</span></a>
+      <a href="leistungen/plattenlegen.html" class="hs-card" style="animation-delay:0.60s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></span><span class="hs-txt">Plattenverlegung</span></a>
   </div>
   <div class="hero-services-mobile">
     <div class="hsm-track">
-      <a href="leistungen/epoxidharz-boden.html" class="hsm-pill" style="transition-delay:0.00s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></span>Epoxidharz</a>
-      <a href="leistungen/polyurethan-boden.html" class="hsm-pill" style="transition-delay:0.05s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></span>Polyurethan</a>
-      <a href="leistungen/pmma-boden.html" class="hsm-pill" style="transition-delay:0.10s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></span>PMMA</a>
-      <a href="leistungen/designerboden.html" class="hsm-pill" style="transition-delay:0.15s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>Designerboden</a>
-      <a href="leistungen/steinteppich.html" class="hsm-pill" style="transition-delay:0.20s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></span>Steinteppich</a>
-      <a href="leistungen/industrieboden.html" class="hsm-pill" style="transition-delay:0.25s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Industrieböden</a>
-      <a href="leistungen/garagenbeschichtung.html" class="hsm-pill" style="transition-delay:0.30s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>Garagenbeschichtung</a>
-      <a href="leistungen/abdichtung.html" class="hsm-pill" style="transition-delay:0.35s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></span>Flüssigkunststoff</a>
-      <a href="leistungen/injektionen.html" class="hsm-pill" style="transition-delay:0.40s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4M7 20h4"/></svg></span>Injektionen</a>
-      <a href="leistungen/combiflex.html" class="hsm-pill" style="transition-delay:0.45s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/></svg></span>Combiflex</a>
-      <a href="leistungen/plattenlegen.html" class="hsm-pill" style="transition-delay:0.50s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></span>Plattenverlegung</a>
+      <a href="leistungen/epoxidharz-boden.html" class="hsm-pill" style="animation-delay:0.00s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></span>Epoxidharz</a>
+      <a href="leistungen/polyurethan-boden.html" class="hsm-pill" style="animation-delay:0.05s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></span>Polyurethan</a>
+      <a href="leistungen/pmma-boden.html" class="hsm-pill" style="animation-delay:0.10s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></span>PMMA</a>
+      <a href="leistungen/designerboden.html" class="hsm-pill" style="animation-delay:0.15s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>Designerboden</a>
+      <a href="leistungen/steinteppich.html" class="hsm-pill" style="animation-delay:0.20s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></span>Steinteppich</a>
+      <a href="leistungen/industrieboden.html" class="hsm-pill" style="animation-delay:0.25s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Industrieböden</a>
+      <a href="leistungen/garagenbeschichtung.html" class="hsm-pill" style="animation-delay:0.30s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>Garagenbeschichtung</a>
+      <a href="leistungen/abdichtung.html" class="hsm-pill" style="animation-delay:0.35s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></span>Flüssigkunststoff</a>
+      <a href="leistungen/injektionen.html" class="hsm-pill" style="animation-delay:0.40s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4M7 20h4"/></svg></span>Injektionen</a>
+      <a href="leistungen/combiflex.html" class="hsm-pill" style="animation-delay:0.45s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/></svg></span>Combiflex</a>
+      <a href="leistungen/plattenlegen.html" class="hsm-pill" style="animation-delay:0.50s"><span class="hsm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></span>Plattenverlegung</a>
     </div>
   </div>
 </header>
