@@ -155,6 +155,50 @@ body.fog-on .hero-overlay{opacity:1}
 
 .hero .btn-light { background: rgba(192,72,90,.95); color: #fff; border-color: rgba(192,72,90,.95); }
 .hero .btn-light:hover { background: transparent; color: rgba(192,72,90,1); border-color: rgba(192,72,90,.6); }
+
+/* ===== HERO SERVICES – elegantna vertikalna lista, ulazi s fogom ===== */
+.hero-services {
+  position: absolute; z-index: 4;
+  right: 2.5rem; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: .6rem;
+  width: 220px;
+}
+.hs-card {
+  display: flex; align-items: center; gap: .7rem;
+  padding: .65rem .9rem;
+  background: rgba(20,8,5,.4);
+  border: 1px solid rgba(255,252,248,.12);
+  border-radius: 50px;
+  text-decoration: none;
+  color: rgba(255,252,248,.9);
+  text-shadow: 0 1px 6px rgba(0,0,0,.4);
+  font-size: .74rem; font-weight: 500; letter-spacing: -.01em;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  opacity: 0; transform: translateX(50px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1), background .25s ease, border-color .25s ease;
+}
+body.fog-on .hs-card { opacity: 1; transform: translateX(0); }
+.hs-card:hover {
+  background: rgba(192,72,90,.35);
+  border-color: rgba(192,72,90,.5);
+  transform: translateX(-4px);
+}
+body.fog-on .hs-card:hover { transform: translateX(-4px); }
+.hs-ico {
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; flex-shrink: 0;
+  background: rgba(255,252,248,.08);
+  border: 1px solid rgba(255,252,248,.12);
+  border-radius: 50%;
+}
+.hs-ico svg { width: 13px; height: 13px; stroke: rgba(220,110,130,.95); transition: stroke .25s; }
+.hs-card:hover .hs-ico { background: rgba(255,255,255,.2); }
+.hs-card:hover .hs-ico svg { stroke: #fff; }
+.hs-txt { white-space: nowrap; }
+
+@media (max-width: 1024px) {
+  .hero-services { display: none; }
+}
 </style>
 </head>
 <body>
@@ -308,6 +352,14 @@ body.fog-on .hero-overlay{opacity:1}
         </div>
       </div>
     </div>
+  </div>
+  <div class="hero-services">
+      <a href="leistungen/epoxidharz-boden.html" class="hs-card" style="transition-delay:0.00s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></span><span class="hs-txt">Epoxidharz</span></a>
+      <a href="leistungen/polyurethan-boden.html" class="hs-card" style="transition-delay:0.12s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></span><span class="hs-txt">Polyurethan</span></a>
+      <a href="leistungen/pmma-boden.html" class="hs-card" style="transition-delay:0.24s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></span><span class="hs-txt">PMMA</span></a>
+      <a href="leistungen/designerboden.html" class="hs-card" style="transition-delay:0.36s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span class="hs-txt">Designerboden</span></a>
+      <a href="leistungen/steinteppich.html" class="hs-card" style="transition-delay:0.48s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></span><span class="hs-txt">Steinteppich</span></a>
+      <a href="leistungen/garagenbeschichtung.html" class="hs-card" style="transition-delay:0.60s"><span class="hs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><span class="hs-txt">Garagenbeschichtung</span></a>
   </div>
 </header>
 
