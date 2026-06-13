@@ -21,6 +21,25 @@ document.addEventListener('DOMContentLoaded', () => {
     backdrop?.classList.add('open');
     burger?.classList.add('open');
     nav?.classList.add('mob-open');
+    if (window.innerWidth <= 1024) {
+      mob.style.position = 'fixed';
+      mob.style.top = '0';
+      mob.style.left = '0';
+      mob.style.right = '0';
+      mob.style.bottom = '0';
+      mob.style.width = '100%';
+      mob.style.maxWidth = '100%';
+      mob.style.height = '100%';
+      mob.style.maxHeight = '100%';
+      mob.style.borderRadius = '0';
+      mob.style.boxShadow = 'none';
+      mob.style.overflowY = 'auto';
+      mob.style.opacity = '1';
+      mob.style.pointerEvents = 'all';
+      mob.style.transform = 'translateY(0)';
+      mob.style.zIndex = '1100';
+      document.body.style.overflow = 'hidden';
+    }
   }
   function closeMob(){
     if(!mob) return;
@@ -28,6 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
     backdrop?.classList.remove('open');
     burger?.classList.remove('open');
     nav?.classList.remove('mob-open');
+    if (window.innerWidth <= 1024) {
+      mob.style.transform = 'translateY(-100%)';
+      mob.style.pointerEvents = 'none';
+      document.body.style.overflow = '';
+    }
   }
 
   burger?.addEventListener('click', () => {

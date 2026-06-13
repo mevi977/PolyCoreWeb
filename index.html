@@ -240,28 +240,25 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 }
 .hsm-card {
   display: flex; align-items: center; gap: .55rem;
-  padding: .6rem .7rem;
-  background: rgba(255,252,248,.06);
-  border: 1px solid rgba(255,252,248,.12);
+  padding: .65rem .8rem;
+  background: rgba(192,72,90,.85);
+  border: 1px solid rgba(255,255,255,.25);
   border-radius: 12px;
   text-decoration: none;
-  color: rgba(255,252,248,.9);
-  text-shadow: 0 1px 6px rgba(0,0,0,.4);
-  font-size: .7rem; font-weight: 500; letter-spacing: -.01em;
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  transition: background .2s, border-color .2s, transform .2s;
+  color: #fff;
+  font-size: .72rem; font-weight: 600; letter-spacing: -.01em;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  transition: background .2s, transform .2s;
 }
-.hsm-card:hover { background: rgba(192,72,90,.3); border-color: rgba(192,72,90,.45); transform: translateY(-2px); }
+.hsm-card:hover, .hsm-card:active { background: rgba(160,40,55,1); transform: translateY(-2px); }
 .hsm-ico {
   display: flex; align-items: center; justify-content: center;
   width: 26px; height: 26px; flex-shrink: 0;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.25);
   border-radius: 50%;
 }
-.hsm-ico svg { width: 12px; height: 12px; stroke: rgba(220,110,130,.95); }
-.hsm-card:hover .hsm-ico { background: rgba(255,255,255,.25); }
-.hsm-card:hover .hsm-ico svg { stroke: #fff; }
+.hsm-ico svg { width: 12px; height: 12px; stroke: #fff; }
 .hsm-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 @media (max-width: 1180px) {
