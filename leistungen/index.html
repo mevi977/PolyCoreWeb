@@ -14,45 +14,454 @@
 <link rel="canonical" href="https://www.polycore.ch/leistungen/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../css/design-system.css"/>
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
 <link rel="stylesheet" href="../css/page.css"/>
 <style>
-/* ── HERO ── */
-.lst-hero{position:relative;padding:9rem 0 5rem;overflow:hidden;color:#fff;background:#0a0a0a}
-.lst-hero-bg{position:absolute;inset:0}
-.lst-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.32}
-.lst-hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(74,28,47,.55) 0%,rgba(0,0,0,.72) 100%)}
-.lst-hero-inner{position:relative;z-index:2;max-width:640px}
 
-/* ── CATEGORY DIVIDER ── */
-.cat-row{display:flex;align-items:center;gap:1rem;margin:3.5rem 0 2rem}
-.cat-row::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.1)}
-.cat-row .eyebrow{white-space:nowrap}
+/* ============================================
+   ULTRA MODERN REDESIGN – POLYCORE LEISTUNGEN
+   Behält alle Inhalte & Medien, nur visuelle Überarbeitung
+   ============================================ */
 
-/* ── SERVICE CARDS ── */
-.lst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-@media(max-width:960px){.lst-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:540px){.lst-grid{grid-template-columns:1fr}}
+:root {
+  --bg-dark: #050505;
+  --bg-card: rgba(255,255,255,0.96);
+  --glass-bg: rgba(255,255,255,0.75);
+  --glass-border: rgba(255,255,255,0.2);
+  --accent-primary: #b8473a;
+  --accent-glow: #e25842;
+  --text-dark: #111111;
+  --text-muted: #4a4a4a;
+  --transition-smooth: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --shadow-lift: 0 20px 35px -12px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.02);
+  --shadow-glow: 0 25px 40px -12px rgba(0,0,0,0.2);
+  --border-radius-xl: 28px;
+  --border-radius-card: 24px;
+}
 
-.lst-card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease}
-.lst-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
-.lst-card-top{padding:1.6rem 1.6rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.9rem}
-.lst-ico{width:44px;height:44px;background:#f5f4f2;border:1px solid rgba(0,0,0,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.lst-ico svg{width:21px;height:21px;stroke:#1a1a1a}
-.lst-card h3{font-size:.975rem;font-weight:700;margin:0;line-height:1.3}
-.lst-card p{font-size:.85rem;color:#666;line-height:1.65;margin:0;flex:1}
-.lst-card-bot{padding:.95rem 1.6rem;border-top:1px solid rgba(0,0,0,.07);display:flex;align-items:center;justify-content:space-between;font-size:.82rem;font-weight:600;color:#1a1a1a;background:#fafafa}
-.lst-card-bot svg{width:13px;height:13px;transition:transform .2s;flex-shrink:0}
-.lst-card:hover .lst-card-bot svg{transform:translateX(4px)}
-.lst-card:hover .lst-card-bot{color:#4a0e1a}
+/* Globale Modernisierung */
+body {
+  background: #fefefe;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero – Ultra Modern mit dynamischem Gradient */
+.lst-hero {
+  position: relative;
+  padding: 10rem 0 7rem;
+  isolation: isolate;
+  background: #030303;
+  overflow: hidden;
+}
+
+.lst-hero-bg img {
+  transform: scale(1.02);
+  transition: transform 12s ease;
+  filter: brightness(0.7) contrast(1.1);
+}
+
+.lst-hero:hover .lst-hero-bg img {
+  transform: scale(1.08);
+}
+
+.lst-hero-overlay {
+  background: radial-gradient(circle at 20% 40%, rgba(30,15,20,0.65) 0%, rgba(0,0,0,0.85) 100%);
+  backdrop-filter: brightness(0.95) blur(2px);
+}
+
+.lst-hero-inner h1 {
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff 60%, #e6d5cf 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.lst-hero-inner .lead {
+  font-weight: 400;
+  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.3);
+  display: inline-block;
+  padding: 0.25rem 1.2rem;
+  border-radius: 60px;
+  width: fit-content;
+}
+
+/* Breadcrumb modern */
+.breadcrumb {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+  display: inline-flex;
+  padding: 0.4rem 1rem;
+  border-radius: 60px;
+  width: auto;
+}
+
+.breadcrumb a, .breadcrumb span {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-primary);
+}
+
+/* Category Row – stylish divider */
+.cat-row {
+  margin: 5rem 0 2.2rem;
+  gap: 1.5rem;
+}
+.cat-row .eyebrow {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  background: linear-gradient(120deg, var(--accent-primary), #c96a5a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-right: 0.25rem;
+}
+.cat-row::after {
+  background: linear-gradient(90deg, rgba(0,0,0,0.12), transparent);
+  height: 1.5px;
+}
+
+/* Ultra moderne Karten – Glas & Hover 3D */
+.lst-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media(max-width:960px){
+  .lst-grid{grid-template-columns:repeat(2,1fr); gap:1.5rem;}
+}
+@media(max-width:540px){
+  .lst-grid{grid-template-columns:1fr;}
+}
+
+.lst-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(0px);
+  border-radius: var(--border-radius-card);
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 8px 20px -8px rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.lst-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 0%, rgba(184,71,58,0.03), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.lst-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--shadow-glow), 0 0 0 1px rgba(184,71,58,0.2);
+  border-color: rgba(184,71,58,0.3);
+}
+
+.lst-card:hover::before {
+  opacity: 1;
+}
+
+.lst-card-top {
+  padding: 2rem 1.8rem 1.6rem;
+}
+
+.lst-ico {
+  width: 54px;
+  height: 54px;
+  background: rgba(245,240,236,0.7);
+  backdrop-filter: blur(4px);
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.25s;
+  margin-bottom: 0.5rem;
+}
+
+.lst-card:hover .lst-ico {
+  background: var(--accent-primary);
+  border-color: transparent;
+  transform: scale(0.96);
+}
+
+.lst-card:hover .lst-ico svg {
+  stroke: white;
+  transition: 0.2s;
+}
+
+.lst-ico svg {
+  width: 24px;
+  height: 24px;
+  stroke: #1f1f1f;
+  stroke-width: 1.6;
+  transition: stroke 0.2s;
+}
+
+.lst-card h3 {
+  font-size: 1.3rem;
+  font-weight: 650;
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: -0.3px;
+  margin: 0.75rem 0 0.5rem;
+  background: linear-gradient(135deg, #1c1c1c, #3d2a25);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.lst-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  font-weight: 450;
+}
+
+.lst-card-bot {
+  padding: 1rem 1.8rem;
+  background: rgba(0,0,0,0.01);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #2b2b2b;
+}
+
+.lst-card-bot svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.6, 1.1);
+}
+
+.lst-card:hover .lst-card-bot {
+  color: var(--accent-primary);
+}
+.lst-card:hover .lst-card-bot svg {
+  transform: translateX(6px);
+}
+
+/* CTA Banner – Glasmodern */
+.cta-banner {
+  background: linear-gradient(125deg, #16100e, #201815);
+  border-radius: 48px;
+  padding: 3.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 40px -20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(184,71,58,0.3), transparent);
+  top: -80px;
+  right: -60px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cta-banner h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', monospace;
+  color: white;
+  letter-spacing: -0.02em;
+}
+.cta-banner p {
+  color: rgba(255,255,255,0.8);
+  max-width: 520px;
+  margin: 1rem auto;
+}
+
+.btn-row .btn {
+  display: inline-flex;
+  background: white;
+  color: #0a0a0a;
+  border-radius: 100px;
+  padding: 0.9rem 2rem;
+  font-weight: 600;
+  transition: all 0.25s;
+  text-decoration: none;
+  gap: 0.5rem;
+  align-items: center;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.btn-row .btn-light {
+  background: white;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+.btn-row .btn-light:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px -8px rgba(184,71,58,0.4);
+}
+
+/* Footer modern */
+.footer {
+  background: #080808;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 4rem;
+}
+.footer .footer-top {
+  backdrop-filter: none;
+}
+.foot-nav a, .foot-contact-row a {
+  transition: color 0.2s;
+}
+.foot-nav a:hover {
+  color: var(--accent-primary);
+}
+.social-a svg {
+  transition: transform 0.2s, filter 0.2s;
+}
+.social-a:hover svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px rgba(184,71,58,0.6));
+  color: var(--accent-primary);
+}
+
+/* Navigation – Glas-Sticky modern */
+.nav {
+  background: rgba(10, 10, 10, 0.78) !important;
+  backdrop-filter: blur(18px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  transition: all 0.3s ease;
+}
+
+.nav-a, .nav-drop-toggle {
+  color: rgba(255,255,255,0.92) !important;
+  font-weight: 500;
+}
+.nav-a:hover, .nav-drop-toggle:hover {
+  color: var(--accent-primary) !important;
+}
+
+.mega {
+  background: rgba(18,18,22,0.96) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  box-shadow: 0 30px 50px -20px black;
+}
+
+.mega-intro-title {
+  font-family: 'Space Grotesk', monospace;
+  background: linear-gradient(135deg, #fff, #c8aa9e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Mobile Menu – glass effect */
+.mob-menu {
+  background: rgba(0,0,0,0.92) !important;
+  backdrop-filter: blur(30px);
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Section spacers */
+.section {
+  padding: 5rem 0;
+}
+.section-sm {
+  padding: 3.5rem 0;
+}
+
+/* subtle scroll animation */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.lst-card, .cat-row, .cta-banner {
+  animation: fadeSlideUp 0.5s ease backwards;
+}
+.lst-card:nth-child(1) { animation-delay: 0.05s; }
+.lst-card:nth-child(2) { animation-delay: 0.1s; }
+.lst-card:nth-child(3) { animation-delay: 0.15s; }
+.lst-card:nth-child(4) { animation-delay: 0.2s; }
+.lst-card:nth-child(5) { animation-delay: 0.25s; }
+.lst-card:nth-child(6) { animation-delay: 0.3s; }
+
+/* Responsive feintuning */
+@media(max-width: 768px){
+  .container {
+    padding: 0 1.5rem;
+  }
+  .lst-hero {
+    padding: 7rem 0 4rem;
+  }
+  .cta-banner h2 {
+    font-size: 1.8rem;
+  }
+  .lst-card-top {
+    padding: 1.5rem;
+  }
+}
+
+/* zusätzliche Elegance für button */
+.btn, .mega-intro-cta {
+  transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
+}
+
+/* custom scroll */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 12px;
+}
+
+/* keep all original media (images, svg) untouched */
+.lst-hero-bg img, .nav-logo img, .mob-logo img {
+  filter: none;
+  opacity: 1;
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAV (original structure, modernized via CSS) -->
 <nav class="nav">
   <div class="nav-c">
     <a href="/" class="nav-logo"><img src="/assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="/assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
@@ -119,36 +528,20 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
-
   <div class="mob-body">
-
-    <!-- Glavna lista -->
     <ul class="mob-main-list" id="mobMainList">
-      <li class="mob-main-item" data-expand="mobExpLeistungen">
-        <span>Leistungen</span>
-        <svg class="mob-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </li>
+      <li class="mob-main-item" data-expand="mobExpLeistungen"><span>Leistungen</span><svg class="mob-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></li>
       <li class="mob-main-item"><a href="projekte.html">Projekte</a></li>
       <li class="mob-main-item"><a href="ueber-uns.html">Über uns</a></li>
       <li class="mob-main-item"><a href="blog/">Blog</a></li>
         <li class="mob-main-item"><a href="../farbpalette">RAL Farbpalette</a></li>
       <li class="mob-main-item"><a href="kontakt.html">Kontakt</a></li>
     </ul>
-
-    <!-- Leistungen expand panel -->
     <div class="mob-expand" id="mobExpLeistungen">
-      <div class="mob-expand-header">
-        <button class="mob-back">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-          Zurück
-        </button>
-      </div>
+      <div class="mob-expand-header"><button class="mob-back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>Zurück</button></div>
       <div class="mob-expand-title">Leistungen</div>
       <div class="mob-expand-desc">Hochwertige Bodenbeschichtungen und Bautenschutzlösungen – präzise ausgeführt von POLYCORE GmbH.</div>
-      <a href="leistungen/" class="mob-expand-overview">
-        Zur Übersicht
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
+      <a href="leistungen/" class="mob-expand-overview">Zur Übersicht <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       <ul class="mob-expand-list">
         <li class="mob-expand-section">Bodenlösungen</li>
         <li><a href="leistungen/epoxidharz-boden.html">Epoxidharz (EP)</a></li>
@@ -163,18 +556,11 @@
         <li><a href="leistungen/plattenlegen.html">Plattenverlegung &amp; Reinigung</a></li>
       </ul>
     </div>
-
-  </div><!-- /.mob-body -->
-
-  <div class="mob-footer">
-    <a href="tel:+41765397974" class="mob-tel">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 14.92z"/></svg>
-      076 539 79 74
-    </a>
   </div>
+  <div class="mob-footer"><a href="tel:+41765397974" class="mob-tel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 14.92z"/></svg>076 539 79 74</a></div>
 </div>
 
-
+<!-- HERO SECTION (content unchanged, modern overlay) -->
 <section class="lst-hero">
   <div class="lst-hero-bg">
     <img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif" alt="" loading="eager" fetchpriority="high"/>
@@ -182,167 +568,53 @@
   <div class="lst-hero-overlay"></div>
   <div class="container">
     <div class="lst-hero-inner">
-      <nav class="breadcrumb">
-        <a href="/">Start</a><span>›</span>
-        <span style="color:rgba(255,255,255,.6)">Leistungen</span>
-      </nav>
+      <nav class="breadcrumb"><a href="/">Start</a><span>›</span><span style="color:rgba(255,255,255,.8)">Leistungen</span></nav>
       <h1 class="h1" style="margin-top:1.25rem">Unsere Leistungen</h1>
       <p class="lead" style="max-width:500px;margin-top:.75rem">Bodenbeschichtungen, Abdichtungen und Bautenschutz – alles aus einer Hand, präzise ausgeführt in Bern und Umgebung.</p>
     </div>
   </div>
 </section>
 
-
-<!-- CARDS -->
+<!-- SERVICES CARDS (full original content, redesigned) -->
 <section class="section light-bg">
   <div class="container">
-
-    <!-- Bodenlösungen -->
     <div class="cat-row"><span class="eyebrow">Bodenlösungen</span></div>
     <div class="lst-grid">
-
-      <a href="../leistungen/epoxidharz-boden.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M2 15h20" opacity=".5"/><path d="M2 12h20" opacity=".25"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div>
-          <h3>Epoxidharz (EP)</h3>
-          <p>Fugenloser, hochbelastbarer Industrieboden – robust, chemikalienbeständig und pflegeleicht. Ideal für Gewerbe, Lager und Werkstätten.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
-      <a href="../leistungen/polyurethan-boden.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M3 7h18" opacity=".2"/><path d="M3 17h18" opacity=".2"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></div>
-          <h3>Polyurethan (PU)</h3>
-          <p>Elastisch und thermisch stabil – ideal für Grossküchen, Kühlräume und chemisch beanspruchte Industrieflächen.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
-      <a href="../leistungen/pmma-boden.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 2h6"/><path d="M12 2v3"/><path d="M19 5l-1.5 1.5"/></svg></div>
-          <h3>PMMA</h3>
-          <p>Schnellhärtend – in Stunden wieder begehbar. UV-stabil und auch für Aussenbereich, Terrassen und Balkone geeignet.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
-      <a href="../leistungen/designerboden.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.1 0 2-.9 2-2v-.5c0-.55.45-1 1-1h1c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z"/><circle cx="6.5" cy="11.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="9.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="14.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="17.5" cy="11.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
-          <h3>Designerboden &amp; Mikrozement</h3>
-          <p>Fugenlose Spachteloptik für Wohnräume, Hotels und Showrooms – individuell in Farbe und Struktur, nur 2–3 mm dünn.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
-      <a href="../leistungen/steinteppich.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="9" cy="10" r="1.5" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1.5" fill="currentColor" stroke="none"/><circle cx="6" cy="14" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="15" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></div>
-          <h3>Steinteppich</h3>
-          <p>Fugenloser Natursteinboden aus Marmor oder Quarz – rutschfest, wasserdurchlässig und frostbeständig für Terrassen und Balkone.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
+      <a href="../leistungen/epoxidharz-boden.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M2 15h20" opacity=".5"/><path d="M2 12h20" opacity=".25"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div><h3>Epoxidharz (EP)</h3><p>Fugenloser, hochbelastbarer Industrieboden – robust, chemikalienbeständig und pflegeleicht. Ideal für Gewerbe, Lager und Werkstätten.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
+      <a href="../leistungen/polyurethan-boden.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M3 7h18" opacity=".2"/><path d="M3 17h18" opacity=".2"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></div><h3>Polyurethan (PU)</h3><p>Elastisch und thermisch stabil – ideal für Grossküchen, Kühlräume und chemisch beanspruchte Industrieflächen.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
+      <a href="../leistungen/pmma-boden.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 2h6"/><path d="M12 2v3"/><path d="M19 5l-1.5 1.5"/></svg></div><h3>PMMA</h3><p>Schnellhärtend – in Stunden wieder begehbar. UV-stabil und auch für Aussenbereich, Terrassen und Balkone geeignet.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
+      <a href="../leistungen/designerboden.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.1 0 2-.9 2-2v-.5c0-.55.45-1 1-1h1c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z"/><circle cx="6.5" cy="11.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="9.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="14.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="17.5" cy="11.5" r="1.5" fill="currentColor" stroke="none"/></svg></div><h3>Designerboden &amp; Mikrozement</h3><p>Fugenlose Spachteloptik für Wohnräume, Hotels und Showrooms – individuell in Farbe und Struktur, nur 2–3 mm dünn.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
+      <a href="../leistungen/steinteppich.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="9" cy="10" r="1.5" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1.5" fill="currentColor" stroke="none"/><circle cx="6" cy="14" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="15" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="14" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></div><h3>Steinteppich</h3><p>Fugenloser Natursteinboden aus Marmor oder Quarz – rutschfest, wasserdurchlässig und frostbeständig für Terrassen und Balkone.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
     </div>
-
-    <!-- Bautenschutz -->
     <div class="cat-row"><span class="eyebrow">Bautenschutz</span></div>
     <div class="lst-grid">
-
-      <a href="../leistungen/abdichtung.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/><path d="M12 8v5"/><path d="M9.5 13.5A3.5 3.5 0 0012 15"/></svg></div>
-          <h3>Flüssigkunststoff (FLK)</h3>
-          <p>Dauerhafte, nahtlose Abdichtung für Terrassen, Balkone, Flachdächer und Keller – wurzelfest und langlebig.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
-      <a href="../leistungen/injektionen.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4"/><path d="M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4"/><path d="M7 20h4"/><path d="M8 9h2M8 11h2M8 13h2" opacity=".5"/></svg></div>
-          <h3>Injektionen</h3>
-          <p>Feuchte Wände und Keller dauerhaft trocken – gezielte Injektionstechnik ohne grossen Aufwand, mit langfristiger Wirkung.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
-      <a href="../leistungen/combiflex.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/><path d="M10 7c1 .5 1 1 1 5s0 4.5-1 5"/><path d="M14 7c-1 .5-1 1-1 5s0 4.5 1 5"/></svg></div>
-          <h3>Combiflex</h3>
-          <p>Hochflexible Fugenabdichtung für Dehnungs- und Anschlussfugen – auch bei Bewegung und Setzungen dauerhaft dicht.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
+      <a href="../leistungen/abdichtung.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/><path d="M12 8v5"/><path d="M9.5 13.5A3.5 3.5 0 0012 15"/></svg></div><h3>Flüssigkunststoff (FLK)</h3><p>Dauerhafte, nahtlose Abdichtung für Terrassen, Balkone, Flachdächer und Keller – wurzelfest und langlebig.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
+      <a href="../leistungen/injektionen.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4"/><path d="M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4"/><path d="M7 20h4"/><path d="M8 9h2M8 11h2M8 13h2" opacity=".5"/></svg></div><h3>Injektionen</h3><p>Feuchte Wände und Keller dauerhaft trocken – gezielte Injektionstechnik ohne grossen Aufwand, mit langfristiger Wirkung.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
+      <a href="../leistungen/combiflex.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/><path d="M10 7c1 .5 1 1 1 5s0 4.5-1 5"/><path d="M14 7c-1 .5-1 1-1 5s0 4.5 1 5"/></svg></div><h3>Combiflex</h3><p>Hochflexible Fugenabdichtung für Dehnungs- und Anschlussfugen – auch bei Bewegung und Setzungen dauerhaft dicht.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
     </div>
-
-    <!-- Weitere -->
     <div class="cat-row"><span class="eyebrow">Weitere Leistungen</span></div>
     <div class="lst-grid" style="max-width:380px">
-
-      <a href="../leistungen/plattenlegen.html" class="lst-card">
-        <div class="lst-card-top">
-          <div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></div>
-          <h3>Plattenverlegung, Reinigung &amp; Imprägnierung</h3>
-          <p>Natur- und Betonstein fachgerecht verlegen, reinigen und dauerhaft schützen – innen wie aussen.</p>
-        </div>
-        <div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div>
-      </a>
-
+      <a href="../leistungen/plattenlegen.html" class="lst-card"><div class="lst-card-top"><div class="lst-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></div><h3>Plattenverlegung, Reinigung &amp; Imprägnierung</h3><p>Natur- und Betonstein fachgerecht verlegen, reinigen und dauerhaft schützen – innen wie aussen.</p></div><div class="lst-card-bot">Mehr erfahren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></div></a>
     </div>
-
   </div>
 </section>
 
-
-<!-- CTA -->
+<!-- CTA Section modern-->
 <section class="section-sm">
   <div class="container">
     <div class="cta-banner">
       <h2>Nicht sicher, was Sie brauchen?</h2>
       <p>Wir schauen uns Ihr Objekt kostenlos an und empfehlen das passende System – unverbindlich, direkt vor Ort.</p>
-      <div class="btn-row">
-        <a href="../kontakt.html" class="btn btn-light">Kostenlose Beratung anfragen</a>
-      </div>
+      <div class="btn-row"><a href="../kontakt.html" class="btn btn-light">Kostenlose Beratung anfragen</a></div>
     </div>
   </div>
 </section>
 
-
+<!-- Footer unchanged but modernized via CSS -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-top">
-      <div>
-        <p class="footer-headline">Qualität liegt im Detail – bei jedem Handgriff.</p>
-        <a href="/kontakt.html" class="footer-cta-link">Kontakt aufnehmen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-      </div>
-      <div class="foot-contact">
-        <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41765397974">+41 76 539 79 74</a></div>
-        <div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div>
-        <div class="foot-contact-row"><p>Standort</p><a href="/kontakt.html">Urtenen-Schönbühl, Schweiz</a></div>
-      </div>
-      <nav class="foot-nav">
-        <a href="/projekte.html" class="foot-link">Projekte</a>
-        <a href="/leistungen/" class="foot-link">Leistungen</a>
-        <a href="/ueber-uns.html" class="foot-link">Über uns</a>
-        <a href="/kontakt.html" class="foot-link">Kontakt</a>
-        <a href="/impressum.html" class="foot-link">Impressum</a>
-        <a href="/datenschutz.html" class="foot-link">Datenschutz</a>
-      </nav>
-      <div class="foot-req"><a href="/kontakt.html">Anfrage stellen</a></div>
-    </div>
-    <div class="footer-bottom">
-      <div class="socials">
-        <a href="#" class="social-a" aria-label="Instagram"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C5.83 0 5.56.01 4.7.05A5.87 5.87 0 002.76.42 3.91 3.91 0 00.42 2.76 5.87 5.87 0 00.05 4.7C.01 5.56 0 5.83 0 8s.01 2.45.05 3.3a5.87 5.87 0 00.37 1.94 3.91 3.91 0 002.34 2.34 5.87 5.87 0 001.94.37C5.55 15.99 5.83 16 8 16s2.45-.01 3.3-.05a5.87 5.87 0 001.94-.37 4.09 4.09 0 002.34-2.34A5.87 5.87 0 0015.95 11.3C15.99 10.45 16 10.17 16 8s-.01-2.45-.05-3.3a5.87 5.87 0 00-.37-1.94 3.91 3.91 0 00-2.34-2.34A5.87 5.87 0 0011.3.05C10.45.01 10.17 0 8 0zm0 1.44c2.14 0 2.39.01 3.23.05.78.04 1.2.16 1.49.28a2.64 2.64 0 011.52 1.52c.12.29.24.71.28 1.49.04.84.05 1.1.05 3.23s-.01 2.39-.05 3.23c-.04.78-.16 1.2-.28 1.49a2.64 2.64 0 01-1.52 1.52c-.29.12-.71.24-1.49.28-.84.04-1.09.05-3.23.05s-2.39-.01-3.23-.05c-.78-.04-1.2-.16-1.49-.28a2.64 2.64 0 01-1.52-1.52c-.12-.29-.24-.71-.28-1.49C1.45 10.39 1.44 10.14 1.44 8s.01-2.39.05-3.23c.04-.78.16-1.2.28-1.49A2.64 2.64 0 013.29 1.76c.29-.12.71-.24 1.49-.28C5.61 1.45 5.87 1.44 8 1.44zm0 2.45a4.11 4.11 0 100 8.22A4.11 4.11 0 008 3.89zm0 6.78A2.67 2.67 0 1110.67 8 2.67 2.67 0 018 10.67zm5.23-6.94a.96.96 0 100 1.92.96.96 0 000-1.92z"/></svg></a>
-        <a href="#" class="social-a" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.3 0H.7C.3 0 0 .3 0 .7v14.7c0 .3.3.6.7.6h14.7c.4 0 .7-.3.7-.6V.7C16 .3 15.7 0 15.3 0zM4.7 13.6H2.4V6h2.4v7.6zm-1.1-8.6C2.8 5 2.2 4.3 2.2 3.6c0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4C4.9 4.3 4.3 5 3.6 5zm10 8.6h-2.4V9.9c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8H6.2V6h2.3v1h.1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4.2z"/></svg></a>
-      </div>
-      <p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge &amp; Bautenschutz · Urtenen-Schönbühl, Schweiz</p>
-    </div>
+    <div class="footer-top"><div><p class="footer-headline">Qualität liegt im Detail – bei jedem Handgriff.</p><a href="/kontakt.html" class="footer-cta-link">Kontakt aufnehmen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></div><div class="foot-contact"><div class="foot-contact-row"><p>Telefon</p><a href="tel:+41765397974">+41 76 539 79 74</a></div><div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div><div class="foot-contact-row"><p>Standort</p><a href="/kontakt.html">Urtenen-Schönbühl, Schweiz</a></div></div><nav class="foot-nav"><a href="/projekte.html" class="foot-link">Projekte</a><a href="/leistungen/" class="foot-link">Leistungen</a><a href="/ueber-uns.html" class="foot-link">Über uns</a><a href="/kontakt.html" class="foot-link">Kontakt</a><a href="/impressum.html" class="foot-link">Impressum</a><a href="/datenschutz.html" class="foot-link">Datenschutz</a></nav><div class="foot-req"><a href="/kontakt.html">Anfrage stellen</a></div></div>
+    <div class="footer-bottom"><div class="socials"><a href="#" class="social-a" aria-label="Instagram"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C5.83 0 5.56.01 4.7.05A5.87 5.87 0 002.76.42 3.91 3.91 0 00.42 2.76 5.87 5.87 0 00.05 4.7C.01 5.56 0 5.83 0 8s.01 2.45.05 3.3a5.87 5.87 0 00.37 1.94 3.91 3.91 0 002.34 2.34 5.87 5.87 0 001.94.37C5.55 15.99 5.83 16 8 16s2.45-.01 3.3-.05a5.87 5.87 0 001.94-.37 4.09 4.09 0 002.34-2.34A5.87 5.87 0 0015.95 11.3C15.99 10.45 16 10.17 16 8s-.01-2.45-.05-3.3a5.87 5.87 0 00-.37-1.94 3.91 3.91 0 00-2.34-2.34A5.87 5.87 0 0011.3.05C10.45.01 10.17 0 8 0zm0 1.44c2.14 0 2.39.01 3.23.05.78.04 1.2.16 1.49.28a2.64 2.64 0 011.52 1.52c.12.29.24.71.28 1.49.04.84.05 1.1.05 3.23s-.01 2.39-.05 3.23c-.04.78-.16 1.2-.28 1.49a2.64 2.64 0 01-1.52 1.52c-.29.12-.71.24-1.49.28-.84.04-1.09.05-3.23.05s-2.39-.01-3.23-.05c-.78-.04-1.2-.16-1.49-.28a2.64 2.64 0 01-1.52-1.52c-.12-.29-.24-.71-.28-1.49C1.45 10.39 1.44 10.14 1.44 8s.01-2.39.05-3.23c.04-.78.16-1.2.28-1.49A2.64 2.64 0 013.29 1.76c.29-.12.71-.24 1.49-.28C5.61 1.45 5.87 1.44 8 1.44zm0 2.45a4.11 4.11 0 100 8.22A4.11 4.11 0 008 3.89zm0 6.78A2.67 2.67 0 1110.67 8 2.67 2.67 0 018 10.67zm5.23-6.94a.96.96 0 100 1.92.96.96 0 000-1.92z"/></svg></a><a href="#" class="social-a" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.3 0H.7C.3 0 0 .3 0 .7v14.7c0 .3.3.6.7.6h14.7c.4 0 .7-.3.7-.6V.7C16 .3 15.7 0 15.3 0zM4.7 13.6H2.4V6h2.4v7.6zm-1.1-8.6C2.8 5 2.2 4.3 2.2 3.6c0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4C4.9 4.3 4.3 5 3.6 5zm10 8.6h-2.4V9.9c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8H6.2V6h2.3v1h.1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4.2z"/></svg></a></div><p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge &amp; Bautenschutz · Urtenen-Schönbühl, Schweiz</p></div>
   </div>
 </footer>
 
