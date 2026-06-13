@@ -24,9 +24,12 @@
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;color:#fff}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.38) 55%,rgba(0,0,0,.18) 100%)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(to right, rgba(255,252,248,.96) 32%, rgba(255,252,248,.74) 55%, rgba(255,252,248,0) 100%),
+  linear-gradient(to top, rgba(20,8,5,.55) 0%, transparent 35%)
+}
 .hero-content{position:relative;z-index:2;width:100%;padding:5rem 0}
-.hero-label{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:1.25rem}
+.hero-label{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(160,40,55,.95);margin-bottom:1.25rem}
 .hero h1 span{display:block}
 .hero h1{margin-bottom:2rem}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
@@ -122,37 +125,26 @@
 }
 
 /* ===== HERO GLOW FRAME & HAIRLINES ===== */
-.hero-glow-tl, .hero-glow-br {
+.hero-glow-br {
   position: absolute; z-index: 3; pointer-events: none;
   width: 800px; height: 800px; border-radius: 50%;
   filter: blur(10px);
-}
-.hero-glow-tl {
-  top: -320px; left: -260px;
-  background: radial-gradient(circle, rgba(255,252,248,.35) 0%, rgba(255,252,248,.12) 45%, transparent 72%);
 }
 .hero-glow-br {
   bottom: -340px; right: -280px;
   background: radial-gradient(circle, rgba(192,72,90,.28) 0%, rgba(192,72,90,.08) 45%, transparent 72%);
 }
 /* Top fog band - puna sirina */
-.hero-fog-top {
-  position: absolute; z-index: 3; pointer-events: none;
-  top: 0; left: 0; right: 0; height: 45%;
-  background: linear-gradient(to bottom, rgba(255,252,248,.16) 0%, transparent 100%);
-}
 .hero-hline {
   position: absolute; left: 0; right: 0; height: 1px; z-index: 3; pointer-events: none;
   background: linear-gradient(to right, transparent, rgba(255,252,248,.22), transparent);
 }
-.hero-hline-t { top: 6.5rem; }
 .hero-hline-b { bottom: 0; background: linear-gradient(to right, transparent, rgba(192,72,90,.28), transparent); }
 
 
 @media (max-width: 768px) {
-  .hero-glow-tl, .hero-glow-br { width: 280px; height: 280px; }
-  .hero-hline-t { top: 4.5rem; }
-}
+  .hero-glow-br { width: 280px; height: 280px; }
+  }
 
 
 
@@ -173,7 +165,8 @@
   display: flex; align-items: center; gap: .6rem;
   margin-bottom: 1rem;
   font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
-  color: rgba(255,252,248,.42);
+  color: rgba(160,40,55,.95);
+  text-shadow: 0 1px 6px rgba(255,252,248,.4);
 }
 .hs-label .hp-line { width: 28px; height: 1px; background: rgba(192,72,90,.5); flex-shrink: 0; }
 
@@ -185,11 +178,12 @@
 .hs-card {
   display: flex; flex-direction: column; align-items: flex-start; gap: .55rem;
   padding: .9rem .85rem;
-  background: rgba(255,252,248,.05);
-  border: 1px solid rgba(255,252,248,.1);
+  background: rgba(20,8,5,.4);
+  border: 1px solid rgba(255,252,248,.12);
   border-radius: 12px;
   text-decoration: none;
-  color: rgba(255,252,248,.82);
+  color: rgba(255,252,248,.9);
+  text-shadow: 0 1px 6px rgba(0,0,0,.4);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   transition: all .25s ease;
 }
@@ -215,8 +209,8 @@
 
 .hs-all {
   align-items: center; justify-content: space-between; flex-direction: row;
-  background: rgba(192,72,90,.12);
-  border-color: rgba(192,72,90,.3);
+  background: rgba(192,72,90,.35);
+  border-color: rgba(192,72,90,.45);
   color: #fff;
 }
 .hs-all:hover { background: rgba(192,72,90,.3); border-color: rgba(192,72,90,.55); }
@@ -236,6 +230,9 @@
 @media (max-width: 480px) {
   .hs-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+.hero .btn-light { background: rgba(192,72,90,.95); color: #fff; border-color: rgba(192,72,90,.95); }
+.hero .btn-light:hover { background: transparent; color: rgba(192,72,90,1); border-color: rgba(192,72,90,.6); }
 </style>
 </head>
 <body>
@@ -366,10 +363,7 @@
 
 
 <header class="hero">
-  <div class="hero-fog-top"></div>
-  <div class="hero-glow-tl"></div>
   <div class="hero-glow-br"></div>
-  <div class="hero-hline hero-hline-t"></div>
   <div class="hero-hline hero-hline-b"></div>
   <div class="hero-bg">
     <video id="hero-video" autoplay muted playsinline poster="/assets/img/balkonbern.png"
@@ -384,9 +378,9 @@
       <div class="hero-text">
         <p class="hero-label fu" style="color:rgba(255,255,255,.5);letter-spacing:.16em">Bodenbeläge & Bautenschutz · Urtenen-Schönbühl, Schweiz</p>
         <h1 class="h-hero">
-          <span class="fu d1">Qualität liegt<br/>im <em style="font-style:normal;color:#c4374f">Detail.</em></span>
+          <span class="fu d1" style="color:#1a0a08">Qualität liegt<br/>im <em style="font-style:normal;color:#c0485a">Detail.</em></span>
         </h1>
-        <p class="fu d3" style="font-size:clamp(.85rem,1.5vw,1.05rem);color:rgba(255,255,255,.5);letter-spacing:.02em;margin-bottom:2rem;max-width:480px;line-height:1.7">Bei jedem Handgriff. Auf jeder Fläche. Für jeden Auftrag.</p>
+        <p class="fu d3" style="font-size:clamp(.85rem,1.5vw,1.05rem);color:rgba(30,10,5,.6);letter-spacing:.02em;margin-bottom:2rem;max-width:480px;line-height:1.7">Bei jedem Handgriff. Auf jeder Fläche. Für jeden Auftrag.</p>
         <div class="hero-btns fu d4">
           <a href="kontakt.html" class="btn btn-light">Beratung anfragen</a>
         </div>
