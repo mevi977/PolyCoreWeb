@@ -509,50 +509,7 @@
   .nav-burger{display:flex}
   .mob-header{display:none}
 }
-@media(max-width:1024px){
-  .mob-menu{
-    position:fixed !important;
-    inset:0 !important;
-    top:0 !important; left:0 !important;
-    width:100% !important; max-width:none !important; height:100vh !important;
-    max-height:none !important;
-    border-radius:0 !important;
-    box-shadow:none !important;
-    overflow:hidden !important;
-    overflow-y:auto !important;
-    opacity:1 !important;
-    pointer-events:none;
-    transform:translateY(-100%) !important;
-    transition:transform .4s cubic-bezier(.4,0,.2,1) !important;
-    z-index:1100;
-  }
-  .mob-menu.open{
-    max-height:none !important;
-    transform:translateY(0) !important;
-    pointer-events:all;
-  }
-  .mob-header{
-    padding:1.25rem 1.5rem;
-  }
-  .mob-body{
-    padding:0 1.5rem 2rem;
-  }
-  .mob-main-list{
-    margin-top:.5rem;
-  }
-  .mob-main-item > a,
-  .mob-main-item[data-expand]{
-    font-size:1.35rem;
-    padding:1.1rem 1rem;
-  }
-  .mob-expand{
-    position:fixed; inset:0; top:0;
-    height:100vh; overflow-y:auto;
-  }
-  .mob-expand-header{
-    padding-top:1.25rem;
-  }
-}
+
 @media(max-width:640px){
   .nav{top:.75rem;width:calc(100% - 1.5rem)}
   .nav-c{padding:0 1rem;height:68px}
@@ -585,4 +542,39 @@
 .hero-light .nav:not(.scrolled)::after {
   background: linear-gradient(to right, transparent, rgba(192,72,90,.5), transparent) !important;
   opacity: 1 !important;
+}
+
+@media (max-width: 1024px) {
+  div.mob-menu#mobMenu {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    transform: translateY(-100%);
+    border-radius: 0;
+    box-shadow: none;
+    overflow-y: auto;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1100;
+    transition: transform .4s cubic-bezier(.4,0,.2,1);
+  }
+  div.mob-menu#mobMenu.open {
+    transform: translateY(0);
+    pointer-events: all;
+    max-height: 100%;
+  }
+  div.mob-menu#mobMenu .mob-main-item > a,
+  div.mob-menu#mobMenu .mob-main-item[data-expand] {
+    font-size: 1.3rem;
+    padding: 1rem .25rem;
+  }
+  div.mob-menu#mobMenu .mob-expand {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    height: 100%;
+    overflow-y: auto;
+  }
 }
