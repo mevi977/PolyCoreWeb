@@ -24,10 +24,11 @@
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;color:#fff}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:
+.hero-overlay{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity 1.2s ease;background:
   linear-gradient(to right, rgba(255,252,248,.92) 18%, rgba(255,252,248,.5) 35%, rgba(255,252,248,0) 50%),
   linear-gradient(to top, rgba(20,8,5,.55) 0%, transparent 35%)
 }
+body.fog-on .hero-overlay{opacity:1}
 .hero-content{position:relative;z-index:2;width:100%;padding:5rem 0}
 .hero-label{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(160,40,55,.95);margin-bottom:1.25rem}
 .hero h1 span{display:block}
@@ -628,6 +629,7 @@
 <script>
 var hv=document.getElementById('hero-video');
 if(hv){hv.addEventListener('ended',function(){this.pause();});}
+setTimeout(function(){ document.body.classList.add('fog-on'); }, 2000);
 </script>
 <script src="js/effects.js"></script>
 <script src="js/mobile-effects.js"></script>
