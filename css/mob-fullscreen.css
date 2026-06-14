@@ -24,10 +24,13 @@
     max-height: 100%;
   }
 
-  /* Header */
+  /* Header - ostaje iznad expand panela */
   div.mob-menu#mobMenu .mob-header {
     padding: 1.5rem 1.5rem 1rem;
     border-bottom: 1px solid rgba(255,252,248,.1);
+    position: relative;
+    z-index: 10;
+    background: inherit;
   }
   div.mob-menu#mobMenu .mob-logo img { height: 36px; filter: brightness(0) invert(1); }
   div.mob-menu#mobMenu .mob-close {
@@ -64,12 +67,14 @@
     stroke: rgba(220,110,130,.95);
   }
 
-  /* Expand panel (Leistungen) */
+  /* Expand panel (Leistungen) - pozicioniran ispod headera, X ostaje vidljiv */
   div.mob-menu#mobMenu .mob-expand {
-    position: fixed; inset: 0; top: 0;
-    height: 100%; overflow-y: auto;
+    position: absolute;
+    top: 96px; left: 0; right: 0; bottom: 0;
+    height: auto; overflow-y: auto;
     background: linear-gradient(160deg, #1c1310 0%, #2c1810 50%, #1c1310 100%);
     padding: 0 1.5rem 2rem;
+    z-index: 5;
   }
   div.mob-menu#mobMenu .mob-expand-header {
     padding: 1.5rem 0 .75rem;
