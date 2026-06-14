@@ -147,6 +147,12 @@ body.fog-on .hero-overlay{opacity:1}
   .hero-glow-br { width: 280px; height: 280px; }
   }
 
+
+
+
+
+
+
 .hero .btn-light { background: rgba(192,72,90,.95); color: #fff; border-color: rgba(192,72,90,.95); }
 .hero .btn-light:hover { background: transparent; color: rgba(192,72,90,1); border-color: rgba(192,72,90,.6); }
 
@@ -192,6 +198,12 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 @media (max-width: 1180px) {
   .hero-services { display: none; }
 }
+
+
+
+
+
+
 
 /* ===== HERO LEISTUNGEN TOGGLE + PANEL ===== */
 .hero-leist-toggle-wrap { margin-top: 1.75rem; }
@@ -264,44 +276,42 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 
 
 /* ===== PROFESIONALNI MOBILNI MENI (STAKLENI PANEL) ===== */
+.mob-top-logo { display: none; }
 .mobile-menu-trigger { display: none; }
 .mobile-menu-overlay { display: none; }
 .mobile-menu-container { display: none; }
 
 @media (max-width: 1024px) {
-  /* Sakrij staru desktop navigaciju */
+  /* Sakrij staru desktop navigaciju i burger */
   .nav .nav-links { display: none !important; }
   .nav-burger { display: none !important; }
-  
-  /* Logo ostaje u .nav-c, poravnat lijevo, dok je trigger desno */
-  .nav .nav-c {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 1.5rem;
-    background: transparent;
+
+  /* Logo centriran na vrhu */
+  .mob-top-logo {
+    display: flex; justify-content: center; position: fixed;
+    top: 0.8rem; left: 0; right: 0; z-index: 1001; pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   }
-  .nav-logo img { height: 36px; }
-  
-  /* Tanki razdjelni ispod cijelog headera (linija) */
-  .nav {
-    position: relative;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(2px);
+  .mob-top-logo a { pointer-events: auto; display: inline-block; }
+  .mob-top-logo img { height: 42px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15)); }
+  /* Kada je meni otvoren, logo se pomjera lijevo */
+  .mob-top-logo.logo-shifted {
+    justify-content: flex-start;
+    left: 1rem;
+    right: auto;
+    transform: translateX(0);
   }
-  
+
   /* Okrugli FAB okidač (desno) */
   .mobile-menu-trigger {
-    display: flex;
-    width: 44px; height: 44px;
+    display: flex; position: fixed; top: 1rem; right: 1rem;
+    width: 48px; height: 48px;
     background: linear-gradient(135deg, rgba(192,72,90,0.95), rgba(160,40,55,0.95));
     backdrop-filter: blur(4px);
-    border-radius: 50%;
-    align-items: center; justify-content: center;
+    border-radius: 50%; align-items: center; justify-content: center;
     cursor: pointer; z-index: 1200;
     border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 4px 12px rgba(160,40,55,0.3);
+    box-shadow: 0 8px 20px rgba(160,40,55,0.3);
     transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   .mobile-menu-trigger:active { transform: scale(0.92); }
@@ -404,13 +414,10 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 </head>
 <body>
 
-<!-- DESKTOP NAVIGACIJA (logo i linkovi, na mobitelu se linkovi skrivaju) -->
+<!-- DESKTOP NAVIGACIJA (ostaje identična) -->
 <nav class="nav">
   <div class="nav-c">
-    <a href="/" class="nav-logo">
-      <img src="assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/>
-      <img src="assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/>
-    </a>
+    <a href="/" class="nav-logo"><img src="assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
     <ul class="nav-links">
       <li class="nav-drop">
         <span class="nav-a nav-drop-toggle">Leistungen<svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></span>
@@ -466,6 +473,11 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
     <button class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<!-- MOBILNI LOGO (centriran, pomjera se lijevo kada se meni otvori) -->
+<div class="mob-top-logo" id="mobTopLogo">
+  <a href="/"><img src="assets/img/1PolyCoreLogo.png" alt="POLYCORE"/></a>
+</div>
 
 <!-- MOBILNI MENI ELEMENTI (desni stakleni panel) -->
 <div class="mobile-menu-overlay" id="mobileOverlay"></div>
@@ -787,7 +799,6 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
   </div>
 </footer>
 
-<!-- Vanjske skripte (ostavljene, ali ne stvaraju dodatni navbar) -->
 <script src="js/main.js"></script>
 <script>
 var hv=document.getElementById('hero-video');
@@ -805,7 +816,7 @@ if(hlt&&hlp){
 <script src="js/effects.js"></script>
 <script src="js/mobile-effects.js"></script>
 
-<!-- MOBILNI MENI LOGIKA (otvaranje/zatvaranje) -->
+<!-- MOBILNI MENI LOGIKA (otvaranje/zatvaranje + pomicanje logoa) -->
 <script>
 (function() {
   const trigger = document.getElementById('mobileTrigger');
@@ -813,6 +824,7 @@ if(hlt&&hlp){
   const container = document.getElementById('mobileMenuContainer');
   const servicesToggle = document.getElementById('mobServicesToggle');
   const submenu = document.getElementById('mobileSubmenu');
+  const logo = document.getElementById('mobTopLogo');
   let isOpen = false;
 
   function openMenu() {
@@ -822,6 +834,7 @@ if(hlt&&hlp){
     container.classList.add('open');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    if (logo) logo.classList.add('logo-shifted');
   }
   function closeMenu() {
     if (!isOpen) return;
@@ -830,6 +843,7 @@ if(hlt&&hlp){
     container.classList.remove('open');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    if (logo) logo.classList.remove('logo-shifted');
     servicesToggle.classList.remove('open');
     submenu.classList.remove('open');
   }
