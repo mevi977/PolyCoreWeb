@@ -16,7 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function openMob(){
     if(!mob) return;
     mob.querySelectorAll('.mob-expand').forEach(e => e.classList.remove('visible'));
-    mob.querySelector('.mob-main-list')?.classList.remove('hidden');
+    mob.querySelectorAll('.mob-main-item[data-expand]').forEach(item => {
+      item.classList.remove('expanded');
+      const plus = item.querySelector('.mob-plus');
+      if(plus) plus.textContent = '+';
+    });
     mob.classList.add('open');
     backdrop?.classList.add('open');
     burger?.classList.add('open');
@@ -70,14 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener('click', () => {
       const target = document.getElementById(item.dataset.expand);
       if(!target) return;
-      mob.querySelector('.mob-main-list')?.classList.add('hidden');
-      target.classList.add('visible');
-    });
-  });
-  mob?.querySelectorAll('.mob-back').forEach(btn => {
-    btn.addEventListener('click', () => {
-      mob.querySelectorAll('.mob-expand').forEach(e => e.classList.remove('visible'));
-      mob.querySelector('.mob-main-list')?.classList.remove('hidden');
+      const isOpen = target.classList.toggle('visible');
+      item.classList.toggle('expanded', isOpen);
+      const plus = item.querySelector('.mob-plus');
+      if(plus) plus.textContent = isOpen ? '\u2212' : '+';
     });
   });
 
