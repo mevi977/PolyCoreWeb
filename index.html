@@ -278,46 +278,34 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 /* ===== GOOEY MOBILE MENU ===== */
 .gooey-svg { position: absolute; width: 0; height: 0; pointer-events: none; }
 
-.mob-top-logo { display: none; }
 .menu-trigger, .gooey-menu, .menu-backdrop { display: none; }
 
 @media (max-width: 1024px) {
   /* Sakrij stari burger - zamijenjen gooey triggerom */
   .nav-burger { display: none !important; }
 
-  /* Centriran logo iznad navbara */
-  .mob-top-logo {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: .6rem; left: 0; right: 0;
-    z-index: 1001;
-    pointer-events: none;
-  }
-  .mob-top-logo a { pointer-events: all; }
-  .mob-top-logo img { height: 42px; display: block; }
-
-  /* FAB trigger - gornji desni ugao */
+  /* FAB trigger - unutar navbara, desno, u istoj liniji s logom */
   .menu-trigger {
     display: flex;
-    position: fixed;
-    top: 1rem; right: 1rem;
-    width: 54px; height: 54px;
+    position: absolute;
+    top: 50%; right: 1rem;
+    transform: translateY(-50%);
+    width: 44px; height: 44px;
     background: linear-gradient(145deg, rgba(192,72,90,.95), rgba(160,40,55,.95));
     border-radius: 50%;
     align-items: center; justify-content: center;
     cursor: pointer;
     z-index: 1200;
-    box-shadow: 0 10px 24px rgba(0,0,0,.35), 0 0 0 2px rgba(255,255,255,.08) inset;
+    box-shadow: 0 6px 16px rgba(0,0,0,.3), 0 0 0 2px rgba(255,255,255,.08) inset;
     transition: transform .3s cubic-bezier(.2,.9,.4,1.2), box-shadow .3s;
   }
-  .menu-trigger:active { transform: scale(.92); }
+  .menu-trigger:active { transform: translateY(-50%) scale(.92); }
   .trigger-icon {
-    position: relative; width: 22px; height: 22px;
+    position: relative; width: 18px; height: 18px;
     display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px;
   }
   .trigger-icon span {
-    display: block; width: 20px; height: 2px;
+    display: block; width: 18px; height: 2px;
     background: #fff; border-radius: 4px;
     transition: all .35s ease;
   }
@@ -329,14 +317,14 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
   .gooey-menu {
     display: block;
     position: fixed;
-    top: 1rem; right: 1rem;
+    top: 1.25rem; right: 1rem;
     z-index: 1190;
     pointer-events: none;
     filter: url(#gooeyFilter);
   }
   .menu-items {
     position: relative;
-    margin-top: 66px;
+    margin-top: 80px;
     display: flex; flex-direction: column; align-items: flex-end; gap: 14px;
     pointer-events: none;
   }
@@ -356,13 +344,6 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
   }
   .menu-item:active { background: linear-gradient(125deg, #4a2b3a, #3a1c28); }
   .gooey-menu.open .menu-item { opacity: 1; transform: scale(1) translateX(0); }
-  .gooey-menu.open .menu-item:nth-child(1) { transition-delay: .02s; }
-  .gooey-menu.open .menu-item:nth-child(2) { transition-delay: .07s; }
-  .gooey-menu.open .menu-item:nth-child(3) { transition-delay: .12s; }
-  .gooey-menu.open .menu-item:nth-child(4) { transition-delay: .17s; }
-  .gooey-menu.open .menu-item:nth-child(5) { transition-delay: .22s; }
-  .gooey-menu.open .menu-item:nth-child(6) { transition-delay: .27s; }
-  .gooey-menu.open .menu-item:nth-child(7) { transition-delay: .32s; }
   .menu-item-tel { background: linear-gradient(125deg, rgba(192,72,90,.95), rgba(160,40,55,.95)); }
 
   .menu-backdrop {
@@ -379,6 +360,51 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
     transition: opacity .35s ease, visibility 0s linear 0s;
   }
 }
+@media (max-width: 640px) {
+  .gooey-menu { top: .75rem; }
+}
+
+@media (max-width: 1024px) {
+  .menu-item-toggle {
+    border: none; font-family: inherit; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: .6rem;
+  }
+  .menu-item-caret { transition: transform .3s ease; flex-shrink: 0; }
+  .menu-item-toggle.open .menu-item-caret { transform: rotate(180deg); }
+
+  .menu-submenu {
+    display: flex; flex-direction: column; gap: 6px;
+    align-items: flex-end;
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height .4s cubic-bezier(.4,0,.2,1), opacity .3s ease;
+    pointer-events: none;
+  }
+  .menu-submenu.open {
+    max-height: 600px; opacity: 1;
+    pointer-events: auto;
+  }
+  .menu-subitem {
+    display: block;
+    background: rgba(20,8,5,.7);
+    border: 1px solid rgba(192,72,90,.3);
+    border-radius: 50px;
+    padding: .55rem 1.2rem;
+    font-size: .85rem; font-weight: 500;
+    color: rgba(255,252,248,.85);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .2s, color .2s;
+  }
+  .menu-subitem:active, .menu-subitem:hover {
+    background: rgba(192,72,90,.4);
+    color: #fff;
+  }
+  .menu-subitem-all {
+    color: rgba(220,110,130,.95);
+    border-color: rgba(192,72,90,.5);
+    font-weight: 600;
+  }
+}
 </style>
 </head>
 <body>
@@ -387,6 +413,9 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 <nav class="nav">
   <div class="nav-c">
     <a href="/" class="nav-logo"><img src="assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
+    <div class="menu-trigger" id="menuTrigger" aria-label="Menü">
+      <div class="trigger-icon"><span></span><span></span><span></span></div>
+    </div>
     <ul class="nav-links">
       <li class="nav-drop">
         <span class="nav-a nav-drop-toggle">Leistungen<svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></span>
@@ -451,23 +480,34 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
   </filter>
 </defs></svg>
 
-<div class="mob-top-logo"><a href="/"><img src="assets/img/1PolyCoreLogo.png" alt="POLYCORE"/></a></div>
-
 <div class="menu-backdrop" id="menuBackdrop"></div>
-
-<div class="menu-trigger" id="menuTrigger" aria-label="Menü">
-  <div class="trigger-icon"><span></span><span></span><span></span></div>
-</div>
 
 <div class="gooey-menu" id="gooeyMenu">
   <div class="menu-items">
-    <a href="/leistungen/" class="menu-item">Leistungen</a>
-    <a href="/projekte" class="menu-item">Projekte</a>
-    <a href="/ueber-uns" class="menu-item">Über uns</a>
-    <a href="/blog/" class="menu-item">Blog</a>
-    <a href="/farbpalette" class="menu-item">RAL Farbpalette</a>
-    <a href="/kontakt" class="menu-item">Kontakt</a>
-    <a href="tel:+41765397974" class="menu-item menu-item-tel">076 539 79 74</a>
+    <button class="menu-item menu-item-toggle" id="menuLeistToggle" style="transition-delay:.02s">
+      Leistungen
+      <svg class="menu-item-caret" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="menu-submenu" id="menuLeistSubmenu">
+      <a href="/leistungen/" class="menu-subitem menu-subitem-all">Alle Leistungen</a>
+      <a href="/leistungen/epoxidharz-boden.html" class="menu-subitem">Epoxidharz</a>
+      <a href="/leistungen/polyurethan-boden.html" class="menu-subitem">Polyurethan</a>
+      <a href="/leistungen/pmma-boden.html" class="menu-subitem">PMMA</a>
+      <a href="/leistungen/designerboden.html" class="menu-subitem">Designerboden</a>
+      <a href="/leistungen/steinteppich.html" class="menu-subitem">Steinteppich</a>
+      <a href="/leistungen/industrieboden.html" class="menu-subitem">Industrieböden</a>
+      <a href="/leistungen/garagenbeschichtung.html" class="menu-subitem">Garagenbeschichtung</a>
+      <a href="/leistungen/abdichtung.html" class="menu-subitem">Flüssigkunststoff</a>
+      <a href="/leistungen/injektionen.html" class="menu-subitem">Injektionen</a>
+      <a href="/leistungen/combiflex.html" class="menu-subitem">Combiflex</a>
+      <a href="/leistungen/plattenlegen.html" class="menu-subitem">Plattenverlegung</a>
+    </div>
+    <a href="/projekte" class="menu-item" style="transition-delay:.07s">Projekte</a>
+    <a href="/ueber-uns" class="menu-item" style="transition-delay:.12s">Über uns</a>
+    <a href="/blog/" class="menu-item" style="transition-delay:.17s">Blog</a>
+    <a href="/farbpalette" class="menu-item" style="transition-delay:.22s">RAL Farbpalette</a>
+    <a href="/kontakt" class="menu-item" style="transition-delay:.27s">Kontakt</a>
+    <a href="tel:+41765397974" class="menu-item menu-item-tel" style="transition-delay:.32s">076 539 79 74</a>
   </div>
 </div>
 

@@ -73,6 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     gooeyMenu?.classList.remove('open');
     menuBackdrop?.classList.remove('active');
     document.body.style.overflow = '';
+    document.getElementById('menuLeistSubmenu')?.classList.remove('open');
+    document.getElementById('menuLeistToggle')?.classList.remove('open');
   }
   trigger?.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -80,8 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   menuBackdrop?.addEventListener('click', closeGooey);
   document.addEventListener('keydown', e => { if(e.key === 'Escape') closeGooey(); });
-  gooeyMenu?.querySelectorAll('.menu-item').forEach(link => {
+  gooeyMenu?.querySelectorAll('.menu-item:not(.menu-item-toggle), .menu-subitem').forEach(link => {
     link.addEventListener('click', closeGooey);
+  });
+
+  const leistToggle = document.getElementById('menuLeistToggle');
+  const leistSubmenu = document.getElementById('menuLeistSubmenu');
+  leistToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = leistSubmenu?.classList.toggle('open');
+    leistToggle.classList.toggle('open', isOpen);
   });
 
   /* Mega dropdown – JS kontroliran hover s delay-om */
