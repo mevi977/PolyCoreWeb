@@ -16,34 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function openMob(){
     if(!mob) return;
     mob.querySelectorAll('.mob-expand').forEach(e => e.classList.remove('visible'));
-    mob.querySelectorAll('.mob-main-item[data-expand]').forEach(item => {
-      item.classList.remove('expanded');
-      const plus = item.querySelector('.mob-plus');
-      if(plus) plus.textContent = '+';
-    });
+    mob.querySelector('.mob-main-list')?.classList.remove('hidden');
     mob.classList.add('open');
     backdrop?.classList.add('open');
     burger?.classList.add('open');
     nav?.classList.add('mob-open');
-    if (window.innerWidth <= 1024) {
-      mob.style.position = 'fixed';
-      mob.style.top = '0';
-      mob.style.left = '0';
-      mob.style.right = '0';
-      mob.style.bottom = '0';
-      mob.style.width = '100%';
-      mob.style.maxWidth = '100%';
-      mob.style.height = '100%';
-      mob.style.maxHeight = '100%';
-      mob.style.borderRadius = '0';
-      mob.style.boxShadow = 'none';
-      mob.style.overflowY = 'auto';
-      mob.style.opacity = '1';
-      mob.style.pointerEvents = 'all';
-      mob.style.transform = 'translateY(0)';
-      mob.style.zIndex = '1100';
-      document.body.style.overflow = 'hidden';
-    }
   }
   function closeMob(){
     if(!mob) return;
@@ -51,11 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     backdrop?.classList.remove('open');
     burger?.classList.remove('open');
     nav?.classList.remove('mob-open');
-    if (window.innerWidth <= 1024) {
-      mob.style.transform = 'translateY(-100%)';
-      mob.style.pointerEvents = 'none';
-      document.body.style.overflow = '';
-    }
   }
 
   burger?.addEventListener('click', () => {
@@ -74,11 +46,42 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener('click', () => {
       const target = document.getElementById(item.dataset.expand);
       if(!target) return;
-      const isOpen = target.classList.toggle('visible');
-      item.classList.toggle('expanded', isOpen);
-      const plus = item.querySelector('.mob-plus');
-      if(plus) plus.textContent = isOpen ? '\u2212' : '+';
+      mob.querySelector('.mob-main-list')?.classList.add('hidden');
+      target.classList.add('visible');
     });
+  });
+  mob?.querySelectorAll('.mob-back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      mob.querySelectorAll('.mob-expand').forEach(e => e.classList.remove('visible'));
+      mob.querySelector('.mob-main-list')?.classList.remove('hidden');
+    });
+  });
+
+  /* Gooey mobile menu */
+  const trigger = document.getElementById('menuTrigger');
+  const gooeyMenu = document.getElementById('gooeyMenu');
+  const menuBackdrop = document.getElementById('menuBackdrop');
+
+  function openGooey(){
+    trigger?.classList.add('open');
+    gooeyMenu?.classList.add('open');
+    menuBackdrop?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeGooey(){
+    trigger?.classList.remove('open');
+    gooeyMenu?.classList.remove('open');
+    menuBackdrop?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  trigger?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    trigger.classList.contains('open') ? closeGooey() : openGooey();
+  });
+  menuBackdrop?.addEventListener('click', closeGooey);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeGooey(); });
+  gooeyMenu?.querySelectorAll('.menu-item').forEach(link => {
+    link.addEventListener('click', closeGooey);
   });
 
   /* Mega dropdown – JS kontroliran hover s delay-om */
