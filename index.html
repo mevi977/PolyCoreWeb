@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>POLYCORE GmbH – Bodenbeläge & Bautenschutz Bern | Epoxidharz, Polyurethan, PMMA</title>
 <meta name="description" content="POLYCORE GmbH ist Ihr Spezialist für Epoxidharz-, Polyurethan- und PMMA-Böden sowie professionellen Bautenschutz in Bern und Umgebung. Bodenbeläge und Bauten..."/>
 <link rel="canonical" href="https://www.polycore.ch/"/>
@@ -275,147 +275,149 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 }
 
 
-/* ===== GOOEY MOBILE MENU ===== */
-.gooey-svg { position: absolute; width: 0; height: 0; pointer-events: none; }
-
-.menu-trigger, .gooey-menu, .menu-backdrop { display: none; }
+/* ===== PROFESIONALNI MOBILNI MENI (STAKLENI PANEL) ===== */
+.mob-top-logo { display: none; }
+.mobile-menu-trigger { display: none; }
+.mobile-menu-overlay { display: none; }
+.mobile-menu-container { display: none; }
 
 @media (max-width: 1024px) {
-  /* Sakrij stari burger - zamijenjen gooey triggerom */
+  /* Sakrij staru desktop navigaciju i burger */
+  .nav .nav-links { display: none !important; }
   .nav-burger { display: none !important; }
 
-  /* FAB trigger - unutar navbara, desno, u istoj liniji s logom */
-  .menu-trigger {
-    display: flex;
-    position: absolute;
-    top: 50%; right: 1rem;
-    transform: translateY(-50%);
-    width: 44px; height: 44px;
-    background: linear-gradient(145deg, rgba(192,72,90,.95), rgba(160,40,55,.95));
-    border-radius: 50%;
-    align-items: center; justify-content: center;
-    cursor: pointer;
-    z-index: 1200;
-    box-shadow: 0 6px 16px rgba(0,0,0,.3), 0 0 0 2px rgba(255,255,255,.08) inset;
-    transition: transform .3s cubic-bezier(.2,.9,.4,1.2), box-shadow .3s;
+  /* Logo centriran na vrhu */
+  .mob-top-logo {
+    display: flex; justify-content: center; position: fixed;
+    top: 0.8rem; left: 0; right: 0; z-index: 1001; pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   }
-  .menu-trigger:active { transform: translateY(-50%) scale(.92); }
-  .trigger-icon {
-    position: relative; width: 18px; height: 18px;
-    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px;
+  .mob-top-logo a { pointer-events: auto; display: inline-block; }
+  .mob-top-logo img { height: 42px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15)); }
+  /* Kada je meni otvoren, logo se pomjera lijevo */
+  .mob-top-logo.logo-shifted {
+    justify-content: flex-start;
+    left: 1rem;
+    right: auto;
+    transform: translateX(0);
   }
-  .trigger-icon span {
-    display: block; width: 18px; height: 2px;
-    background: #fff; border-radius: 4px;
-    transition: all .35s ease;
-  }
-  .menu-trigger.open .trigger-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-  .menu-trigger.open .trigger-icon span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .menu-trigger.open .trigger-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-  /* Gooey kontejner */
-  .gooey-menu {
-    display: block;
-    position: fixed;
-    top: 1.25rem; right: 1rem;
-    z-index: 1190;
-    pointer-events: none;
-    filter: url(#gooeyFilter);
-  }
-  .menu-items {
-    position: relative;
-    margin-top: 80px;
-    display: flex; flex-direction: column; align-items: flex-end; gap: 14px;
-    pointer-events: none;
-  }
-  .menu-item {
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(125deg, #2c1810, #1c1310);
-    border-radius: 50px;
-    padding: .8rem 1.5rem;
-    font-weight: 600; font-size: 1.05rem; letter-spacing: -.01em;
-    color: #fff; text-decoration: none; white-space: nowrap;
-    box-shadow: 0 10px 20px -5px rgba(0,0,0,.5), 0 0 0 1px rgba(192,72,90,.4);
-    transform-origin: right center;
-    opacity: 0;
-    transform: scale(.2) translateX(30px);
-    transition: transform .45s cubic-bezier(.34,1.2,.64,1), opacity .4s ease, background .2s;
-    pointer-events: auto;
-  }
-  .menu-item:active { background: linear-gradient(125deg, #4a2b3a, #3a1c28); }
-  .gooey-menu.open .menu-item { opacity: 1; transform: scale(1) translateX(0); }
-  .menu-item-tel { background: linear-gradient(125deg, rgba(192,72,90,.95), rgba(160,40,55,.95)); }
-
-  .menu-backdrop {
-    display: block;
-    position: fixed; inset: 0;
-    background: rgba(8,3,5,.5);
+  /* Okrugli FAB okidač (desno) */
+  .mobile-menu-trigger {
+    display: flex; position: fixed; top: 1rem; right: 1rem;
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, rgba(192,72,90,0.95), rgba(160,40,55,0.95));
     backdrop-filter: blur(4px);
-    z-index: 1150;
-    opacity: 0; visibility: hidden;
-    transition: opacity .35s ease, visibility 0s linear .35s;
+    border-radius: 50%; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 1200;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 20px rgba(160,40,55,0.3);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .menu-backdrop.active {
+  .mobile-menu-trigger:active { transform: scale(0.92); }
+  .hamburger-lines {
+    width: 18px; height: 12px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .hamburger-lines span {
+    display: block; height: 2px; width: 100%;
+    background: #fff; border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .mobile-menu-trigger.open .hamburger-lines span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .mobile-menu-trigger.open .hamburger-lines span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .mobile-menu-trigger.open .hamburger-lines span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+  /* Blur pozadina */
+  .mobile-menu-overlay {
+    display: block; position: fixed; inset: 0;
+    background: rgba(8, 4, 4, 0.65);
+    backdrop-filter: blur(8px);
+    z-index: 1150; opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  }
+  .mobile-menu-overlay.active {
     opacity: 1; visibility: visible;
-    transition: opacity .35s ease, visibility 0s linear 0s;
+    transition: opacity 0.4s ease, visibility 0s linear 0s;
   }
-}
-@media (max-width: 640px) {
-  .gooey-menu { top: .75rem; }
-}
 
-@media (max-width: 1024px) {
-  .menu-item-toggle {
-    border: none; font-family: inherit; cursor: pointer;
-    display: flex; align-items: center; justify-content: space-between; gap: .6rem;
+  /* Stakleni panel sa desne strane */
+  .mobile-menu-container {
+    display: flex; flex-direction: column; position: fixed;
+    top: 0; right: 0; width: 88%; max-width: 360px; height: 100vh;
+    background: rgba(16, 11, 9, 0.96);
+    backdrop-filter: blur(24px);
+    z-index: 1170; transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 6rem 1.5rem 2rem 1.5rem;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+    border-left: 1px solid rgba(255,255,255,0.05);
   }
-  .menu-item-caret { transition: transform .3s ease; flex-shrink: 0; }
-  .menu-item-toggle.open .menu-item-caret { transform: rotate(180deg); }
+  .mobile-menu-container.open { transform: translateX(0); }
+  .mobile-menu-scroll {
+    overflow-y: auto; overflow-x: hidden; height: 100%;
+    display: flex; flex-direction: column;
+    scrollbar-width: none;
+  }
+  .mobile-menu-scroll::-webkit-scrollbar { display: none; }
 
-  .menu-submenu {
-    display: flex; flex-direction: column; gap: 6px;
-    align-items: flex-end;
+  /* Lista linkova sa fluidnim ulazom */
+  .mobile-menu-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+  .mobile-menu-list li {
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .mobile-menu-container.open .mobile-menu-list li { opacity: 1; transform: translateY(0); }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(1) { transition-delay: 0.04s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(2) { transition-delay: 0.08s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(3) { transition-delay: 0.12s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(4) { transition-delay: 0.16s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(5) { transition-delay: 0.20s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(6) { transition-delay: 0.24s; }
+
+  .mobile-menu-list a, .mobile-menu-btn-toggle {
+    font-size: 1.3rem; font-weight: 500; color: #fff;
+    text-decoration: none; letter-spacing: -0.01em; display: flex;
+    align-items: center; justify-content: space-between; padding: 0.4rem 0;
+    transition: color 0.2s; background: none; border: none;
+    width: 100%; font-family: inherit; text-align: left; cursor: pointer;
+  }
+  .mobile-menu-list a:active, .mobile-menu-btn-toggle:active { color: #c0485a; }
+
+  .mobile-menu-btn-toggle svg { transition: transform 0.3s ease; opacity: 0.6; }
+  .mobile-menu-btn-toggle.open svg { transform: rotate(180deg); color: #c0485a; opacity: 1; }
+
+  /* Podmeni u dvije kolone */
+  .mobile-submenu {
     max-height: 0; overflow: hidden; opacity: 0;
-    transition: max-height .4s cubic-bezier(.4,0,.2,1), opacity .3s ease;
-    pointer-events: none;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 0.8rem;
+    padding: 0 0 0 0.5rem; border-left: 2px solid rgba(192,72,90,0.3);
+    margin-top: 0; transition: max-height 0.45s ease, opacity 0.3s ease, margin-top 0.3s;
   }
-  .menu-submenu.open {
-    max-height: 600px; opacity: 1;
-    pointer-events: auto;
+  .mobile-submenu.open { max-height: 420px; opacity: 1; margin-top: 0.8rem; padding-bottom: 0.6rem; }
+  .mobile-submenu a {
+    font-size: 0.85rem; font-weight: 400; color: #b5b0ae; padding: 0.3rem 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;
   }
-  .menu-subitem {
-    display: block;
-    background: rgba(20,8,5,.7);
-    border: 1px solid rgba(192,72,90,.3);
-    border-radius: 50px;
-    padding: .55rem 1.2rem;
-    font-size: .85rem; font-weight: 500;
-    color: rgba(255,252,248,.85);
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background .2s, color .2s;
+  .mobile-submenu a.all-link { color: #c0485a; font-weight: 600; grid-column: span 2; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.4rem; margin-bottom: 0.2rem; }
+
+  /* Linija razdvajanja */
+  .mobile-menu-divider {
+    height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.1), transparent); margin: 2rem 0 1.5rem 0;
   }
-  .menu-subitem:active, .menu-subitem:hover {
-    background: rgba(192,72,90,.4);
-    color: #fff;
-  }
-  .menu-subitem-all {
-    color: rgba(220,110,130,.95);
-    border-color: rgba(192,72,90,.5);
-    font-weight: 600;
-  }
+  /* Kontakt podaci pri dnu */
+  .mobile-contact-info { margin-top: auto; padding-top: 1rem; font-size: 0.8rem; color: #9c9694; }
+  .mobile-contact-info a { color: #fff; text-decoration: none; display: block; margin: 0.35rem 0; transition: opacity 0.2s; }
+  .mobile-contact-info .tel { font-size: 1.2rem; font-weight: 700; color: #c0485a; margin-bottom: 0.2rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- DESKTOP NAVIGACIJA (ostaje identična) -->
 <nav class="nav">
   <div class="nav-c">
     <a href="/" class="nav-logo"><img src="assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
-    <div class="menu-trigger" id="menuTrigger" aria-label="Menü">
-      <div class="trigger-icon"><span></span><span></span><span></span></div>
-    </div>
     <ul class="nav-links">
       <li class="nav-drop">
         <span class="nav-a nav-drop-toggle">Leistungen<svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></span>
@@ -471,43 +473,52 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
     <button class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<!-- Gooey mobile menu -->
-<svg class="gooey-svg"><defs>
-  <filter id="gooeyFilter" x="-20%" y="-20%" width="140%" height="140%">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="goo"/>
-    <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-  </filter>
-</defs></svg>
 
-<div class="menu-backdrop" id="menuBackdrop"></div>
+<!-- MOBILNI LOGO (centriran, pomjera se lijevo kada se meni otvori) -->
+<div class="mob-top-logo" id="mobTopLogo">
+  <a href="/"><img src="assets/img/1PolyCoreLogo.png" alt="POLYCORE"/></a>
+</div>
 
-<div class="gooey-menu" id="gooeyMenu">
-  <div class="menu-items">
-    <button class="menu-item menu-item-toggle" id="menuLeistToggle" style="transition-delay:.02s">
-      Leistungen
-      <svg class="menu-item-caret" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
-    </button>
-    <div class="menu-submenu" id="menuLeistSubmenu">
-      <a href="/leistungen/" class="menu-subitem menu-subitem-all">Alle Leistungen</a>
-      <a href="/leistungen/epoxidharz-boden.html" class="menu-subitem">Epoxidharz</a>
-      <a href="/leistungen/polyurethan-boden.html" class="menu-subitem">Polyurethan</a>
-      <a href="/leistungen/pmma-boden.html" class="menu-subitem">PMMA</a>
-      <a href="/leistungen/designerboden.html" class="menu-subitem">Designerboden</a>
-      <a href="/leistungen/steinteppich.html" class="menu-subitem">Steinteppich</a>
-      <a href="/leistungen/industrieboden.html" class="menu-subitem">Industrieböden</a>
-      <a href="/leistungen/garagenbeschichtung.html" class="menu-subitem">Garagenbeschichtung</a>
-      <a href="/leistungen/abdichtung.html" class="menu-subitem">Flüssigkunststoff</a>
-      <a href="/leistungen/injektionen.html" class="menu-subitem">Injektionen</a>
-      <a href="/leistungen/combiflex.html" class="menu-subitem">Combiflex</a>
-      <a href="/leistungen/plattenlegen.html" class="menu-subitem">Plattenverlegung</a>
+<!-- MOBILNI MENI ELEMENTI (desni stakleni panel) -->
+<div class="mobile-menu-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu-trigger" id="mobileTrigger">
+  <div class="hamburger-lines"><span></span><span></span><span></span></div>
+</div>
+<div class="mobile-menu-container" id="mobileMenuContainer">
+  <div class="mobile-menu-scroll">
+    <ul class="mobile-menu-list">
+      <li>
+        <button class="mobile-menu-btn-toggle" id="mobServicesToggle">
+          <span>Leistungen</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="mobile-submenu" id="mobileSubmenu">
+          <a href="/leistungen/" class="all-link">Alle Leistungen ansehen</a>
+          <a href="leistungen/epoxidharz-boden.html">Epoxidharz</a>
+          <a href="leistungen/polyurethan-boden.html">Polyurethan</a>
+          <a href="leistungen/pmma-boden.html">PMMA</a>
+          <a href="leistungen/designerboden.html">Designerboden</a>
+          <a href="leistungen/steinteppich.html">Steinteppich</a>
+          <a href="leistungen/industrieboden.html">Industrieböden</a>
+          <a href="leistungen/garagenbeschichtung.html">Garagenbeschichtung</a>
+          <a href="leistungen/abdichtung.html">Flüssigkunststoff</a>
+          <a href="leistungen/injektionen.html">Injektionen</a>
+          <a href="leistungen/combiflex.html">Combiflex</a>
+          <a href="leistungen/plattenlegen.html">Plattenverlegung</a>
+        </div>
+      </li>
+      <li><a href="/projekte">Projekte</a></li>
+      <li><a href="/ueber-uns">Über uns</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/farbpalette">RAL Farbpalette</a></li>
+      <li><a href="/kontakt">Kontakt</a></li>
+    </ul>
+    <div class="mobile-menu-divider"></div>
+    <div class="mobile-contact-info">
+      <a href="tel:+41765397974" class="tel">+41 76 539 79 74</a>
+      <a href="mailto:info@polycore.ch">info@polycore.ch</a>
+      <p style="margin-top:0.6rem;">Etzmattrain 36, 3322 Urtenen-Schönbühl</p>
     </div>
-    <a href="/projekte" class="menu-item" style="transition-delay:.07s">Projekte</a>
-    <a href="/ueber-uns" class="menu-item" style="transition-delay:.12s">Über uns</a>
-    <a href="/blog/" class="menu-item" style="transition-delay:.17s">Blog</a>
-    <a href="/farbpalette" class="menu-item" style="transition-delay:.22s">RAL Farbpalette</a>
-    <a href="/kontakt" class="menu-item" style="transition-delay:.27s">Kontakt</a>
-    <a href="tel:+41765397974" class="menu-item menu-item-tel" style="transition-delay:.32s">076 539 79 74</a>
   </div>
 </div>
 
@@ -670,9 +681,6 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
   </div>
 </section>
 
-
-
-
 <!-- FAQ -->
 <section class="section light-bg" id="faq">
   <div class="container">
@@ -807,5 +815,59 @@ if(hlt&&hlp){
 </script>
 <script src="js/effects.js"></script>
 <script src="js/mobile-effects.js"></script>
+
+<!-- MOBILNI MENI LOGIKA (otvaranje/zatvaranje + pomicanje logoa) -->
+<script>
+(function() {
+  const trigger = document.getElementById('mobileTrigger');
+  const overlay = document.getElementById('mobileOverlay');
+  const container = document.getElementById('mobileMenuContainer');
+  const servicesToggle = document.getElementById('mobServicesToggle');
+  const submenu = document.getElementById('mobileSubmenu');
+  const logo = document.getElementById('mobTopLogo');
+  let isOpen = false;
+
+  function openMenu() {
+    if (isOpen) return;
+    isOpen = true;
+    trigger.classList.add('open');
+    container.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (logo) logo.classList.add('logo-shifted');
+  }
+  function closeMenu() {
+    if (!isOpen) return;
+    isOpen = false;
+    trigger.classList.remove('open');
+    container.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (logo) logo.classList.remove('logo-shifted');
+    servicesToggle.classList.remove('open');
+    submenu.classList.remove('open');
+  }
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isOpen ? closeMenu() : openMenu();
+  });
+  overlay.addEventListener('click', closeMenu);
+  servicesToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    servicesToggle.classList.toggle('open');
+    submenu.classList.toggle('open');
+  });
+  document.querySelectorAll('#mobileMenuContainer a').forEach(link => {
+    link.addEventListener('click', () => { closeMenu(); });
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen) closeMenu(); });
+  let touchStartY = 0;
+  container.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, {passive: true});
+  container.addEventListener('touchmove', (e) => {
+    const delta = e.touches[0].clientY - touchStartY;
+    if (delta > 50 && container.scrollTop === 0) closeMenu();
+  }, {passive: true});
+})();
+</script>
 </body>
 </html>
