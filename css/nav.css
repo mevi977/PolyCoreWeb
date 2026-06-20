@@ -352,8 +352,8 @@
 }
 .mob-main-item[data-expand]{cursor:pointer;}
 .mob-main-item.expanded .mob-plus{
-  background:rgba(192,72,90,.35);
-  border-color:rgba(192,72,90,.5);
+  background:rgba(74,14,26,.35);
+  border-color:rgba(74,14,26,.5);
 }
 
 .mob-expand-overview{
@@ -361,15 +361,15 @@
   margin:.25rem 0 .6rem;
   font-size:.8rem;font-weight:700;
   color:rgba(220,110,130,.95);
-  border:1.5px solid rgba(192,72,90,.3);
+  border:1.5px solid rgba(74,14,26,.3);
   border-radius:12px;padding:.65rem 1rem;
   text-decoration:none;
   transition:background .15s,border-color .15s;
   font-family:'DM Sans',sans-serif;
 }
 .mob-expand-overview:hover{
-  background:rgba(192,72,90,.15);
-  border-color:rgba(192,72,90,.5);
+  background:rgba(74,14,26,.15);
+  border-color:rgba(74,14,26,.5);
 }
 
 /* Expand linkovi - 1 kolona unutar accordiona */
@@ -397,7 +397,7 @@
   line-height:1.3;
 }
 .mob-expand-list li > a:hover{
-  background:rgba(192,72,90,.18);
+  background:rgba(74,14,26,.18);
   color:#fff;
 }
 
@@ -505,7 +505,7 @@
 }
 /* Tanka linija na dnu nav-a - bordeaux ostaje */
 .hero-light .nav:not(.scrolled)::after {
-  background: linear-gradient(to right, transparent, rgba(192,72,90,.5), transparent) !important;
+  background: linear-gradient(to right, transparent, rgba(74,14,26,.5), transparent) !important;
   opacity: 1 !important;
 }
 
@@ -571,7 +571,7 @@
   div.mob-menu#mobMenu .mob-main-item[data-expand]:hover,
   div.mob-menu#mobMenu .mob-main-item > a:active,
   div.mob-menu#mobMenu .mob-main-item[data-expand]:active {
-    background: rgba(192,72,90,.18);
+    background: rgba(74,14,26,.18);
     color: #fff;
   }
   div.mob-menu#mobMenu .mob-arrow-r { stroke: rgba(255,252,248,.35); }
@@ -589,11 +589,11 @@
   }
   div.mob-menu#mobMenu .mob-expand-overview {
     color: rgba(220,110,130,.95);
-    border-color: rgba(192,72,90,.35);
+    border-color: rgba(74,14,26,.35);
   }
   div.mob-menu#mobMenu .mob-expand-overview:hover {
-    background: rgba(192,72,90,.18);
-    border-color: rgba(192,72,90,.5);
+    background: rgba(74,14,26,.18);
+    border-color: rgba(74,14,26,.5);
   }
   div.mob-menu#mobMenu .mob-expand-section {
     color: rgba(255,252,248,.32);
@@ -606,7 +606,7 @@
   }
   div.mob-menu#mobMenu .mob-expand-list li > a:hover,
   div.mob-menu#mobMenu .mob-expand-list li > a:active {
-    background: rgba(192,72,90,.18);
+    background: rgba(74,14,26,.18);
     color: #fff;
   }
 
@@ -620,14 +620,14 @@
   div.mob-menu#mobMenu .mob-tel {
     color: #fff; font-size: 1.1rem; font-weight: 600;
     display: flex; align-items: center; gap: .85rem;
-    background: rgba(192,72,90,.18);
-    border: 1px solid rgba(192,72,90,.35);
+    background: rgba(74,14,26,.18);
+    border: 1px solid rgba(74,14,26,.35);
     border-radius: 12px;
     padding: 1rem 1.25rem;
     width: 100%;
   }
   div.mob-menu#mobMenu .mob-tel svg { stroke: rgba(220,110,130,.95); width: 20px; height: 20px; }
-  div.mob-menu#mobMenu .mob-tel:hover { background: rgba(192,72,90,.3); }
+  div.mob-menu#mobMenu .mob-tel:hover { background: rgba(74,14,26,.3); }
 }
 
 @media (max-width: 1024px) {
@@ -637,8 +637,8 @@
     margin-left: .5rem;
     font-size: 1.1rem; font-weight: 700; line-height: 1;
     color: rgba(220,110,130,.95);
-    background: rgba(192,72,90,.18);
-    border: 1px solid rgba(192,72,90,.35);
+    background: rgba(74,14,26,.18);
+    border: 1px solid rgba(74,14,26,.35);
     border-radius: 50%;
     vertical-align: middle;
   }
