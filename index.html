@@ -357,9 +357,11 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
   }
   .mobile-menu-container.open { transform: translateX(0); }
   .mobile-menu-scroll {
-    overflow-y: auto; overflow-x: hidden; height: 100%;
+    overflow-y: auto; overflow-x: hidden;
+    flex: 1 1 auto; min-height: 0;
     display: flex; flex-direction: column;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
   .mobile-menu-scroll::-webkit-scrollbar { display: none; }
 
@@ -482,7 +484,7 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 
 <!-- MOBILNI LOGO (centriran, pomjera se lijevo kada se meni otvori) -->
 <div class="mob-top-logo" id="mobTopLogo">
-  <a href="/"><img src="assets/img/1PolyCoreLogo.png" alt="POLYCORE"/></a>
+  <a href="/"><img src="/assets/img/PolyCoreLogo.png" alt="POLYCORE"/></a>
 </div>
 
 <!-- MOBILNI MENI ELEMENTI (desni stakleni panel) -->
@@ -500,17 +502,17 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
         </button>
         <div class="mobile-submenu" id="mobileSubmenu">
           <a href="/leistungen/" class="all-link">Alle Leistungen ansehen</a>
-          <a href="leistungen/epoxidharz-boden.html">Epoxidharz</a>
-          <a href="leistungen/polyurethan-boden.html">Polyurethan</a>
-          <a href="leistungen/pmma-boden.html">PMMA</a>
-          <a href="leistungen/designerboden.html">Designerboden</a>
-          <a href="leistungen/steinteppich.html">Steinteppich</a>
-          <a href="leistungen/industrieboden.html">Industrieböden</a>
-          <a href="leistungen/garagenbeschichtung.html">Garagenbeschichtung</a>
-          <a href="leistungen/abdichtung.html">Flüssigkunststoff</a>
-          <a href="leistungen/injektionen.html">Injektionen</a>
-          <a href="leistungen/combiflex.html">Combiflex</a>
-          <a href="leistungen/plattenlegen.html">Plattenverlegung</a>
+          <a href="/leistungen/epoxidharz-boden.html">Epoxidharz</a>
+          <a href="/leistungen/polyurethan-boden.html">Polyurethan</a>
+          <a href="/leistungen/pmma-boden.html">PMMA</a>
+          <a href="/leistungen/designerboden.html">Designerboden</a>
+          <a href="/leistungen/steinteppich.html">Steinteppich</a>
+          <a href="/leistungen/industrieboden.html">Industrieböden</a>
+          <a href="/leistungen/garagenbeschichtung.html">Garagenbeschichtung</a>
+          <a href="/leistungen/abdichtung.html">Flüssigkunststoff</a>
+          <a href="/leistungen/injektionen.html">Injektionen</a>
+          <a href="/leistungen/combiflex.html">Combiflex</a>
+          <a href="/leistungen/plattenlegen.html">Plattenverlegung</a>
         </div>
       </li>
       <li><a href="/projekte">Projekte</a></li>
