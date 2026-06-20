@@ -275,64 +275,66 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 }
 
 
-/* ===== PROFESIONALNI MOBILNI MENI (STAKLENI PANEL) ===== */
+/* ===== PROFESIONALNI MOBILNI MENI (STAKLENI, PROVIDAN) ===== */
 .mob-top-logo { display: none; }
 .mobile-menu-trigger { display: none; }
 .mobile-menu-overlay { display: none; }
 .mobile-menu-container { display: none; }
 
 @media (max-width: 1024px) {
-  /* Sakrij staru desktop navigaciju i burger */
-  .nav .nav-links { display: none !important; }
-  .nav-burger { display: none !important; }
+  /* Cijeli desktop navbar sakriven na mobitelu - nema lajsne pri scrollu */
+  .nav { display: none !important; }
 
-  /* Logo centriran na vrhu */
+  /* Logo centriran na vrhu, samostalan, bez navbar pozadine */
   .mob-top-logo {
     display: flex; justify-content: center; position: fixed;
-    top: 0.8rem; left: 0; right: 0; z-index: 1001; pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    top: 0.9rem; left: 0; right: 0; z-index: 1001; pointer-events: none;
+    transition: left .5s cubic-bezier(.16,1,.3,1), justify-content .5s, transform .4s ease;
   }
   .mob-top-logo a { pointer-events: auto; display: inline-block; }
-  .mob-top-logo img { height: 42px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15)); }
-  /* Kada je meni otvoren, logo se pomjera lijevo */
+  .mob-top-logo img { height: 40px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25)); transition: filter .4s ease; }
+  /* Kada je meni otvoren, logo se pomjera lijevo na blur pozadinu */
   .mob-top-logo.logo-shifted {
     justify-content: flex-start;
-    left: 1rem;
+    left: 1.25rem;
     right: auto;
-    transform: translateX(0);
+  }
+  .mob-top-logo.logo-shifted img {
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,.4));
   }
 
-  /* Okrugli FAB okidač (desno) */
+  /* FAB okidac - oblik pilule kao logo, blur pozadina, crvene crtice */
   .mobile-menu-trigger {
-    display: flex; position: fixed; top: 1rem; right: 1rem;
-    width: 48px; height: 48px;
-    background: linear-gradient(135deg, rgba(192,72,90,0.95), rgba(160,40,55,0.95));
-    backdrop-filter: blur(4px);
-    border-radius: 50%; align-items: center; justify-content: center;
+    display: flex; position: fixed; top: .75rem; right: 1rem;
+    height: 56px; padding: 0 1.1rem;
+    background: rgba(20,8,5,.4);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-radius: 50px; align-items: center; justify-content: center;
     cursor: pointer; z-index: 1200;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 8px 20px rgba(160,40,55,0.3);
-    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255,255,255,0.16);
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background .25s;
   }
-  .mobile-menu-trigger:active { transform: scale(0.92); }
+  .mobile-menu-trigger:active { transform: scale(0.94); }
+  .mobile-menu-trigger.open { background: rgba(20,8,5,.65); }
   .hamburger-lines {
-    width: 18px; height: 12px;
+    width: 22px; height: 14px;
     display: flex; flex-direction: column; justify-content: space-between;
   }
   .hamburger-lines span {
     display: block; height: 2px; width: 100%;
-    background: #fff; border-radius: 2px;
+    background: rgba(220,80,100,1); border-radius: 2px;
     transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
   }
-  .mobile-menu-trigger.open .hamburger-lines span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .mobile-menu-trigger.open .hamburger-lines span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
   .mobile-menu-trigger.open .hamburger-lines span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .mobile-menu-trigger.open .hamburger-lines span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+  .mobile-menu-trigger.open .hamburger-lines span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-  /* Blur pozadina */
+  /* Pozadina iza menija - samo blur, bez tamne boje */
   .mobile-menu-overlay {
     display: block; position: fixed; inset: 0;
-    background: rgba(8, 4, 4, 0.65);
-    backdrop-filter: blur(8px);
+    background: transparent;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
     z-index: 1150; opacity: 0; visibility: hidden;
     transition: opacity 0.4s ease, visibility 0s linear 0.4s;
   }
@@ -341,17 +343,17 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
     transition: opacity 0.4s ease, visibility 0s linear 0s;
   }
 
-  /* Stakleni panel sa desne strane */
+  /* Stakleni providan panel sa desne strane */
   .mobile-menu-container {
     display: flex; flex-direction: column; position: fixed;
     top: 0; right: 0; width: 88%; max-width: 360px; height: 100vh;
-    background: rgba(16, 11, 9, 0.96);
-    backdrop-filter: blur(24px);
+    background: rgba(20, 8, 5, .42);
+    backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
     z-index: 1170; transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     padding: 6rem 1.5rem 2rem 1.5rem;
-    box-shadow: -10px 0 40px rgba(0,0,0,0.5);
-    border-left: 1px solid rgba(255,255,255,0.05);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.25);
+    border-left: 1px solid rgba(255,255,255,0.12);
   }
   .mobile-menu-container.open { transform: translateX(0); }
   .mobile-menu-scroll {
@@ -382,33 +384,37 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
     transition: color 0.2s; background: none; border: none;
     width: 100%; font-family: inherit; text-align: left; cursor: pointer;
   }
-  .mobile-menu-list a:active, .mobile-menu-btn-toggle:active { color: #c0485a; }
+  .mobile-menu-list a:active, .mobile-menu-btn-toggle:active,
+  .mobile-menu-list a:hover, .mobile-menu-btn-toggle:hover { color: rgba(220,80,100,1); }
 
-  .mobile-menu-btn-toggle svg { transition: transform 0.3s ease; opacity: 0.6; }
-  .mobile-menu-btn-toggle.open svg { transform: rotate(180deg); color: #c0485a; opacity: 1; }
+  .mobile-menu-btn-toggle svg { transition: transform 0.3s ease, color .2s; opacity: .85; color: rgba(220,80,100,.9); }
+  .mobile-menu-btn-toggle.open svg { transform: rotate(180deg); color: rgba(220,80,100,1); opacity: 1; }
 
   /* Podmeni u dvije kolone */
   .mobile-submenu {
     max-height: 0; overflow: hidden; opacity: 0;
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 0.8rem;
-    padding: 0 0 0 0.5rem; border-left: 2px solid rgba(192,72,90,0.3);
+    padding: 0 0 0 0.5rem; border-left: 2px solid rgba(220,80,100,.4);
     margin-top: 0; transition: max-height 0.45s ease, opacity 0.3s ease, margin-top 0.3s;
   }
   .mobile-submenu.open { max-height: 420px; opacity: 1; margin-top: 0.8rem; padding-bottom: 0.6rem; }
   .mobile-submenu a {
-    font-size: 0.85rem; font-weight: 400; color: #b5b0ae; padding: 0.3rem 0;
+    font-size: 0.85rem; font-weight: 400; color: rgba(255,252,248,.78); padding: 0.3rem 0;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;
+    transition: color .2s;
   }
-  .mobile-submenu a.all-link { color: #c0485a; font-weight: 600; grid-column: span 2; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.4rem; margin-bottom: 0.2rem; }
+  .mobile-submenu a:hover, .mobile-submenu a:active { color: rgba(220,80,100,1); }
+  .mobile-submenu a.all-link { color: rgba(220,80,100,1); font-weight: 600; grid-column: span 2; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 0.4rem; margin-bottom: 0.2rem; }
 
   /* Linija razdvajanja */
   .mobile-menu-divider {
-    height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.1), transparent); margin: 2rem 0 1.5rem 0;
+    height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.18), transparent); margin: 2rem 0 1.5rem 0;
   }
   /* Kontakt podaci pri dnu */
-  .mobile-contact-info { margin-top: auto; padding-top: 1rem; font-size: 0.8rem; color: #9c9694; }
-  .mobile-contact-info a { color: #fff; text-decoration: none; display: block; margin: 0.35rem 0; transition: opacity 0.2s; }
-  .mobile-contact-info .tel { font-size: 1.2rem; font-weight: 700; color: #c0485a; margin-bottom: 0.2rem; }
+  .mobile-contact-info { margin-top: auto; padding-top: 1rem; font-size: 0.8rem; color: rgba(255,252,248,.6); }
+  .mobile-contact-info a { color: #fff; text-decoration: none; display: block; margin: 0.35rem 0; transition: color 0.2s; }
+  .mobile-contact-info a:hover { color: rgba(220,80,100,1); }
+  .mobile-contact-info .tel { font-size: 1.2rem; font-weight: 700; color: rgba(220,80,100,1); margin-bottom: 0.2rem; }
 }
 </style>
 </head>
@@ -476,7 +482,7 @@ body.fog-on .hs-card:hover { transform: translateX(-4px); }
 
 <!-- MOBILNI LOGO (centriran, pomjera se lijevo kada se meni otvori) -->
 <div class="mob-top-logo" id="mobTopLogo">
-  <a href="/"><source src="assets/img/Logo.mp4" alt="POLYCORE"/></a>
+  <a href="/"><img src="assets/img/1PolyCoreLogo.png" alt="POLYCORE"/></a>
 </div>
 
 <!-- MOBILNI MENI ELEMENTI (desni stakleni panel) -->
