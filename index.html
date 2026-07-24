@@ -277,12 +277,15 @@ body.lp-loaded .lp-scroll-hint { opacity:1 }
 .morph-bg-container { position:sticky;top:0;left:0;width:100%;height:100vh;overflow:hidden;z-index:1; }
 .morph-bg-layer {
   position:absolute;inset:0;width:100%;height:100%;
-  background-size:cover;background-position:center;
   opacity:0;transform:scale(1.08);
   transition:opacity 1.2s cubic-bezier(0.16,1,0.3,1),transform 1.4s cubic-bezier(0.16,1,0.3,1);
-  filter:brightness(0.75) contrast(1.05) saturate(0.9);
 }
 .morph-bg-layer.active { opacity:1;transform:scale(1); }
+.morph-bg-layer img {
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:brightness(0.75) contrast(1.05) saturate(0.9);
+  display:block;
+}
 .morph-bg-overlay {
   position:absolute;inset:0;
   background:
@@ -553,16 +556,16 @@ body.lp-loaded .lp-scroll-hint { opacity:1 }
 <section class="morph-section" id="leistungen">
   <div class="morph-bg-container">
     <div class="morph-bg-overlay"></div>
-    <div class="morph-bg-layer active" id="bg-1" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif');"></div>
-    <div class="morph-bg-layer" id="bg-2" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif');"></div>
-    <div class="morph-bg-layer" id="bg-3" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif');"></div>
-    <div class="morph-bg-layer" id="bg-4" style="background-image:url('/assets/img/Epoxy-boden.png');"></div>
-    <div class="morph-bg-layer" id="bg-5" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif');"></div>
-    <div class="morph-bg-layer" id="bg-6" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif');"></div>
-    <div class="morph-bg-layer" id="bg-7" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif');"></div>
-    <div class="morph-bg-layer" id="bg-8" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif');"></div>
-    <div class="morph-bg-layer" id="bg-9" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif');"></div>
-    <div class="morph-bg-layer" id="bg-10" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif');"></div>
+    <img class="morph-bg-layer active" id="bg-1" src="/assets/img/industriebodenbelag.jpg" alt="Industrieböden" loading="eager" fetchpriority="high">
+    <img class="morph-bg-layer" id="bg-2" src="/assets/img/PU-boden.png" alt="Polyurethan Boden">
+    <img class="morph-bg-layer" id="bg-3" src="/assets/img/Bodenbelaege_pmma.JPG" alt="PMMA Boden">
+    <img class="morph-bg-layer" id="bg-4" src="/assets/img/garagenbeschichtung.jpg" alt="Garagenbeschichtung">
+    <img class="morph-bg-layer" id="bg-5" src="/assets/img/Epoxy-boden.png" alt="Designerboden">
+    <img class="morph-bg-layer" id="bg-6" src="/assets/img/flexibele_abdichtung_flk.JPG" alt="Flüssigkunststoff Abdichtung">
+    <img class="morph-bg-layer" id="bg-7" src="/assets/img/industriebodenbelag1.jpg" alt="Industrieböden">
+    <img class="morph-bg-layer" id="bg-8" src="/assets/img/Steinteppich.png" alt="Steinteppich">
+    <img class="morph-bg-layer" id="bg-9" src="/assets/img/Injektion.jpg" alt="Injektionen">
+    <img class="morph-bg-layer" id="bg-10" src="/assets/img/balkonbern.png" alt="Plattenverlegung">
   </div>
   <div class="morph-content-container">
     <div class="morph-step active" data-bg="bg-1">
