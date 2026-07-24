@@ -946,92 +946,6 @@ body.lp-loaded .lp-hero-fog { opacity: 1; }
 .lp-scroll-hint { z-index: 4; }
 
 
-/* ── LEISTUNGEN CARD GRID ── */
-.lp-card-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-top: 3rem;
-  border-top: 1px solid #eae6e2;
-}
-.lp-card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  border-right: 1px solid #eae6e2;
-  border-bottom: 1px solid #eae6e2;
-  transition: box-shadow .2s, transform .2s;
-  background: #fff;
-  overflow: hidden;
-}
-.lp-card:hover {
-  box-shadow: 0 8px 32px rgba(74,14,26,.1);
-  transform: translateY(-3px);
-  z-index: 1;
-  position: relative;
-}
-.lp-card:nth-child(4n) { border-right: none; }
-.lp-card-img {
-  width: 100%;
-  height: 160px;
-  background-size: cover;
-  background-position: center;
-  transition: transform .5s ease;
-  flex-shrink: 0;
-}
-.lp-card:hover .lp-card-img { transform: scale(1.05); }
-.lp-card-body {
-  display: flex;
-  gap: .85rem;
-  padding: 1.25rem 1.25rem 1.5rem;
-  align-items: flex-start;
-  flex: 1;
-}
-.lp-card-ico {
-  width: 36px; height: 36px; flex-shrink: 0;
-  background: rgba(74,14,26,.06);
-  border: 1px solid rgba(74,14,26,.12);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: .1rem;
-}
-.lp-card-ico svg { width: 17px; height: 17px; stroke: #4a0e1a; }
-.lp-card-title { font-size: .9rem; font-weight: 600; color: #0e0a09; margin-bottom: .35rem; line-height: 1.3; }
-.lp-card-desc { font-size: .75rem; color: #6b6b6b; line-height: 1.6; margin-bottom: .5rem; }
-.lp-card-link { font-size: .72rem; font-weight: 600; color: #4a0e1a; display: block; }
-/* More card */
-.lp-card-more {
-  background: #0e0a09 !important;
-  border-color: #1a1410 !important;
-  align-items: stretch;
-}
-.lp-card-more-inner {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 2rem 1.5rem;
-  height: 100%;
-}
-.lp-card-more-icon {
-  width: 44px; height: 44px;
-  border: 1px solid rgba(74,14,26,.5);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.25rem;
-  background: rgba(74,14,26,.25);
-}
-.lp-card-more-icon svg { width: 20px; height: 20px; stroke: rgba(220,160,170,.9); }
-.lp-card-more h3 { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: .5rem; line-height: 1.3; }
-.lp-card-more p { font-size: .75rem; color: rgba(255,255,255,.45); line-height: 1.6; }
-.lp-card-more .lp-card-link { color: rgba(220,160,170,.9) !important; }
-/* Responsive */
-@media(max-width:1024px){
-  .lp-card-grid { grid-template-columns: repeat(2,1fr); }
-  .lp-card:nth-child(4n) { border-right: 1px solid #eae6e2; }
-  .lp-card:nth-child(2n) { border-right: none; }
-  .lp-card-img { height: 140px; }
-}
-@media(max-width:640px){
-  .lp-card-grid { grid-template-columns: 1fr; }
   .lp-card { border-right: none; }
   .lp-card:nth-child(2n) { border-right: none; }
   .lp-card-img { height: 180px; }
@@ -1129,155 +1043,233 @@ body.lp-loaded .lp-hero-fog { opacity: 1; }
   .lp-row-n { display: none; }
 }
 
+
+/* ── LEISTUNGEN KOMPAKTNI LIST ── */
+.lp-leist-sec { padding-bottom: 0; }
+.lp-leist-list {
+  border-top: 1px solid #e8e4e0;
+  margin-top: 0;
+}
+.lp-leist-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 88px;
+  border-bottom: 1px solid #e8e4e0;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  transition: background .15s;
+}
+.lp-leist-row:hover { background: #faf8f6; }
+.lp-leist-row:hover .lp-leist-img { transform: scale(1.06); filter: brightness(1.05); }
+.lp-leist-row:hover .lp-leist-arr { color: #4a0e1a; transform: translateX(4px); }
+.lp-leist-row:hover .lp-leist-text strong { color: #4a0e1a; }
+
+.lp-leist-n {
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: rgba(74,14,26,.3);
+  width: 48px;
+  flex-shrink: 0;
+  padding-left: 0;
+  text-align: center;
+}
+.lp-leist-text {
+  flex: 1;
+  min-width: 0;
+  padding: 0 1.5rem 0 0;
+}
+.lp-leist-text strong {
+  display: block;
+  font-size: .95rem;
+  font-weight: 600;
+  color: #0e0a09;
+  margin-bottom: .2rem;
+  transition: color .15s;
+}
+.lp-leist-text span {
+  font-size: .75rem;
+  color: #9c9894;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* Slika s gradijent prelazo s lijeve strane — kompaktna, 260px */
+.lp-leist-img {
+  width: 260px;
+  height: 100%;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .45s ease, filter .3s;
+  position: relative;
+}
+.lp-leist-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+    #fff 0%,
+    rgba(255,252,248,.88) 20%,
+    rgba(255,252,248,.4) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lp-leist-arr {
+  font-size: .9rem;
+  color: #ccc;
+  width: 48px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: color .15s, transform .15s;
+  position: relative;
+  z-index: 2;
+}
+
+.lp-leist-footer {
+  padding: 1.75rem 0;
+}
+
+@media(max-width:768px){
+  .lp-leist-row { height: 74px; }
+  .lp-leist-img { width: 160px; }
+  .lp-leist-n { width: 32px; font-size: .55rem; }
+  .lp-leist-text strong { font-size: .88rem; }
+  .lp-leist-arr { width: 32px; }
+}
+@media(max-width:480px){
+  .lp-leist-img { display: none; }
+  .lp-leist-row { height: auto; padding: 1rem 0; }
+  .lp-leist-text span { white-space: normal; }
+}
+
 </style>
 
 <!-- SCROLL PROGRESS -->
-<div class="lp-pro<!-- ═══ LEISTUNGEN RASTER ═══ -->
-<section class="lp-sec light" style="padding:5rem 0 0">
+<div class="lp-progress" id="lpProgress"></div>
+
+<!-- ═══ LEISTUNGEN RASTER ═══ -->
+<section class="lp-sec light lp-leist-sec">
   <div class="container">
     <div class="sr"><span class="eyebrow" style="color:#4a0e1a">Unsere Leistungen</span></div>
-    <h2 class="h1 sr d1" style="max-width:540px">Das komplette Spektrum –<br/>ein Ansprechpartner.</h2>
-  </div>
+    <h2 class="h1 sr d1" style="max-width:560px;margin-bottom:2.5rem">Das komplette Spektrum –<br/>ein Ansprechpartner.</h2>
 
-  <div class="lp-list sr d2">
+    <div class="lp-leist-list sr d2">
 
-    <a href="/leistungen/epoxidharz-boden" class="lp-row">
-      <div class="lp-row-left">
-        <span class="lp-row-n">01</span>
-        <div>
-          <h3 class="lp-row-title">Epoxidharz (EP)</h3>
-          <p class="lp-row-desc">Fugenlose Industriebeschichtung – extrem belastbar und chemikalienresistent.</p>
+      <a href="/leistungen/epoxidharz-boden" class="lp-leist-row">
+        <span class="lp-leist-n">01</span>
+        <div class="lp-leist-text">
+          <strong>Epoxidharz (EP)</strong>
+          <span>Fugenlos, robust, chemikalienresistent</span>
         </div>
-        <span class="lp-row-arrow">→</span>
-      </div>
-      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif')"></div>
-    </a>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif')"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
 
-    <a href="/leistungen/polyurethan-boden" class="lp-row">
-      <div class="lp-row-left">
-        <span class="lp-row-n">02</span>
-        <div>
-          <h3 class="lp-row-title">Polyurethan (PU)</h3>
-          <p class="lp-row-desc">Elastisch, thermisch stabil – ideal für Kühlräume und Parkhäuser.</p>
+      <a href="/leistungen/polyurethan-boden" class="lp-leist-row">
+        <span class="lp-leist-n">02</span>
+        <div class="lp-leist-text">
+          <strong>Polyurethan (PU)</strong>
+          <span>Elastisch, thermisch stabil</span>
         </div>
-        <span class="lp-row-arrow">→</span>
-      </div>
-      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif')"></div>
-    </a>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif')"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
 
-    <a href="/leistungen/pmma-boden" class="lp-row">
-      <div class="lp-row-left">
-        <span class="lp-row-n">03</span>
-        <div>
-          <h3 class="lp-row-title">PMMA-Boden</h3>
-          <p class="lp-row-desc">Schnellhärtend – in wenigen Stunden begehbar, optimal für Sanierungen.</p>
+      <a href="/leistungen/pmma-boden" class="lp-leist-row">
+        <span class="lp-leist-n">03</span>
+        <div class="lp-leist-text">
+          <strong>PMMA-Boden</strong>
+          <span>Schnellhärtend – in Stunden begehbar</span>
         </div>
-        <span class="lp-row-arrow">→</span>
-      </div>
-      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif')"></div>
-    </a>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif')"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
 
-    <a href="/leistungen/garagenbeschichtung" class="lp-row">
-      <div class="lp-row-left">
-        <span class="lp-row-n">04</span>
-        <div>
-          <h3 class="lp-row-title">Garagenbeschichtung</h3>
-          <p class="lp-row-desc">Epoxidharz-Einstreubelag für Privat und Gewerbe – rutschfest, ölresistent.</p>
+      <a href="/leistungen/garagenbeschichtung" class="lp-leist-row">
+        <span class="lp-leist-n">04</span>
+        <div class="lp-leist-text">
+          <strong>Garagenbeschichtung</strong>
+          <span>Rutschfest, ölresistent – für Privat &amp; Gewerbe</span>
         </div>
-        <span class="lp-row-arrow">→</span>
-      </div>
-      <div class="lp-row-img" style="background-image:url('/assets/img/Epoxy-boden.png');background-position:center 30%"></div>
-    </a>
+        <div class="lp-leist-img" style="background-image:url('/assets/img/Epoxy-boden.png');background-position:center 30%"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
 
-    <a href="/leistungen/designerboden" class="lp-row">
-      <div class="lp-row-left">
-        <span class="lp-row-n">05</span>
-        <div>
-          <h3 class="lp-row-title">Designerboden</h3>
-          <p class="lp-row-desc">Mikrozement und fugenlose Flächen für Wohnräume, Hotels und Showrooms.</p>
+      <a href="/leistungen/designerboden" class="lp-leist-row">
+        <span class="lp-leist-n">05</span>
+        <div class="lp-leist-text">
+          <strong>Designerboden</strong>
+          <span>Mikrozement &amp; Wohnflächen</span>
         </div>
-        <span class="lp-row-arrow">→</span>
-      </div>
-      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif')"></div>
-    </a>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif')"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
 
-    <a href="/leistungen/abdichtung" class="lp-row">
-      <div class="lp-row-left">
-        <span class="lp-row-n">06</span>
-        <div>
-          <h3 class="lp-row-title">Flüssigkunststoff (FLK)</h3>
-          <p class="lp-row-desc">Nahtlose Abdichtung für Terrassen, Balkone und Flachdächer.</p>
+      <a href="/leistungen/abdichtung" class="lp-leist-row">
+        <span class="lp-leist-n">06</span>
+        <div class="lp-leist-text">
+          <strong>Flüssigkunststoff (FLK)</strong>
+          <span>Terrassen, Balkone &amp; Flachdächer abdichten</span>
         </div>
-        <span class="lp-row-arrow">→</span>
-      </div>
-      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif')"></div>
-    </a>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif')"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
 
-    <a href="/leistungen/industrieboden" class="lp-row">
-      <div class="lp-row-left">
-        <span class="lp-row-n">07</span>
-        <div>
-          <h3 class="lp-row-title">Industrieböden</h3>
-          <p class="lp-row-desc">Einstreubeläge für Lager und Produktion – robust, hygienisch, langlebig.</p>
+      <a href="/leistungen/industrieboden" class="lp-leist-row">
+        <span class="lp-leist-n">07</span>
+        <div class="lp-leist-text">
+          <strong>Industrieböden</strong>
+          <span>Einstreubeläge für Lager &amp; Produktion</span>
         </div>
-        <span class="lp-row-arrow">→</span>
-      </div>
-      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif');background-position:center 70%"></div>
-    </a>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif');background-position:center 70%"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
 
-    <a href="/leistungen/injektionen" class="lp-row">
-      <div class="lp-row-left">
-        <span class="lp-row-n">08</span>
-        <div>
-          <h3 class="lp-row-title">Injektionen &amp; Combiflex</h3>
-          <p class="lp-row-desc">Dauerhafte Feuchtigkeitssicherung und Fugenabdichtung für Keller und Fundamente.</p>
+      <a href="/leistungen/steinteppich" class="lp-leist-row">
+        <span class="lp-leist-n">08</span>
+        <div class="lp-leist-text">
+          <strong>Steinteppich</strong>
+          <span>Naturstein, rutschfest &amp; fugenlos</span>
         </div>
-        <span class="lp-row-arrow">→</span>
-      </div>
-      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif');background-position:center 20%"></div>
-    </a>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif');background-position:center 10%"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
 
-    <div class="lp-row-footer">
-      <a href="/leistungen/" class="lp-bp">Alle Leistungen ansehen <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+      <a href="/leistungen/injektionen" class="lp-leist-row">
+        <span class="lp-leist-n">09</span>
+        <div class="lp-leist-text">
+          <strong>Injektionen &amp; Combiflex</strong>
+          <span>Feuchtigkeitssicherung &amp; Fugenabdichtung</span>
+        </div>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif');background-position:center 80%"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
+
+      <a href="/leistungen/plattenlegen" class="lp-leist-row">
+        <span class="lp-leist-n">10</span>
+        <div class="lp-leist-text">
+          <strong>Plattenverlegung</strong>
+          <span>Naturstein, Reinigung &amp; Imprägnierung</span>
+        </div>
+        <div class="lp-leist-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif')"></div>
+        <span class="lp-leist-arr">→</span>
+      </a>
+
+      <div class="lp-leist-footer">
+        <a href="/leistungen/" class="lp-bp">Alle Leistungen ansehen <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+      </div>
+
     </div>
-
-  </div>
-</section>
-
-ed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif')"></div>
-      <div class="lp-card-body">
-        <div class="lp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div>
-        <div>
-          <h3 class="lp-card-title">Flüssigkunststoff (FLK)</h3>
-          <p class="lp-card-desc">Nahtlose Abdichtung für Terrassen, Balkone und Flachdächer – dauerhaft und wartungsarm.</p>
-          <span class="lp-card-link">Mehr erfahren →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="/leistungen/industrieboden" class="lp-card">
-      <div class="lp-card-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif');background-position:center 60%"></div>
-      <div class="lp-card-body">
-        <div class="lp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <div>
-          <h3 class="lp-card-title">Industrieböden</h3>
-          <p class="lp-card-desc">Einstreubeläge für Lager, Produktion und Gewerbe – robust, hygienisch, langlebig.</p>
-          <span class="lp-card-link">Mehr erfahren →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="/leistungen/" class="lp-card lp-card-more">
-      <div class="lp-card-more-inner">
-        <div class="lp-card-more-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-        </div>
-        <h3>4 weitere<br/>Leistungen</h3>
-        <p>Steinteppich, Injektionen,<br/>Combiflex, Plattenverlegung</p>
-        <span class="lp-card-link" style="margin-top:.75rem">Alle Leistungen →</span>
-      </div>
-    </a>
-
   </div>
 </section>
 
