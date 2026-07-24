@@ -1037,122 +1037,214 @@ body.lp-loaded .lp-hero-fog { opacity: 1; }
   .lp-card-img { height: 180px; }
 }
 
+
+/* ── LEISTUNGEN HORIZONTALNI LIST ── */
+.lp-list {
+  margin-top: 3rem;
+  border-top: 1px solid #e8e4e0;
+}
+.lp-row {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  border-bottom: 1px solid #e8e4e0;
+  text-decoration: none;
+  color: inherit;
+  transition: background .18s;
+  overflow: hidden;
+  position: relative;
+}
+.lp-row:hover { background: #faf8f6; }
+.lp-row:hover .lp-row-img { transform: scale(1.04); }
+.lp-row:hover .lp-row-arrow { transform: translateX(5px); color: #4a0e1a; }
+.lp-row:hover .lp-row-title { color: #4a0e1a; }
+
+.lp-row-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.75rem 2.5rem;
+}
+.lp-row-n {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: rgba(74,14,26,.35);
+  flex-shrink: 0;
+  width: 24px;
+}
+.lp-row-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0e0a09;
+  margin-bottom: .3rem;
+  line-height: 1.3;
+  transition: color .2s;
+}
+.lp-row-desc {
+  font-size: .8rem;
+  color: #8a8480;
+  line-height: 1.55;
+}
+.lp-row-arrow {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: #ccc;
+  transition: transform .2s, color .2s;
+}
+
+/* Slika s gradijent prelazo s lijeve strane */
+.lp-row-img {
+  height: 100%;
+  min-height: 110px;
+  background-size: cover;
+  background-position: center;
+  transition: transform .5s ease;
+  position: relative;
+}
+.lp-row-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #fff 0%, rgba(255,252,248,.6) 35%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lp-row-footer {
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .lp-row { grid-template-columns: 1fr; }
+  .lp-row-img { display: none; }
+  .lp-row-left { padding: 1.25rem 1.25rem; gap: 1rem; }
+  .lp-row-title { font-size: .95rem; }
+  .lp-row-footer { padding: 1.5rem 1.25rem; }
+}
+@media(max-width:640px){
+  .lp-row-n { display: none; }
+}
+
 </style>
 
 <!-- SCROLL PROGRESS -->
-<div class="lp-progress" id="lpProgress"></div>
+<div class="lp-pro<!-- ═══ LEISTUNGEN RASTER ═══ -->
+<section class="lp-sec light" style="padding:5rem 0 0">
+  <div class="container">
+    <div class="sr"><span class="eyebrow" style="color:#4a0e1a">Unsere Leistungen</span></div>
+    <h2 class="h1 sr d1" style="max-width:540px">Das komplette Spektrum –<br/>ein Ansprechpartner.</h2>
+  </div>
 
-<!-- ═══ HERO: fullscreen video ═══ -->
-<section class="lp-hero">
-  <video class="lp-hero-video" autoplay muted playsinline loop id="heroVideo">
-    <source src="/assets/img/video.MP4" type="video/mp4"/>
-  </video>
-  <div class="lp-hero-overlay"></div>
-  <div class="lp-hero-fog"></div>
+  <div class="lp-list sr d2">
 
-  <div class="lp-hero-content">
-    <div class="lp-tag">Bern · Biel · Thun · Burgdorf · Solothurn</div>
-    <h1 class="lp-h1">
-      Böden, die schützen.<br/>
-      <strong>Oberflächen, die überzeugen.</strong>
-    </h1>
-    <p class="lp-lead">Epoxidharz, Polyurethan und PMMA – fugenlos, pflegeleicht, dauerhaft. Bodenbeschichtungen und Bautenschutz aus einer Hand in der Region Bern.</p>
-    <div class="lp-btns">
-      <a href="/kontakt" class="lp-bp">
-        Offerte anfragen
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
-      </a>
-      <a href="tel:+41765397974" class="lp-bg">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-        076 539 79 74
-      </a>
+    <a href="/leistungen/epoxidharz-boden" class="lp-row">
+      <div class="lp-row-left">
+        <span class="lp-row-n">01</span>
+        <div>
+          <h3 class="lp-row-title">Epoxidharz (EP)</h3>
+          <p class="lp-row-desc">Fugenlose Industriebeschichtung – extrem belastbar und chemikalienresistent.</p>
+        </div>
+        <span class="lp-row-arrow">→</span>
+      </div>
+      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif')"></div>
+    </a>
+
+    <a href="/leistungen/polyurethan-boden" class="lp-row">
+      <div class="lp-row-left">
+        <span class="lp-row-n">02</span>
+        <div>
+          <h3 class="lp-row-title">Polyurethan (PU)</h3>
+          <p class="lp-row-desc">Elastisch, thermisch stabil – ideal für Kühlräume und Parkhäuser.</p>
+        </div>
+        <span class="lp-row-arrow">→</span>
+      </div>
+      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif')"></div>
+    </a>
+
+    <a href="/leistungen/pmma-boden" class="lp-row">
+      <div class="lp-row-left">
+        <span class="lp-row-n">03</span>
+        <div>
+          <h3 class="lp-row-title">PMMA-Boden</h3>
+          <p class="lp-row-desc">Schnellhärtend – in wenigen Stunden begehbar, optimal für Sanierungen.</p>
+        </div>
+        <span class="lp-row-arrow">→</span>
+      </div>
+      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif')"></div>
+    </a>
+
+    <a href="/leistungen/garagenbeschichtung" class="lp-row">
+      <div class="lp-row-left">
+        <span class="lp-row-n">04</span>
+        <div>
+          <h3 class="lp-row-title">Garagenbeschichtung</h3>
+          <p class="lp-row-desc">Epoxidharz-Einstreubelag für Privat und Gewerbe – rutschfest, ölresistent.</p>
+        </div>
+        <span class="lp-row-arrow">→</span>
+      </div>
+      <div class="lp-row-img" style="background-image:url('/assets/img/Epoxy-boden.png');background-position:center 30%"></div>
+    </a>
+
+    <a href="/leistungen/designerboden" class="lp-row">
+      <div class="lp-row-left">
+        <span class="lp-row-n">05</span>
+        <div>
+          <h3 class="lp-row-title">Designerboden</h3>
+          <p class="lp-row-desc">Mikrozement und fugenlose Flächen für Wohnräume, Hotels und Showrooms.</p>
+        </div>
+        <span class="lp-row-arrow">→</span>
+      </div>
+      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif')"></div>
+    </a>
+
+    <a href="/leistungen/abdichtung" class="lp-row">
+      <div class="lp-row-left">
+        <span class="lp-row-n">06</span>
+        <div>
+          <h3 class="lp-row-title">Flüssigkunststoff (FLK)</h3>
+          <p class="lp-row-desc">Nahtlose Abdichtung für Terrassen, Balkone und Flachdächer.</p>
+        </div>
+        <span class="lp-row-arrow">→</span>
+      </div>
+      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif')"></div>
+    </a>
+
+    <a href="/leistungen/industrieboden" class="lp-row">
+      <div class="lp-row-left">
+        <span class="lp-row-n">07</span>
+        <div>
+          <h3 class="lp-row-title">Industrieböden</h3>
+          <p class="lp-row-desc">Einstreubeläge für Lager und Produktion – robust, hygienisch, langlebig.</p>
+        </div>
+        <span class="lp-row-arrow">→</span>
+      </div>
+      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif');background-position:center 70%"></div>
+    </a>
+
+    <a href="/leistungen/injektionen" class="lp-row">
+      <div class="lp-row-left">
+        <span class="lp-row-n">08</span>
+        <div>
+          <h3 class="lp-row-title">Injektionen &amp; Combiflex</h3>
+          <p class="lp-row-desc">Dauerhafte Feuchtigkeitssicherung und Fugenabdichtung für Keller und Fundamente.</p>
+        </div>
+        <span class="lp-row-arrow">→</span>
+      </div>
+      <div class="lp-row-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif');background-position:center 20%"></div>
+    </a>
+
+    <div class="lp-row-footer">
+      <a href="/leistungen/" class="lp-bp">Alle Leistungen ansehen <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
     </div>
-  </div>
 
-  <div class="lp-stats-bar">
-    <div class="lp-stat"><div class="lp-sv">11</div><div class="lp-sl">Leistungen</div></div>
-    <div class="lp-stat"><div class="lp-sv">100%</div><div class="lp-sl">Festpreisangebote</div></div>
-    <div class="lp-stat"><div class="lp-sv">Bern</div><div class="lp-sl">& Umgebung</div></div>
-    <div class="lp-stat"><div class="lp-sv">1 Person</div><div class="lp-sl">Ihr Ansprechpartner</div></div>
-  </div>
-
-  <div class="lp-scroll-hint">
-    <span>Scroll</span>
-    <div class="lp-scroll-hint-line"></div>
   </div>
 </section>
 
-<!-- ═══ LEISTUNGEN RASTER ═══ -->
-<section class="lp-sec light" style="padding-bottom:0">
-  <div class="container">
-    <div class="sr"><span class="eyebrow" style="color:#4a0e1a">Unsere Leistungen</span></div>
-    <h2 class="h1 sr d1" style="max-width:560px">Das komplette Spektrum –<br/>ein Ansprechpartner.</h2>
-    <p class="sub sr d2" style="max-width:480px">Von der Garage bis zur Industriehalle, von Epoxidharz bis Bautenschutz.</p>
-  </div>
-  <div class="lp-card-grid sr d2">
-
-    <a href="/leistungen/epoxidharz-boden" class="lp-card">
-      <div class="lp-card-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif')"></div>
-      <div class="lp-card-body">
-        <div class="lp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div>
-        <div>
-          <h3 class="lp-card-title">Epoxidharz (EP)</h3>
-          <p class="lp-card-desc">Fugenlose Industriebeschichtung – extrem belastbar, chemikalienresistent, langlebig.</p>
-          <span class="lp-card-link">Mehr erfahren →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="/leistungen/polyurethan-boden" class="lp-card">
-      <div class="lp-card-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif')"></div>
-      <div class="lp-card-body">
-        <div class="lp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2" opacity=".3"/></svg></div>
-        <div>
-          <h3 class="lp-card-title">Polyurethan (PU)</h3>
-          <p class="lp-card-desc">Elastisch, thermisch stabil – ideal für Kühlräume, Parkhäuser und Lebensmittelbetriebe.</p>
-          <span class="lp-card-link">Mehr erfahren →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="/leistungen/pmma-boden" class="lp-card">
-      <div class="lp-card-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a9_cd3fcef3-87a7-44ca-b314-51862bdd90c2.avif')"></div>
-      <div class="lp-card-body">
-        <div class="lp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></div>
-        <div>
-          <h3 class="lp-card-title">PMMA-Boden</h3>
-          <p class="lp-card-desc">Schnellhärtend – in wenigen Stunden begehbar. Optimal für Sanierungen unter Zeitdruck.</p>
-          <span class="lp-card-link">Mehr erfahren →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="/leistungen/garagenbeschichtung" class="lp-card">
-      <div class="lp-card-img" style="background-image:url('/assets/img/Epoxy-boden.png');background-position:center 30%"></div>
-      <div class="lp-card-body">
-        <div class="lp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <div>
-          <h3 class="lp-card-title">Garagenbeschichtung</h3>
-          <p class="lp-card-desc">Epoxidharz-Einstreubelag für Private und Gewerbe – rutschfest, ölresistent, pflegeleicht.</p>
-          <span class="lp-card-link">Mehr erfahren →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="/leistungen/designerboden" class="lp-card">
-      <div class="lp-card-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4d4_2c62b89d-28b7-4179-a611-cde2ddff424e.avif')"></div>
-      <div class="lp-card-body">
-        <div class="lp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <div>
-          <h3 class="lp-card-title">Designerboden</h3>
-          <p class="lp-card-desc">Mikrozement und fugenlose Wohnflächen – für Hotels, Showrooms und Wohnräume.</p>
-          <span class="lp-card-link">Mehr erfahren →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="/leistungen/abdichtung" class="lp-card">
-      <div class="lp-card-img" style="background-image:url('https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif')"></div>
+ed747d503f666e/6991cab78a84e3a26001b4a5_b8b3b9d6-b39c-4549-8107-e241ff352998.avif')"></div>
       <div class="lp-card-body">
         <div class="lp-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div>
         <div>
