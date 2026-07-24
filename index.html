@@ -883,6 +883,49 @@ body.lp-loaded .lp-stats-bar{opacity:1;transform:none}
   width:0%;
   transition:width .1s linear;
 }
+
+/* ── iOS PARALLAX FALLBACK ── */
+@supports (-webkit-touch-callout: none) {
+  .lp-parallax-bg { background-attachment: scroll; }
+}
+/* ── FAQ GRID MOBILE ── */
+.lp-faq-grid { display:grid; grid-template-columns:1fr 2fr; gap:5rem; align-items:start; }
+@media(max-width:768px){
+  .lp-faq-grid { grid-template-columns:1fr; gap:2.5rem; }
+}
+/* ── HERO SCROLL HINT ── */
+.lp-scroll-hint {
+  position:absolute;
+  bottom:5.5rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:4;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.5rem;
+  opacity:0;
+  transition:opacity .8s ease 2s;
+}
+body.lp-loaded .lp-scroll-hint { opacity:1; }
+.lp-scroll-hint-line {
+  width:1px;
+  height:40px;
+  background:linear-gradient(to bottom, rgba(255,255,255,.6), transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100%{transform:scaleY(1);opacity:.6}
+  50%{transform:scaleY(.6);opacity:1}
+}
+.lp-scroll-hint span {
+  font-size:.55rem;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+
 </style>
 
 <!-- SCROLL PROGRESS -->
@@ -920,6 +963,11 @@ body.lp-loaded .lp-stats-bar{opacity:1;transform:none}
     <div class="lp-stat"><div class="lp-sv">Sika</div><div class="lp-sl">& WestWood Systeme</div></div>
     <div class="lp-stat"><div class="lp-sv">Bern</div><div class="lp-sl">& Umgebung</div></div>
     <div class="lp-stat"><div class="lp-sv">CHF</div><div class="lp-sl">Schweizer Handwerk</div></div>
+  </div>
+
+  <div class="lp-scroll-hint">
+    <span>Scroll</span>
+    <div class="lp-scroll-hint-line"></div>
   </div>
 </section>
 
@@ -1126,7 +1174,7 @@ body.lp-loaded .lp-stats-bar{opacity:1;transform:none}
 <!-- ═══ FAQ (cream) ═══ -->
 <section class="lp-sec cream">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start">
+    <div class="lp-faq-grid">
       <div class="sr">
         <span class="eyebrow" style="color:#4a0e1a">FAQ</span>
         <h2 class="h1">Ihre Fragen.<br/>Klare Antworten.</h2>
@@ -1175,12 +1223,18 @@ body.lp-loaded .lp-stats-bar{opacity:1;transform:none}
     document.body.classList.add('lp-loaded');
   }
 
-  // Scroll progress bar
+  // Scroll progress bar + scroll hint hide
   var prog = document.getElementById('lpProgress');
+  var scrolled = false;
   window.addEventListener('scroll', function(){
     var s = document.documentElement.scrollTop;
     var h = document.documentElement.scrollHeight - window.innerHeight;
     if(prog) prog.style.width = (s/h*100) + '%';
+    if(!scrolled && s > 80){
+      scrolled = true;
+      var hint = document.querySelector('.lp-scroll-hint');
+      if(hint) hint.style.opacity = '0';
+    }
   }, {passive:true});
 
   // Scroll reveal
