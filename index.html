@@ -2,127 +2,489 @@
 <html lang="de-CH">
 <head>
 <meta charset="UTF-8"/>
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
-<title>POLYCORE GmbH – Bodenbeläge & Bautenschutz Bern</title>
-<meta name="description" content="Epoxidharz, Polyurethan, PMMA und Bautenschutz in Bern – professionell, fair, regional."/>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>POLYCORE GmbH – Bodenbeläge & Bautenschutz Bern | Epoxidharz, Polyurethan, PMMA</title>
+<meta name="description" content="POLYCORE GmbH – Ihr Spezialist für Epoxidharz, Polyurethan, PMMA und Bautenschutz in Bern und Umgebung."/>
+<link rel="canonical" href="https://www.polycore.ch/"/>
+<meta property="og:title" content="Garagenbeschichtung Epoxidharz | POLYCORE GmbH Bern"/>
+<meta property="og:description" content="Professionelle Garagenbeschichtungen mit Epoxidharz – rutschfest, pflegeleicht und langlebig. POLYCORE GmbH Bern."/>
+<meta property="og:url" content="https://www.polycore.ch/leistungen/garagenbeschichtung"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="de_CH"/>
+<meta name="twitter:card" content="summary"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"POLYCORE GmbH","url":"https://www.polycore.ch","telephone":"+41765397974","address":{"@type":"PostalAddress","streetAddress":"Etzmattrain 36","addressLocality":"Urtenen-Schönbühl","postalCode":"3322","addressCountry":"CH"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/css/design-system.css"/>
-<link rel="stylesheet" href="/css/nav.css"/>
-<link rel="stylesheet" href="/css/footer.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/design-system.css"/>
+<link rel="stylesheet" href="css/nav.css"/>
+<link rel="stylesheet" href="css/footer.css"/>
+<link rel="stylesheet" href="css/page.css"/>
 <style>
-:root{--bx:#4a0e1a;--bx2:rgba(74,14,26,.85);--bx3:rgba(74,14,26,.12);--bx4:rgba(74,14,26,.06)}
+/* === KOMPROMIS: Topla tamna pozadina === */
+:root {
+  --dk: #171210; --dk2: #1e1714; --dk3: #251c18; --bx: #4a0e1a;
+  --t1: rgba(255,255,255,.88); --t2: rgba(255,255,255,.62);
+  --t3: rgba(255,255,255,.38); --b1: rgba(255,255,255,.1);
+}
+body { background: #f8f7f5; color: #1a1a1a; }
+.section, .section-sm { background: #f8f7f5; }
+.section.light-bg, .section-sm.light-bg { background: #fff; }
+.benefit-cell { background: #fff !important; border: 1px solid rgba(0,0,0,.08) !important; border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.benefit-cell:hover { border-color: rgba(74,14,26,.3) !important; box-shadow: 0 4px 16px rgba(74,14,26,.08); transform: translateY(-2px); }
+.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #888 !important; }
+.benefit-icon { width: 38px; height: 38px; background: rgba(74,14,26,.07); border: 1px solid rgba(74,14,26,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .75rem; }
+.benefit-icon svg { width: 17px; height: 17px; stroke: #4a0e1a; }
+.content-body h2, .content-body h3 { color: #1a1a1a !important; }
+.content-body p { color: #555 !important; line-height: 1.8; }
+.content-body h3 { margin-top: 1.75rem; }
+.sidebar-cta { background: #2c1810; border: none; }
+.sidebar-cta h3 { color: #fff; } .sidebar-cta p { color: rgba(255,255,255,.65); }
+.app-card { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.app-card:hover { border-color: rgba(74,14,26,.3); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(74,14,26,.08); }
+.app-card h4 { color: #1a1a1a !important; } .app-card p { color: #666 !important; }
+.app-card svg { stroke: #4a0e1a !important; opacity: .85; }
+.eyebrow { color: #4a0e1a !important; } .h1, .h2, h2 { color: #1a1a1a; }
+.faq-item { border-bottom: 1px solid rgba(0,0,0,.09); }
+.faq-q { color: #1a1a1a; font-weight: 500; } details[open] .faq-q { color: #1a1a1a; }
+.faq-a p { color: #666 !important; }
+.cta-banner { background: linear-gradient(135deg, #2c1810 0%, #4a0e1a 50%, #2c1810 100%); border: none; }
+.cta-banner h2 { color: #fff; } .cta-banner p { color: rgba(255,255,255,.7) !important; }
+.related-card { 
+  display: flex; align-items: center; gap: 1rem;
+  background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 10px;
+  padding: .85rem 1.1rem;
+  transition: all .2s; 
+  text-decoration: none; color: inherit;
+}
+.related-card:hover { border-color: rgba(74,14,26,.3); transform: translateX(4px); background: rgba(74,14,26,.03); }
 
-/* ── HERO ── */
-.lp-hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-.lp-hero-left{display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 5rem 5vw;background:#fff;position:relative;z-index:2}
-.lp-hero-right{position:relative;overflow:hidden}
-.lp-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
-.lp-hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#fff 0%,transparent 12%)}
-.lp-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bx);background:var(--bx4);border:1px solid var(--bx3);border-radius:50px;padding:.35rem 1rem;margin-bottom:2rem}
-.lp-h1{font-size:clamp(2.6rem,5vw,4rem);font-weight:300;letter-spacing:-.04em;line-height:1.1;color:#0e0a0a;margin-bottom:1.5rem}
-.lp-h1 strong{font-weight:700;color:var(--bx)}
-.lp-lead{font-size:1rem;color:#5f5b57;line-height:1.7;max-width:420px;margin-bottom:2.5rem}
-.lp-btns{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
-.lp-btn-p{display:inline-flex;align-items:center;gap:.5rem;background:var(--bx);color:#fff;border:none;border-radius:50px;padding:.85rem 1.8rem;font-weight:600;font-size:.9rem;text-decoration:none;transition:background .2s}
-.lp-btn-p:hover{background:rgba(74,14,26,.82)}
-.lp-btn-g{display:inline-flex;align-items:center;gap:.4rem;color:var(--bx);font-weight:500;font-size:.9rem;text-decoration:none;border-bottom:1px solid var(--bx3);padding-bottom:2px;transition:border-color .2s}
-.lp-btn-g:hover{border-color:var(--bx)}
-.lp-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid #eae6e2}
-.lp-stat-v{font-size:1.8rem;font-weight:700;letter-spacing:-.04em;color:#0e0a0a;line-height:1}
-.lp-stat-l{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#aaa;margin-top:.25rem}
+/* === HERO === */
+.page-hero { position: relative; min-height: 520px; background: var(--dk); overflow: hidden; display: flex; align-items: center; }
+.page-hero-bg { position: absolute; inset: 0; overflow: hidden; }
+.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .55; filter: saturate(.8) brightness(1.0); }
 
-/* ── LEISTUNGEN GRID ── */
-.lp-svc{padding:5rem 0}
-.lp-svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#eae6e2;border:1px solid #eae6e2;border-radius:12px;overflow:hidden}
-.lp-svc-cell{background:#fff;padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:.6rem;text-decoration:none;color:inherit;transition:background .2s}
-.lp-svc-cell:hover{background:var(--bx4)}
-.lp-svc-cell:first-child{background:#0e0a0a;color:#fff}
-.lp-svc-cell:first-child p{color:rgba(255,255,255,.55)}
-.lp-svc-ico{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--bx4);border-radius:8px;margin-bottom:.25rem}
-.lp-svc-ico svg{width:18px;height:18px;stroke:var(--bx)}
-.lp-svc-cell:first-child .lp-svc-ico{background:rgba(74,14,26,.25)}
-.lp-svc-cell:first-child .lp-svc-ico svg{stroke:rgba(255,180,180,.9)}
-.lp-svc-cell h3{font-size:.95rem;font-weight:600;line-height:1.3}
-.lp-svc-cell p{font-size:.78rem;color:#5f5b57;line-height:1.5}
-.lp-svc-all{text-align:center;margin-top:2rem}
+/* Overlay - pocinje nevidljiv, pojavljuje se JS-om */
+.page-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(255,252,248,.97) 28%, rgba(255,252,248,.78) 52%, rgba(255,252,248,.0) 100%),
+              linear-gradient(to bottom, rgba(255,252,248,.15) 0%, transparent 25%, transparent 80%, rgba(255,252,248,.3) 100%);
+  opacity: 0;
+  transition: opacity 1.0s ease;
+}
+.page-hero-grid { display: none; }
+.page-hero-glow { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(74,14,26,.25) 0%, transparent 70%); top: -80px; right: 5%; pointer-events: none; opacity: 0; transition: opacity 1.2s .3s ease; }
+.page-hero-hline { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(74,14,26,.18), transparent); opacity: 0; transition: opacity 1.0s .4s ease; }
+.page-hero-hline-t { top: 90px; } .page-hero-hline-b { bottom: 90px; }
 
-/* ── SPLIT SECTION (Why PolyCore) ── */
+.page-hero-inner { position: relative; z-index: 5; width: 100%; max-width: 1200px; margin: 0 auto; padding: 7.5rem 2.5rem 3.5rem; display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: center; }
+
+/* Svi tekst elementi - nevidljivi, klizaju s lijeva */
+.phi-left { display: flex; flex-direction: column; }
+.phi-bread { display: flex; align-items: center; gap: .6rem; font-size: .63rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(30,10,5,.38); margin-bottom: 2.25rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s ease, transform .6s ease; }
+.phi-bread a { color: rgba(30,10,5,.38); text-decoration: none; transition: color .2s; }
+.phi-bread a:hover { color: rgba(30,10,5,.75); }
+.phi-bread-sep { color: rgba(30,10,5,.2); }
+.phi-bread-cur { color: rgba(74,14,26,.85); }
+.phi-tag { display: inline-flex; align-items: center; gap: .6rem; font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(58,10,20,.95); margin-bottom: 1.25rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .1s ease, transform .6s .1s ease; }
+.phi-tag-line { width: 28px; height: 1px; background: rgba(74,14,26,.5); flex-shrink: 0; }
+.phi-h1 { font-size: clamp(2.2rem, 4.5vw, 3.75rem); font-weight: 300; letter-spacing: -.055em; line-height: 1.0; margin-bottom: 1.5rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .22s ease, transform .6s .22s ease; }
+.phi-h1-muted { color: rgba(30,10,5,.35); display: block; }
+.phi-h1-accent { display: block; font-weight: 700; background: linear-gradient(135deg, #4a0e1a 0%, #e07888 50%, #4a0e1a 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.phi-h1-white { display: block; color: #1a0a08; font-weight: 700; }
+.phi-lead { font-size: .9rem; font-weight: 300; color: rgba(30,10,5,.58); line-height: 1.9; max-width: 440px; margin-bottom: 2rem; letter-spacing: .01em; opacity: 0; transform: translateX(-40px); transition: opacity .6s .35s ease, transform .6s .35s ease; }
+.phi-badges { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 2.25rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .5s ease, transform .6s .5s ease; }
+.phi-badge { font-size: .6rem; font-weight: 500; letter-spacing: .06em; color: rgba(30,10,5,.45); border: 1px solid rgba(30,10,5,.12); padding: .28rem .8rem; border-radius: 50px; transition: all .25s; cursor: default; }
+.phi-badge:hover { color: rgba(74,14,26,.95); border-color: rgba(74,14,26,.35); background: rgba(74,14,26,.08); }
+.phi-btns { display: flex; align-items: center; gap: 1.5rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .65s ease, transform .6s .65s ease; }
+.phi-btn-p { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 500; letter-spacing: .03em; color: #fff; background: rgba(74,14,26,.95); border: none; border-radius: 6px; padding: .65rem 1.4rem; cursor: pointer; font-family: inherit; text-decoration: none; transition: all .2s; }
+.phi-btn-p:hover { background: #4a0e1a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(74,14,26,.3); }
+.phi-btn-g { display: inline-flex; align-items: center; gap: .4rem; font-size: .78rem; font-weight: 400; letter-spacing: .03em; color: rgba(30,10,5,.45); text-decoration: none; border-bottom: 1px solid rgba(30,10,5,.18); padding-bottom: 1px; transition: all .2s; }
+.phi-btn-g:hover { color: rgba(30,10,5,.85); border-color: rgba(30,10,5,.4); }
+
+/* Desna kolona - klizi s desna */
+.phi-right { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,.15); padding-left: 2.5rem; opacity: 0; transform: translateX(40px); transition: opacity .6s .5s ease, transform .6s .5s ease; -webkit- padding-left: 2.5rem; }
+.phi-stat { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,.12); cursor: default; transition: all .2s; }
+.phi-stat:last-of-type { border-bottom: none; }
+.phi-stat:hover .phi-stat-v { color: #fff; } .phi-stat:hover .phi-stat-l { color: rgba(255,255,255,.65); }
+.phi-stat-v { font-size: 1.9rem; font-weight: 300; letter-spacing: -.06em; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.5); line-height: 1; margin-bottom: .3rem; transition: color .2s; }
+.phi-stat-v sup { font-size: .85rem; font-weight: 400; color: rgba(220,110,130,.95); vertical-align: super; }
+.phi-stat-l { font-size: .58rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); text-shadow: 0 1px 6px rgba(0,0,0,.5); transition: color .2s; }
+.phi-sys { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.12); }
+.phi-sys-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.65); text-shadow: 0 1px 6px rgba(0,0,0,.5); margin-bottom: .9rem; }
+.phi-sys-item { display: flex; justify-content: space-between; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.08); font-size: .7rem; }
+.phi-sys-item:last-child { border: none; }
+.phi-sys-k { color: rgba(255,255,255,.7); font-weight: 300; text-shadow: 0 1px 6px rgba(0,0,0,.5); } .phi-sys-v { color: #fff; font-weight: 500; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+
+/* LOADED - JS doda ovu klasu na body */
+body.loaded .page-hero-overlay { opacity: 1; }
+body.loaded .page-hero-grid { opacity: 1; }
+body.loaded .page-hero-glow { opacity: 1; }
+body.loaded .page-hero-hline { opacity: 1; }
+body.loaded .phi-bread,
+body.loaded .phi-tag,
+body.loaded .phi-h1,
+body.loaded .phi-lead,
+body.loaded .phi-badges,
+body.loaded .phi-btns { opacity: 1; transform: translateX(0); }
+body.loaded .phi-right { opacity: 1; transform: translateX(0); }
+
+/* shimmer na accent tekstu */
+body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
+@keyframes phShim { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+@media (max-width: 768px) {
+  /* Hero */
+  .page-hero { min-height: auto; }
+  .page-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 7.5rem 1.25rem 3rem;
+    gap: 0;
+  }
+  
+  .phi-h1 { font-size: 2rem; letter-spacing: -.04em; margin-bottom: 1rem; }
+  .phi-h1-muted { font-size: 1.6rem; }
+  .phi-lead { font-size: .85rem; margin-bottom: 1.5rem; max-width: 100%; }
+  .phi-bread { margin-bottom: 1.5rem; font-size: .6rem; }
+  .phi-tag { font-size: .58rem; margin-bottom: 1rem; }
+  .phi-badges { gap: .3rem; margin-bottom: 1.75rem; }
+  .phi-badge { font-size: .58rem; padding: .22rem .65rem; }
+  .phi-btns { flex-direction: column; align-items: flex-start; gap: .75rem; }
+  .phi-btn-p { font-size: .82rem; padding: .7rem 1.25rem; width: 100%; justify-content: center; }
+  .phi-btn-g { font-size: .78rem; }
+  .phi-stat-v { color: #4a0e1a; text-shadow: none; }
+  .phi-stat-v sup { color: rgba(74,14,26,.85); }
+  .phi-stat-l { color: rgba(74,14,26,.75); text-shadow: none; }
+  .phi-stat:hover .phi-stat-v { color: #4a0e1a; }
+  .phi-stat:hover .phi-stat-l { color: rgba(74,14,26,.75); }
+}
+
+@media (max-width: 480px) {
+  .phi-h1 { font-size: 1.75rem; }
+  .phi-h1-muted { font-size: 1.4rem; }
+}
+
+@media (max-width: 768px) {
+  /* Benefits grid - 2 kolone na mobitelu */
+  .benefits-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
+  .benefit-cell { padding: 1.1rem .85rem; }
+  .benefit-title { font-size: .85rem; }
+  .benefit-lbl { font-size: .72rem; }
+  .benefit-icon { width: 32px; height: 32px; margin-bottom: .5rem; }
+  .benefit-icon svg { width: 14px; height: 14px; }
+
+  /* Content layout - jedna kolona */
+  .content-layout { grid-template-columns: 1fr !important; }
+  .sidebar-cta { margin-top: 1.5rem; }
+
+  /* App grid - 2 kolone */
+  .app-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
+  .app-card { padding: 1rem .85rem !important; }
+  .app-card h4 { font-size: .85rem !important; }
+  .app-card p { font-size: .75rem !important; }
+  .app-card svg { width: 20px !important; height: 20px !important; }
+
+  /* FAQ */
+  .faq-accordion { gap: 0; }
+  .faq-q { font-size: .88rem; padding: .9rem 0; }
+  .faq-a p { font-size: .83rem !important; }
+
+  /* CTA banner */
+  .cta-banner { padding: 2rem 1.25rem !important; }
+  .cta-banner h2 { font-size: 1.4rem !important; }
+  .cta-banner p { font-size: .85rem !important; }
+  .btn-row { flex-direction: column; gap: .75rem; }
+  .btn-row .btn { width: 100%; justify-content: center; text-align: center; }
+
+  /* Related cards */
+  .related-grid { gap: .4rem !important; }
+  .related-card { padding: .75rem 1rem !important; }
+
+  /* Section spacing */
+  .section { padding: 2.5rem 0 !important; }
+  .section-sm { padding: 2rem 0 !important; }
+}
+/* ===== PROFESIONALNI MOBILNI MENI (STAKLENI, PROVIDAN) ===== */
+.mob-top-logo { display: none; }
+.mobile-menu-trigger { display: none; }
+.mobile-menu-overlay { display: none; }
+.mobile-menu-container { display: none; }
+
+@media (max-width: 1024px) {
+  /* Cijeli desktop navbar sakriven na mobitelu - nema lajsne pri scrollu */
+  .nav { display: none !important; }
+
+  /* Logo centriran na vrhu, samostalan, bez navbar pozadine */
+  .mob-top-logo {
+    display: flex; justify-content: center; position: fixed;
+    top: 0.9rem; left: 0; right: 0; z-index: 1001; pointer-events: none;
+    transition: left .5s cubic-bezier(.16,1,.3,1), justify-content .5s, transform .4s ease;
+  }
+  .mob-top-logo a { pointer-events: auto; display: inline-block; }
+  .mob-top-logo img { height: 40px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25)); transition: filter .4s ease; }
+  /* Kada je meni otvoren, logo se pomjera lijevo na blur pozadinu */
+  .mob-top-logo.logo-shifted {
+    justify-content: flex-start;
+    left: 1.25rem;
+    right: auto;
+  }
+  .mob-top-logo.logo-shifted img {
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,.4));
+  }
+
+  /* FAB okidac - oblik pilule kao logo, blur pozadina, crvene crtice */
+  .mobile-menu-trigger {
+    display: flex; position: fixed; top: .75rem; right: 1rem;
+    height: 56px; padding: 0 1.1rem;
+    background: rgba(20,8,5,.4);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-radius: 50px; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 1200;
+    border: 1px solid rgba(255,255,255,0.16);
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background .25s;
+  }
+  .mobile-menu-trigger:active { transform: scale(0.94); }
+  .mobile-menu-trigger.open { background: rgba(20,8,5,.65); }
+  .hamburger-lines {
+    width: 22px; height: 14px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .hamburger-lines span {
+    display: block; height: 2px; width: 100%;
+    background: rgba(94,20,34,1); border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .mobile-menu-trigger.open .hamburger-lines span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .mobile-menu-trigger.open .hamburger-lines span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .mobile-menu-trigger.open .hamburger-lines span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Pozadina iza menija - samo blur, bez tamne boje */
+  .mobile-menu-overlay {
+    display: block; position: fixed; inset: 0;
+    background: transparent;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    z-index: 1150; opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  }
+  .mobile-menu-overlay.active {
+    opacity: 1; visibility: visible;
+    transition: opacity 0.4s ease, visibility 0s linear 0s;
+  }
+
+  /* Stakleni providan panel sa desne strane */
+  .mobile-menu-container {
+    display: flex; flex-direction: column; position: fixed;
+    top: 0; right: 0; width: 88%; max-width: 360px; height: 100vh;
+    background: rgba(20, 8, 5, .42);
+    backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+    z-index: 1170; transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 6rem 1.5rem 2rem 1.5rem;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.25);
+    border-left: 1px solid rgba(255,255,255,0.12);
+  }
+  .mobile-menu-container.open { transform: translateX(0); }
+  .mobile-menu-scroll {
+    overflow-y: auto; overflow-x: hidden;
+    flex: 1 1 auto; min-height: 0;
+    display: flex; flex-direction: column;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-menu-scroll::-webkit-scrollbar { display: none; }
+
+  /* Lista linkova sa fluidnim ulazom */
+  .mobile-menu-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+  .mobile-menu-list li {
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .mobile-menu-container.open .mobile-menu-list li { opacity: 1; transform: translateY(0); }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(1) { transition-delay: 0.04s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(2) { transition-delay: 0.08s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(3) { transition-delay: 0.12s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(4) { transition-delay: 0.16s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(5) { transition-delay: 0.20s; }
+  .mobile-menu-container.open .mobile-menu-list li:nth-child(6) { transition-delay: 0.24s; }
+
+  .mobile-menu-list a, .mobile-menu-btn-toggle {
+    font-size: 1.3rem; font-weight: 500; color: #fff;
+    text-decoration: none; letter-spacing: -0.01em; display: flex;
+    align-items: center; justify-content: space-between; padding: 0.4rem 0;
+    transition: color 0.2s; background: none; border: none;
+    width: 100%; font-family: inherit; text-align: left; cursor: pointer;
+  }
+  .mobile-menu-list a:active, .mobile-menu-btn-toggle:active,
+  .mobile-menu-list a:hover, .mobile-menu-btn-toggle:hover { color: rgba(94,20,34,1); }
+
+  .mobile-menu-btn-toggle svg { transition: transform 0.3s ease, color .2s; opacity: .85; color: rgba(94,20,34,.9); }
+  .mobile-menu-btn-toggle.open svg { transform: rotate(180deg); color: rgba(94,20,34,1); opacity: 1; }
+
+  /* Podmeni u dvije kolone */
+  .mobile-submenu {
+    max-height: 0; overflow: hidden; opacity: 0;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 0.8rem;
+    padding: 0 0 0 0.5rem; border-left: 2px solid rgba(94,20,34,.4);
+    margin-top: 0; transition: max-height 0.45s ease, opacity 0.3s ease, margin-top 0.3s;
+  }
+  .mobile-submenu.open { max-height: 420px; opacity: 1; margin-top: 0.8rem; padding-bottom: 0.6rem; }
+  .mobile-submenu a {
+    font-size: 0.85rem; font-weight: 400; color: rgba(255,252,248,.78); padding: 0.3rem 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;
+    transition: color .2s;
+  }
+  .mobile-submenu a:hover, .mobile-submenu a:active { color: rgba(94,20,34,1); }
+  .mobile-submenu a.all-link { color: rgba(94,20,34,1); font-weight: 600; grid-column: span 2; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 0.4rem; margin-bottom: 0.2rem; }
+
+  /* Linija razdvajanja */
+  .mobile-menu-divider {
+    height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.18), transparent); margin: 2rem 0 1.5rem 0;
+  }
+  /* Kontakt podaci pri dnu */
+  .mobile-contact-info { margin-top: auto; padding-top: 1rem; font-size: 0.8rem; color: rgba(255,252,248,.6); }
+  .mobile-contact-info a { color: #fff; text-decoration: none; display: block; margin: 0.35rem 0; transition: color 0.2s; }
+  .mobile-contact-info a:hover { color: rgba(94,20,34,1); }
+  .mobile-contact-info .tel { font-size: 1.2rem; font-weight: 700; color: rgba(94,20,34,1); margin-bottom: 0.2rem; }
+}
+
+
+/* ── LANDING: split hero ── */
+:root{--bx:#4a0e1a;--bx2:rgba(74,14,26,.85);--bxl:rgba(74,14,26,.1);--bxb:rgba(74,14,26,.04)}
+.lp-hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;overflow:hidden}
+.lp-left{display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 5rem calc(50vw - 640px + 2.5rem);background:#fff;position:relative;z-index:2}
+.lp-right{position:relative;overflow:hidden}
+.lp-right img{width:100%;height:100%;object-fit:cover;object-position:center}
+.lp-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#fff 0,transparent 14%)}
+.lp-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bx);background:var(--bxb);border:1px solid var(--bxl);border-radius:50px;padding:.3rem .9rem;margin-bottom:1.75rem}
+.lp-h1{font-size:clamp(2.4rem,4.5vw,3.75rem);font-weight:300;letter-spacing:-.05em;line-height:1.08;color:#0e0a0a;margin-bottom:1.25rem}
+.lp-h1 strong{font-weight:700;color:var(--bx);display:block}
+.lp-lead{font-size:.92rem;color:#6b6b6b;line-height:1.75;max-width:420px;margin-bottom:2.25rem}
+.lp-row{display:flex;gap:.85rem;align-items:center;flex-wrap:wrap}
+.lp-bp{display:inline-flex;align-items:center;gap:.45rem;background:var(--bx);color:#fff;border-radius:50px;padding:.8rem 1.65rem;font-weight:600;font-size:.88rem;text-decoration:none;transition:background .2s}
+.lp-bp:hover{background:rgba(74,14,26,.82)}
+.lp-bg{font-size:.88rem;font-weight:500;color:var(--bx);text-decoration:none;border-bottom:1px solid rgba(74,14,26,.25);padding-bottom:1px;transition:border-color .2s}
+.lp-bg:hover{border-color:var(--bx)}
+.lp-stats{display:flex;gap:2rem;margin-top:2.75rem;padding-top:2rem;border-top:1px solid rgba(0,0,0,.08)}
+.lp-sv{font-size:1.75rem;font-weight:700;letter-spacing:-.04em;color:#0e0a0a;line-height:1}
+.lp-sl{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#aaa;margin-top:.2rem}
+/* grid of services */
+.lp-svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e8e4e0;border:1px solid #e8e4e0;border-radius:12px;overflow:hidden;margin-top:2.5rem}
+.lp-sc{background:#fff;padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.55rem;text-decoration:none;color:inherit;transition:background .18s}
+.lp-sc:hover{background:var(--bxb)}
+.lp-sc:first-child{background:#0e0a0a;color:#fff}
+.lp-sc:first-child p{color:rgba(255,255,255,.5)}
+.lp-sc:first-child .lp-ico{background:rgba(74,14,26,.3)}
+.lp-sc:first-child .lp-ico svg{stroke:rgba(255,180,185,.9)}
+.lp-ico{width:34px;height:34px;background:var(--bxl);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lp-ico svg{width:16px;height:16px;stroke:var(--bx)}
+.lp-sc h3{font-size:.9rem;font-weight:600;line-height:1.3}
+.lp-sc p{font-size:.75rem;color:#6b6b6b;line-height:1.5}
+.lp-sc-more{background:var(--bxb)!important;justify-content:center;align-items:center;text-align:center}
+.lp-sc-more p{color:var(--bx)!important;font-weight:600;font-size:.8rem}
+/* split why */
 .lp-split{padding:5rem 0;background:#faf8f6}
 .lp-split-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.lp-split-img{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
-.lp-split-img img{width:100%;height:100%;object-fit:cover}
-.lp-split-text{display:flex;flex-direction:column;gap:1.5rem}
-.lp-check-row{display:flex;gap:1rem;align-items:flex-start}
-.lp-check-ico{width:36px;height:36px;flex-shrink:0;border-radius:50%;background:var(--bx4);border:1px solid var(--bx3);display:flex;align-items:center;justify-content:center}
-.lp-check-ico svg{width:16px;height:16px;stroke:var(--bx)}
-.lp-check-title{font-size:.9rem;font-weight:600;color:#1a1210;margin-bottom:.2rem}
-.lp-check-desc{font-size:.82rem;color:#5f5b57;line-height:1.55}
-
-/* ── REGIONEN STRIP ── */
-.lp-reg{padding:3rem 0;border-top:1px solid #eae6e2;border-bottom:1px solid #eae6e2}
-.lp-reg-inner{display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap}
-.lp-reg-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#aaa;white-space:nowrap}
-.lp-reg-list{display:flex;gap:.6rem;flex-wrap:wrap}
-.lp-reg-pill{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;font-weight:500;color:#3a2820;background:#f0ece8;border-radius:50px;padding:.3rem .9rem;text-decoration:none;transition:background .2s}
-.lp-reg-pill:hover{background:var(--bx3)}
-.lp-reg-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--bx);flex-shrink:0}
-
-/* ── CTA ── */
-.lp-cta{padding:6rem 0;background:#0e0a0a;color:#fff;text-align:center}
-.lp-cta h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:300;letter-spacing:-.03em;margin-bottom:1rem}
-.lp-cta h2 strong{font-weight:700;color:rgba(220,180,180,.9)}
-.lp-cta p{color:rgba(255,255,255,.5);margin-bottom:2.5rem;font-size:.95rem}
-.lp-cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.lp-cta-a{display:inline-flex;align-items:center;gap:.5rem;background:var(--bx);color:#fff;border-radius:50px;padding:.9rem 2rem;font-weight:600;text-decoration:none;transition:background .2s}
-.lp-cta-a:hover{background:rgba(74,14,26,.82)}
-.lp-cta-b{display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:.9rem 2rem;font-weight:500;text-decoration:none;transition:all .2s}
-.lp-cta-b:hover{color:#fff;border-color:rgba(255,255,255,.4)}
-
-/* ── FAQ ── */
+.lp-simg{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+.lp-simg img{width:100%;height:100%;object-fit:cover}
+.lp-check{display:flex;flex-direction:column;gap:1.5rem}
+.lp-cr{display:flex;gap:1rem;align-items:flex-start}
+.lp-ck{width:34px;height:34px;flex-shrink:0;border-radius:50%;background:var(--bxb);border:1px solid var(--bxl);display:flex;align-items:center;justify-content:center}
+.lp-ck svg{width:14px;height:14px;stroke:var(--bx)}
+.lp-ct{font-size:.88rem;font-weight:600;color:#1a1210;margin-bottom:.2rem}
+.lp-cd{font-size:.8rem;color:#6b6b6b;line-height:1.6}
+/* regionen */
+.lp-reg{padding:2.5rem 0;border-top:1px solid #eae6e2;border-bottom:1px solid #eae6e2}
+.lp-ri{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.lp-rl{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#bbb;white-space:nowrap}
+.lp-rp{display:flex;gap:.5rem;flex-wrap:wrap}
+.lp-pill{display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;font-weight:500;color:#3a2820;background:#f0ece8;border-radius:50px;padding:.25rem .8rem;text-decoration:none;transition:background .2s}
+.lp-pill:hover{background:var(--bxl)}
+.lp-pill::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--bx);flex-shrink:0}
+.lp-pill-more{color:var(--bx)!important;background:var(--bxb)!important}
+/* cta dark */
+.lp-cta{padding:5.5rem 0;background:#0e0a0a;color:#fff;text-align:center}
+.lp-cta h2{font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:300;letter-spacing:-.03em;margin-bottom:.85rem}
+.lp-cta h2 strong{font-weight:700;color:rgba(220,175,180,.9)}
+.lp-cta p{color:rgba(255,255,255,.45);margin-bottom:2.25rem;font-size:.92rem}
+.lp-ca{display:inline-flex;align-items:center;gap:.5rem;background:var(--bx);color:#fff;border-radius:50px;padding:.85rem 1.9rem;font-weight:600;text-decoration:none;transition:background .2s;margin:.4rem}
+.lp-ca:hover{background:rgba(74,14,26,.82)}
+.lp-cb{display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:.85rem 1.9rem;font-weight:500;text-decoration:none;transition:all .2s;margin:.4rem}
+.lp-cb:hover{color:#fff;border-color:rgba(255,255,255,.38)}
+/* faq */
 .lp-faq{padding:5rem 0}
-.lp-faq-grid{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
-.acc-item{border-bottom:1px solid #eae6e2}
-.acc-btn{width:100%;background:none;border:none;text-align:left;font-weight:600;font-size:.95rem;padding:1.1rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit;color:#0e0a0a}
-.acc-icon{width:16px;height:16px;flex-shrink:0;transition:transform .3s}
-.acc-item.open .acc-icon{transform:rotate(45deg)}
-.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.acc-inner{padding-bottom:1.1rem;color:#5f5b57;font-size:.88rem;line-height:1.7}
-
-/* ── MOBILE ── */
+.lp-faq-inner{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
+/* mobile */
 @media(max-width:1024px){
   .lp-hero{grid-template-columns:1fr;min-height:auto}
-  .lp-hero-right{height:55vw;max-height:380px}
-  .lp-hero-right::after{background:linear-gradient(to bottom,#fff 0%,transparent 18%)}
-  .lp-hero-left{padding:2.5rem 1.5rem 3rem}
+  .lp-right{height:52vw;max-height:360px}
+  .lp-right::after{background:linear-gradient(to bottom,#fff 0,transparent 18%)}
+  .lp-left{padding:2.5rem 1.5rem 3rem}
   .lp-svc-grid{grid-template-columns:repeat(2,1fr)}
-  .lp-split-inner,.lp-faq-grid{grid-template-columns:1fr;gap:2.5rem}
-  .lp-split-img{order:-1}
+  .lp-split-inner,.lp-faq-inner{grid-template-columns:1fr;gap:2.5rem}
+  .lp-simg{order:-1}
 }
 @media(max-width:640px){
   .lp-svc-grid{grid-template-columns:1fr}
-  .lp-stats{gap:1.75rem}
-  .lp-stat-v{font-size:1.4rem}
-  .lp-cta{padding:4rem 0}
-  .lp-reg-inner{flex-direction:column;align-items:flex-start;gap:1rem}
+  .lp-stats{gap:1.5rem}
+  .lp-sv{font-size:1.4rem}
+  .lp-ri{flex-direction:column;align-items:flex-start;gap:1rem}
+  .lp-cta{padding:3.5rem 0}
 }
+
 </style>
 </head>
-<body>
-
-<!-- NAV (identical to rest of site) -->
+<body class="hero-light">
 <nav class="nav">
   <div class="nav-c">
-    <a href="/" class="nav-logo">
-      <img src="/assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/>
-      <img src="/assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/>
-    </a>
+    <a href="/" class="nav-logo"><img src="/assets/img/PolyCoreLogo.png" class="logo-dark" alt="POLYCORE"/><img src="/assets/img/1PolyCoreLogo.png" class="logo-light" alt="POLYCORE"/></a>
     <ul class="nav-links">
       <li class="nav-drop">
         <span class="nav-a nav-drop-toggle">Leistungen<svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></span>
-        <div class="mega"><div class="mega-inner"><div class="mega-intro"><div><p class="mega-intro-tag">Unsere Leistungen</p><h2 class="mega-intro-title">Böden &amp; Bautenschutz aus einer Hand</h2><p class="mega-intro-desc">Epoxidharz, Polyurethan, PMMA – kompetent beraten, sauber ausgeführt.</p></div><a href="/kontakt" class="mega-intro-cta">Kostenlose Beratung <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></div><div class="mega-cols"><div class="mega-col"><span class="eyebrow">Bodenlösungen</span><ul class="mega-list"><li><a href="/leistungen/epoxidharz-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div><div class="mega-txt"><strong>Epoxidharz (EP)</strong><span>Industrieboden, robust &amp; fugenlos</span></div></a></li><li><a href="/leistungen/polyurethan-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/></svg></div><div class="mega-txt"><strong>Polyurethan (PU)</strong><span>Elastisch, thermisch stabil</span></div></a></li><li><a href="/leistungen/pmma-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></div><div class="mega-txt"><strong>PMMA</strong><span>In Stunden begehbar</span></div></a></li><li><a href="/leistungen/garagenbeschichtung" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="mega-txt"><strong>Garagenbeschichtung</strong><span>Epoxidharz für Private &amp; Gewerbe</span></div></a></li></ul></div><div class="mega-col"><span class="eyebrow">Bautenschutz</span><ul class="mega-list"><li><a href="/leistungen/abdichtung" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div><div class="mega-txt"><strong>Flüssigkunststoff</strong><span>Terrassen &amp; Balkone</span></div></a></li><li><a href="/leistungen/injektionen" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4M7 20h4"/></svg></div><div class="mega-txt"><strong>Injektionen</strong><span>Feuchtigkeitssicherung</span></div></a></li><li><a href="/leistungen/combiflex" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/></svg></div><div class="mega-txt"><strong>Combiflex</strong><span>Fugenabdichtung</span></div></a></li></ul></div><div class="mega-col"><span class="eyebrow">Weitere</span><ul class="mega-list"><li><a href="/leistungen/designerboden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="mega-txt"><strong>Designerboden</strong><span>Mikrozement &amp; Wohnflächen</span></div></a></li><li><a href="/leistungen/industrieboden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="mega-txt"><strong>Industrieböden</strong><span>Lager &amp; Produktion</span></div></a></li><li><a href="/leistungen/plattenlegen" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></div><div class="mega-txt"><strong>Plattenverlegung</strong><span>Naturstein &amp; Reinigung</span></div></a></li></ul></div></div></div></div>
+        <div class="mega">
+          <div class="mega-inner">
+            <div class="mega-intro">
+              <div>
+                <p class="mega-intro-tag">Unsere Leistungen</p>
+                <h2 class="mega-intro-title">Böden &amp; Bautenschutz aus einer Hand</h2>
+                <p class="mega-intro-desc">Ob industrielle Beschichtung, elastische Abdichtung oder dekorativer Designerboden – wir beraten Sie kompetent und führen alles sauber aus.</p>
+              </div>
+              <a href="/kontakt" class="mega-intro-cta">Kostenlose Beratung <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+            </div>
+            <div class="mega-cols">
+              <div class="mega-col">
+                <span class="eyebrow">Bodenlösungen</span>
+                <ul class="mega-list">
+                  <li><a href="/leistungen/epoxidharz-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div><div class="mega-txt"><strong>Epoxidharz (EP)</strong><span>Industrieboden, robust &amp; fugenlos</span></div></a></li>
+                  <li><a href="/leistungen/polyurethan-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></div><div class="mega-txt"><strong>Polyurethan (PU)</strong><span>Elastisch, thermisch stabil</span></div></a></li>
+                  <li><a href="/leistungen/pmma-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></div><div class="mega-txt"><strong>PMMA</strong><span>Schnellhärtend, in Stunden begehbar</span></div></a></li>
+                  <li><a href="/leistungen/designerboden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="mega-txt"><strong>Designerboden</strong><span>Mikrozement &amp; Wohnflächen</span></div></a></li>
+                  <li><a href="/leistungen/steinteppich" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></div><div class="mega-txt"><strong>Steinteppich</strong><span>Naturstein, rutschfest &amp; fugenlos</span></div></a></li>
+                  <li><a href="/leistungen/industrieboden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="mega-txt"><strong>Industrieböden</strong><span>Einstreubeläge für Lager &amp; Produktion</span></div></a></li>
+                  <li><a href="/leistungen/garagenbeschichtung" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="mega-txt"><strong>Garagenbeschichtung</strong><span>Epoxidharz für Private &amp; Gewerbe</span></div></a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <span class="eyebrow">Bautenschutz</span>
+                <ul class="mega-list">
+                  <li><a href="/leistungen/abdichtung" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div><div class="mega-txt"><strong>Flüssigkunststoff (FLK)</strong><span>Abdichtung für Terrassen &amp; Balkone</span></div></a></li>
+                  <li><a href="/leistungen/injektionen" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2v4M7 4h4"/><rect x="6" y="6" width="6" height="10" rx="1"/><path d="M9 16v4M7 20h4"/></svg></div><div class="mega-txt"><strong>Injektionen</strong><span>Dauerhafte Feuchtigkeitssicherung</span></div></a></li>
+                  <li><a href="/leistungen/combiflex" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/></svg></div><div class="mega-txt"><strong>Combiflex</strong><span>Fugenabdichtung, hochflexibel</span></div></a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <span class="eyebrow">Service &amp; Weitere</span>
+                <ul class="mega-list">
+                  <li><a href="/leistungen/plattenlegen" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx=".5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx=".5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx=".5"/></svg></div><div class="mega-txt"><strong>Plattenverlegung</strong><span>Naturstein, Reinigung &amp; Imprägnierung</span></div></a></li>
+                  <li><a href="/projekte" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg></div><div class="mega-txt"><strong>Projekte</strong><span>Referenzen &amp; Galerie</span></div></a></li>
+                  <li><a href="/kontakt" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.1.96.35 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.6 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="mega-txt"><strong>Beratung</strong><span>Kostenloses Erstgespräch</span></div></a>
+                  <li><a href="/farbpalette" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1.5" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1.5" fill="currentColor" stroke="none"/><circle cx="9" cy="14" r="1.5" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div><div class="mega-txt"><strong>RAL Farbpalette</strong><span>Alle Farbtöne auf einen Blick</span></div></a></li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </li>
       <li><a href="/projekte" class="nav-a">Projekte</a></li>
       <li><a href="/ueber-uns" class="nav-a">Über uns</a></li>
@@ -133,10 +495,12 @@
   </div>
 </nav>
 
-<!-- MOBILE MENU (same as all other pages) -->
+
 <div class="mob-top-logo" id="mobTopLogo">
   <a href="/"><img src="/assets/img/PolyCoreLogo.png" alt="POLYCORE"/></a>
 </div>
+
+<!-- MOBILNI MENI ELEMENTI (desni stakleni panel) -->
 <div class="mobile-menu-overlay" id="mobileOverlay"></div>
 <div class="mobile-menu-trigger" id="mobileTrigger">
   <div class="hamburger-lines"><span></span><span></span><span></span></div>
@@ -174,93 +538,84 @@
     <div class="mobile-contact-info">
       <a href="tel:+41765397974" class="tel">+41 76 539 79 74</a>
       <a href="mailto:info@polycore.ch">info@polycore.ch</a>
-      <p style="margin-top:.6rem">Etzmattrain 36, 3322 Urtenen-Schönbühl</p>
+      <p style="margin-top:0.6rem;">Etzmattrain 36, 3322 Urtenen-Schönbühl</p>
     </div>
   </div>
 </div>
 
-<!-- ═══ HERO: split-screen left text / right full photo ═══ -->
+<!-- PAGE HERO -->
+
+<!-- PAGE HERO -->
+<!-- ═══ HERO ═══ -->
 <section class="lp-hero">
-  <div class="lp-hero-left">
+  <div class="lp-left">
     <div class="lp-tag">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+      <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
       Bern · Biel · Thun · Burgdorf · Solothurn
     </div>
-    <h1 class="lp-h1">Böden, die<br/><strong>halten,</strong><br/>was sie versprechen.</h1>
-    <p class="lp-lead">Epoxidharz, Polyurethan und PMMA – fugenlos, pflegeleicht, dauerhaft. POLYCORE GmbH führt Bodenbeschichtungen und Bautenschutz in der Region Bern durch.</p>
-    <div class="lp-btns">
-      <a href="/kontakt" class="lp-btn-p">
-        Offerte anfragen
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
-      </a>
-      <a href="tel:+41765397974" class="lp-btn-g">076 539 79 74</a>
+    <h1 class="lp-h1">
+      Böden, die halten,
+      <strong>was sie versprechen.</strong>
+    </h1>
+    <p class="lp-lead">Epoxidharz, Polyurethan und PMMA – fugenlos, pflegeleicht, dauerhaft. Bodenbeschichtungen und Bautenschutz aus einer Hand in der Region Bern.</p>
+    <div class="lp-row">
+      <a href="/kontakt" class="lp-bp">Offerte anfragen <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+      <a href="tel:+41765397974" class="lp-bg">076 539 79 74</a>
     </div>
     <div class="lp-stats">
-      <div>
-        <div class="lp-stat-v">11</div>
-        <div class="lp-stat-l">Leistungen</div>
-      </div>
-      <div>
-        <div class="lp-stat-v">Bern</div>
-        <div class="lp-stat-l">& Umgebung</div>
-      </div>
-      <div>
-        <div class="lp-stat-v">100%</div>
-        <div class="lp-stat-l">Festpreise</div>
-      </div>
+      <div><div class="lp-sv">11</div><div class="lp-sl">Leistungen</div></div>
+      <div><div class="lp-sv">Bern</div><div class="lp-sl">& Umgebung</div></div>
+      <div><div class="lp-sv">100%</div><div class="lp-sl">Festpreise</div></div>
     </div>
   </div>
-  <div class="lp-hero-right">
-    <img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif" alt="POLYCORE Bodenbeschichtung Bern" loading="eager"/>
+  <div class="lp-right">
+    <img src="/assets/img/Epoxy-boden.png" alt="POLYCORE Bodenbeschichtung" loading="eager" onerror="this.src='https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4c7_4ad8220d-4ce4-42d1-8b82-b3a05092bd24.avif'"/>
   </div>
 </section>
 
-<!-- ═══ LEISTUNGEN GRID ═══ -->
-<section class="lp-svc section">
+<!-- ═══ LEISTUNGEN ═══ -->
+<section class="section-sm" style="background:#fff">
   <div class="container">
-    <div style="max-width:540px;margin-bottom:2.5rem">
-      <span class="eyebrow" style="color:var(--bx)">Unsere Leistungen</span>
-      <h2 class="h1 reveal">Das komplette Spektrum.</h2>
-      <p class="sub reveal">Von der Garage bis zur Industriehalle – ein Ansprechpartner, ein Angebot, saubere Ausführung.</p>
-    </div>
-    <div class="lp-svc-grid reveal">
-      <a href="/leistungen/" class="lp-svc-cell">
-        <div class="lp-svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+    <span class="eyebrow" style="color:#4a0e1a">Unsere Leistungen</span>
+    <h2 class="h1 reveal" style="max-width:480px">Das komplette Spektrum – ein Ansprechpartner.</h2>
+    <div class="lp-svc-grid reveal d1">
+      <a href="/leistungen/" class="lp-sc">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
         <h3>Alle Leistungen</h3>
         <p>Übersicht aller 11 Spezialgebiete</p>
       </a>
-      <a href="/leistungen/epoxidharz-boden" class="lp-svc-cell">
-        <div class="lp-svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div>
+      <a href="/leistungen/epoxidharz-boden" class="lp-sc">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div>
         <h3>Epoxidharz (EP)</h3>
         <p>Fugenlos, robust, chemikalienresistent</p>
       </a>
-      <a href="/leistungen/polyurethan-boden" class="lp-svc-cell">
-        <div class="lp-svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2" opacity=".3"/></svg></div>
+      <a href="/leistungen/polyurethan-boden" class="lp-sc">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/></svg></div>
         <h3>Polyurethan (PU)</h3>
-        <p>Elastisch, thermisch stabil, lebensmitteltauglich</p>
+        <p>Elastisch, thermisch stabil</p>
       </a>
-      <a href="/leistungen/pmma-boden" class="lp-svc-cell">
-        <div class="lp-svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></div>
+      <a href="/leistungen/pmma-boden" class="lp-sc">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></div>
         <h3>PMMA</h3>
         <p>Schnellhärtend – in Stunden begehbar</p>
       </a>
-      <a href="/leistungen/garagenbeschichtung" class="lp-svc-cell">
-        <div class="lp-svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+      <a href="/leistungen/garagenbeschichtung" class="lp-sc">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
         <h3>Garagenbeschichtung</h3>
-        <p>Privat &amp; Gewerbe, rutschfest &amp; ölresistent</p>
+        <p>Rutschfest &amp; ölresistent</p>
       </a>
-      <a href="/leistungen/abdichtung" class="lp-svc-cell">
-        <div class="lp-svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div>
+      <a href="/leistungen/abdichtung" class="lp-sc">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s-7 6.5-7 11a7 7 0 0014 0c0-4.5-7-11-7-11z"/></svg></div>
         <h3>Flüssigkunststoff</h3>
-        <p>Abdichtung für Terrassen &amp; Balkone</p>
+        <p>Terrassen &amp; Balkone abdichten</p>
       </a>
-      <a href="/leistungen/designerboden" class="lp-svc-cell">
-        <div class="lp-svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <a href="/leistungen/designerboden" class="lp-sc">
+        <div class="lp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
         <h3>Designerboden</h3>
-        <p>Mikrozement für Wohnraum &amp; Showroom</p>
+        <p>Mikrozement &amp; Wohnflächen</p>
       </a>
-      <a href="/leistungen/" class="lp-svc-cell" style="background:var(--bx4);justify-content:flex-end">
-        <p style="font-size:.78rem;color:var(--bx);font-weight:600">+ 4 weitere Leistungen →</p>
+      <a href="/leistungen/" class="lp-sc lp-sc-more">
+        <p>+ 4 weitere →</p>
       </a>
     </div>
   </div>
@@ -270,36 +625,27 @@
 <section class="lp-split">
   <div class="container">
     <div class="lp-split-inner">
-      <div class="lp-split-img reveal">
+      <div class="lp-simg reveal">
         <img src="https://cdn.prod.website-files.com/6991c9506bed747d503f666e/6991cab78a84e3a26001b4ce_710fbdfa-f29a-4a8a-a412-654ccb2d55c1.avif" alt="POLYCORE Qualität" loading="lazy"/>
       </div>
-      <div class="lp-split-text reveal d1">
-        <div>
-          <span class="eyebrow" style="color:var(--bx)">Warum POLYCORE</span>
-          <h2 class="h1">Qualität liegt<br/>im Detail.</h2>
-        </div>
-        <div class="lp-check-row">
-          <div class="lp-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div>
-            <div class="lp-check-title">Schweizer Handwerksqualität</div>
-            <div class="lp-check-desc">Jedes Projekt wird persönlich betreut – von der Besichtigung bis zur Abnahme. Keine Subunternehmer für die Kernarbeiten.</div>
+      <div class="reveal d1">
+        <span class="eyebrow" style="color:#4a0e1a">Warum POLYCORE</span>
+        <h2 class="h1">Qualität liegt<br/>im Detail.</h2>
+        <div class="lp-check" style="margin-top:1.75rem">
+          <div class="lp-cr">
+            <div class="lp-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><div class="lp-ct">Persönliche Betreuung vor Ort</div><div class="lp-cd">Von der Besichtigung bis zur Abnahme – kein Subunternehmer, ein Ansprechpartner.</div></div>
+          </div>
+          <div class="lp-cr">
+            <div class="lp-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><div class="lp-ct">Verbindliche Festpreise</div><div class="lp-cd">Kostenlose Besichtigung, transparentes Angebot. Mehraufwand wird immer vorab kommuniziert.</div></div>
+          </div>
+          <div class="lp-cr">
+            <div class="lp-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><div class="lp-ct">Bewährte Systeme – Sika, WestWood, Soprema</div><div class="lp-cd">Wir verarbeiten ausschliesslich geprüfte Markenprodukte für dauerhafte Ergebnisse.</div></div>
           </div>
         </div>
-        <div class="lp-check-row">
-          <div class="lp-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div>
-            <div class="lp-check-title">Festpreise, keine Überraschungen</div>
-            <div class="lp-check-desc">Kostenlose Vor-Ort-Besichtigung, transparentes Angebot, verbindlicher Preis. Mehraufwand wird immer vorher kommuniziert.</div>
-          </div>
-        </div>
-        <div class="lp-check-row">
-          <div class="lp-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div>
-            <div class="lp-check-title">Bewährte Systeme von Sika & WestWood</div>
-            <div class="lp-check-desc">Wir verarbeiten ausschliesslich geprüfte Produkte namhafter Hersteller – Sikafloor, Wecryl, Soprema.</div>
-          </div>
-        </div>
-        <a href="/ueber-uns" class="arrow-link" style="margin-top:.5rem">Mehr über uns <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+        <a href="/ueber-uns" class="arrow-link" style="margin-top:1.5rem;display:inline-flex;gap:.4rem;font-weight:500;font-size:.875rem;align-items:center">Mehr über uns <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
       </div>
     </div>
   </div>
@@ -308,17 +654,17 @@
 <!-- ═══ REGIONEN ═══ -->
 <div class="lp-reg">
   <div class="container">
-    <div class="lp-reg-inner">
-      <span class="lp-reg-label">Einsatzgebiet</span>
-      <div class="lp-reg-list">
-        <a href="/regionen/bern" class="lp-reg-pill">Bern</a>
-        <a href="/regionen/biel-bienne" class="lp-reg-pill">Biel / Bienne</a>
-        <a href="/regionen/thun" class="lp-reg-pill">Thun</a>
-        <a href="/regionen/burgdorf" class="lp-reg-pill">Burgdorf</a>
-        <a href="/regionen/solothurn" class="lp-reg-pill">Solothurn</a>
-        <a href="/regionen/koeniz" class="lp-reg-pill">Köniz</a>
-        <a href="/regionen/langenthal" class="lp-reg-pill">Langenthal</a>
-        <a href="/regionen/" class="lp-reg-pill" style="color:var(--bx);background:var(--bx3)">Alle Regionen →</a>
+    <div class="lp-ri">
+      <span class="lp-rl">Einsatzgebiet</span>
+      <div class="lp-rp">
+        <a href="/regionen/bern" class="lp-pill">Bern</a>
+        <a href="/regionen/biel-bienne" class="lp-pill">Biel</a>
+        <a href="/regionen/thun" class="lp-pill">Thun</a>
+        <a href="/regionen/burgdorf" class="lp-pill">Burgdorf</a>
+        <a href="/regionen/solothurn" class="lp-pill">Solothurn</a>
+        <a href="/regionen/koeniz" class="lp-pill">Köniz</a>
+        <a href="/regionen/langenthal" class="lp-pill">Langenthal</a>
+        <a href="/regionen/" class="lp-pill lp-pill-more">Alle Regionen →</a>
       </div>
     </div>
   </div>
@@ -327,18 +673,18 @@
 <!-- ═══ FAQ ═══ -->
 <section class="lp-faq">
   <div class="container">
-    <div class="lp-faq-grid">
+    <div class="lp-faq-inner">
       <div class="reveal">
-        <span class="eyebrow" style="color:var(--bx)">FAQ</span>
+        <span class="eyebrow" style="color:#4a0e1a">FAQ</span>
         <h2 class="h1">Ihre Fragen.<br/>Klare Antworten.</h2>
-        <p class="sub" style="margin-bottom:1.5rem">Haben Sie weitere Fragen? Wir beraten Sie gerne persönlich.</p>
+        <p class="sub" style="margin-bottom:1.5rem">Persönliche Beratung: wir sind für Sie da.</p>
         <a href="/kontakt" class="btn btn-dark">Frage stellen</a>
       </div>
       <div class="reveal d1">
-        <div class="acc-item"><button class="acc-btn">Was kostet eine Bodenbeschichtung?<svg class="acc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></button><div class="acc-body"><div class="acc-inner">Der Preis hängt von Fläche, System und Untergrundszustand ab. Nach einer kostenlosen Vor-Ort-Besichtigung erhalten Sie ein verbindliches Festpreisangebot – ohne versteckte Kosten.</div></div></div>
-        <div class="acc-item"><button class="acc-btn">Welches System passt für mein Objekt?<svg class="acc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></button><div class="acc-body"><div class="acc-inner">Epoxidharz (EP) für robuste Industrieböden und Garagen, Polyurethan (PU) für elastische und thermisch beanspruchte Flächen, PMMA für schnelle Sanierungen. Wir beraten Sie kompetent vor Ort.</div></div></div>
-        <div class="acc-item"><button class="acc-btn">Wie lange dauert eine Sanierung?<svg class="acc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></button><div class="acc-body"><div class="acc-inner">Ein typisches Projekt dauert 1–3 Tage. PMMA-Systeme sind bereits nach wenigen Stunden begehbar. Epoxidharz-Böden nach 24 h begehbar, nach 72 h befahrbar.</div></div></div>
-        <div class="acc-item"><button class="acc-btn">Arbeiten Sie auch ausserhalb Bern?<svg class="acc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></button><div class="acc-body"><div class="acc-inner">Unser Fokus liegt auf der Region Bern (Biel, Thun, Burgdorf, Solothurn, Langenthal und Umgebung). Grössere Projekte ausserhalb sind auf Anfrage möglich.</div></div></div>
+        <div class="acc-item"><button class="acc-btn">Was kostet eine Bodenbeschichtung? <svg class="acc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></button><div class="acc-body"><div class="acc-inner">Der Preis hängt von Fläche, System und Untergrundszustand ab. Nach einer kostenlosen Vor-Ort-Besichtigung erhalten Sie ein verbindliches Festpreisangebot – ohne versteckte Kosten.</div></div></div>
+        <div class="acc-item"><button class="acc-btn">Welches System passt für mein Objekt? <svg class="acc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></button><div class="acc-body"><div class="acc-inner">Epoxidharz für robuste Böden und Garagen, Polyurethan für elastische und thermisch beanspruchte Flächen, PMMA für schnelle Sanierungen. Wir beraten Sie kompetent vor Ort.</div></div></div>
+        <div class="acc-item"><button class="acc-btn">Wie lange dauert eine Sanierung? <svg class="acc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></button><div class="acc-body"><div class="acc-inner">Ein typisches Projekt dauert 1–3 Tage. PMMA-Systeme sind in Stunden begehbar, Epoxidharz nach 24h begehbar und 72h befahrbar.</div></div></div>
+        <div class="acc-item"><button class="acc-btn">Arbeiten Sie auch ausserhalb Bern? <svg class="acc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></button><div class="acc-body"><div class="acc-inner">Fokus auf Region Bern (Biel, Thun, Burgdorf, Solothurn, Langenthal). Grössere Projekte ausserhalb auf Anfrage möglich.</div></div></div>
       </div>
     </div>
   </div>
@@ -349,47 +695,190 @@
   <div class="container">
     <h2>Bereit für <strong>Ihren neuen Boden?</strong></h2>
     <p>Kostenlose Besichtigung · Verbindliches Festpreisangebot · Keine Wartezeit</p>
-    <div class="lp-cta-row">
-      <a href="/kontakt" class="lp-cta-a">Offerte anfragen <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-      <a href="tel:+41765397974" class="lp-cta-b">076 539 79 74</a>
+    <div>
+      <a href="/kontakt" class="lp-ca">Offerte anfragen <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+      <a href="tel:+41765397974" class="lp-cb">076 539 79 74</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
-      <div><p class="footer-headline">Qualität liegt im Detail – bei jedem Handgriff.</p><a href="/kontakt" class="footer-cta-link">Kontakt aufnehmen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></div>
-      <div class="foot-contact"><div class="foot-contact-row"><p>Telefon</p><a href="tel:+41765397974">+41 76 539 79 74</a></div><div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div><div class="foot-contact-row"><p>Standort</p><a href="/kontakt">Urtenen-Schönbühl, Schweiz</a></div></div>
-      <nav class="foot-nav"><a href="/projekte" class="foot-link">Projekte</a><a href="/leistungen/" class="foot-link">Leistungen</a><a href="/farbpalette" class="foot-link">RAL Farbpalette</a><a href="/ueber-uns" class="foot-link">Über uns</a><a href="/kontakt" class="foot-link">Kontakt</a><a href="/impressum" class="foot-link">Impressum</a><a href="/datenschutz" class="foot-link">Datenschutz</a><a href="/blog/" class="foot-link">Blog</a><a href="/regionen/" class="foot-link">Regionen</a></nav>
-      <div class="foot-req"><a href="/kontakt">Anfrage stellen</a></div>
+      <div>
+        <p class="footer-headline">Qualität liegt im Detail – bei jedem Handgriff.</p>
+        <a href="/kontakt.html" class="footer-cta-link">
+          Kontakt aufnehmen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+      <div class="foot-contact">
+        <div class="foot-contact-row"><p>Telefon</p><a href="tel:+41765397974">+41 76 539 79 74</a></div>
+        <div class="foot-contact-row"><p>E-Mail</p><a href="mailto:info@polycore.ch">info@polycore.ch</a></div>
+        <div class="foot-contact-row"><p>Standort</p><a href="/kontakt.html">Urtenen-Schönbühl, Schweiz</a></div>
+      </div>
+      <nav class="foot-nav">
+        <a href="/projekte.html" class="foot-link">Projekte</a>
+        <a href="/leistungen/" class="foot-link">Leistungen</a>
+        <a href="/ueber-uns.html" class="foot-link">Über uns</a>
+        <a href="/kontakt.html" class="foot-link">Kontakt</a>
+        <a href="/impressum.html" class="foot-link">Impressum</a>
+        <a href="/datenschutz.html" class="foot-link">Datenschutz</a>
+      </nav>
+      <div class="foot-req"><a href="/kontakt.html">Anfrage stellen</a></div>
     </div>
-    <div class="footer-bottom"><div class="socials"><a href="#" class="social-a" aria-label="Instagram"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.44c2.14 0 2.39.01 3.23.05a4.42 4.42 0 011.49.28 2.64 2.64 0 011.52 1.52 4.42 4.42 0 01.28 1.49c.04.84.05 1.1.05 3.23s-.01 2.39-.05 3.23a4.42 4.42 0 01-.28 1.49 2.64 2.64 0 01-1.52 1.52 4.42 4.42 0 01-1.49.28c-.84.04-1.09.05-3.23.05s-2.39-.01-3.23-.05a4.42 4.42 0 01-1.49-.28 2.64 2.64 0 01-1.52-1.52 4.42 4.42 0 01-.27-1.49C.01 10.39 0 10.14 0 8s.01-2.39.05-3.23a4.42 4.42 0 01.27-1.49 2.64 2.64 0 011.52-1.52 4.42 4.42 0 011.49-.27C4.17 1.45 4.43 1.44 8 1.44zM8 0C5.83 0 5.56.01 4.7.05A5.87 5.87 0 002.76.42 3.91 3.91 0 00.42 2.76 5.87 5.87 0 00.05 4.7C.01 5.56 0 5.83 0 8s.01 2.45.05 3.3a5.87 5.87 0 00.37 1.94 3.91 3.91 0 002.34 2.34 5.87 5.87 0 001.94.37C5.55 15.99 5.83 16 8 16s2.45-.01 3.3-.05a5.87 5.87 0 001.94-.37 4.09 4.09 0 002.34-2.34A5.87 5.87 0 0015.95 11.3C15.99 10.45 16 10.17 16 8s-.01-2.45-.05-3.3a5.87 5.87 0 00-.37-1.94 3.91 3.91 0 00-2.34-2.34A5.87 5.87 0 0011.3.05C10.45.01 10.17 0 8 0z"/><path d="M8 3.89a4.11 4.11 0 100 8.22A4.11 4.11 0 008 3.89zm0 6.78A2.67 2.67 0 1110.67 8 2.67 2.67 0 018 10.67z"/><circle cx="12.27" cy="3.73" r=".96"/></svg></a><a href="#" class="social-a" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.3 0H.7C.3 0 0 .3 0 .7v14.7c0 .3.3.6.7.6h14.7c.4 0 .7-.3.7-.6V.7C16 .3 15.7 0 15.3 0zM4.7 13.6H2.4V6h2.4v7.6zm-1.1-8.6C2.8 5 2.2 4.3 2.2 3.6c0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4C4.9 4.3 4.3 5 3.6 5zm10 8.6h-2.4V9.9c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8H6.2V6h2.3v1h.1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4.2z"/></svg></a></div><p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge & Bautenschutz · Urtenen-Schönbühl, Schweiz</p></div>
+    <div class="footer-bottom">
+      <div class="socials">
+        <a href="#" class="social-a" aria-label="Instagram"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C5.83 0 5.56.01 4.7.05A5.87 5.87 0 002.76.42 3.91 3.91 0 00.42 2.76 5.87 5.87 0 00.05 4.7C.01 5.56 0 5.83 0 8s.01 2.45.05 3.3a5.87 5.87 0 00.37 1.94 3.91 3.91 0 002.34 2.34 5.87 5.87 0 001.94.37C5.55 15.99 5.83 16 8 16s2.45-.01 3.3-.05a5.87 5.87 0 001.94-.37 4.09 4.09 0 002.34-2.34A5.87 5.87 0 0015.95 11.3C15.99 10.45 16 10.17 16 8s-.01-2.45-.05-3.3a5.87 5.87 0 00-.37-1.94 3.91 3.91 0 00-2.34-2.34A5.87 5.87 0 0011.3.05C10.45.01 10.17 0 8 0zm0 1.44c2.14 0 2.39.01 3.23.05.78.04 1.2.16 1.49.28a2.64 2.64 0 011.52 1.52c.12.29.24.71.28 1.49.04.84.05 1.1.05 3.23s-.01 2.39-.05 3.23c-.04.78-.16 1.2-.28 1.49a2.64 2.64 0 01-1.52 1.52c-.29.12-.71.24-1.49.28-.84.04-1.09.05-3.23.05s-2.39-.01-3.23-.05c-.78-.04-1.2-.16-1.49-.28a2.64 2.64 0 01-1.52-1.52c-.12-.29-.24-.71-.28-1.49C1.45 10.39 1.44 10.14 1.44 8s.01-2.39.05-3.23c.04-.78.16-1.2.28-1.49A2.64 2.64 0 013.29 1.76c.29-.12.71-.24 1.49-.28C5.61 1.45 5.87 1.44 8 1.44zm0 2.45a4.11 4.11 0 100 8.22A4.11 4.11 0 008 3.89zm0 6.78A2.67 2.67 0 1110.67 8 2.67 2.67 0 018 10.67zm5.23-6.94a.96.96 0 100 1.92.96.96 0 000-1.92z"/></svg></a>
+        <a href="#" class="social-a" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.3 0H.7C.3 0 0 .3 0 .7v14.7c0 .3.3.6.7.6h14.7c.4 0 .7-.3.7-.6V.7C16 .3 15.7 0 15.3 0zM4.7 13.6H2.4V6h2.4v7.6zm-1.1-8.6C2.8 5 2.2 4.3 2.2 3.6c0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4C4.9 4.3 4.3 5 3.6 5zm10 8.6h-2.4V9.9c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8H6.2V6h2.3v1h.1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4.2z"/></svg></a>
+      </div>
+      <p class="foot-copy">© 2026 POLYCORE GmbH · Bodenbeläge &amp; Bautenschutz · Urtenen-Schönbühl, Schweiz</p>
+    </div>
   </div>
 </footer>
 
-<script src="/js/effects.js"></script>
-<script src="/js/mobile-effects.js"></script>
-<!-- MOBILNI MENI LOGIKA -->
+<script src="../js/main.js"></script>
 <script>
-(function(){
-  const trigger=document.getElementById('mobileTrigger'),overlay=document.getElementById('mobileOverlay'),container=document.getElementById('mobileMenuContainer'),logo=document.getElementById('mobTopLogo'),servToggle=document.getElementById('mobServicesToggle'),submenu=document.getElementById('mobileSubmenu');
-  let open=false;
-  function openM(){if(open)return;open=true;trigger.classList.add('open');container.classList.add('open');overlay.classList.add('active');logo&&logo.classList.add('logo-shifted');document.body.style.overflow='hidden';}
-  function closeM(){if(!open)return;open=false;trigger.classList.remove('open');container.classList.remove('open');overlay.classList.remove('active');logo&&logo.classList.remove('logo-shifted');document.body.style.overflow='';servToggle&&servToggle.classList.remove('open');submenu&&submenu.classList.remove('open');}
-  trigger.addEventListener('click',e=>{e.stopPropagation();open?closeM():openM();});
-  overlay.addEventListener('click',closeM);
-  servToggle&&servToggle.addEventListener('click',e=>{e.stopPropagation();servToggle.classList.toggle('open');submenu.classList.toggle('open');});
-  document.querySelectorAll('#mobileMenuContainer a').forEach(l=>l.addEventListener('click',closeM));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open)closeM();});
-  let ts=0;
-  container.addEventListener('touchstart',e=>{ts=e.touches[0].clientY;},{passive:true});
-  container.addEventListener('touchmove',e=>{if(e.touches[0].clientY-ts>50&&container.scrollTop===0)closeM();},{passive:true});
-  document.querySelectorAll('.acc-item').forEach(item=>{
-    const btn=item.querySelector('.acc-btn'),body=item.querySelector('.acc-body');
-    btn.addEventListener('click',()=>{item.classList.toggle('open');body.style.maxHeight=item.classList.contains('open')?body.scrollHeight+'px':null;});
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+  if (img && img.complete) {
+    activate();
+  } else if (img) {
+    img.addEventListener('load', activate);
+    img.addEventListener('error', activate);
+    setTimeout(activate, 2000);
+  } else {
+    activate();
+  }
+})();
+</script>
+<script src="../js/effects.js"></script>
+<script src="../js/mobile-effects.js"></script>
+
+<script src="../js/main.js"></script>
+<script>
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+  if (img && img.complete) {
+    activate();
+  } else if (img) {
+    img.addEventListener('load', activate);
+    img.addEventListener('error', activate);
+    setTimeout(activate, 2000);
+  } else {
+    activate();
+  }
+})();
+</script>
+<script src="../js/effects.js"></script>
+<script src="../js/mobile-effects.js"></script>
+
+<script src="../js/main.js"></script>
+<script>
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+  if (img && img.complete) {
+    activate();
+  } else if (img) {
+    img.addEventListener('load', activate);
+    img.addEventListener('error', activate);
+    setTimeout(activate, 2000);
+  } else {
+    activate();
+  }
+})();
+</script>
+<script src="../js/effects.js"></script>
+<script src="../js/mobile-effects.js"></script>
+
+<script>
+(function() {
+  var img = document.querySelector('.page-hero-bg img');
+  function activate() {
+    setTimeout(function() {
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+  if (img && img.complete) {
+    activate();
+  } else if (img) {
+    img.addEventListener('load', activate);
+    img.addEventListener('error', activate);
+    setTimeout(activate, 2000);
+  } else {
+    activate();
+  }
+})();
+</script>
+<script src="../js/effects.js"></script>
+<script src="../js/mobile-effects.js"></script>
+<!-- MOBILNI MENI LOGIKA (otvaranje/zatvaranje + pomicanje logoa) -->
+<script>
+(function() {
+  const trigger = document.getElementById('mobileTrigger');
+  const overlay = document.getElementById('mobileOverlay');
+  const container = document.getElementById('mobileMenuContainer');
+  const servicesToggle = document.getElementById('mobServicesToggle');
+  const submenu = document.getElementById('mobileSubmenu');
+  const logo = document.getElementById('mobTopLogo');
+  let isOpen = false;
+
+  function openMenu() {
+    if (isOpen) return;
+    isOpen = true;
+    trigger.classList.add('open');
+    container.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (logo) logo.classList.add('logo-shifted');
+  }
+  function closeMenu() {
+    if (!isOpen) return;
+    isOpen = false;
+    trigger.classList.remove('open');
+    container.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (logo) logo.classList.remove('logo-shifted');
+    servicesToggle.classList.remove('open');
+    submenu.classList.remove('open');
+  }
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isOpen ? closeMenu() : openMenu();
   });
+  overlay.addEventListener('click', closeMenu);
+  servicesToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    servicesToggle.classList.toggle('open');
+    submenu.classList.toggle('open');
+  });
+  document.querySelectorAll('#mobileMenuContainer a').forEach(link => {
+    link.addEventListener('click', () => { closeMenu(); });
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen) closeMenu(); });
+  let touchStartY = 0;
+  container.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, {passive: true});
+  container.addEventListener('touchmove', (e) => {
+    const delta = e.touches[0].clientY - touchStartY;
+    if (delta > 50 && container.scrollTop === 0) closeMenu();
+  }, {passive: true});
 })();
 </script>
 </body>
