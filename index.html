@@ -400,9 +400,17 @@ img.morph-bg-layer.active { opacity:1;transform:scale(1); }
   .morph-step { min-height:85vh; }
   .morph-card { width:100%;max-width:100%; }
 }
+
+/* ── LANDING PAGE: navbar blur od pocetka ── */
+body.landing-page .nav {
+  background: rgba(10, 6, 5, 0.25) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
 </style>
 </head>
-<body>
+<body class="landing-page">
 
 <!-- ─── SCROLL SPY LABEL ─── -->
 <div class="nav-spy-label" id="navSpyLabel"></div>
