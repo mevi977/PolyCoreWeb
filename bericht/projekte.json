@@ -1460,8 +1460,20 @@
     "system": "",
     "passwort": "mevi3",
     "status": "active",
-    "updated": "2026-08-29T08:12:44.189Z",
-    "etappen": [],
+    "updated": "2026-08-29T08:14:13.508Z",
+    "etappen": [
+      {
+        "titel": "Neue Etappe",
+        "datum": "2026-08-29",
+        "status": "pending",
+        "fotos": [],
+        "kommentare": [],
+        "stunden": 2,
+        "mitarbeiter": "FLK",
+        "material": "test",
+        "beschreibung": "sfr"
+      }
+    ],
     "materialien": [],
     "aufmass": [],
     "injektionen": {
