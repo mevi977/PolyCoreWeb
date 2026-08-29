@@ -533,59 +533,6 @@ function bindInjEvents(slug){
     });
   });
 }
-function _dummy(){
-  document.getElementById('btn-add-riss').addEventListener('click', function(){
-    readInjektionen(slug);
-    var p=getP(slug);
-    if(!p.injektionen) p.injektionen={risse:[],checkliste:{},bemerkungen:''};
-    p.injektionen.risse.push({nr:'R-'+(p.injektionen.risse.length+1).toString().padStart(2,'0'),bauteil:'',breite:'',art:'statisch',feuchte:'trocken',system:'EP',verbrauch:''});
-    document.getElementById('riss-list').innerHTML=document.getElementById('tab-injektionen').querySelector('#riss-list').outerHTML;
-    renderDetail(slug);
-  });
-  document.querySelectorAll('[data-del-riss]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      readInjektionen(slug);
-      var p=getP(slug);
-      var i=+btn.getAttribute('data-del-riss');
-      p.injektionen.risse.splice(i,1);
-      renderDetail(slug);
-    });
-  });
-
-  // Tabs
-  mc.querySelectorAll('.tab').forEach(function(t){
-    t.addEventListener('click', function(){
-      mc.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('active'); });
-      mc.querySelectorAll('.tab-pane').forEach(function(x){ x.classList.remove('active'); });
-      this.classList.add('active');
-      document.getElementById('tab-'+this.dataset.tab).classList.add('active');
-    });
-  });
-
-  // Event delegation for dynamic elements
-  document.getElementById('et-list').addEventListener('click', function(e){
-    var t=e.target.closest('[data-action]');
-    if(!t) return;
-    var a=t.dataset.action,s=t.dataset.slug,i=parseInt(t.dataset.i),fi=parseInt(t.dataset.fi),ki=parseInt(t.dataset.ki);
-    if(a==='toggle') toggleEt(i);
-    else if(a==='delfoto') { projects[s].etappen[i].fotos.splice(fi,1); refreshEtList(s); }
-    else if(a==='delcmt') { projects[s].etappen[i].kommentare.splice(ki,1); refreshEtList(s); }
-    else if(a==='addcmt') { addComment(s,i); }
-    else if(a==='delet') { if(confirm('Arbeitsschritt löschen?')){ projects[s].etappen.splice(i,1); refreshEtList(s); } }
-  });
-  document.getElementById('et-list').addEventListener('change', function(e){
-    var t=e.target.closest('[data-upet]');
-    if(!t) return;
-    var s=t.dataset.slug,i=parseInt(t.dataset.i),k=t.dataset.key;
-    projects[s].etappen[i][k] = t.type==='number' ? +t.value : t.value;
-  });
-  document.getElementById('et-list').addEventListener('change', function(e){
-    if(e.target.matches('.foto-file-input')) {
-      var t=e.target,s=t.dataset.slug,i=parseInt(t.dataset.i);
-      uploadPhotos(t.files,s,i);
-    }
-  });
-}
 
 function refreshEtList(slug) {
   document.getElementById('et-list').innerHTML = renderArbeitsschritteList(slug);
