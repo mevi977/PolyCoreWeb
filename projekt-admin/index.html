@@ -276,6 +276,7 @@ var _tpl = null;
 
 function publishBericht(slug, cb) {
   readFields(slug);
+  readInjektionen(slug);
   var p = projects[slug];
   toast('Wird veröffentlicht...', '');
 
@@ -455,7 +456,7 @@ function renderEditor(slug) {
       '<button class="tab active" data-tab="projekt">Projekt</button>'+
       '<button class="tab" data-tab="etappen">Arbeitsschritte ('+p.etappen.length+')</button>'+
       '<button class="tab" data-tab="extras">Regie &amp; Material</button>'+
-      '<button class="tab" data-tab="injektionen">Injektionen</button>'+
+    '<button class="tab" data-tab="injektionen">Injektionen</button>'+
     '</div>'+
     // Tab: Projekt
     '<div class="tab-pane active" id="tab-projekt">'+
@@ -486,8 +487,7 @@ function renderEditor(slug) {
       '<div id="et-list">'+renderArbeitsschritteList(slug)+'</div>'+
     '</div>'+
     // Tab: Extras
-    '<div class="tab-pane" id="tab-extras">'+renderExtras(slug)+'</div>'+
-    '<div class="tab-pane" id="tab-injektionen">'+renderInjektionen(slug)+'</div>';
+    '<div class="tab-pane" id="tab-extras">'+renderExtras(slug)+'</div>';
 
   // Events
   document.getElementById('btn-save').addEventListener('click', function(){
@@ -499,29 +499,53 @@ function renderEditor(slug) {
   document.getElementById('btn-copy').addEventListener('click', function(){ navigator.clipboard.writeText(url).then(function(){ toast('Link kopiert!','ok'); }); });
   document.getElementById('btn-del').addEventListener('click', function(){ deleteProject(slug); });
   document.getElementById('btn-add-et').addEventListener('click', function(){ addEtappe(slug); });
+
   setTimeout(function(){
-    var b = document.getElementById('btn-add-riss');
-    if(b) b.addEventListener('click', function(){
+    var b=document.getElementById('btn-add-riss');
+    if(b) b.addEventListener('click',function(){
       readInjektionen(slug);
       var p=getP(slug);
       if(!p.injektionen) p.injektionen={risse:[],checkliste:{},bemerkungen:''};
-      var n = p.injektionen.risse.length + 1;
+      var n=p.injektionen.risse.length+1;
       p.injektionen.risse.push({nr:'R-'+(n<10?'0':'')+n,bauteil:'',breite:'',art:'statisch',feuchte:'trocken',system:'EP',verbrauch:''});
-      document.getElementById('tab-injektionen').innerHTML = renderInjektionen(slug);
+      document.getElementById('tab-injektionen').innerHTML=renderInjektionen(slug);
       attachDelRiss(slug);
     });
     attachDelRiss(slug);
-  }, 100);
-}
-function attachDelRiss(slug){
-  document.querySelectorAll('.del-riss').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      readInjektionen(slug);
-      var p=getP(slug);
-      p.injektionen.risse.splice(+btn.getAttribute('data-i'), 1);
-      document.getElementById('tab-injektionen').innerHTML = renderInjektionen(slug);
-      attachDelRiss(slug);
+  },100);
+
+  // Tabs
+  mc.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      mc.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('active'); });
+      mc.querySelectorAll('.tab-pane').forEach(function(x){ x.classList.remove('active'); });
+      this.classList.add('active');
+      document.getElementById('tab-'+this.dataset.tab).classList.add('active');
     });
+  });
+
+  // Event delegation for dynamic elements
+  document.getElementById('et-list').addEventListener('click', function(e){
+    var t=e.target.closest('[data-action]');
+    if(!t) return;
+    var a=t.dataset.action,s=t.dataset.slug,i=parseInt(t.dataset.i),fi=parseInt(t.dataset.fi),ki=parseInt(t.dataset.ki);
+    if(a==='toggle') toggleEt(i);
+    else if(a==='delfoto') { projects[s].etappen[i].fotos.splice(fi,1); refreshEtList(s); }
+    else if(a==='delcmt') { projects[s].etappen[i].kommentare.splice(ki,1); refreshEtList(s); }
+    else if(a==='addcmt') { addComment(s,i); }
+    else if(a==='delet') { if(confirm('Arbeitsschritt löschen?')){ projects[s].etappen.splice(i,1); refreshEtList(s); } }
+  });
+  document.getElementById('et-list').addEventListener('change', function(e){
+    var t=e.target.closest('[data-upet]');
+    if(!t) return;
+    var s=t.dataset.slug,i=parseInt(t.dataset.i),k=t.dataset.key;
+    projects[s].etappen[i][k] = t.type==='number' ? +t.value : t.value;
+  });
+  document.getElementById('et-list').addEventListener('change', function(e){
+    if(e.target.matches('.foto-file-input')) {
+      var t=e.target,s=t.dataset.slug,i=parseInt(t.dataset.i);
+      uploadPhotos(t.files,s,i);
+    }
   });
 }
 
@@ -682,69 +706,64 @@ function uploadPhotos(files, slug, i) {
 }
 
 // ===== EXTRAS (Regie, Material, Aufmass) =====
-
-
-
-
-function renderInjektionen(slug){
-  var p=getP(slug), inj=p.injektionen||{risse:[],checkliste:{},bemerkungen:''}, chk=inj.checkliste||{}, risse=inj.risse||[];
-  var phases=[
-    {l:'I. Vorbereitung',items:[{k:'unterlagen',t:'Auftragsunterlagen vollst\u00e4ndig'},{k:'wetter',t:'Wetter/Temperatur gepr\u00fcft'},{k:'material',t:'Material eingepackt'},{k:'sdb',t:'Sicherheitsdatenbl\u00e4tter griffbereit'},{k:'psa',t:'PSA vollst\u00e4ndig'},{k:'werkzeug',t:'Werkzeug vollst\u00e4ndig'}]},
-    {l:'II. Bestandsaufnahme',items:[{k:'rissverlauf',t:'Rissverlauf gemessen'},{k:'foto_vor',t:'Foto VOR Beginn'},{k:'rissart',t:'Rissart gekl\u00e4rt'},{k:'feuchte_check',t:'Feuchtezustand gepr\u00fcft'},{k:'bauteil_fn',t:'Bauteilfunktion gekl\u00e4rt'}]},
-    {l:'III. Untergrundvorbereitung',items:[{k:'freigelegt',t:'Riss freigelegt/gereinigt'},{k:'bohrlocher',t:'Bohrl\u00f6cher gesetzt (45\u00b0)'},{k:'bohrmehl',t:'Bohrmehl abgesaugt'},{k:'verschluss',t:'Oberfl\u00e4che abgedichtet'},{k:'aushaerte',t:'Ausha\u00e4rtezeit abgewartet'}]},
-    {l:'IV. Packersetzung',items:[{k:'packertyp',t:'Packertyp gew\u00e4hlt'},{k:'abstand',t:'Abstand eingehalten'},{k:'dichtigkeit',t:'Dichtigkeit gepr\u00fcft'},{k:'nummeriert',t:'Packer nummeriert'}]},
-    {l:'V. Injektionsvorgang',items:[{k:'gemischt',t:'Material gemischt'},{k:'temperatur',t:'Temperatur gepr\u00fcft'},{k:'unten_oben',t:'Von unten nach oben'},{k:'druck',t:'Druck kontrolliert'},{k:'austritt',t:'Austritt am Nachbarpacker'},{k:'rueckschlag',t:'R\u00fcckschlagventil geschlossen'}]},
-    {l:'VI. Nachbereitung & QS',items:[{k:'packer_weg',t:'Packer entfernt'},{k:'bohrlocher2',t:'Bohrl\u00f6cher verschlossen'},{k:'oberflaeche',t:'Oberfl\u00e4che gereinigt'},{k:'werkzeug_rein',t:'Werkzeug gereinigt'},{k:'sichtpruef',t:'Sichtpr\u00fcfung OK'},{k:'protokoll',t:'Protokoll ausgef\u00fcllt'},{k:'foto_nach',t:'Foto NACH Abschluss'}]}
-  ];
-  var h = '<div class="card" style="margin-bottom:1rem"><div class="card-t">Risse <button class="btn bd" id="btn-add-riss" style="padding:.3rem .65rem;font-size:.72rem">+ Riss hinzuf\u00fcgen</button></div><div id="riss-list">';
-  risse.forEach(function(r,i){
-    h += '<div style="margin-bottom:.75rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)"><div class="fr2">' +
-      '<div class="fg"><label class="fl">Nr.</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="nr" value="'+(r.nr||'')+'"/></div>' +
-      '<div class="fg"><label class="fl">Bauteil</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="bauteil" value="'+(r.bauteil||'')+'"/></div>' +
-      '<div class="fg"><label class="fl">Breite</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="breite" value="'+(r.breite||'')+'"/></div>' +
-      '<div class="fg"><label class="fl">Art</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="art">' +
-        '<option value="statisch"'+(r.art==='statisch'?' selected':'')+'>Statisch</option>' +
-        '<option value="dynamisch"'+(r.art==='dynamisch'?' selected':'')+'>Dynamisch</option>' +
-      '</select></div>' +
-      '<div class="fg"><label class="fl">Feuchte</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="feuchte">' +
-        '<option value="trocken"'+(r.feuchte==='trocken'?' selected':'')+'>Trocken</option>' +
-        '<option value="feucht"'+(r.feuchte==='feucht'?' selected':'')+'>Feucht</option>' +
-        '<option value="drueckendes_wasser"'+(r.feuchte==='drueckendes_wasser'?' selected':'')+'>Dr\u00fcckend</option>' +
-      '</select></div>' +
-      '<div class="fg"><label class="fl">System</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="system">' +
-        '<option value="EP"'+(r.system==='EP'?' selected':'')+'>EP</option>' +
-        '<option value="PU 2K"'+(r.system==='PU 2K'?' selected':'')+'>PU 2K</option>' +
-        '<option value="PU Schaum"'+(r.system==='PU Schaum'?' selected':'')+'>PU Schaum</option>' +
-        '<option value="Acrylatgel"'+(r.system==='Acrylatgel'?' selected':'')+'>Acrylatgel</option>' +
-        '<option value="Zement"'+(r.system==='Zement'?' selected':'')+'>Zement</option>' +
-      '</select></div>' +
-      '<div class="fg"><label class="fl">Verbrauch</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="verbrauch" value="'+(r.verbrauch||'')+'"/></div>' +
-      '<div style="display:flex;align-items:flex-end"><button class="btn bdel del-riss" data-i="'+i+'" style="padding:.35rem .65rem;font-size:.72rem">&#x2715;</button></div>' +
-    '</div></div>';
-  });
-  h += '</div></div>';
-  h += '<div class="card"><div class="card-t">Checkliste Rissinjektion</div>';
-  phases.forEach(function(ph){
-    h += '<div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4a0e1a;margin:.75rem 0 .35rem;padding:.2rem .5rem;background:rgba(74,14,26,.06);border-radius:4px;display:inline-block">'+ph.l+'</div>';
-    ph.items.forEach(function(it){
-      h += '<label style="display:flex;align-items:center;gap:.5rem;padding:.35rem 0;border-bottom:1px solid var(--border);cursor:pointer;font-size:.82rem">' +
-        '<input type="checkbox" class="inj-chk-input" data-k="'+it.k+'" '+(chk[it.k]?'checked':'')+' style="width:auto;margin:0;accent-color:#4a0e1a"/>'+it.t+'</label>';
+function attachDelRiss(slug){
+  document.querySelectorAll('.del-riss').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      readInjektionen(slug);
+      var p=getP(slug);
+      p.injektionen.risse.splice(+btn.getAttribute('data-i'),1);
+      document.getElementById('tab-injektionen').innerHTML=renderInjektionen(slug);
+      attachDelRiss(slug);
     });
   });
-  h += '</div><div class="card" style="margin-top:1rem"><div class="card-t">Bemerkungen</div><textarea class="fi" id="inj-bem" rows="3" style="resize:vertical">'+(inj.bemerkungen||'')+'</textarea></div>';
+}
+
+function renderInjektionen(slug){
+  var p=getP(slug),inj=p.injektionen||{risse:[],checkliste:{},bemerkungen:''},chk=inj.checkliste||{},risse=inj.risse||[];
+  var phases=[
+    {l:'I. Vorbereitung',items:[{k:'unterlagen',t:'Auftragsunterlagen vollständig'},{k:'wetter',t:'Wetter/Temperatur geprüft'},{k:'material',t:'Material eingepackt'},{k:'sdb',t:'Sicherheitsdatenblätter griffbereit'},{k:'psa',t:'PSA vollständig'},{k:'werkzeug',t:'Werkzeug vollständig'}]},
+    {l:'II. Bestandsaufnahme',items:[{k:'rissverlauf',t:'Rissverlauf gemessen'},{k:'foto_vor',t:'Foto VOR Beginn'},{k:'rissart',t:'Rissart geklärt'},{k:'feuchte_check',t:'Feuchtezustand geprüft'},{k:'bauteil_fn',t:'Bauteilfunktion geklärt'}]},
+    {l:'III. Untergrundvorbereitung',items:[{k:'freigelegt',t:'Riss freigelegt/gereinigt'},{k:'bohrlocher',t:'Bohrlöcher gesetzt (45°)'},{k:'bohrmehl',t:'Bohrmehl abgesaugt'},{k:'verschluss',t:'Oberfläche abgedichtet'},{k:'aushaerte',t:'Aushaärtezeit abgewartet'}]},
+    {l:'IV. Packersetzung',items:[{k:'packertyp',t:'Packertyp gewählt'},{k:'abstand',t:'Abstand eingehalten'},{k:'dichtigkeit',t:'Dichtigkeit geprüft'},{k:'nummeriert',t:'Packer nummeriert'}]},
+    {l:'V. Injektionsvorgang',items:[{k:'gemischt',t:'Material gemischt'},{k:'temperatur',t:'Temperatur geprüft'},{k:'unten_oben',t:'Von unten nach oben'},{k:'druck',t:'Druck kontrolliert'},{k:'austritt',t:'Austritt am Nachbarpacker'},{k:'rueckschlag',t:'Rückschlagventil geschlossen'}]},
+    {l:'VI. Nachbereitung & QS',items:[{k:'packer_weg',t:'Packer entfernt'},{k:'bohrlocher2',t:'Bohrlöcher verschlossen'},{k:'oberflaeche',t:'Oberfläche gereinigt'},{k:'werkzeug_rein',t:'Werkzeug gereinigt'},{k:'sichtpruef',t:'Sichtprüfung OK'},{k:'protokoll',t:'Protokoll ausgefüllt'},{k:'foto_nach',t:'Foto NACH Abschluss'}]}
+  ];
+  var h='<div class="card" style="margin-bottom:1rem"><div class="card-t">Risse <button class="btn bd" id="btn-add-riss" style="padding:.3rem .65rem;font-size:.72rem">+ Riss hinzufügen</button></div><div id="riss-list">';
+  risse.forEach(function(r,i){
+    h+='<div style="margin-bottom:.75rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)"><div class="fr2">'+
+      '<div class="fg"><label class="fl">Nr.</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="nr" value="'+(r.nr||'')+'"/></div>'+
+      '<div class="fg"><label class="fl">Bauteil</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="bauteil" value="'+(r.bauteil||'')+'"/></div>'+
+      '<div class="fg"><label class="fl">Breite</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="breite" value="'+(r.breite||'')+'"/></div>'+
+      '<div class="fg"><label class="fl">Art</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="art"><option value="statisch"'+(r.art==='statisch'?' selected':'')+'>Statisch</option><option value="dynamisch"'+(r.art==='dynamisch'?' selected':'')+'>Dynamisch</option></select></div>'+
+      '<div class="fg"><label class="fl">Feuchte</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="feuchte"><option value="trocken"'+(r.feuchte==='trocken'?' selected':'')+'>Trocken</option><option value="feucht"'+(r.feuchte==='feucht'?' selected':'')+'>Feucht</option><option value="drueckendes_wasser"'+(r.feuchte==='drueckendes_wasser'?' selected':'')+'>Drückend</option></select></div>'+
+      '<div class="fg"><label class="fl">System</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="system"><option value="EP"'+(r.system==='EP'?' selected':'')+'>EP</option><option value="PU 2K"'+(r.system==='PU 2K'?' selected':'')+'>PU 2K</option><option value="PU Schaum"'+(r.system==='PU Schaum'?' selected':'')+'>PU Schaum</option><option value="Acrylatgel"'+(r.system==='Acrylatgel'?' selected':'')+'>Acrylatgel</option><option value="Zement"'+(r.system==='Zement'?' selected':'')+'>Zement</option></select></div>'+
+      '<div class="fg"><label class="fl">Verbrauch</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="verbrauch" value="'+(r.verbrauch||'')+'"/></div>'+
+      '<div style="display:flex;align-items:flex-end"><button class="btn bdel del-riss" data-i="'+i+'" style="padding:.35rem .65rem;font-size:.72rem">✕</button></div>'+
+    '</div></div>';
+  });
+  h+='</div></div>';
+  h+='<div class="card"><div class="card-t">Checkliste Rissinjektion</div>';
+  phases.forEach(function(ph){
+    h+='<div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4a0e1a;margin:.75rem 0 .35rem;padding:.2rem .5rem;background:rgba(74,14,26,.06);border-radius:4px;display:inline-block">'+ph.l+'</div>';
+    ph.items.forEach(function(it){
+      h+='<label style="display:flex;align-items:center;gap:.5rem;padding:.35rem 0;border-bottom:1px solid var(--border);cursor:pointer;font-size:.82rem"><input type="checkbox" class="inj-chk-input" data-k="'+it.k+'" '+(chk[it.k]?'checked':'')+' style="width:auto;margin:0;accent-color:#4a0e1a"/>'+it.t+'</label>';
+    });
+  });
+  h+='</div><div class="card" style="margin-top:1rem"><div class="card-t">Bemerkungen</div><textarea class="fi" id="inj-bem" rows="3" style="resize:vertical">'+(inj.bemerkungen||'')+'</textarea></div>';
   return h;
 }
+
 function readInjektionen(slug){
   var p=getP(slug);
   if(!p.injektionen) p.injektionen={risse:[],checkliste:{},bemerkungen:''};
   var inj=p.injektionen;
   document.querySelectorAll('.riss-f').forEach(function(el){
-    var i=+el.getAttribute('data-i'), k=el.getAttribute('data-k');
+    var i=+el.getAttribute('data-i'),k=el.getAttribute('data-k');
     if(!inj.risse[i]) inj.risse[i]={};
     inj.risse[i][k]=el.value;
   });
   var chk={};
-  document.querySelectorAll('.inj-chk-input').forEach(function(el){ chk[el.getAttribute('data-k')]=el.checked; });
+  document.querySelectorAll('.inj-chk-input').forEach(function(el){chk[el.getAttribute('data-k')]=el.checked;});
   inj.checkliste=chk;
   var b=document.getElementById('inj-bem'); if(b) inj.bemerkungen=b.value;
 }
