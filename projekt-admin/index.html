@@ -719,7 +719,9 @@ function attachDelRiss(slug){
 }
 
 function renderInjektionen(slug){
-  var p=getP(slug),inj=p.injektionen||{risse:[],checkliste:{},bemerkungen:''},chk=inj.checkliste||{},risse=inj.risse||[];
+  var p=getP(slug);
+  if(!p.injektionen) p.injektionen={risse:[{nr:'R-01',bauteil:'',breite:'',art:'statisch',feuchte:'trocken',system:'EP',verbrauch:''}],checkliste:{},bemerkungen:''};
+  var inj=p.injektionen, chk=inj.checkliste||{}, risse=inj.risse||[];
   var phases=[
     {l:'I. Vorbereitung',items:[{k:'unterlagen',t:'Auftragsunterlagen vollständig'},{k:'wetter',t:'Wetter/Temperatur geprüft'},{k:'material',t:'Material eingepackt'},{k:'sdb',t:'Sicherheitsdatenblätter griffbereit'},{k:'psa',t:'PSA vollständig'},{k:'werkzeug',t:'Werkzeug vollständig'}]},
     {l:'II. Bestandsaufnahme',items:[{k:'rissverlauf',t:'Rissverlauf gemessen'},{k:'foto_vor',t:'Foto VOR Beginn'},{k:'rissart',t:'Rissart geklärt'},{k:'feuchte_check',t:'Feuchtezustand geprüft'},{k:'bauteil_fn',t:'Bauteilfunktion geklärt'}]},
