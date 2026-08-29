@@ -1460,9 +1460,59 @@
     "system": "",
     "passwort": "mevi3",
     "status": "active",
-    "updated": "2026-08-29T07:24:01.350Z",
+    "updated": "2026-08-29T08:12:43.021Z",
     "etappen": [],
     "materialien": [],
-    "aufmass": []
+    "aufmass": [],
+    "injektionen": {
+      "risse": [
+        {
+          "nr": "R-01",
+          "bauteil": "",
+          "breite": "",
+          "art": "statisch",
+          "feuchte": "trocken",
+          "system": "EP",
+          "verbrauch": ""
+        }
+      ],
+      "checkliste": {
+        "unterlagen": false,
+        "wetter": false,
+        "material": false,
+        "sdb": false,
+        "psa": false,
+        "werkzeug": false,
+        "rissverlauf": false,
+        "foto_vor": false,
+        "rissart": false,
+        "feuchte_check": false,
+        "bauteil_fn": false,
+        "freigelegt": false,
+        "bohrlocher": false,
+        "bohrmehl": false,
+        "verschluss": false,
+        "aushaerte": false,
+        "packertyp": false,
+        "abstand": false,
+        "dichtigkeit": false,
+        "nummeriert": false,
+        "gemischt": false,
+        "temperatur": false,
+        "unten_oben": false,
+        "druck": false,
+        "austritt": false,
+        "rueckschlag": false,
+        "packer_weg": false,
+        "bohrlocher2": false,
+        "oberflaeche": false,
+        "werkzeug_rein": false,
+        "sichtpruef": false,
+        "verbrauch_notiert": false,
+        "protokoll": false,
+        "foto_nach": false
+      },
+      "bemerkungen": ""
+    }
   }
 }
