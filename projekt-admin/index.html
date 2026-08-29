@@ -508,7 +508,7 @@ function renderEditor(slug) {
     if(addBtn){
       addBtn.onclick=function(){
         readInjektionen(slug);
-        var p=getP(slug);
+        var p=projects[slug];
         var n=p.injektionen.risse.length+1;
         p.injektionen.risse.push({nr:'R-'+(n<10?'0':'')+n,bauteil:'',breite:'',art:'statisch',feuchte:'trocken',system:'EP',verbrauch:''});
         document.getElementById('tab-injektionen').innerHTML=renderInjektionen(slug);
@@ -518,7 +518,7 @@ function renderEditor(slug) {
     document.querySelectorAll('.del-riss').forEach(function(btn){
       btn.onclick=function(){
         readInjektionen(slug);
-        var p=getP(slug);
+        var p=projects[slug];
         p.injektionen.risse.splice(+btn.getAttribute('data-i'),1);
         document.getElementById('tab-injektionen').innerHTML=renderInjektionen(slug);
         bindInjEvents();
@@ -720,7 +720,7 @@ function uploadPhotos(files, slug, i) {
 
 // ===== EXTRAS (Regie, Material, Aufmass) =====
 function renderInjektionen(slug){
-  var p=getP(slug);
+  var p=projects[slug];
   if(!p.injektionen){
     p.injektionen={
       risse:[{nr:'R-01',bauteil:'',breite:'',art:'statisch',feuchte:'trocken',system:'EP',verbrauch:''}],
@@ -843,7 +843,7 @@ function renderInjektionen(slug){
 }
 
 function readInjektionen(slug){
-  var p=getP(slug);
+  var p=projects[slug];
   if(!p.injektionen) p.injektionen={risse:[],checkliste:{},bemerkungen:''};
   var inj=p.injektionen;
   document.querySelectorAll('.riss-f').forEach(function(el){
