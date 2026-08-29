@@ -455,6 +455,7 @@ function renderEditor(slug) {
       '<button class="tab active" data-tab="projekt">Projekt</button>'+
       '<button class="tab" data-tab="etappen">Arbeitsschritte ('+p.etappen.length+')</button>'+
       '<button class="tab" data-tab="extras">Regie &amp; Material</button>'+
+      '<button class="tab" data-tab="injektionen">Injektionen</button>'+
     '</div>'+
     // Tab: Projekt
     '<div class="tab-pane active" id="tab-projekt">'+
@@ -485,18 +486,71 @@ function renderEditor(slug) {
       '<div id="et-list">'+renderArbeitsschritteList(slug)+'</div>'+
     '</div>'+
     // Tab: Extras
-    '<div class="tab-pane" id="tab-extras">'+renderExtras(slug)+'</div>';
+    '<div class="tab-pane" id="tab-extras">'+renderExtras(slug)+'</div>'+
+    // Tab: Injektionen
+    '<div class="tab-pane" id="tab-injektionen">'+renderInjektionen(slug)+'</div>';
 
   // Events
   document.getElementById('btn-save').addEventListener('click', function(){
     readFields(slug);
+    readInjektionen(slug);
     // Provjeri i spremi etappen promjene (status, itd.)
     saveProjects(function(){ renderSidebar(); });
   });
-  document.getElementById('btn-pub').addEventListener('click', function(){ readFields(slug); saveProjects(function(){ publishBericht(slug); }); });
+  document.getElementById('btn-pub').addEventListener('click', function(){ readFields(slug); readInjektionen(slug); saveProjects(function(){ publishBericht(slug); }); });
   document.getElementById('btn-copy').addEventListener('click', function(){ navigator.clipboard.writeText(url).then(function(){ toast('Link kopiert!','ok'); }); });
   document.getElementById('btn-del').addEventListener('click', function(){ deleteProject(slug); });
   document.getElementById('btn-add-et').addEventListener('click', function(){ addEtappe(slug); });
+  var addRissBtn=document.getElementById('btn-add-riss');
+  if(addRissBtn) addRissBtn.addEventListener('click', function(){
+    readInjektionen(slug);
+    var p=getP(slug);
+    if(!p.injektionen) p.injektionen={risse:[],checkliste:{},bemerkungen:''};
+    p.injektionen.risse.push({nr:'R-'+(p.injektionen.risse.length+1).toString().padStart(2,'0'),bauteil:'',breite:'',art:'statisch',feuchte:'trocken',system:'EP',verbrauch:''});
+    document.getElementById('tab-injektionen').innerHTML=renderInjektionen(slug);
+    bindInjEvents(slug);
+  });
+  bindInjEvents(slug);
+}
+function bindInjEvents(slug){
+  var addRissBtn=document.getElementById('btn-add-riss');
+  if(addRissBtn) addRissBtn.addEventListener('click', function(){
+    readInjektionen(slug);
+    var p=getP(slug);
+    if(!p.injektionen) p.injektionen={risse:[],checkliste:{},bemerkungen:''};
+    p.injektionen.risse.push({nr:'R-'+(p.injektionen.risse.length+1).toString().padStart(2,'0'),bauteil:'',breite:'',art:'statisch',feuchte:'trocken',system:'EP',verbrauch:''});
+    document.getElementById('tab-injektionen').innerHTML=renderInjektionen(slug);
+    bindInjEvents(slug);
+  });
+  document.querySelectorAll('.del-riss').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      readInjektionen(slug);
+      var p=getP(slug);
+      var i=+btn.getAttribute('data-i');
+      p.injektionen.risse.splice(i,1);
+      document.getElementById('tab-injektionen').innerHTML=renderInjektionen(slug);
+      bindInjEvents(slug);
+    });
+  });
+}
+function _dummy(){
+  document.getElementById('btn-add-riss').addEventListener('click', function(){
+    readInjektionen(slug);
+    var p=getP(slug);
+    if(!p.injektionen) p.injektionen={risse:[],checkliste:{},bemerkungen:''};
+    p.injektionen.risse.push({nr:'R-'+(p.injektionen.risse.length+1).toString().padStart(2,'0'),bauteil:'',breite:'',art:'statisch',feuchte:'trocken',system:'EP',verbrauch:''});
+    document.getElementById('riss-list').innerHTML=document.getElementById('tab-injektionen').querySelector('#riss-list').outerHTML;
+    renderDetail(slug);
+  });
+  document.querySelectorAll('[data-del-riss]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      readInjektionen(slug);
+      var p=getP(slug);
+      var i=+btn.getAttribute('data-del-riss');
+      p.injektionen.risse.splice(i,1);
+      renderDetail(slug);
+    });
+  });
 
   // Tabs
   mc.querySelectorAll('.tab').forEach(function(t){
@@ -690,6 +744,76 @@ function uploadPhotos(files, slug, i) {
 }
 
 // ===== EXTRAS (Regie, Material, Aufmass) =====
+
+function renderInjektionen(slug){
+  var p=getP(slug);
+  var inj=p.injektionen||{risse:[],checkliste:{},bemerkungen:''};
+  var chk=inj.checkliste||{};
+  var risse=inj.risse||[];
+  var phases=[
+    {label:'I. Vorbereitung',items:[{k:'unterlagen',l:'Auftragsunterlagen vollst\u00e4ndig'},{k:'wetter',l:'Wetter / Temperatur gepr\u00fcft'},{k:'material',l:'Material eingepackt'},{k:'sdb',l:'Sicherheitsdatenbl\u00e4tter griffbereit'},{k:'psa',l:'PSA vollst\u00e4ndig'},{k:'werkzeug',l:'Werkzeug / Ger\u00e4te vollst\u00e4ndig'}]},
+    {label:'II. Bestandsaufnahme',items:[{k:'rissverlauf',l:'Rissverlauf gemessen'},{k:'foto_vor',l:'Fotodokumentation VOR Beginn'},{k:'rissart',l:'Rissart gekl\u00e4rt'},{k:'feuchte_check',l:'Feuchtezustand gepr\u00fcft'},{k:'bauteil_fn',l:'Bauteilfunktion gekl\u00e4rt'}]},
+    {label:'III. Untergrundvorbereitung',items:[{k:'freigelegt',l:'Riss freigelegt und gereinigt'},{k:'bohrlocher',l:'Bohrl\u00f6cher gesetzt (45\u00b0)'},{k:'bohrmehl',l:'Bohrmehl abgesaugt'},{k:'verschluss',l:'Rissoberfl\u00e4che abgedichtet'},{k:'aushaerte',l:'Ausha\u00e4rtezeit abgewartet'}]},
+    {label:'IV. Packersetzung',items:[{k:'packertyp',l:'Packertyp gew\u00e4hlt'},{k:'abstand',l:'Packerabstand eingehalten'},{k:'dichtigkeit',l:'Sitz/Dichtigkeit gepr\u00fcft'},{k:'nummeriert',l:'Packer nummeriert'}]},
+    {label:'V. Injektionsvorgang',items:[{k:'gemischt',l:'Material korrekt gemischt'},{k:'temperatur',l:'Verarbeitungstemperatur gepr\u00fcft'},{k:'unten_oben',l:'Injektion von unten nach oben'},{k:'druck',l:'Druck kontrolliert gesteigert'},{k:'austritt',l:'Austritt am Nachbarpacker genutzt'},{k:'rueckschlag',l:'R\u00fcckschlagventil geschlossen'}]},
+    {label:'VI. Nachbereitung & QS',items:[{k:'packer_weg',l:'Packer entfernt'},{k:'bohrlocher2',l:'Bohrl\u00f6cher verschlossen'},{k:'oberflaeche',l:'Oberfl\u00e4che gereinigt'},{k:'werkzeug_rein',l:'Werkzeug gereinigt'},{k:'sichtpruef',l:'Sichtpr\u00fcfung: Riss verpresst'},{k:'protokoll',l:'Injektionsprotokoll ausgef\u00fcllt'},{k:'foto_nach',l:'Fotodokumentation NACH Abschluss'}]}
+  ];
+  var risseHtml='<div class="card" style="margin-bottom:1rem"><div class="card-t">Riss-Erfassung <button class="btn bd" id="btn-add-riss" style="padding:.3rem .65rem;font-size:.72rem">+ Riss hinzuf\u00fcgen</button></div><div id="riss-list">';
+  risse.forEach(function(r,i){
+    risseHtml+='<div style="margin-bottom:.75rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)"><div class="fr2">'+
+      '<div class="fg"><label class="fl">Riss-Nr.</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="nr" value="'+(r.nr||'')+'"/></div>'+
+      '<div class="fg"><label class="fl">Bauteil</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="bauteil" value="'+(r.bauteil||'')+'"/></div>'+
+      '<div class="fg"><label class="fl">Rissbreite</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="breite" value="'+(r.breite||'')+'"/></div>'+
+      '<div class="fg"><label class="fl">Rissart</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="art">'+
+        '<option value="statisch"'+(r.art==='statisch'?' selected':'')+'>Statisch</option>'+
+        '<option value="dynamisch"'+(r.art==='dynamisch'?' selected':'')+'>Dynamisch</option>'+
+      '</select></div>'+
+      '<div class="fg"><label class="fl">Feuchte</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="feuchte">'+
+        '<option value="trocken"'+(r.feuchte==='trocken'?' selected':'')+'>Trocken</option>'+
+        '<option value="feucht"'+(r.feuchte==='feucht'?' selected':'')+'>Feucht</option>'+
+        '<option value="drueckendes_wasser"'+(r.feuchte==='drueckendes_wasser'?' selected':'')+'>Dr\u00fcckend</option>'+
+      '</select></div>'+
+      '<div class="fg"><label class="fl">System</label><select class="fi fi0 riss-f" data-i="'+i+'" data-k="system">'+
+        '<option value="EP"'+(r.system==='EP'?' selected':'')+'>Epoxidharz (EP)</option>'+
+        '<option value="PU 2K"'+(r.system==='PU 2K'?' selected':'')+'>Polyurethan PU 2K</option>'+
+        '<option value="PU Schaum"'+(r.system==='PU Schaum'?' selected':'')+'>PU-Schaum 1K</option>'+
+        '<option value="Acrylatgel"'+(r.system==='Acrylatgel'?' selected':'')+'>Acrylatgel</option>'+
+        '<option value="Zement"'+(r.system==='Zement'?' selected':'')+'>Zementsuspension</option>'+
+      '</select></div>'+
+      '<div class="fg"><label class="fl">Verbrauch</label><input class="fi fi0 riss-f" data-i="'+i+'" data-k="verbrauch" value="'+(r.verbrauch||'')+'"/></div>'+
+      '<div style="display:flex;align-items:flex-end"><button class="btn bdel del-riss" data-i="'+i+'" style="padding:.35rem .65rem;font-size:.72rem">Entfernen</button></div>'+
+    '</div></div>';
+  });
+  risseHtml+='</div></div>';
+  var checkHtml='<div class="card"><div class="card-t">Checkliste Rissinjektion</div>';
+  phases.forEach(function(ph){
+    checkHtml+='<div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4a0e1a;margin:.75rem 0 .35rem;padding:.2rem .5rem;background:rgba(74,14,26,.06);border-radius:4px;display:inline-block">'+ph.label+'</div>';
+    ph.items.forEach(function(item){
+      checkHtml+='<label style="display:flex;align-items:center;gap:.5rem;padding:.35rem 0;border-bottom:1px solid var(--border);cursor:pointer;font-size:.82rem"><input type="checkbox" class="inj-chk-input" data-k="'+item.k+'" '+(chk[item.k]?'checked':'')+' style="width:auto;margin:0;accent-color:#4a0e1a"/>'+item.l+'</label>';
+    });
+  });
+  checkHtml+='</div>';
+  var bemHtml='<div class="card" style="margin-top:1rem"><div class="card-t">Bemerkungen</div><textarea class="fi" id="inj-bem" rows="3" style="resize:vertical">'+(inj.bemerkungen||'')+'</textarea></div>';
+  return risseHtml+checkHtml+bemHtml;
+}
+
+function readInjektionen(slug){
+  var p=getP(slug);
+  if(!p.injektionen) p.injektionen={risse:[],checkliste:{},bemerkungen:''};
+  var inj=p.injektionen;
+  document.querySelectorAll('.riss-f').forEach(function(el){
+    var i=+el.getAttribute('data-i'),k=el.getAttribute('data-k');
+    if(!inj.risse[i]) inj.risse[i]={};
+    inj.risse[i][k]=el.value;
+  });
+  var chk={};
+  document.querySelectorAll('.inj-chk-input').forEach(function(el){ chk[el.getAttribute('data-k')]=el.checked; });
+  inj.checkliste=chk;
+  var bem=document.getElementById('inj-bem');
+  if(bem) inj.bemerkungen=bem.value;
+}
+
+
 function renderExtras(slug) {
   var p=projects[slug];
   var mats=p.materialien||[];
