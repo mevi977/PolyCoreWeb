@@ -490,15 +490,38 @@ body.loaded .phi-h1-accent{animation:phShim 4s 1.5s ease-in-out infinite}
     });
   });
 
-  /* Kontaktdaten anzeigen + Telegram-Benachrichtigung via /api/partner-kontakt */
+  /* ── BENACHRICHTIGUNG – eine Option ausfüllen, kein Server nötig ──
+     A) Telegram direkt: Token von @BotFather + Chat-ID (siehe getUpdates)
+     B) E-Mail via Web3Forms (gratis): https://web3forms.com → Access Key mit deiner E-Mail erstellen
+     Wenn beides leer bleibt, wird /api/partner-kontakt (Vercel-Funktion) aufgerufen. */
+  var NOTIFY = {
+    telegramToken: '',      // z. B. '7123456789:AAH...'
+    telegramChatId: '',     // z. B. '123456789'
+    web3formsKey: ''        // z. B. 'a1b2c3d4-....'
+  };
+  function notify(partner){
+    var when = new Date().toLocaleString('de-CH', { timeZone:'Europe/Zurich' });
+    var text = 'Partner-Kontakt angezeigt\\nPartner: ' + partner + '\\nZeit: ' + when + '\\nSeite: ' + location.href;
+    if(NOTIFY.telegramToken && NOTIFY.telegramChatId){
+      return fetch('https://api.telegram.org/bot' + NOTIFY.telegramToken + '/sendMessage', { method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ chat_id: NOTIFY.telegramChatId, text: text }) });
+    }
+    if(NOTIFY.web3formsKey){
+      return fetch('https://api.web3forms.com/submit', { method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'},
+        body: JSON.stringify({ access_key: NOTIFY.web3formsKey, subject: 'Partner-Kontakt angezeigt: ' + partner, from_name: 'POLYCORE Website', partner: partner, zeit: when, seite: location.href, browser: navigator.userAgent }) });
+    }
+    return fetch('/api/partner-kontakt', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ partner: partner, page: location.href, time: new Date().toISOString(), ua: navigator.userAgent }) });
+  }
+
+  /* Kontaktdaten anzeigen */
   document.querySelectorAll('.pc-reveal-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var card = btn.closest('.pc'); if(!card || btn.disabled) return;
       btn.disabled = true; btn.querySelector('span').textContent = 'Einen Moment…';
       var show = function(){ card.classList.add('revealed'); };
-      fetch('/api/partner-kontakt', { method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ partner: card.getAttribute('data-partner'), page: location.href, time: new Date().toISOString(), ua: navigator.userAgent }) })
-        .catch(function(){}).finally(show);
+      var t = setTimeout(show, 2500);
+      notify(card.getAttribute('data-partner')).catch(function(){}).finally(function(){ clearTimeout(t); show(); });
     });
   });
 
