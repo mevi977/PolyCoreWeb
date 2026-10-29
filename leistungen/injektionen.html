@@ -89,6 +89,9 @@ body { background: #f8f7f5; color: #1a1a1a; }
 .phi-bread-cur { color: rgba(74,14,26,.85); }
 .phi-tag { display: inline-flex; align-items: center; gap: .6rem; font-size: .6rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(58,10,20,.95); margin-bottom: 1.25rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .1s ease, transform .6s .1s ease; }
 .phi-tag-line { width: 28px; height: 1px; background: rgba(74,14,26,.5); flex-shrink: 0; }
+.page-hero h1.phi-tag { font-size: .6rem; margin-top: 0; margin-bottom: 1.25rem; line-height: 1.4; }
+.page-hero p.phi-h1 { margin-top: 0; margin-bottom: 1.25rem; }
+@media(min-width:1024px){ .page-hero p.phi-h1 { font-size: 3.2rem; } }
 .phi-h1 { font-size: clamp(2.2rem, 4.5vw, 3.75rem); font-weight: 300; letter-spacing: -.055em; line-height: 1.0; margin-bottom: 1.5rem; opacity: 0; transform: translateX(-40px); transition: opacity .6s .22s ease, transform .6s .22s ease; }
 .phi-h1-muted { color: rgba(30,10,5,.35); display: block; }
 .phi-h1-accent { display: block; font-weight: 700; background: linear-gradient(135deg, #4a0e1a 0%, #e07888 50%, #4a0e1a 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -477,12 +480,12 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
         <a href="/leistungen/">Leistungen</a><span class="phi-bread-sep">›</span>
         <span class="phi-bread-cur">Injektionen</span>
       </nav>
-      <div class="phi-tag"><div class="phi-tag-line"></div>Feuchtigkeitssicherung & Bautenschutz</div>
-      <h1 class="phi-h1">
+      <h1 class="phi-tag"><span class="phi-tag-line"></span>Keller abdichten mit Injektionen in Bern</h1>
+      <p class="phi-h1">
         <span class="phi-h1-muted">Feuchte Wände.</span>
         <span class="phi-h1-accent">Dauerhaft</span>
         <span class="phi-h1-white">trocken.</span>
-      </h1>
+      </p>
       <p class="phi-lead">Gezielte Injektionstechnik gegen feuchte Wände und Keller – ohne grossen Aufwand, mit langfristiger Wirkung. Für Altbauten und Neubauten in der Region Bern.</p>
       <div class="phi-badges">
         <span class="phi-badge">Feuchtigkeitsschutz</span>
