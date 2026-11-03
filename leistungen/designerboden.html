@@ -4,11 +4,11 @@
 <meta charset="UTF-8"/>
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Designerboden & Mikrozement | POLYCORE GmbH Bern</title>
-<meta name="description" content="Fugenlose Designerböden und Mikrozement für Wohnräume, Hotels und Showrooms. POLYCORE GmbH Bern."/>
+<title>Designerboden Bern | POLYCORE GmbH – Fugenlose Böden für Wohn- &amp; Gewerberäume</title>
+<meta name="description" content="Fugenlose Designerböden in Bern – für Wohn-, Gewerbe- und Gastronomieflächen. Individuell, langlebig, maßgeschneidert. POLYCORE GmbH."/>
 <link rel="canonical" href="https://www.polycore.ch/leistungen/designerboden"/>
-<meta property="og:title" content="Designerboden & Mikrozement | POLYCORE GmbH Bern"/>
-<meta property="og:description" content="Fugenlose Designerböden und Mikrozement für Wohnräume, Hotels und Showrooms. POLYCORE GmbH Bern."/>
+<meta property="og:title" content="Designerboden & Designerboden | POLYCORE GmbH Bern"/>
+<meta property="og:description" content="Fugenlose Designerböden und Designerboden für Wohnräume, Hotels und Showrooms. POLYCORE GmbH Bern."/>
 <meta property="og:url" content="https://www.polycore.ch/leistungen/designerboden"/>
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="de_CH"/>
@@ -31,38 +31,58 @@
 body { background: #f8f7f5; color: #1a1a1a; }
 .section, .section-sm { background: #f8f7f5; }
 .section.light-bg, .section-sm.light-bg { background: #fff; }
-.benefit-cell {
-  background: #faf8f6 !important;
-  border: 1px solid rgba(74,14,26,.1) !important;
-  border-top: 2px solid #4a0e1a !important;
-  border-radius: 0 0 10px 10px;
-  padding: 1.6rem 1.4rem 1.5rem;
-  transition: all .3s cubic-bezier(.16,1,.3,1);
-  box-shadow: none;
-  position: relative;
+.benefits-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0 !important;
 }
-.benefit-cell::before {
+.benefit-cell {
+  background: transparent !important;
+  border: none !important;
+  border-right: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 0 !important;
+  padding: 2.75rem 2.25rem !important;
+  box-shadow: none !important;
+  position: relative;
+  overflow: hidden;
+  transition: background .3s;
+}
+.benefit-cell:last-child { border-right: none !important; }
+.benefit-cell::after {
   content: '';
   position: absolute;
-  top: -2px; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #4a0e1a, #f2a4b0 50%, #4a0e1a);
-  opacity: 0;
-  transition: opacity .3s;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4a0e1a 30%, #f2a4b0 50%, #4a0e1a 70%, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s cubic-bezier(.16,1,.3,1);
 }
-.benefit-cell:hover {
-  background: #1a0610 !important;
-  border-color: rgba(242,164,176,.2) !important;
-  border-top-color: #f2a4b0 !important;
-  box-shadow: 0 8px 32px rgba(74,14,26,.18);
-  transform: translateY(-3px);
+.benefit-cell:hover { background: rgba(255,255,255,.04) !important; }
+.benefit-cell:hover::after { transform: scaleX(1); }
+.benefit-title {
+  color: #fff !important;
+  font-size: .92rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -.01em;
+  margin-bottom: .6rem !important;
 }
-.benefit-cell:hover::before { opacity: 1; }
-.benefit-cell:hover .benefit-title { color: #fff !important; }
-.benefit-cell:hover .benefit-lbl { color: rgba(255,255,255,.55) !important; }
-.benefit-title { color: #1a1210 !important; font-size: .92rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: .35rem; }
-.benefit-lbl { color: #7a6a62 !important; font-size: .8rem; line-height: 1.55; }
+.benefit-lbl {
+  color: rgba(255,255,255,.38) !important;
+  font-size: .8rem !important;
+  line-height: 1.7;
+  margin: 0 !important;
+}
 .benefit-icon { display: none !important; }
+@media(max-width:768px){
+  .benefits-grid { grid-template-columns: 1fr 1fr !important; }
+  .benefit-cell { border-right: 1px solid rgba(255,255,255,.08) !important; border-bottom: 1px solid rgba(255,255,255,.08) !important; padding: 1.75rem 1.5rem !important; }
+  .benefit-cell:nth-child(2n) { border-right: none !important; }
+}
+@media(max-width:480px){
+  .benefits-grid { grid-template-columns: 1fr !important; }
+  .benefit-cell { border-right: none !important; }
+}
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
@@ -401,7 +421,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
                   <li><a href="/leistungen/epoxidharz-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18h20"/><path d="M4 18v-9a8 8 0 0116 0v9"/><path d="M9 18v-5h6v5"/></svg></div><div class="mega-txt"><strong>Epoxidharz (EP)</strong><span>Industrieboden, robust &amp; fugenlos</span></div></a></li>
                   <li><a href="/leistungen/polyurethan-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0 2.5-3 4 0 2.5 3 4 0"/><path d="M2 20h20" stroke-width="2.5" opacity=".3"/></svg></div><div class="mega-txt"><strong>Polyurethan (PU)</strong><span>Elastisch, thermisch stabil</span></div></a></li>
                   <li><a href="/leistungen/pmma-boden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/></svg></div><div class="mega-txt"><strong>PMMA</strong><span>Schnellhärtend, in Stunden begehbar</span></div></a></li>
-                  <li><a href="/leistungen/designerboden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="mega-txt"><strong>Designerboden</strong><span>Mikrozement &amp; Wohnflächen</span></div></a></li>
+                  <li><a href="/leistungen/designerboden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="mega-txt"><strong>Designerboden</strong><span>Designerboden &amp; Wohnflächen</span></div></a></li>
                   <li><a href="/leistungen/steinteppich" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M3 20h18" stroke-width="2" opacity=".3"/></svg></div><div class="mega-txt"><strong>Steinteppich</strong><span>Naturstein, rutschfest &amp; fugenlos</span></div></a></li>
                   <li><a href="/leistungen/industrieboden" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="mega-txt"><strong>Industrieböden</strong><span>Einstreubeläge für Lager &amp; Produktion</span></div></a></li>
                   <li><a href="/leistungen/garagenbeschichtung" class="mega-a"><div class="mega-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="mega-txt"><strong>Garagenbeschichtung</strong><span>Epoxidharz für Private &amp; Gewerbe</span></div></a></li>
@@ -489,7 +509,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="../assets/img/Epoxy-boden.png" alt="Designerboden Mikrozement POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
+    <img src="../assets/img/Epoxy-boden.png" alt="Designerboden Designerboden POLYCORE GmbH Bern" loading="eager" fetchpriority="high" width="1920" height="800"/>
   </div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-grid"></div>
@@ -501,7 +521,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <nav class="phi-bread">
         <a href="/">Start</a><span class="phi-bread-sep">›</span>
         <a href="/leistungen/">Leistungen</a><span class="phi-bread-sep">›</span>
-        <span class="phi-bread-cur">Designerboden & Mikrozement</span>
+        <span class="phi-bread-cur">Designerboden & Designerboden</span>
       </nav>
       <div class="phi-tag"><div class="phi-tag-line"></div>Dekorativer Bodenbelag</div>
       <h1 class="phi-h1">
@@ -509,12 +529,12 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
         <span class="phi-h1-accent">Fugenlos.</span>
         <span class="phi-h1-white">Individuell.</span>
       </h1>
-      <p class="phi-lead">Fugenlose Spachteloptik für Wohnräume, Hotels und Showrooms – individuell in Farbe und Struktur, nur 2–3 mm dünn. Mikrozement und Designerböden in Bern.</p>
+      <p class="phi-lead">Fugenlose Designerböden für Wohnräume, Showrooms, Gastronomie und Gewerbe – individuell in Farbe und Oberfläche, persönlich ausgeführt.</p>
       <div class="phi-badges">
         <span class="phi-badge">Fugenlos</span>
-      <span class="phi-badge">Mikrozement</span>
-      <span class="phi-badge">Wohnbereich</span>
-      <span class="phi-badge">2–3 mm dünn</span>
+      <span class="phi-badge">Designerboden</span>
+      <span class="phi-badge">Wohn &amp; Gewerbe</span>
+      <span class="phi-badge">Nach Objekt dünn</span>
       <span class="phi-badge">Individuelle Farben</span>
       <span class="phi-badge">Region Bern</span>
       </div>
@@ -525,19 +545,8 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
     </div>
     <div class="phi-right">
       <div class="phi-stat"><div class="phi-stat-v">2–3<sup>mm</sup></div><div class="phi-stat-l">Dünn</div></div>
-      <div class="phi-stat"><div class="phi-stat-v">100+<sup></sup></div><div class="phi-stat-l">Farben</div></div>
-      <div class="phi-stat"><div class="phi-stat-v">15+<sup>J</sup></div><div class="phi-stat-l">Haltbarkeit</div></div>
-
-      <div class="phi-sys">
-        <div class="phi-sys-lbl">Eingesetztes System</div>
-        <div class="phi-sys-item"><span class="phi-sys-k">Material</span><span class="phi-sys-v">Mikrozement</span></div>
-        <div class="phi-sys-item"><span class="phi-sys-k">Dicke</span><span class="phi-sys-v">2–3 mm</span></div>
-        <div class="phi-sys-item"><span class="phi-sys-k">Finish</span><span class="phi-sys-v">Matt / Seidenmatt</span></div>
-
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="phi-stat"><div class="phi-stat-v">100+</div><div class="stat-label">Farbtöne</div></div>
+      <div class="phi-stat"><div class="phi-stat-v">15+<sup>J</sup></div><div<div style="background:#0c0806;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)"><div style="max-width:1280px;margin:0 auto" class="benefits-grid"></div></div>
 
 
 <!-- BENEFITS -->
@@ -546,33 +555,33 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
     <div class="benefits-grid">
       
       <div class="benefit-cell reveal">
-        <div class="benefit-title">100% fugenlos</div>
-        <div class="benefit-lbl">Keine Fugen, keine Stolperkanten, kein Schmutz</div>
+        <div class="benefit-title">Fugenlos &amp; nahtlos</div>
+        <div class="benefit-lbl">Keine Fugen, keine Stolperkanten – hygienisch und pflegeleicht.</div>
       </div>
 
       <div class="benefit-cell reveal">
-        <div class="benefit-title">Unzählige Farbtöne</div>
-        <div class="benefit-lbl">RAL, NCS, individuell nach Wunsch mischbar</div>
+        <div class="benefit-title">Individuell in Farbe</div>
+        <div class="benefit-lbl">Jeder Farbton realisierbar – abgestimmt auf Ihr Raum- und Markenkonzept.</div>
       </div>
 
       <div class="benefit-cell reveal">
         <div class="benefit-title">Boden & Wand</div>
-        <div class="benefit-lbl">Durchgehende Optik von Boden bis Wand möglich</div>
+        <div class="benefit-lbl">Privat oder gewerblich – Wohnzimmer, Showroom, Restaurant oder Büro.</div>
       </div>
 
       <div class="benefit-cell reveal">
-        <div class="benefit-title">Extrem dünn</div>
-        <div class="benefit-lbl">Nur 2–3 mm – keine Aufbauhöhe, keine Türschwellen-Probleme</div>
+        <div class="benefit-title">Schnell wieder nutzbar</div>
+        <div class="benefit-lbl">Kurze Trockenzeiten – Ihr Raum ist zügig wieder einsatzbereit.</div>
       </div>
 
       <div class="benefit-cell reveal">
-        <div class="benefit-title">Fußbodenheizung</div>
-        <div class="benefit-lbl">Hervorragende Wärmeleitung, kompatibel</div>
+        <div class="benefit-title">Fußbodenheizung kompatibel</div>
+        <div class="benefit-lbl">Unsere Designerböden sind für alle Fußbodenheizungssysteme geeignet.</div>
       </div>
 
       <div class="benefit-cell reveal">
-        <div class="benefit-title">Langlebig</div>
-        <div class="benefit-lbl">Versiegelt, kratz- und abriebfest für Jahrzehnte</div>
+        <div class="benefit-title">Langlebig &amp; robust</div>
+        <div class="benefit-lbl">Professionell versiegelt – widerstandsfähig gegen Abrieb, Feuchtigkeit und Flecken.</div>
       </div>
     </div>
   </div>
@@ -585,22 +594,22 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
     <div class="content-layout">
       <article class="content-body">
         
-<h2>Was ist ein Designerboden?</h2>
-<p>Designerböden – auch als Mikrozement, Betonoptik-Boden oder fugenloser Boden bekannt – sind dekorative Beschichtungssysteme, die eine optisch ansprechende, industrielle Betonoptik erzeugen, ohne die typischen Nachteile von Sichtbeton. Sie sind extrem dünn (2–3 mm), leicht (ca. 3 kg/m²) und können auf fast jedem Untergrund verlegt werden.</p>
-<p>POLYCORE GmbH verlegt Designerböden in Bern für private Wohnräume, exklusive Hotels, Restaurants und Showrooms. Wir bieten individuelle Farbgestaltung, verschiedene Oberflächenstrukturen und massgeschneiderte Konzepte.</p>
+<h2>Was sind Designerböden?</h2>
+<p>Designerböden sind fugenlose Beschichtungssysteme, die durch ihre klare Optik und hohe Strapazierfähigkeit überzeugen. Sie verbinden ästhetisches Design mit praktischen Vorteilen: kein Nachschleifen, kein aufwendiger Aufbau, nahtlose Übergänge. POLYCORE GmbH führt alle Arbeiten persönlich aus – vom Erstgespräch bis zur Abnahme.</p>
+<p>Wir arbeiten für Private, Gastronomie, Gewerbe und Industrie – überall dort, wo ein fugenloser, hochwertiger Boden gefragt ist. Festpreis, persönliche Betreuung, keine Subunternehmer.</p>
 <h2>Einsatzbereiche</h2>
 <ul>
-<li>Wohnräume: Wohnzimmer, Schlafzimmer, offene Küchen</li>
-<li>Nassbereiche: Bäder und Duschen (mit geeigneter Versiegelung)</li>
-<li>Hotels, Boutiquen und Showrooms</li>
-<li>Restaurants und Cafés</li>
-<li>Büros und Praxen</li>
-<li>Treppen und Wandflächen</li>
+<li>Wohnräume: Wohnzimmer, Schlafzimmer, Küchen, Bäder</li>
+<li>Gastronomieflächen: Restaurants, Cafés, Bars</li>
+<li>Gewerbe: Showrooms, Boutiquen, Empfangsbereiche</li>
+<li>Hotels und Wellness-Bereiche</li>
+<li>Hotels und Wellness-Bereiche</li>
+<li>Treppen, Podeste und Wandflächen</li>
 </ul>
 <h2>Gestaltungsoptionen</h2>
-<p>Designerböden lassen sich in nahezu jedem Farbton realisieren. Von kühlem Betongrau über warmes Taupe bis zu kräftigen Akzentfarben – wir entwickeln gemeinsam mit Ihnen das Konzept. Oberflächenstrukturen reichen von ultra-glatt und hochglänzend bis zu leicht strukturiert und mattiert.</p>
-<h2>Pflege & Langlebigkeit</h2>
-<p>Ein professionell versiegelter Designerboden ist pflegeleicht und langlebig. Die Versiegelung schützt vor Flecken, Wasser und Abrieb. Für Nassbereiche empfehlen wir spezielle wasserundurchlässige Versiegelungen.</p>
+<p>Unsere Designerböden lassen sich in nahezu jedem Farbton realisieren – von elegantem Betongrau über warmes Taupe bis zu kräftigen Akzenttönen. Die Oberfläche wählen Sie selbst: matt, seidenmatt oder hochglänzend. Wir entwickeln gemeinsam mit Ihnen das passende Konzept.</p>
+<h2>Pflege & Langlebig &amp; robustkeit</h2>
+<p>Ein professionell ausgeführter und versiegelter Designerboden ist pflegeleicht und äußerst langlebig. Die Versiegelung schützt vor Flecken, Feuchtigkeit und Abrieb – sowohl in Wohn- als auch in Gewerbebereichen. Zur Pflege genügen handelsübliche, ph-neutrale Reinigungsmittel.</p>
 
 
         <h2>Unsere Vorgehensweise</h2>
@@ -610,7 +619,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <div class="step-num">1</div>
       <div class="step-body">
         <h4>Design-Beratung</h4>
-        <p>Farbmuster, Strukturproben, Referenzbesuche – gemeinsam entwickeln wir Ihr Konzept.</p>
+        <p>Kostenlose Besichtigung vor Ort, Farb- und Strukturmuster – gemeinsam entwickeln wir das passende Konzept für Ihr Objekt.</p>
       </div>
     </div>
 
@@ -626,7 +635,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <div class="step-num">3</div>
       <div class="step-body">
         <h4>Erste Schicht (Grundschicht)</h4>
-        <p>Mikrozement-Masse wird hand- oder maschinenaufgetragen – erste Schicht.</p>
+        <p>Designerboden-Masse wird hand- oder maschinenaufgetragen – erste Schicht.</p>
       </div>
     </div>
 
@@ -634,7 +643,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <div class="step-num">4</div>
       <div class="step-body">
         <h4>Zweite Schicht (Dekorschicht)</h4>
-        <p>Feine Deckschicht in gewünschtem Farbton und Struktur.</p>
+        <p>Dekorschicht im gewählten Farbton und Finish – handwerklich ausgeführt.</p>
       </div>
     </div>
 
@@ -642,7 +651,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <div class="step-num">5</div>
       <div class="step-body">
         <h4>Versiegelung</h4>
-        <p>2–3 Lagen Polyurethan- oder Epoxidversiegelung für Langlebigkeit und Schutz.</p>
+        <p>2–3 Lagen Polyurethan- oder Epoxidversiegelung für Langlebig &amp; robustkeit und Schutz.</p>
       </div>
     </div>
 
@@ -685,7 +694,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   <div class="container">
     <div style="max-width:560px;margin-bottom:3rem">
       <span class="eyebrow">Einsatzbereiche</span>
-      <h2 class="h1 reveal">Wo wir Designerboden & Mikrozement einsetzen</h2>
+      <h2 class="h1 reveal">Wo wir Designerboden & Designerboden einsetzen</h2>
     </div>
     <div class="app-grid">
 
