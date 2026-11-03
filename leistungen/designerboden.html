@@ -34,54 +34,55 @@ body { background: #f8f7f5; color: #1a1a1a; }
 .benefits-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 0 !important;
+  gap: 1px !important;
+  background: rgba(74,14,26,.12) !important;
+  border: 1px solid rgba(74,14,26,.12) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
 }
 .benefit-cell {
-  background: transparent !important;
+  background: #faf8f6 !important;
   border: none !important;
-  border-right: 1px solid rgba(255,255,255,.08) !important;
   border-radius: 0 !important;
-  padding: 2.75rem 2.25rem !important;
+  padding: 2rem 1.75rem !important;
   box-shadow: none !important;
   position: relative;
-  overflow: hidden;
-  transition: background .3s;
+  transition: background .35s ease, color .35s;
 }
-.benefit-cell:last-child { border-right: none !important; }
-.benefit-cell::after {
+.benefit-cell::before {
   content: '';
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #4a0e1a 30%, #f2a4b0 50%, #4a0e1a 70%, transparent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .45s cubic-bezier(.16,1,.3,1);
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4a0e1a 0%, #f2a4b0 50%, #4a0e1a 100%);
+  opacity: 0;
+  transition: opacity .35s;
 }
-.benefit-cell:hover { background: rgba(255,255,255,.04) !important; }
-.benefit-cell:hover::after { transform: scaleX(1); }
+.benefit-cell:hover { background: #1a0610 !important; }
+.benefit-cell:hover::before { opacity: 1; }
+.benefit-cell:hover .benefit-title { color: #fff !important; }
+.benefit-cell:hover .benefit-lbl { color: rgba(255,255,255,.45) !important; }
 .benefit-title {
-  color: #fff !important;
-  font-size: .92rem !important;
-  font-weight: 600 !important;
+  color: #1a1210 !important;
+  font-size: .88rem !important;
+  font-weight: 700 !important;
   letter-spacing: -.01em;
-  margin-bottom: .6rem !important;
+  margin-bottom: .45rem !important;
+  transition: color .35s;
 }
 .benefit-lbl {
-  color: rgba(255,255,255,.38) !important;
-  font-size: .8rem !important;
-  line-height: 1.7;
+  color: #7a6a62 !important;
+  font-size: .79rem !important;
+  line-height: 1.65;
   margin: 0 !important;
+  transition: color .35s;
 }
 .benefit-icon { display: none !important; }
 @media(max-width:768px){
   .benefits-grid { grid-template-columns: 1fr 1fr !important; }
-  .benefit-cell { border-right: 1px solid rgba(255,255,255,.08) !important; border-bottom: 1px solid rgba(255,255,255,.08) !important; padding: 1.75rem 1.5rem !important; }
-  .benefit-cell:nth-child(2n) { border-right: none !important; }
 }
 @media(max-width:480px){
   .benefits-grid { grid-template-columns: 1fr !important; }
-  .benefit-cell { border-right: none !important; }
 }
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
@@ -546,7 +547,18 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
     <div class="phi-right">
       <div class="phi-stat"><div class="phi-stat-v">2–3<sup>mm</sup></div><div class="phi-stat-l">Dünn</div></div>
       <div class="phi-stat"><div class="phi-stat-v">100+</div><div class="stat-label">Farbtöne</div></div>
-      <div class="phi-stat"><div class="phi-stat-v">15+<sup>J</sup></div><div<div style="background:#0c0806;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)"><div style="max-width:1280px;margin:0 auto" class="benefits-grid"></div></div>
+      <div class="phi-stat"><div class="phi-stat-v">15+<sup>J</sup></div><div class="phi-stat-l">Haltbarkeit</div></div>
+
+      <div class="phi-sys">
+        <div class="phi-sys-lbl">Eingesetztes System</div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Material</span><span class="phi-sys-v">Designerboden</span></div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Dicke</span><span class="phi-sys-v">Nach Objekt</span></div>
+        <div class="phi-sys-item"><span class="phi-sys-k">Finish</span><span class="phi-sys-v">Matt bis Hochglanz</span></div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- BENEFITS -->
