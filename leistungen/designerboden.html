@@ -541,60 +541,17 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
 
 
-/* === SIDEBAR LEISTUNGEN === */
-.sidebar-card {
-  background: transparent !important;
-  border-radius: 10px !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-  border: none !important;
+
+
+/* === SIDEBAR LEISTUNGEN — minimalni override === */
+.sidebar-card .sub-links a.active {
+  background: #0a0a0a !important;
+  color: #fff !important;
 }
-.sidebar-card h3 {
-  font-size: .58rem !important; font-weight: 700 !important;
-  letter-spacing: .14em !important; text-transform: uppercase !important;
-  color: #4a0e1a !important; padding: .9rem 1.1rem .75rem !important;
-  border-bottom: 1px solid rgba(74,14,26,.10) !important; margin: 0 !important;
+.sidebar-card .sub-links a:hover {
+  border-color: rgba(74,14,26,.5) !important;
+  color: #4a0e1a !important;
 }
-.sidebar-card .sub-links { padding: .5rem !important; gap: .25rem !important; }
-.sidebar-card .sub-links a {
-  position: relative !important;
-  display: flex !important; align-items: center !important;
-  justify-content: space-between !important;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 7px !important;
-  padding: .62rem .9rem !important;
-  font-size: .82rem !important; font-weight: 400 !important;
-  color: #1a1210 !important;
-  outline: none !important;
-  box-shadow: none !important;
-  overflow: hidden !important;
-  transition: color .18s !important;
-}
-/* Tanka bordeaux linija samo na desnoj polovici */
-.sidebar-card .sub-links a::after {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important; bottom: 0 !important;
-  left: 50% !important; right: 0 !important;
-  border: 1px solid rgba(74,14,26,.0) !important;
-  border-radius: 0 7px 7px 0 !important;
-  border-left: none !important;
-  transition: border-color .2s !important;
-  pointer-events: none !important;
-}
-.sidebar-card .sub-links a:hover::after {
-  border-color: rgba(74,14,26,.35) !important;
-}
-.sidebar-card .sub-links a.active::after {
-  border-color: rgba(74,14,26,.6) !important;
-}
-.sidebar-card .sub-links a:hover { color: #4a0e1a !important; }
-.sidebar-card .sub-links a.active { color: #4a0e1a !important; font-weight: 600 !important; }
-.sidebar-card .sub-links a:focus { outline: none !important; }
-.sidebar-card .sub-links a svg { opacity: .3 !important; transition: opacity .18s, transform .18s !important; }
-.sidebar-card .sub-links a:hover svg,
-.sidebar-card .sub-links a.active svg { opacity: .7 !important; transform: translateX(2px) !important; }
 
 </style>
 </head>
