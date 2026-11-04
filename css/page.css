@@ -117,7 +117,7 @@
 /* Sidebar */
 .sidebar { position: sticky; top: 90px; }
 .sidebar-card {
-  background: var(--light-bg);
+  background: #fff;
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 1.5rem;
