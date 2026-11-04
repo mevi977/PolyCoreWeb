@@ -346,6 +346,62 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   .mobile-contact-info .tel { font-size: 1.2rem; font-weight: 700; color: rgba(94,20,34,1); margin-bottom: 0.2rem; }
 }
 
+
+/* ===== SECTION TICKER ===== */
+.section-ticker {
+  background: #f8f7f5;
+  padding: 0;
+  border-top: 1px solid rgba(74,14,26,.08);
+  border-bottom: 1px solid rgba(74,14,26,.08);
+  overflow: hidden;
+}
+.ticker-wrap {
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  -webkit-mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.ticker-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: ticker-scroll 32s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.tk-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 1.1rem 2.2rem;
+  border-right: 1px solid rgba(74,14,26,.1);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tk-line {
+  display: inline-block;
+  width: 20px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #4a0e1a, #f2a4b0);
+  flex-shrink: 0;
+}
+.tk-title {
+  font-size: .78rem;
+  font-weight: 700;
+  color: #1a1210;
+  letter-spacing: -.01em;
+}
+.tk-lbl {
+  font-size: .73rem;
+  color: #9a8880;
+  font-weight: 300;
+}
 </style>
 </head>
 <body class="hero-light">
@@ -509,6 +565,73 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
     </div>
   </div>
 </section>
+
+  <section class="section-ticker">
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Risse dauerhaft schließen</span>
+          <span class="tk-lbl">Injektionsverfahren dichtet Risse im Beton langfristig und sicher ab.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Ohne Abbrucharbeiten</span>
+          <span class="tk-lbl">Keine Demontage nötig – Eingriff gezielt und minimalinvasiv.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Für alle Rissarten</span>
+          <span class="tk-lbl">PU- und Epoxidharze für nasse, feuchte und trockene Risse geeignet.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Schnelle Wirkung</span>
+          <span class="tk-lbl">Material reagiert unmittelbar – sofortige Abdichtwirkung bei Wasseraustritt.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Kellergeeignet</span>
+          <span class="tk-lbl">Bewährt in Tiefgaragen, Kellerwänden, Becken und Fundamenten.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Statisch verträglich</span>
+          <span class="tk-lbl">Kraftschlüssige Verfüllung – erhält und stärkt die Tragfähigkeit.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Risse dauerhaft schließen</span>
+          <span class="tk-lbl">Injektionsverfahren dichtet Risse im Beton langfristig und sicher ab.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Ohne Abbrucharbeiten</span>
+          <span class="tk-lbl">Keine Demontage nötig – Eingriff gezielt und minimalinvasiv.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Für alle Rissarten</span>
+          <span class="tk-lbl">PU- und Epoxidharze für nasse, feuchte und trockene Risse geeignet.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Schnelle Wirkung</span>
+          <span class="tk-lbl">Material reagiert unmittelbar – sofortige Abdichtwirkung bei Wasseraustritt.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Kellergeeignet</span>
+          <span class="tk-lbl">Bewährt in Tiefgaragen, Kellerwänden, Becken und Fundamenten.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Statisch verträglich</span>
+          <span class="tk-lbl">Kraftschlüssige Verfüllung – erhält und stärkt die Tragfähigkeit.</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
 <!-- BENEFITS -->
