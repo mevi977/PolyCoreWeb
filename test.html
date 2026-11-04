@@ -300,7 +300,7 @@ img.morph-bg-layer.active { opacity:1;transform:scale(1); }
 }
 .morph-step.active .morph-card { opacity:1;transform:translateX(0);filter:blur(0px); }
 .morph-eyebrow { color:var(--accent-pink);font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;display:block;margin-bottom:0.8rem; }
-.morph-title { font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:1.2rem;color:#fff;letter-spacing:-0.03em;text-shadow:0 2px 8px rgba(0,0,0,.5); }
+.morph-title { font-size:clamp(1.6rem,4vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:1.2rem;color:#fff;letter-spacing:-0.03em;text-shadow:0 2px 8px rgba(0,0,0,.5);word-break:break-word;overflow-wrap:break-word; }
 .morph-desc { font-size:1rem;color:rgba(255,255,255,.88);line-height:1.7;font-weight:300;margin-bottom:1.8rem;text-shadow:0 1px 4px rgba(0,0,0,.4); }
 .morph-tags { display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2rem; }
 .morph-tag { font-size:0.78rem;font-weight:500;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:0.4rem 0.9rem;border-radius:50px; }
@@ -391,8 +391,9 @@ img.morph-bg-layer.active { opacity:1;transform:scale(1); }
   .lp-sec { padding:3.5rem 0 }
   .lp-cta { padding:4rem 0 }
   .morph-step { min-height:85vh;padding:2rem 1.2rem }
-  .morph-card { transform:translateY(40px) }
+  .morph-card { transform:translateY(40px);padding:1.75rem 1.5rem }
   .morph-step.active .morph-card { transform:translateY(0) }
+  .morph-title { font-size:clamp(1.4rem,6vw,2rem) }
 }
 
 @media(max-width:768px){
@@ -720,8 +721,8 @@ body.theme-bau .logo-sweep{background:linear-gradient(90deg,transparent,rgba(159
   <div class="lp-parallax-overlay"></div>
   <div class="lp-parallax-content">
     <div class="container" style="text-align:center;color:#fff;padding:5rem 2rem">
-      <div class="sr"><span class="eyebrow">Unser Anspruch</span></div>
-      <h2 class="h1 sr d1" style="max-width:680px;margin:1rem auto 1.5rem">
+      <div class="sr"><span class="eyebrow" style="color:var(--accent-pink)">Unser Anspruch</span></div>
+      <h2 class="h1 sr d1" style="max-width:680px;margin:1rem auto 1.5rem;color:#fff">
         Qualität liegt im <strong style="color:var(--accent-pink)">Detail.</strong><br/>Bei jedem Handgriff.
       </h2>
       <p class="sub sr d2" style="color:rgba(255,255,255,.68);max-width:480px;margin:0 auto 2.5rem">Keine Subunternehmer, keine Überraschungen – persönliche Betreuung von der Besichtigung bis zur Abnahme.</p>
@@ -781,8 +782,8 @@ body.theme-bau .logo-sweep{background:linear-gradient(90deg,transparent,rgba(159
     <div class="container" style="padding:5rem 2rem">
       <div class="lp-split">
         <div>
-          <span class="eyebrow sr">Bautenschutz</span>
-          <h2 class="h1 sr d1">Feuchtigkeit hat<br/>keine Chance.</h2>
+          <span class="eyebrow sr" style="color:var(--accent-pink)">Bautenschutz</span>
+          <h2 class="h1 sr d1" style="color:#fff">Feuchtigkeit hat<br/>keine Chance.</h2>
           <div class="lp-checks sr d2">
             <div class="lp-cr"><div class="lp-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg></div><div><div class="lp-ct">Flüssigkunststoff (FLK)</div><div class="lp-cd">Abdichtung für Terrassen, Balkone, Flachdächer – nahtlos und dauerhaft.</div></div></div>
             <div class="lp-cr"><div class="lp-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg></div><div><div class="lp-ct">Injektionen</div><div class="lp-cd">Dauerhafte Feuchtigkeitssicherung für Keller und Fundamente.</div></div></div>
