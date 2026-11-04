@@ -17,7 +17,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"POLYCORE GmbH","url":"https://www.polycore.ch","telephone":"+41765397974","address":{"@type":"PostalAddress","streetAddress":"Etzmattrain 36","addressLocality":"Urtenen-Schönbühl","postalCode":"3322","addressCountry":"CH"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=Syne:wght@600;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../css/design-system.css"/>
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
@@ -41,8 +41,6 @@ body { background: #f8f7f5; color: #1a1a1a; }
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
-.sidebar-cta { background: #2c1810; border: none; }
-.sidebar-cta h3 { color: #fff; } .sidebar-cta p { color: rgba(255,255,255,.65); }
 .app-card { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
 .app-card:hover { border-color: rgba(74,14,26,.3); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(74,14,26,.08); }
 .app-card h4 { color: #1a1a1a !important; } .app-card p { color: #666 !important; }
@@ -178,7 +176,6 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
   /* Content layout - jedna kolona */
   .content-layout { grid-template-columns: 1fr !important; }
-  .sidebar-cta { margin-top: 1.5rem; }
 
   /* App grid - 2 kolone */
   .app-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
@@ -351,6 +348,62 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   .mobile-contact-info .tel { font-size: 1.2rem; font-weight: 700; color: rgba(94,20,34,1); margin-bottom: 0.2rem; }
 }
 
+
+/* ===== SECTION TICKER ===== */
+.section-ticker {
+  background: #f8f7f5;
+  padding: 0;
+  border-top: 1px solid rgba(74,14,26,.08);
+  border-bottom: 1px solid rgba(74,14,26,.08);
+  overflow: hidden;
+}
+.ticker-wrap {
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  -webkit-mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.ticker-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: ticker-scroll 32s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.tk-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 1.1rem 2.2rem;
+  border-right: 1px solid rgba(74,14,26,.1);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tk-line {
+  display: inline-block;
+  width: 20px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #4a0e1a, #f2a4b0);
+  flex-shrink: 0;
+}
+.tk-title {
+  font-size: .78rem;
+  font-weight: 700;
+  color: #1a1210;
+  letter-spacing: -.01em;
+}
+.tk-lbl {
+  font-size: .73rem;
+  color: #9a8880;
+  font-weight: 300;
+}
 </style>
 </head>
 <body class="hero-light">
@@ -511,6 +564,73 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   </div>
 </section>
 
+  <section class="section-ticker">
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Höchste Belastbarkeit</span>
+          <span class="tk-lbl">Ausgelegt für Stapler, Schwerlast und intensiven Industriebetrieb.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Chemisch beständig</span>
+          <span class="tk-lbl">Widerstandsfähig gegen Öle, Säuren, Laugen und Reinigungsmittel.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Fugenlos &amp; hygienisch</span>
+          <span class="tk-lbl">Keine Ritzen, kein Schmutz – ideal für Produktion und Lager.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Antistatisch möglich</span>
+          <span class="tk-lbl">ESD-Ausführung auf Anfrage – für elektronische Produktionsbereiche.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Schnell wieder nutzbar</span>
+          <span class="tk-lbl">Kurze Aushärtezeiten – minimale Betriebsunterbrechung.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Maßgeschneidert</span>
+          <span class="tk-lbl">System, Stärke und Farbe passend zu Ihren Anforderungen.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Höchste Belastbarkeit</span>
+          <span class="tk-lbl">Ausgelegt für Stapler, Schwerlast und intensiven Industriebetrieb.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Chemisch beständig</span>
+          <span class="tk-lbl">Widerstandsfähig gegen Öle, Säuren, Laugen und Reinigungsmittel.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Fugenlos &amp; hygienisch</span>
+          <span class="tk-lbl">Keine Ritzen, kein Schmutz – ideal für Produktion und Lager.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Antistatisch möglich</span>
+          <span class="tk-lbl">ESD-Ausführung auf Anfrage – für elektronische Produktionsbereiche.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Schnell wieder nutzbar</span>
+          <span class="tk-lbl">Kurze Aushärtezeiten – minimale Betriebsunterbrechung.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Maßgeschneidert</span>
+          <span class="tk-lbl">System, Stärke und Farbe passend zu Ihren Anforderungen.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <!-- HERO-TO-LIGHT TRANSITION -->
 <div style="height:4px;background:linear-gradient(to right,#2c1810,#4a0e1a,#2c1810)"></div>
 
@@ -541,18 +661,26 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
         <h3>Bodenmarkierungen und Sicherheitszonen</h3>
         <p>Fahrwegmarkierungen, Lager- und Sicherheitszonen lassen sich direkt in die Beschichtung integrieren – in allen RAL-Farben nach Ihren Wünschen.</p>
       </article>
-      <aside class="sidebar-cta">
-        <h3>Kostenlose Beratung</h3>
-        <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein massgeschneidertes Angebot – unverbindlich und kostenlos.</p>
-        <a href="/kontakt.html" class="btn btn-light">Jetzt anfragen</a>
-        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)">
-          <div style="font-size:.7rem;color:rgba(255,255,255,.35);margin-bottom:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Eingesetztes System</div>
-          <div style="font-size:.8rem;display:flex;flex-direction:column;gap:.35rem">
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Grundierung</span><strong style="color:rgba(255,255,255,.82)">Sikafloor-151</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Beschichtung</span><strong style="color:rgba(255,255,255,.82)">Epoxidharz 2-K</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:rgba(255,255,255,.42)">Einstreuung</span><strong style="color:rgba(255,255,255,.82)">Quarzsand/Korund</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:.3rem 0"><span style="color:rgba(255,255,255,.42)">Schichtdicke</span><strong style="color:rgba(255,255,255,.82)">2–4 mm</strong></div>
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h3>Leistungen</h3>
+          <div class="sub-links">
+            <a href="epoxidharz-boden.html"><span class="sl-num">01</span><div class="text-container"><span class="main-text">Epoxidharz (EP)</span><span class="sub-text">Fugenlose Oberflächen</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="polyurethan-boden.html"><span class="sl-num">02</span><div class="text-container"><span class="main-text">Polyurethan (PU)</span><span class="sub-text">UV-beständig &amp; elastisch</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="pmma-boden.html"><span class="sl-num">03</span><div class="text-container"><span class="main-text">PMMA</span><span class="sub-text">Schnellhärtende Systeme</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="designerboden.html"><span class="sl-num">04</span><div class="text-container"><span class="main-text">Designerboden</span><span class="sub-text">Individuelles Design</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="abdichtung.html"><span class="sl-num">05</span><div class="text-container"><span class="main-text">Flüssigkunststoff</span><span class="sub-text">Nahtlose Abdichtung</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="injektionen.html"><span class="sl-num">06</span><div class="text-container"><span class="main-text">Injektionen</span><span class="sub-text">Rissabdichtung</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="combiflex.html"><span class="sl-num">07</span><div class="text-container"><span class="main-text">Combiflex</span><span class="sub-text">Hochflexible Dichtungsbänder</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
           </div>
+        </div>
+        <div class="ult-cta">
+          <h4>Kostenlose Beratung</h4>
+          <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein maßgeschneidertes Angebot.</p>
+          <a href="/kontakt.html" class="ult-btn">
+            <span>Jetzt anfragen</span>
+            <span class="btn-arrow">→</span>
+          </a>
         </div>
       </aside>
     </div>
@@ -696,6 +824,47 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 </script>
 <script src="../js/effects.js"></script>
 <script src="../js/mobile-effects.js"></script>
+
+
+<script>
+  /* Magnetni efekat na sidebar linkovima (desktop) */
+  if (window.innerWidth > 768) {
+    document.querySelectorAll('.sidebar-card .sub-links a').forEach(item => {
+      const text = item.querySelector('.main-text');
+      if (!text) return;
+      item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        text.style.transform = `translate(${(x/rect.width)*12}px, ${(y/rect.height)*12}px)`;
+      });
+      item.addEventListener('mouseleave', () => {
+        text.style.transition = 'transform 0.5s cubic-bezier(0.25,1,0.5,1)';
+        text.style.transform = 'translate(0,0)';
+      });
+      item.addEventListener('mouseenter', () => { text.style.transition = 'none'; });
+    });
+  }
+
+  /* Mobilni scroll fokus */
+  if (window.innerWidth <= 768) {
+    const links = document.querySelectorAll('.sidebar-card .sub-links a');
+    function updateMobActive() {
+      const viewMid = window.innerHeight / 2;
+      let closest = null, minDist = Infinity;
+      links.forEach(a => {
+        const rect = a.getBoundingClientRect();
+        const mid = rect.top + rect.height / 2;
+        const dist = Math.abs(mid - viewMid);
+        if (dist < minDist) { minDist = dist; closest = a; }
+      });
+      links.forEach(a => a.classList.remove('mob-active'));
+      if (closest) closest.classList.add('mob-active');
+    }
+    window.addEventListener('scroll', updateMobActive, { passive: true });
+    updateMobActive();
+  }
+</script>
 </body>
 
 <script src="../js/main.js"></script>
@@ -720,6 +889,8 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 </script>
 <script src="../js/effects.js"></script>
 <script src="../js/mobile-effects.js"></script>
+
+
 </body>
 
 <script src="../js/main.js"></script>
@@ -797,5 +968,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   }, {passive: true});
 })();
 </script>
+
+
 </body>
 </html>

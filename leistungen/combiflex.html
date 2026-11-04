@@ -16,7 +16,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"POLYCORE GmbH","url":"https://www.polycore.ch","telephone":"+41765397974","address":{"@type":"PostalAddress","streetAddress":"Etzmattrain 36","addressLocality":"Urtenen-Schönbühl","postalCode":"3322","addressCountry":"CH"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=Syne:wght@600;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../css/design-system.css"/>
 <link rel="stylesheet" href="../css/nav.css"/>
 <link rel="stylesheet" href="../css/footer.css"/>
@@ -39,8 +39,6 @@ body { background: #f8f7f5; color: #1a1a1a; }
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
-.sidebar-cta { background: #2c1810; border: none; }
-.sidebar-cta h3 { color: #fff; } .sidebar-cta p { color: rgba(255,255,255,.65); }
 .app-card { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
 .app-card:hover { border-color: rgba(74,14,26,.3); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(74,14,26,.08); }
 .app-card h4 { color: #1a1a1a !important; } .app-card p { color: #666 !important; }
@@ -176,7 +174,6 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
   /* Content layout - jedna kolona */
   .content-layout { grid-template-columns: 1fr !important; }
-  .sidebar-cta { margin-top: 1.5rem; }
 
   /* App grid - 2 kolone */
   .app-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
@@ -349,6 +346,62 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   .mobile-contact-info .tel { font-size: 1.2rem; font-weight: 700; color: rgba(94,20,34,1); margin-bottom: 0.2rem; }
 }
 
+
+/* ===== SECTION TICKER ===== */
+.section-ticker {
+  background: #f8f7f5;
+  padding: 0;
+  border-top: 1px solid rgba(74,14,26,.08);
+  border-bottom: 1px solid rgba(74,14,26,.08);
+  overflow: hidden;
+}
+.ticker-wrap {
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  -webkit-mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.ticker-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: ticker-scroll 32s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.tk-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 1.1rem 2.2rem;
+  border-right: 1px solid rgba(74,14,26,.1);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tk-line {
+  display: inline-block;
+  width: 20px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #4a0e1a, #f2a4b0);
+  flex-shrink: 0;
+}
+.tk-title {
+  font-size: .78rem;
+  font-weight: 700;
+  color: #1a1210;
+  letter-spacing: -.01em;
+}
+.tk-lbl {
+  font-size: .73rem;
+  color: #9a8880;
+  font-weight: 300;
+}
 </style>
 </head>
 <body class="hero-light">
@@ -513,6 +566,73 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   </div>
 </section>
 
+  <section class="section-ticker">
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Hochflexibel</span>
+          <span class="tk-lbl">Combiflex-Bänder dehnen sich mit dem Bauwerk – kein Aufreißen bei Bewegung.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Für Dehnfugen</span>
+          <span class="tk-lbl">Ideal zur Überbrückung von Bau-, Dehn- und Anschlussfugen.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Innen &amp; außen</span>
+          <span class="tk-lbl">Einsetzbar im Innenbereich, an Fassaden, Dächern und im Erdreich.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Langzeitsicher</span>
+          <span class="tk-lbl">Bitumenfreie Verbundtechnik – dauerhaft haftend und witterungsbeständig.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Einfache Montage</span>
+          <span class="tk-lbl">Schnelle, saubere Verlegung – keine Spezialmaschinen erforderlich.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Bewährt im Tiefbau</span>
+          <span class="tk-lbl">Eingesetzt in Tunneln, Becken, Brücken und Industrieböden.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Hochflexibel</span>
+          <span class="tk-lbl">Combiflex-Bänder dehnen sich mit dem Bauwerk – kein Aufreißen bei Bewegung.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Für Dehnfugen</span>
+          <span class="tk-lbl">Ideal zur Überbrückung von Bau-, Dehn- und Anschlussfugen.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Innen &amp; außen</span>
+          <span class="tk-lbl">Einsetzbar im Innenbereich, an Fassaden, Dächern und im Erdreich.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Langzeitsicher</span>
+          <span class="tk-lbl">Bitumenfreie Verbundtechnik – dauerhaft haftend und witterungsbeständig.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Einfache Montage</span>
+          <span class="tk-lbl">Schnelle, saubere Verlegung – keine Spezialmaschinen erforderlich.</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Bewährt im Tiefbau</span>
+          <span class="tk-lbl">Eingesetzt in Tunneln, Becken, Brücken und Industrieböden.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 <!-- BENEFITS -->
 <section class="section-sm">
@@ -654,21 +774,24 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
       <aside class="sidebar">
         <div class="sidebar-card">
-          <h3>Alle Leistungen</h3>
+          <h3>Leistungen</h3>
           <div class="sub-links">
-            <a href="epoxidharz-boden.html">Epoxidharz (EP) <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-            <a href="polyurethan-boden.html">Polyurethan (PU) <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-            <a href="pmma-boden.html">PMMA <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-            <a href="designerboden.html">Designerboden <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-            <a href="abdichtung.html">Abdichtungen <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-            <a href="injektionen.html">Injektionen <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
-            <a href="combiflex.html" class="active">Combiflex <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+            <a href="epoxidharz-boden.html"><span class="sl-num">01</span><div class="text-container"><span class="main-text">Epoxidharz (EP)</span><span class="sub-text">Fugenlose Oberflächen</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="polyurethan-boden.html"><span class="sl-num">02</span><div class="text-container"><span class="main-text">Polyurethan (PU)</span><span class="sub-text">UV-beständig &amp; elastisch</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="pmma-boden.html"><span class="sl-num">03</span><div class="text-container"><span class="main-text">PMMA</span><span class="sub-text">Schnellhärtende Systeme</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="designerboden.html"><span class="sl-num">04</span><div class="text-container"><span class="main-text">Designerboden</span><span class="sub-text">Individuelles Design</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="abdichtung.html"><span class="sl-num">05</span><div class="text-container"><span class="main-text">Flüssigkunststoff</span><span class="sub-text">Nahtlose Abdichtung</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="injektionen.html"><span class="sl-num">06</span><div class="text-container"><span class="main-text">Injektionen</span><span class="sub-text">Rissabdichtung</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="combiflex.html" class="active"><span class="sl-num">07</span><div class="text-container"><span class="main-text">Combiflex</span><span class="sub-text">Hochflexible Dichtungsbänder</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
           </div>
         </div>
-        <div class="sidebar-cta">
-          <h3>Kostenlose Beratung</h3>
-          <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein massgeschneidertes Angebot – unverbindlich und kostenlos.</p>
-          <a href="/kontakt.html" class="btn btn-light">Jetzt anfragen</a>
+        <div class="ult-cta">
+          <h4>Kostenlose Beratung</h4>
+          <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein maßgeschneidertes Angebot.</p>
+          <a href="/kontakt.html" class="ult-btn">
+            <span>Jetzt anfragen</span>
+            <span class="btn-arrow">→</span>
+          </a>
         </div>
       </aside>
     </div>
@@ -831,6 +954,47 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 </script>
 <script src="../js/effects.js"></script>
 <script src="../js/mobile-effects.js"></script>
+
+
+<script>
+  /* Magnetni efekat na sidebar linkovima (desktop) */
+  if (window.innerWidth > 768) {
+    document.querySelectorAll('.sidebar-card .sub-links a').forEach(item => {
+      const text = item.querySelector('.main-text');
+      if (!text) return;
+      item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        text.style.transform = `translate(${(x/rect.width)*12}px, ${(y/rect.height)*12}px)`;
+      });
+      item.addEventListener('mouseleave', () => {
+        text.style.transition = 'transform 0.5s cubic-bezier(0.25,1,0.5,1)';
+        text.style.transform = 'translate(0,0)';
+      });
+      item.addEventListener('mouseenter', () => { text.style.transition = 'none'; });
+    });
+  }
+
+  /* Mobilni scroll fokus */
+  if (window.innerWidth <= 768) {
+    const links = document.querySelectorAll('.sidebar-card .sub-links a');
+    function updateMobActive() {
+      const viewMid = window.innerHeight / 2;
+      let closest = null, minDist = Infinity;
+      links.forEach(a => {
+        const rect = a.getBoundingClientRect();
+        const mid = rect.top + rect.height / 2;
+        const dist = Math.abs(mid - viewMid);
+        if (dist < minDist) { minDist = dist; closest = a; }
+      });
+      links.forEach(a => a.classList.remove('mob-active'));
+      if (closest) closest.classList.add('mob-active');
+    }
+    window.addEventListener('scroll', updateMobActive, { passive: true });
+    updateMobActive();
+  }
+</script>
 </body>
 
 <script src="../js/main.js"></script>
@@ -855,6 +1019,8 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 </script>
 <script src="../js/effects.js"></script>
 <script src="../js/mobile-effects.js"></script>
+
+
 </body>
 
 <script src="../js/main.js"></script>
@@ -879,6 +1045,8 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 </script>
 <script src="../js/effects.js"></script>
 <script src="../js/mobile-effects.js"></script>
+
+
 </body>
 
 <script>
@@ -955,5 +1123,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   }, {passive: true});
 })();
 </script>
+
+
 </body>
 </html>

@@ -187,6 +187,7 @@
   flex-grow: 1; overflow: hidden;
   height: 30px;
   display: flex; flex-direction: column; justify-content: center;
+  position: relative;
 }
 .sidebar-card .sub-links a .main-text {
   display: block;
@@ -376,6 +377,36 @@
   .benefits-grid { grid-template-columns: 1fr; }
   .app-grid { grid-template-columns: repeat(2, 1fr); }
   .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobilni sidebar */
+@media(max-width:768px){
+  .sidebar-card .sub-links a {
+    transform: skewX(-5deg);
+    padding: 12px 16px;
+    opacity: .45;
+    filter: blur(1px);
+    transition: opacity .4s ease, filter .4s ease, transform .4s ease, box-shadow .4s ease;
+  }
+  .sidebar-card .sub-links a > * { transform: skewX(5deg); }
+  .sidebar-card .sub-links a.mob-active {
+    opacity: 1 !important;
+    filter: blur(0) !important;
+    transform: skewX(-5deg) scale(1.02) !important;
+    border-color: #4a0e1a;
+    box-shadow: 0 8px 24px rgba(74,14,26,.15);
+  }
+  .sidebar-card .sub-links a.mob-active::before { bottom: 0; }
+  .sidebar-card .sub-links a.mob-active .sl-num { color: #d4af37; }
+  .sidebar-card .sub-links a.mob-active .main-text { color: #fff; }
+  .sidebar-card .sub-links a.mob-active .sl-arrow { opacity: 1; transform: translateX(0); color: #fff; }
+  .sidebar-card .sub-links a.mob-active .gold-line { width: 24px; }
+  /* Disable desktop hover blur na mobu */
+  .sidebar-card .sub-links:hover a { opacity: unset; filter: unset; transform: unset; }
+  .sidebar-card .sub-links a:hover {
+    opacity: unset !important; filter: unset !important;
+    transform: unset !important; box-shadow: unset !important;
+  }
 }
 @media(max-width:640px){
   .cta-banner { padding: 2.5rem 1.5rem; }
