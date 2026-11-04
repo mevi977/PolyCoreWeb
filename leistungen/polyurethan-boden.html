@@ -31,11 +31,6 @@
 body { background: #f8f7f5; color: #1a1a1a; }
 .section, .section-sm { background: #f8f7f5; }
 .section.light-bg, .section-sm.light-bg { background: #fff; }
-.benefit-cell { background: #fff !important; border: 1px solid rgba(0,0,0,.08) !important; border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
-.benefit-cell:hover { border-color: rgba(74,14,26,.3) !important; box-shadow: 0 4px 16px rgba(74,14,26,.08); transform: translateY(-2px); }
-.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #888 !important; }
-.benefit-icon { width: 38px; height: 38px; background: rgba(74,14,26,.07); border: 1px solid rgba(74,14,26,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .75rem; }
-.benefit-icon svg { width: 17px; height: 17px; stroke: #4a0e1a; }
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
@@ -165,12 +160,6 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
 @media (max-width: 768px) {
   /* Benefits grid - 2 kolone na mobitelu */
-  .benefits-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
-  .benefit-cell { padding: 1.1rem .85rem; }
-  .benefit-title { font-size: .85rem; }
-  .benefit-lbl { font-size: .72rem; }
-  .benefit-icon { width: 32px; height: 32px; margin-bottom: .5rem; }
-  .benefit-icon svg { width: 14px; height: 14px; }
 
   /* Content layout - jedna kolona */
   .content-layout { grid-template-columns: 1fr !important; }
@@ -571,64 +560,65 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <div class="ticker-track">
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">UV-beständig</span>
-          <span class="tk-lbl">Vergilbt nicht – ideal für Räume mit Tageslicht und Sonneneinstrahlung.</span>
+          <span class="tk-title">–40 °C bis +90 °C</span>
+          <span class="tk-lbl">Thermische Belastungsrange</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Elastisch &amp; trittsicher</span>
-          <span class="tk-lbl">Leicht nachgiebig – komfortabel bei langem Stehen, rutschsicher.</span>
+          <span class="tk-title">Elastisch & risssicher</span>
+          <span class="tk-lbl">Dehnt sich mit dem Untergrund – kein Reissen bei Temperaturschwankungen</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Temperaturbeständig</span>
-          <span class="tk-lbl">Stabil bei Frost und Hitze – geeignet für Tiefkühlräume und Außenbereiche.</span>
+          <span class="tk-title">HACCP-konform</span>
+          <span class="tk-lbl">Geeignet für Lebensmittelbetriebe, Küchen, Metzgereien</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Fugenlos &amp; hygienisch</span>
-          <span class="tk-lbl">Keine Ritzen, kein Schmutz – ideal für Lebensmittel- und Medizinbereiche.</span>
+          <span class="tk-title">Rutschhemmend R9–R13</span>
+          <span class="tk-lbl">Frei wählbare Rutschhemmung je nach Nutzung</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Schallreduzierend</span>
-          <span class="tk-lbl">PU-Systeme dämpfen Trittschall – ruhigere Räume, weniger Lärm.</span>
+          <span class="tk-title">Chemikalienresistent</span>
+          <span class="tk-lbl">Beständig gegen Fette, Säuren, Reinigungsmittel</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Schnell verlegbar</span>
-          <span class="tk-lbl">Kurze Verarbeitungszeiten – minimale Betriebsunterbrechung.</span>
+          <span class="tk-title">Fugenfrei & hygienisch</span>
+          <span class="tk-lbl">Keine Keimherde, einfach zu reinigen und zu desinfizieren</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">UV-beständig</span>
-          <span class="tk-lbl">Vergilbt nicht – ideal für Räume mit Tageslicht und Sonneneinstrahlung.</span>
+          <span class="tk-title">–40 °C bis +90 °C</span>
+          <span class="tk-lbl">Thermische Belastungsrange</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Elastisch &amp; trittsicher</span>
-          <span class="tk-lbl">Leicht nachgiebig – komfortabel bei langem Stehen, rutschsicher.</span>
+          <span class="tk-title">Elastisch & risssicher</span>
+          <span class="tk-lbl">Dehnt sich mit dem Untergrund – kein Reissen bei Temperaturschwankungen</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Temperaturbeständig</span>
-          <span class="tk-lbl">Stabil bei Frost und Hitze – geeignet für Tiefkühlräume und Außenbereiche.</span>
+          <span class="tk-title">HACCP-konform</span>
+          <span class="tk-lbl">Geeignet für Lebensmittelbetriebe, Küchen, Metzgereien</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Fugenlos &amp; hygienisch</span>
-          <span class="tk-lbl">Keine Ritzen, kein Schmutz – ideal für Lebensmittel- und Medizinbereiche.</span>
+          <span class="tk-title">Rutschhemmend R9–R13</span>
+          <span class="tk-lbl">Frei wählbare Rutschhemmung je nach Nutzung</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Schallreduzierend</span>
-          <span class="tk-lbl">PU-Systeme dämpfen Trittschall – ruhigere Räume, weniger Lärm.</span>
+          <span class="tk-title">Chemikalienresistent</span>
+          <span class="tk-lbl">Beständig gegen Fette, Säuren, Reinigungsmittel</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Schnell verlegbar</span>
-          <span class="tk-lbl">Kurze Verarbeitungszeiten – minimale Betriebsunterbrechung.</span>
+          <span class="tk-title">Fugenfrei & hygienisch</span>
+          <span class="tk-lbl">Keine Keimherde, einfach zu reinigen und zu desinfizieren</span>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -637,44 +627,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 <!-- BENEFITS -->
 <section class="section-sm">
   <div class="container">
-    <div class="benefits-grid">
-      
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">–40 °C bis +90 °C</div>
-        <div class="benefit-lbl">Thermische Belastungsrange</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Elastisch & risssicher</div>
-        <div class="benefit-lbl">Dehnt sich mit dem Untergrund – kein Reissen bei Temperaturschwankungen</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">HACCP-konform</div>
-        <div class="benefit-lbl">Geeignet für Lebensmittelbetriebe, Küchen, Metzgereien</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Rutschhemmend R9–R13</div>
-        <div class="benefit-lbl">Frei wählbare Rutschhemmung je nach Nutzung</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Chemikalienresistent</div>
-        <div class="benefit-lbl">Beständig gegen Fette, Säuren, Reinigungsmittel</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Fugenfrei & hygienisch</div>
-        <div class="benefit-lbl">Keine Keimherde, einfach zu reinigen und zu desinfizieren</div>
-      </div>
-    </div>
+    
   </div>
 </section>
 

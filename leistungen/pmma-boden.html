@@ -31,11 +31,6 @@
 body { background: #f8f7f5; color: #1a1a1a; }
 .section, .section-sm { background: #f8f7f5; }
 .section.light-bg, .section-sm.light-bg { background: #fff; }
-.benefit-cell { background: #fff !important; border: 1px solid rgba(0,0,0,.08) !important; border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
-.benefit-cell:hover { border-color: rgba(74,14,26,.3) !important; box-shadow: 0 4px 16px rgba(74,14,26,.08); transform: translateY(-2px); }
-.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #888 !important; }
-.benefit-icon { width: 38px; height: 38px; background: rgba(74,14,26,.07); border: 1px solid rgba(74,14,26,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .75rem; }
-.benefit-icon svg { width: 17px; height: 17px; stroke: #4a0e1a; }
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
@@ -165,12 +160,6 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
 @media (max-width: 768px) {
   /* Benefits grid - 2 kolone na mobitelu */
-  .benefits-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
-  .benefit-cell { padding: 1.1rem .85rem; }
-  .benefit-title { font-size: .85rem; }
-  .benefit-lbl { font-size: .72rem; }
-  .benefit-icon { width: 32px; height: 32px; margin-bottom: .5rem; }
-  .benefit-icon svg { width: 14px; height: 14px; }
 
   /* Content layout - jedna kolona */
   .content-layout { grid-template-columns: 1fr !important; }
@@ -571,64 +560,65 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <div class="ticker-track">
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Schnellhärtend</span>
-          <span class="tk-lbl">Betretbar nach ca. 2 Stunden – minimale Ausfallzeit für Ihren Betrieb.</span>
+          <span class="tk-title">1–2 Stunden</span>
+          <span class="tk-lbl">Bis zur vollen Begehbarkeit nach Auftrag</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Kältestabil</span>
-          <span class="tk-lbl">Aushärtung auch bei –20 °C – ideal für Kühl- und Tiefkühlbereiche.</span>
+          <span class="tk-title">Ganzjährig verarbeitbar</span>
+          <span class="tk-lbl">Auch bei Minustemperaturen bis –30 °C einsetzbar</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Fugenlos &amp; hyponisch</span>
-          <span class="tk-lbl">Keine Fugen, kein Schmutz – höchste Hygieneanforderungen erfüllt.</span>
+          <span class="tk-title">Innen & aussen</span>
+          <span class="tk-lbl">UV-stabil, witterungsbeständig – ideal für Terrassen</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Mechanisch belastbar</span>
-          <span class="tk-lbl">Widerstandsfähig gegen Stöße, Stapler und intensiven Fahrzeugverkehr.</span>
+          <span class="tk-title">Rissüberbrückend</span>
+          <span class="tk-lbl">Flexibel genug für Bewegungen im Untergrund</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Individuell anpassbar</span>
-          <span class="tk-lbl">Farbig, transparent oder strukturiert – auf Ihr Objekt zugeschnitten.</span>
+          <span class="tk-title">Dampfdicht</span>
+          <span class="tk-lbl">Schutz vor aufsteigender Feuchtigkeit</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Langlebig &amp; wertbeständig</span>
-          <span class="tk-lbl">Professionell verarbeitet – dauerhafter Schutz für Ihre Bodenfläche.</span>
+          <span class="tk-title">Fugenlos & langlebig</span>
+          <span class="tk-lbl">Glatte, hygienische Oberfläche für Jahrzehnte</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Schnellhärtend</span>
-          <span class="tk-lbl">Betretbar nach ca. 2 Stunden – minimale Ausfallzeit für Ihren Betrieb.</span>
+          <span class="tk-title">1–2 Stunden</span>
+          <span class="tk-lbl">Bis zur vollen Begehbarkeit nach Auftrag</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Kältestabil</span>
-          <span class="tk-lbl">Aushärtung auch bei –20 °C – ideal für Kühl- und Tiefkühlbereiche.</span>
+          <span class="tk-title">Ganzjährig verarbeitbar</span>
+          <span class="tk-lbl">Auch bei Minustemperaturen bis –30 °C einsetzbar</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Fugenlos &amp; hyponisch</span>
-          <span class="tk-lbl">Keine Fugen, kein Schmutz – höchste Hygieneanforderungen erfüllt.</span>
+          <span class="tk-title">Innen & aussen</span>
+          <span class="tk-lbl">UV-stabil, witterungsbeständig – ideal für Terrassen</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Mechanisch belastbar</span>
-          <span class="tk-lbl">Widerstandsfähig gegen Stöße, Stapler und intensiven Fahrzeugverkehr.</span>
+          <span class="tk-title">Rissüberbrückend</span>
+          <span class="tk-lbl">Flexibel genug für Bewegungen im Untergrund</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Individuell anpassbar</span>
-          <span class="tk-lbl">Farbig, transparent oder strukturiert – auf Ihr Objekt zugeschnitten.</span>
+          <span class="tk-title">Dampfdicht</span>
+          <span class="tk-lbl">Schutz vor aufsteigender Feuchtigkeit</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Langlebig &amp; wertbeständig</span>
-          <span class="tk-lbl">Professionell verarbeitet – dauerhafter Schutz für Ihre Bodenfläche.</span>
+          <span class="tk-title">Fugenlos & langlebig</span>
+          <span class="tk-lbl">Glatte, hygienische Oberfläche für Jahrzehnte</span>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -637,44 +627,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 <!-- BENEFITS -->
 <section class="section-sm">
   <div class="container">
-    <div class="benefits-grid">
-      
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">1–2 Stunden</div>
-        <div class="benefit-lbl">Bis zur vollen Begehbarkeit nach Auftrag</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Ganzjährig verarbeitbar</div>
-        <div class="benefit-lbl">Auch bei Minustemperaturen bis –30 °C einsetzbar</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Innen & aussen</div>
-        <div class="benefit-lbl">UV-stabil, witterungsbeständig – ideal für Terrassen</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Rissüberbrückend</div>
-        <div class="benefit-lbl">Flexibel genug für Bewegungen im Untergrund</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Dampfdicht</div>
-        <div class="benefit-lbl">Schutz vor aufsteigender Feuchtigkeit</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Fugenlos & langlebig</div>
-        <div class="benefit-lbl">Glatte, hygienische Oberfläche für Jahrzehnte</div>
-      </div>
-    </div>
+    
   </div>
 </section>
 

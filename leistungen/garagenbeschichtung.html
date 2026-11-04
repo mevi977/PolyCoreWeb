@@ -31,11 +31,6 @@
 body { background: #f8f7f5; color: #1a1a1a; }
 .section, .section-sm { background: #f8f7f5; }
 .section.light-bg, .section-sm.light-bg { background: #fff; }
-.benefit-cell { background: #fff !important; border: 1px solid rgba(0,0,0,.08) !important; border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
-.benefit-cell:hover { border-color: rgba(74,14,26,.3) !important; box-shadow: 0 4px 16px rgba(74,14,26,.08); transform: translateY(-2px); }
-.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #888 !important; }
-.benefit-icon { width: 38px; height: 38px; background: rgba(74,14,26,.07); border: 1px solid rgba(74,14,26,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .75rem; }
-.benefit-icon svg { width: 17px; height: 17px; stroke: #4a0e1a; }
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
@@ -165,12 +160,6 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
 @media (max-width: 768px) {
   /* Benefits grid - 2 kolone na mobitelu */
-  .benefits-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
-  .benefit-cell { padding: 1.1rem .85rem; }
-  .benefit-title { font-size: .85rem; }
-  .benefit-lbl { font-size: .72rem; }
-  .benefit-icon { width: 32px; height: 32px; margin-bottom: .5rem; }
-  .benefit-icon svg { width: 14px; height: 14px; }
 
   /* Content layout - jedna kolona */
   .content-layout { grid-template-columns: 1fr !important; }
@@ -571,64 +560,65 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <div class="ticker-track">
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Öl- &amp; kraftstoffbeständig</span>
-          <span class="tk-lbl">Hält Flecken von Motoröl, Benzin und Reinigungsmitteln stand.</span>
+          <span class="tk-title">Qualität</span>
+          <span class="tk-lbl">Schweizer Verarbeitung</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Rutschsicher</span>
-          <span class="tk-lbl">Griffige Oberfläche – sicher auch bei Nässe und winterlichen Bedingungen.</span>
+          <span class="tk-title">Schutz</span>
+          <span class="tk-lbl">Öl, Salz, Feuchtigkeit</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Fugenlos &amp; leicht zu reinigen</span>
-          <span class="tk-lbl">Glatte Versiegelung – kein Schmutz, kein Einzug in den Boden.</span>
+          <span class="tk-title">Schnell</span>
+          <span class="tk-lbl">72h befahrbar</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Frostbeständig</span>
-          <span class="tk-lbl">Stabil auch bei tiefen Temperaturen – kein Reißen oder Abplatzen.</span>
+          <span class="tk-title">Farbchips</span>
+          <span class="tk-lbl">Oder alle RAL-Töne</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Individuell gestaltbar</span>
-          <span class="tk-lbl">Farbe und Struktur frei wählbar – passend zu Ihrem Gebäude.</span>
+          <span class="tk-title">Regional</span>
+          <span class="tk-lbl">Bern, Biel, Thun</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Langlebig &amp; wertbeständig</span>
-          <span class="tk-lbl">Professionelle Beschichtung schützt den Untergrund dauerhaft.</span>
+          <span class="tk-title">Festpreis</span>
+          <span class="tk-lbl">Transparentes Angebot</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Öl- &amp; kraftstoffbeständig</span>
-          <span class="tk-lbl">Hält Flecken von Motoröl, Benzin und Reinigungsmitteln stand.</span>
+          <span class="tk-title">Qualität</span>
+          <span class="tk-lbl">Schweizer Verarbeitung</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Rutschsicher</span>
-          <span class="tk-lbl">Griffige Oberfläche – sicher auch bei Nässe und winterlichen Bedingungen.</span>
+          <span class="tk-title">Schutz</span>
+          <span class="tk-lbl">Öl, Salz, Feuchtigkeit</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Fugenlos &amp; leicht zu reinigen</span>
-          <span class="tk-lbl">Glatte Versiegelung – kein Schmutz, kein Einzug in den Boden.</span>
+          <span class="tk-title">Schnell</span>
+          <span class="tk-lbl">72h befahrbar</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Frostbeständig</span>
-          <span class="tk-lbl">Stabil auch bei tiefen Temperaturen – kein Reißen oder Abplatzen.</span>
+          <span class="tk-title">Farbchips</span>
+          <span class="tk-lbl">Oder alle RAL-Töne</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Individuell gestaltbar</span>
-          <span class="tk-lbl">Farbe und Struktur frei wählbar – passend zu Ihrem Gebäude.</span>
+          <span class="tk-title">Regional</span>
+          <span class="tk-lbl">Bern, Biel, Thun</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Langlebig &amp; wertbeständig</span>
-          <span class="tk-lbl">Professionelle Beschichtung schützt den Untergrund dauerhaft.</span>
+          <span class="tk-title">Festpreis</span>
+          <span class="tk-lbl">Transparentes Angebot</span>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -637,14 +627,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 <!-- BENEFITS -->
 <section class="section-sm">
   <div class="container">
-    <div class="benefits-grid">
-      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="benefit-title">Qualität</div><div class="benefit-lbl">Schweizer Verarbeitung</div></div>
-      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="benefit-title">Schutz</div><div class="benefit-lbl">Öl, Salz, Feuchtigkeit</div></div>
-      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="benefit-title">Schnell</div><div class="benefit-lbl">72h befahrbar</div></div>
-      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="10.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/></svg></div><div class="benefit-title">Farbchips</div><div class="benefit-lbl">Oder alle RAL-Töne</div></div>
-      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="benefit-title">Regional</div><div class="benefit-lbl">Bern, Biel, Thun</div></div>
-      <div class="benefit-cell reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="benefit-title">Festpreis</div><div class="benefit-lbl">Transparentes Angebot</div></div>
-    </div>
+    
   </div>
 </section>
 

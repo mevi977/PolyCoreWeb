@@ -31,11 +31,6 @@
 body { background: #f8f7f5; color: #1a1a1a; }
 .section, .section-sm { background: #f8f7f5; }
 .section.light-bg, .section-sm.light-bg { background: #fff; }
-.benefit-cell { background: #fff !important; border: 1px solid rgba(0,0,0,.08) !important; border-radius: 12px; padding: 1.5rem 1rem; transition: all .25s; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
-.benefit-cell:hover { border-color: rgba(74,14,26,.3) !important; box-shadow: 0 4px 16px rgba(74,14,26,.08); transform: translateY(-2px); }
-.benefit-title { color: #1a1a1a !important; } .benefit-lbl { color: #888 !important; }
-.benefit-icon { width: 38px; height: 38px; background: rgba(74,14,26,.07); border: 1px solid rgba(74,14,26,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .75rem; }
-.benefit-icon svg { width: 17px; height: 17px; stroke: #4a0e1a; }
 .content-body h2, .content-body h3 { color: #1a1a1a !important; }
 .content-body p { color: #555 !important; line-height: 1.8; }
 .content-body h3 { margin-top: 1.75rem; }
@@ -165,12 +160,6 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
 @media (max-width: 768px) {
   /* Benefits grid - 2 kolone na mobitelu */
-  .benefits-grid { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
-  .benefit-cell { padding: 1.1rem .85rem; }
-  .benefit-title { font-size: .85rem; }
-  .benefit-lbl { font-size: .72rem; }
-  .benefit-icon { width: 32px; height: 32px; margin-bottom: .5rem; }
-  .benefit-icon svg { width: 14px; height: 14px; }
 
   /* Content layout - jedna kolona */
   .content-layout { grid-template-columns: 1fr !important; }
@@ -571,64 +560,65 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
       <div class="ticker-track">
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Rutschsicher</span>
-          <span class="tk-lbl">Natursteinstruktur bietet sicheren Halt – ideal für nasse Bereiche.</span>
+          <span class="tk-title">Rutschfest</span>
+          <span class="tk-lbl">Klasse R11 – sicher auch bei Nässe und im Aussenbereich</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
           <span class="tk-title">Wasserdurchlässig</span>
-          <span class="tk-lbl">Regenwasser kann versickern – perfekt für Terrassen und Einfahrten.</span>
-        </div>
-        <div class="tk-item">
-          <span class="tk-line"></span>
-          <span class="tk-title">Fugenlos &amp; pflegeleicht</span>
-          <span class="tk-lbl">Keine Fugen, kein Moos – einfach zu reinigen und langlebig.</span>
+          <span class="tk-lbl">Keine Staunässe – Wasser versickert direkt durch den Belag</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
           <span class="tk-title">Frostbeständig</span>
-          <span class="tk-lbl">Geeignet für Außenbereiche – unempfindlich gegenüber Kälte und Hitze.</span>
+          <span class="tk-lbl">Geprüft für den Schweizer Winter – keine Risse, kein Auffrieren</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Individuell gestaltet</span>
-          <span class="tk-lbl">Verschiedene Steinsorten und Farben für einzigartige Optik.</span>
+          <span class="tk-title">Natürliche Optik</span>
+          <span class="tk-lbl">Echter Marmor, Quarz oder Granul – warm und hochwertig</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Für innen &amp; außen</span>
-          <span class="tk-lbl">Einfahrten, Terrassen, Bäder, Pools und Eingangsbereiche.</span>
+          <span class="tk-title">Fugenlos</span>
+          <span class="tk-lbl">Keine Fugen, kein Unkraut, keine Insekten – pflegeleicht</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Rutschsicher</span>
-          <span class="tk-lbl">Natursteinstruktur bietet sicheren Halt – ideal für nasse Bereiche.</span>
+          <span class="tk-title">UV-stabil</span>
+          <span class="tk-lbl">Farbe verblasst nicht – dauerhaft schön im Freien</span>
+        </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">Rutschfest</span>
+          <span class="tk-lbl">Klasse R11 – sicher auch bei Nässe und im Aussenbereich</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
           <span class="tk-title">Wasserdurchlässig</span>
-          <span class="tk-lbl">Regenwasser kann versickern – perfekt für Terrassen und Einfahrten.</span>
-        </div>
-        <div class="tk-item">
-          <span class="tk-line"></span>
-          <span class="tk-title">Fugenlos &amp; pflegeleicht</span>
-          <span class="tk-lbl">Keine Fugen, kein Moos – einfach zu reinigen und langlebig.</span>
+          <span class="tk-lbl">Keine Staunässe – Wasser versickert direkt durch den Belag</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
           <span class="tk-title">Frostbeständig</span>
-          <span class="tk-lbl">Geeignet für Außenbereiche – unempfindlich gegenüber Kälte und Hitze.</span>
+          <span class="tk-lbl">Geprüft für den Schweizer Winter – keine Risse, kein Auffrieren</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Individuell gestaltet</span>
-          <span class="tk-lbl">Verschiedene Steinsorten und Farben für einzigartige Optik.</span>
+          <span class="tk-title">Natürliche Optik</span>
+          <span class="tk-lbl">Echter Marmor, Quarz oder Granul – warm und hochwertig</span>
         </div>
         <div class="tk-item">
           <span class="tk-line"></span>
-          <span class="tk-title">Für innen &amp; außen</span>
-          <span class="tk-lbl">Einfahrten, Terrassen, Bäder, Pools und Eingangsbereiche.</span>
+          <span class="tk-title">Fugenlos</span>
+          <span class="tk-lbl">Keine Fugen, kein Unkraut, keine Insekten – pflegeleicht</span>
         </div>
+        <div class="tk-item">
+          <span class="tk-line"></span>
+          <span class="tk-title">UV-stabil</span>
+          <span class="tk-lbl">Farbe verblasst nicht – dauerhaft schön im Freien</span>
+        </div>
+      </div>
       </div>
     </div>
   </section>
@@ -637,45 +627,7 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 <!-- BENEFITS -->
 <section class="section-sm">
   <div class="container">
-    <div class="benefits-grid">
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Rutschfest</div>
-        <div class="benefit-lbl">Klasse R11 – sicher auch bei Nässe und im Aussenbereich</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Wasserdurchlässig</div>
-        <div class="benefit-lbl">Keine Staunässe – Wasser versickert direkt durch den Belag</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Frostbeständig</div>
-        <div class="benefit-lbl">Geprüft für den Schweizer Winter – keine Risse, kein Auffrieren</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Natürliche Optik</div>
-        <div class="benefit-lbl">Echter Marmor, Quarz oder Granul – warm und hochwertig</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">Fugenlos</div>
-        <div class="benefit-lbl">Keine Fugen, kein Unkraut, keine Insekten – pflegeleicht</div>
-      </div>
-
-      <div class="benefit-cell reveal">
-        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="benefit-title">UV-stabil</div>
-        <div class="benefit-lbl">Farbe verblasst nicht – dauerhaft schön im Freien</div>
-      </div>
-
-    </div>
+    
   </div>
 </section>
 
