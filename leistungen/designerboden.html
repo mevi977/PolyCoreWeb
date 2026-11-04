@@ -859,19 +859,22 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
         <div class="sidebar-card">
           <h3>Alle Leistungen<span class="sl-year">2024</span></h3>
           <div class="sub-links">
-            <a href="epoxidharz-boden.html" class=""><span class="sl-num">01</span><div class="text-container"><span class="sl-text">Epoxidharz (EP)</span></div><span class="sl-arrow">→</span></a>
-            <a href="polyurethan-boden.html" class=""><span class="sl-num">02</span><div class="text-container"><span class="sl-text">Polyurethan (PU)</span></div><span class="sl-arrow">→</span></a>
-            <a href="pmma-boden.html" class=""><span class="sl-num">03</span><div class="text-container"><span class="sl-text">PMMA</span></div><span class="sl-arrow">→</span></a>
-            <a href="designerboden.html" class="active"><span class="sl-num">04</span><div class="text-container"><span class="sl-text">Designerboden</span></div><span class="sl-arrow">→</span></a>
-            <a href="abdichtung.html" class=""><span class="sl-num">05</span><div class="text-container"><span class="sl-text">Flüssigkunststoff (FLK)</span></div><span class="sl-arrow">→</span></a>
-            <a href="injektionen.html" class=""><span class="sl-num">06</span><div class="text-container"><span class="sl-text">Injektionen</span></div><span class="sl-arrow">→</span></a>
-            <a href="combiflex.html" class=""><span class="sl-num">07</span><div class="text-container"><span class="sl-text">Combiflex</span></div><span class="sl-arrow">→</span></a>
+            <a href="epoxidharz-boden.html"><span class="sl-num">01</span><div class="text-container"><span class="main-text">Epoxidharz (EP)</span><span class="sub-text">Fugenlose Oberflächen</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="polyurethan-boden.html"><span class="sl-num">02</span><div class="text-container"><span class="main-text">Polyurethan (PU)</span><span class="sub-text">UV-beständig &amp; elastisch</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="pmma-boden.html"><span class="sl-num">03</span><div class="text-container"><span class="main-text">PMMA</span><span class="sub-text">Schnellhärtende Systeme</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="designerboden.html" class="active"><span class="sl-num">04</span><div class="text-container"><span class="main-text">Designerboden</span><span class="sub-text">Individuelles Design</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="abdichtung.html"><span class="sl-num">05</span><div class="text-container"><span class="main-text">Flüssigkunststoff</span><span class="sub-text">Nahtlose Abdichtung</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="injektionen.html"><span class="sl-num">06</span><div class="text-container"><span class="main-text">Injektionen</span><span class="sub-text">Rissabdichtung</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
+            <a href="combiflex.html"><span class="sl-num">07</span><div class="text-container"><span class="main-text">Combiflex</span><span class="sub-text">Hochflexible Dichtungsbänder</span></div><div class="gold-line"></div><span class="sl-arrow">→</span></a>
           </div>
         </div>
-        <div class="sidebar-cta">
-          <h3>Kostenlose Beratung</h3>
-          <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein massgeschneidertes Angebot – unverbindlich und kostenlos.</p>
-          <a href="/kontakt.html" class="btn btn-light">Jetzt anfragen</a>
+        <div class="ult-cta">
+          <h4>Kostenlose Beratung</h4>
+          <p>Wir analysieren Ihr Objekt vor Ort und erstellen ein maßgeschneidertes Angebot.</p>
+          <a href="/kontakt.html" class="ult-btn">
+            <span>Jetzt anfragen</span>
+            <span class="btn-arrow">→</span>
+          </a>
         </div>
       </aside>
     </div>
@@ -1164,13 +1167,13 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 <script>
 /* Magnetni efekat na sidebar linkovima */
 document.querySelectorAll('.sidebar-card .sub-links a').forEach(item => {
-  const text = item.querySelector('.sl-text');
+  const text = item.querySelector('.main-text');
   if (!text) return;
   item.addEventListener('mousemove', (e) => {
     const rect = item.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    text.style.transform = `translate(${(x/rect.width)*15}px, ${(y/rect.height)*15}px)`;
+    text.style.transform = `translate(${(x/rect.width)*12}px, ${(y/rect.height)*12}px)`;
   });
   item.addEventListener('mouseleave', () => {
     text.style.transition = 'transform 0.5s cubic-bezier(0.25,1,0.5,1)';
