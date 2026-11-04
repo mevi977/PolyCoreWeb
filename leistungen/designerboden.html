@@ -264,13 +264,24 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 }
 
 @media (max-width: 768px) {
-  /* Benefits grid - 1 kolona na mobitelu */
+  /* Benefits grid - 1 kolona na mobitelu, bez split efekta */
   .benefits-grid { grid-template-columns: 1fr !important; gap: .5rem !important; }
-  .benefit-cell { min-height: 120px !important; }
-  .bc-bg { width: 50%; }
-  .bc-inner { padding: 1.3rem 1.2rem !important; justify-content: center !important; }
-  .benefit-title { font-size: .9rem !important; }
-  .benefit-lbl { font-size: .78rem !important; }
+  .benefit-cell { min-height: auto !important; }
+  /* Na mobu: bc-bg full width, fade od desne strane nestaje */
+  .bc-bg { width: 100% !important; background: transparent !important; box-shadow: none !important; }
+  .bc-bg::before { display: none !important; }
+  /* Kartica dobiva tanak bordeaux border s desne i donje strane */
+  .benefit-cell { 
+    border: 1px solid rgba(74,14,26,.0) !important;
+    border-right: 2px solid rgba(74,14,26,.35) !important;
+    border-bottom: 1px solid rgba(74,14,26,.12) !important;
+    box-shadow: 3px 4px 16px rgba(74,14,26,.10) !important;
+    background: #f8f7f5 !important;
+  }
+  /* bc-inner full width */
+  .bc-inner { width: 100% !important; padding: 1.4rem 1.3rem !important; justify-content: flex-start !important; }
+  .benefit-title { font-size: .92rem !important; }
+  .benefit-lbl { font-size: .8rem !important; }
 
 
   /* Content layout - jedna kolona */
