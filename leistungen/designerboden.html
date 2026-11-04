@@ -539,13 +539,15 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
 
 
 
+
+
 /* === SIDEBAR LEISTUNGEN === */
 .sidebar-card {
-  background: #f8f7f5;
-  border-radius: 10px;
-  box-shadow: 0 2px 14px rgba(74,14,26,.08);
+  background: transparent !important;
+  border-radius: 10px !important;
+  padding: 0 !important;
+  box-shadow: none !important;
   border: none !important;
-  outline: none !important;
 }
 .sidebar-card h3 {
   font-size: .58rem !important; font-weight: 700 !important;
@@ -553,32 +555,46 @@ body.loaded .phi-h1-accent { animation: phShim 4s 1.5s ease-in-out infinite; }
   color: #4a0e1a !important; padding: .9rem 1.1rem .75rem !important;
   border-bottom: 1px solid rgba(74,14,26,.10) !important; margin: 0 !important;
 }
-.sub-links { padding: .5rem !important; display: flex !important; flex-direction: column !important; gap: .25rem !important; }
-.sub-links a {
+.sidebar-card .sub-links { padding: .5rem !important; gap: .25rem !important; }
+.sidebar-card .sub-links a {
+  position: relative !important;
   display: flex !important; align-items: center !important;
   justify-content: space-between !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 7px !important;
   padding: .62rem .9rem !important;
   font-size: .82rem !important; font-weight: 400 !important;
-  color: #1a1210 !important; text-decoration: none !important;
-  border-radius: 7px !important;
-  background: #fff !important;
-  border: none !important;
+  color: #1a1210 !important;
   outline: none !important;
   box-shadow: none !important;
-  transition: background .18s, color .18s !important;
+  overflow: hidden !important;
+  transition: color .18s !important;
 }
-.sub-links a:hover {
-  background: rgba(74,14,26,.05) !important;
-  color: #4a0e1a !important;
+/* Tanka bordeaux linija samo na desnoj polovici */
+.sidebar-card .sub-links a::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important; bottom: 0 !important;
+  left: 50% !important; right: 0 !important;
+  border: 1px solid rgba(74,14,26,.0) !important;
+  border-radius: 0 7px 7px 0 !important;
+  border-left: none !important;
+  transition: border-color .2s !important;
+  pointer-events: none !important;
 }
-.sub-links a.active {
-  background: rgba(74,14,26,.07) !important;
-  color: #4a0e1a !important;
-  font-weight: 600 !important;
+.sidebar-card .sub-links a:hover::after {
+  border-color: rgba(74,14,26,.35) !important;
 }
-.sub-links a:focus { outline: none !important; }
-.sub-links a svg { opacity: .3 !important; transition: opacity .18s, transform .18s !important; flex-shrink: 0 !important; }
-.sub-links a:hover svg, .sub-links a.active svg { opacity: .7 !important; transform: translateX(2px) !important; }
+.sidebar-card .sub-links a.active::after {
+  border-color: rgba(74,14,26,.6) !important;
+}
+.sidebar-card .sub-links a:hover { color: #4a0e1a !important; }
+.sidebar-card .sub-links a.active { color: #4a0e1a !important; font-weight: 600 !important; }
+.sidebar-card .sub-links a:focus { outline: none !important; }
+.sidebar-card .sub-links a svg { opacity: .3 !important; transition: opacity .18s, transform .18s !important; }
+.sidebar-card .sub-links a:hover svg,
+.sidebar-card .sub-links a.active svg { opacity: .7 !important; transform: translateX(2px) !important; }
 
 </style>
 </head>
