@@ -531,51 +531,79 @@ textarea.finput{resize:vertical;min-height:130px}
 </footer>
 
 <script src="js/main.js"></script>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-emailjs.init('tSw4ajNf8aPPWW1EU');
+(function() {
+  var EMAILJS_PUBLIC_KEY  = 'tSw4ajNf8aPPWW1EU';
+  var EMAILJS_SERVICE_ID  = 'service_4fbh6v8';
+  var EMAILJS_TEMPLATE_ID = 'template_smkptuk';
+  var EMAILJS_REPLY_ID    = 'template_44icjx1';
 
-const form = document.getElementById('contact-form');
-const success = document.getElementById('fsuccess');
-const btn = document.getElementById('submit-btn');
+  try { emailjs.init(EMAILJS_PUBLIC_KEY); } catch(e) { console.error('EmailJS init fehler:', e); }
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  btn.innerHTML = 'Wird gesendet... <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>';
-  btn.disabled = true;
-  btn.style.opacity = '.65';
+  var form    = document.getElementById('contact-form');
+  var success = document.getElementById('fsuccess');
+  var btn     = document.getElementById('submit-btn');
+  var errEl   = null;
 
-  const templateParams = {
-    name: (form.vorname.value + ' ' + form.nachname.value).trim(),
-    firma: form.firma.value || '–',
-    email: form.email.value,
-    phone: form.telefon.value || '–',
-    service: form.leistung.value || '–',
-    area: form.flaeche.value || '–',
-    message: form.nachricht.value
-  };
+  function showError(msg) {
+    removeError();
+    errEl = document.createElement('p');
+    errEl.style.cssText = 'color:#dc2626;font-size:.83rem;text-align:center;margin-top:.75rem;padding:.6rem 1rem;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;line-height:1.5';
+    errEl.innerHTML = msg;
+    btn.after(errEl);
+  }
 
-  emailjs.send('service_4fbh6v8', 'template_smkptuk', templateParams)
-    .then(function() {
-      // Autoreply klijentu
-      emailjs.send('service_4fbh6v8', 'template_44icjx1', templateParams);
-      form.style.display = 'none';
-      success.style.display = 'block';
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, function(error) {
-      console.error('EmailJS error:', error);
-      btn.innerHTML = 'Erneut versuchen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M2 8h12M9 3l5 5-5 5"/></svg>';
-      btn.disabled = false;
-      btn.style.opacity = '1';
-      const errEl = document.createElement('p');
-      errEl.style.cssText = 'color:#dc2626;font-size:.83rem;text-align:center;margin-top:.5rem';
-      errEl.textContent = 'Fehler beim Senden. Bitte direkt an info@polycore.ch schreiben.';
-      btn.after(errEl);
-      setTimeout(() => errEl.remove(), 7000);
-    });
-});
+  function removeError() {
+    if (errEl && errEl.parentNode) errEl.parentNode.removeChild(errEl);
+    errEl = null;
+  }
+
+  function resetBtn() {
+    btn.innerHTML = 'Anfrage absenden <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M2 8h12M9 3l5 5-5 5"/></svg>';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    removeError();
+
+    btn.innerHTML = 'Wird gesendet… <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="animation:spin 1s linear infinite;vertical-align:middle"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>';
+    btn.disabled = true;
+    btn.style.opacity = '.65';
+
+    var templateParams = {
+      name:    (form.vorname.value + ' ' + form.nachname.value).trim(),
+      firma:   form.firma.value    || '–',
+      email:   form.email.value,
+      phone:   form.telefon.value  || '–',
+      service: form.leistung.value || '–',
+      area:    form.flaeche.value  || '–',
+      message: form.nachricht.value
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      .then(function() {
+        // Autoreply an Kunden (nicht kritisch, Fehler ignorieren)
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_REPLY_ID, templateParams).catch(function(){});
+        form.style.display = 'none';
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, function(error) {
+        console.error('EmailJS Fehler:', error);
+        resetBtn();
+        var code = error && error.status ? ' (Code ' + error.status + ')' : '';
+        showError(
+          'Fehler beim Senden' + code + '. Bitte schreiben Sie direkt an ' +
+          '<a href="mailto:info@polycore.ch" style="color:#dc2626;font-weight:600">info@polycore.ch</a> ' +
+          'oder rufen Sie uns an: <a href="tel:+41765397974" style="color:#dc2626;font-weight:600">+41 76 539 79 74</a>'
+        );
+      });
+  });
+})();
 </script>
-<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <script src="js/mobile-effects.js"></script>
 <!-- MOBILNI MENI LOGIKA (otvaranje/zatvaranje + pomicanje logoa) -->
 <script>
